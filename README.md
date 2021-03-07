@@ -9,16 +9,17 @@ Dominik Kukovec | dkukovec@foi.hr | 0112071772 | Dokah
 Karlo Pepelnik | kpepelnik@foi.hr | 0016135265 | Kpepelnik
 
 ## Opis domene
-Svakom većem restoranu neophodno je imati kvalitetan sustav za rezervaciju stolova kako bi postigli najveću učinkovitost poslovanja u svakom trenutku.
-Cilj ove aplikacije je realizacija rezervacije stola te pregled istih od strane zaposlenika.
+Svakom većem restoranu neophodno je imati kvalitetan sustav za rad restorana te za bilježenje rezervacija kako bi postigli najveću učinkovitost poslovanja u svakom trenutku.
+Cilj ove aplikacije je realizacija sustava kontrole zaliha, rezervacije stolova te generalnih informacija o uspješnosti poslovanja.
 
 ## Specifikacija projekta
-Umjesto ovih uputa opišite zahtjeve za funkcionalnošću programskog proizvoda. Pobrojite osnovne funkcionalnosti i za svaku naznačite ime odgovornog člana tima. Opišite buduću arhitekturu programskog proizvoda. Obratite pozornost da bi arhitektura trebala biti višeslojna s odvojenom (dislociranom) bazom podatka. Također uzmite u obzir da bi svaki član tima treba biti odgovorana za otprilike 3 funkcionalnosti, te da bi opterećenje članova tima trebalo biti ujednačeno. Priložite odgovarajuće dijagrame i skice gdje je to prikladno. Funkcionalnosti sustava bobrojite u tablici ispod koristeći predložak koji slijedi:
-
 Oznaka | Naziv | Kratki opis | Odgovorni član tima
 ------ | ----- | ----------- | -------------------
-F01 | Login | Za pristup dnevniku potrebnba je autentikacija korisnika pomoću login funkcionalnosti. Korisnik se logira s podacima koji su mu dodijeljeni prilikom ... | Zlatko Stapić
-F02 | Pregled dnevnika | .... | ...
-
+F01 | Prijava zaposlenika ili admina | Prije samog korištenja aplikacije, potrebna je prijava kod koje se može prijaviti korisnik kao administrator ili kao zaposlenik | Dominik Kukovec
+F02 | Pregled rezervacija stola | Zaposlenik dobiva pregled dostupnih stolova za određeni termin rezervacije zajedno sa brojem mjesta koji pojedini stol pruža te lokacije samog stola. Pristup ovom pregledu također ima i administrator uz dodatne mogućnosti dodavanja novih stolova. | Dominik Kukovec
+F03 | Pregled stanja zaliha | Zaposlenik ima pregled dostupnih resursa koji se koriste u poslovanju restorana. Administrator ima mogućnost promjene stanja zaliha kao i dodavanja novih resursa. | Leon Kušinec
+F04 | Rezervacija stola | Nakon primitka rezervacije telefonom, zaposlenik unosi rezervaciju za odgovarajući stol i termin. | Dominik Kukovec
+F05 | Ažuriranje podataka o zaposlenicima | Administrator ima pristup popisu zaposlenika restorana te izmjeni svih podataka za pojedinog zaposlenika. | Leon Kušinec
+F06 | Kreiranje i izdavanje računa | Zaposlenik za danu rezervaciju stvara račun te ga izdaje klijentu. | Leon Kušinec
 ## Tehnologije i oprema
 .NET (Visual Studio), MySQL, Draw.io, Visual Paradigm
