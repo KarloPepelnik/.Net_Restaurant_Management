@@ -6,6 +6,7 @@ Ime i prezime | E-mail adresa (FOI) | JMBAG | Github korisničko ime
 ------------  | ------------------- | ----- | ---------------------
 Leon Kušinec  | lkusinec@foi.hr  | 0016136332 | lekusinec
 Dominik Kukovec | dkukovec@foi.hr | 0112071772 | Dokah
+Karlo Pepelnik | kpepelnik@foi.hr | 0016135265 | PepkoProgramer
 
 ## Opis domene
 Svakom većem restoranu neophodno je imati kvalitetan sustav za rezervaciju stolova kako bi postigli najveću učinkovitost poslovanja u svakom trenutku.
