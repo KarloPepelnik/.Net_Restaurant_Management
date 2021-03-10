@@ -21,5 +21,8 @@ F03 | Pregled stanja zaliha | Zaposlenik ima pregled dostupnih resursa koji se k
 F04 | Rezervacija stola | Nakon primitka rezervacije telefonom, zaposlenik unosi rezervaciju za odgovarajući stol i termin. | Dominik Kukovec
 F05 | Ažuriranje podataka o zaposlenicima | Administrator ima pristup popisu zaposlenika restorana te izmjeni svih podataka za pojedinog zaposlenika. | Leon Kušinec
 F06 | Kreiranje i izdavanje računa | Zaposlenik za danu rezervaciju stvara račun te ga izdaje klijentu. | Leon Kušinec
+F07 | Izrada tjednih izvještaja posječenosti | Izrađuje se forma koja prikazuje tjednu posječenost restorana | Karlo Pepelnik
+F08 | Program vjernosti | Praćenje klijenta i izdavanje raznih benefita za redovite klijente | Karlo Pepelnik
+F09 | Uređivanje jelovnika | Evidentiranje eventualne nedostupnosti pojedinih namirnica i/ili jela | Karlo Pepelnik
 ## Tehnologije i oprema
 .NET (Visual Studio), MySQL, Draw.io, Visual Paradigm
