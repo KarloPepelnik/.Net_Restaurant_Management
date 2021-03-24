@@ -15,14 +15,14 @@ Cilj ove aplikacije je realizacija sustava kontrole zaliha, rezervacije stolova 
 ## Specifikacija projekta
 Oznaka | Naziv | Kratki opis | Odgovorni član tima
 ------ | ----- | ----------- | -------------------
-F01 | Prijava zaposlenika ili admina | Prije samog korištenja aplikacije, potrebna je prijava kod koje se može prijaviti korisnik kao administrator ili kao zaposlenik | Dominik Kukovec
-F02 | Pregled rezervacija stola | Zaposlenik dobiva pregled dostupnih stolova za određeni termin rezervacije zajedno sa brojem mjesta koji pojedini stol pruža te lokacije samog stola. Pristup ovom pregledu također ima i administrator uz dodatne mogućnosti dodavanja novih stolova. | Dominik Kukovec
-F03 | Pregled stanja zaliha | Zaposlenik ima pregled dostupnih resursa koji se koriste u poslovanju restorana. Administrator ima mogućnost promjene stanja zaliha kao i dodavanja novih resursa. | Leon Kušinec
-F04 | Rezervacija stola | Nakon primitka rezervacije telefonom, zaposlenik unosi rezervaciju za odgovarajući stol i termin. | Dominik Kukovec
-F05 | Ažuriranje podataka o zaposlenicima | Administrator ima pristup popisu zaposlenika restorana te izmjeni svih podataka za pojedinog zaposlenika. | Leon Kušinec
-F06 | Kreiranje i izdavanje računa | Zaposlenik za danu rezervaciju stvara račun te ga izdaje klijentu. | Leon Kušinec
-F07 | Izrada tjednih izvještaja posjećenosti | Izrađuje se forma koja prikazuje tjednu posječenost restorana | Karlo Pepelnik
-F08 | Program vjernosti | Praćenje klijenta i izdavanje raznih benefita za redovite klijente | Karlo Pepelnik
-F09 | Stanje blagajne | Praćenje stanja kase, moguće storniranje računa, povrat novca | Karlo Pepelnik
+F01 | Upravljanje korisnicima | Kreiranje novih korisnika, dodjela korisničkih podataka, prijava/odjava. | Dominik Kukovec
+F02 | Upravljanje stolovima i rezervacijama | Kreiranje stolova i definiranje kapaciteta. Rezerviranje stola i pregled rezervacija za pojedino razdoblje (napraviti po uzor na npr. Google Calendar) | Dominik Kukovec
+F03 | Upravljanje zalihama | Zaprimanje namirnica (namirnica) na zaliha, izdavanje (potrošnja) namirnica u kuhinju, predavanje nepotrošenih namirnica natrag iz kuhinje na zalihe. | Leon Kušinec
+F04 | Zaprimanje narudžbi | Zaprimanje narudžbe od strane klijenta, izdavanje računa. | Karlo Pepelnik
+F05 | Kreiranje menija | Kreiranje i ispis menija sa jelima, njihovim cijenama, te normativima za potrošnju namirnica. | Leon Kušinec
+F06 | Dostava hrane za van | Zaprimanje naruždbi za van, organiziranje dostave... | Karlo Pepelnik
+F07 | Izrada statistike posjećenosti | Izrada statistike posjećenosti restoranu po razdobljima dana/tjedna i sl. Smislite sami neke korisne statistike. Koristite tablice i grafove. | Dominik Kukovec
+F08 | Izrada statistike o jelima | Izrada statistike o jelima, njihovoj popularnosti, statistika o potrošnji namirnica i sl. Smislite sami neke korisne statistike. Koristite tabice i grafove. | Leon Kušinec
+F09 | Izrada statistike o prihodima | Praćenje stanja kase, moguće storniranje računa, povrat novca | Karlo Pepelnik
 ## Tehnologije i oprema
 .NET (Visual Studio), MySQL, Draw.io, Visual Paradigm
