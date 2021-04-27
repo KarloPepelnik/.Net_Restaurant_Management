@@ -16,7 +16,7 @@ Cilj ove aplikacije je realizacija sustava kontrole zaliha, rezervacije stolova 
 Oznaka | Naziv | Kratki opis | Odgovorni član tima
 ------ | ----- | ----------- | -------------------
 F01 | Upravljanje korisnicima | Kreiranje novih korisnika, dodjela korisničkih podataka, prijava/odjava. | Dominik Kukovec
-F02 | Upravljanje stolovima i rezervacijama | Kreiranje stolova i definiranje kapaciteta. Rezerviranje stola i pregled rezervacija za pojedino razdoblje (napraviti po uzor na npr. Google Calendar) | Dominik Kukovec
+F02 | Upravljanje stolovima i rezervacijama | Kreiranje stolova i definiranje kapaciteta. Rezerviranje stola i pregled rezervacija za pojedino razdoblje | Dominik Kukovec
 F03 | Upravljanje zalihama | Zaprimanje namirnica (namirnica) na zaliha, izdavanje (potrošnja) namirnica u kuhinju, predavanje nepotrošenih namirnica natrag iz kuhinje na zalihe. | Leon Kušinec
 F04 | Zaprimanje narudžbi | Zaprimanje narudžbe od strane klijenta, izdavanje računa. | Karlo Pepelnik
 F05 | Kreiranje menija | Kreiranje i ispis menija sa jelima, njihovim cijenama, te normativima za potrošnju namirnica. | Leon Kušinec
