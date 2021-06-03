@@ -24,7 +24,7 @@ namespace ProgramskoIntenjerstvo
         }
 
         private void UpravljanjeKasom_Load(object sender, EventArgs e)
-        {
+        {            
             E.Racun.Load();
             Osvjezi();
         }
@@ -52,7 +52,22 @@ namespace ProgramskoIntenjerstvo
             Osvjezi();
         }
 
-        private void popisRacunaDgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+       
+        private void stornoBtn_Click(object sender, EventArgs e)
+        {
+            Racun selected = (Racun)popisRacunaDgv.CurrentRow.DataBoundItem;
+            string sql = $"DELETE FROM Racun WHERE id_racun = {selected.id_racun}";
+            E.Database.ExecuteSqlCommand(sql);
+            Osvjezi();
+        }
+
+        private void zatvoriBtn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+
+        private void popisRacunaDgv_SelectionChanged(object sender, EventArgs e)
         {
             Racun selected = (Racun)popisRacunaDgv.CurrentRow.DataBoundItem;
             popisArtikalaPoRacunuDgv.DataSource = null;
@@ -82,19 +97,6 @@ namespace ProgramskoIntenjerstvo
             popisArtikalaPoRacunuDgv.Columns[3].Visible = false;
             popisArtikalaPoRacunuDgv.Columns[4].Visible = false;
             popisArtikalaPoRacunuDgv.Columns[5].Visible = false;
-        }
-
-        private void stornoBtn_Click(object sender, EventArgs e)
-        {
-            Racun selected = (Racun)popisRacunaDgv.CurrentRow.DataBoundItem;
-            string sql = $"DELETE FROM Racun WHERE id_racun = {selected.id_racun}";
-            E.Database.ExecuteSqlCommand(sql);
-            Osvjezi();
-        }
-
-        private void zatvoriBtn_Click(object sender, EventArgs e)
-        {
-            Close();
         }
     }
 }

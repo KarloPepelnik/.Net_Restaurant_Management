@@ -31,7 +31,6 @@ namespace ProgramskoIntenjerstvo
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpravljanjeKasom));
             this.zatvoriBtn = new System.Windows.Forms.Button();
-            this.prikaziJelaBtn = new System.Windows.Forms.Button();
             this.popisArtikalaPoRacunuDgv = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.stanjeKaseText = new System.Windows.Forms.TextBox();
@@ -44,22 +43,13 @@ namespace ProgramskoIntenjerstvo
             // 
             // zatvoriBtn
             // 
-            this.zatvoriBtn.Location = new System.Drawing.Point(315, 467);
+            this.zatvoriBtn.Location = new System.Drawing.Point(519, 423);
             this.zatvoriBtn.Name = "zatvoriBtn";
             this.zatvoriBtn.Size = new System.Drawing.Size(75, 23);
             this.zatvoriBtn.TabIndex = 15;
             this.zatvoriBtn.Text = "Zatvori";
             this.zatvoriBtn.UseVisualStyleBackColor = true;
             this.zatvoriBtn.Click += new System.EventHandler(this.zatvoriBtn_Click);
-            // 
-            // prikaziJelaBtn
-            // 
-            this.prikaziJelaBtn.Location = new System.Drawing.Point(481, 427);
-            this.prikaziJelaBtn.Name = "prikaziJelaBtn";
-            this.prikaziJelaBtn.Size = new System.Drawing.Size(75, 23);
-            this.prikaziJelaBtn.TabIndex = 14;
-            this.prikaziJelaBtn.Text = "Prikaži Jela";
-            this.prikaziJelaBtn.UseVisualStyleBackColor = true;
             // 
             // popisArtikalaPoRacunuDgv
             // 
@@ -113,7 +103,7 @@ namespace ProgramskoIntenjerstvo
             this.popisRacunaDgv.Name = "popisRacunaDgv";
             this.popisRacunaDgv.Size = new System.Drawing.Size(338, 353);
             this.popisRacunaDgv.TabIndex = 8;
-            this.popisRacunaDgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.popisRacunaDgv_CellContentClick);
+            this.popisRacunaDgv.SelectionChanged += new System.EventHandler(this.popisRacunaDgv_SelectionChanged);
             // 
             // UpravljanjeKasom
             // 
@@ -123,7 +113,6 @@ namespace ProgramskoIntenjerstvo
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(728, 515);
             this.Controls.Add(this.zatvoriBtn);
-            this.Controls.Add(this.prikaziJelaBtn);
             this.Controls.Add(this.popisArtikalaPoRacunuDgv);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.stanjeKaseText);
@@ -143,7 +132,6 @@ namespace ProgramskoIntenjerstvo
         #endregion
 
         private System.Windows.Forms.Button zatvoriBtn;
-        private System.Windows.Forms.Button prikaziJelaBtn;
         private System.Windows.Forms.DataGridView popisArtikalaPoRacunuDgv;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox stanjeKaseText;
