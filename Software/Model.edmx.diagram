@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7294e9a22bae48409c082349945ca215" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Dostava" Width="1.5" PointX="7.5" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Jelo" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Kasa" Width="1.5" PointX="12.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Korisnik" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Meni" Width="1.5" PointX="7.5" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Narudzba" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Racun" Width="1.5" PointX="10.5" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Stol" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Tip_korisnika" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Narucuje" Width="1.5" PointX="7.5" PointY="9.875" IsExpanded="true" />
+        <AssociationConnector Association="Model.Dostava_Korisnik_id_korisnik_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.Dostava_Narudzba_id_narudzba_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.Narucuje_Jelo_id_jelo_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.Kasa_Racun_id_racun_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.Korisnik_Tip_korisnika_id_tip_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.Narudzba_Korisnik_id_korisnik_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.Racun_Korisnik_id_korisnik_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.Narucuje_Narudzba_id_narudzba_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.Racun_Narudzba_id_narudzba_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.Na_meniju" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
