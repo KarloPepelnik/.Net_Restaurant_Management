@@ -12,17 +12,13 @@ namespace ProgramskoIntenjerstvo
     using System;
     using System.Collections.Generic;
     
-    public partial class Stanje_zaliha
+    public partial class Stavke_primke
     {
-        public int id_stanje_zalihe { get; set; }
+        public int id_primka { get; set; }
         public int id_namirnica { get; set; }
-        public double kolicina { get; set; }
-        public int id_mjerna_jedinica { get; set; }
-        public System.DateTime datum_vrijeme { get; set; }
+        public double kolicina_zaprimanja { get; set; }
     
-        public virtual Mjerna_jedinica Mjerna_jedinica { get; set; }
         public virtual Namirnica Namirnica { get; set; }
-        public virtual Stanje_zaliha Stanje_zaliha1 { get; set; }
-        public virtual Stanje_zaliha Stanje_zaliha2 { get; set; }
+        public virtual Primka Primka { get; set; }
     }
 }

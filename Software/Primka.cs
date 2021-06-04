@@ -12,18 +12,18 @@ namespace ProgramskoIntenjerstvo
     using System;
     using System.Collections.Generic;
     
-    public partial class Mjerna_jedinica
+    public partial class Primka
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Mjerna_jedinica()
+        public Primka()
         {
-            this.Namirnica = new HashSet<Namirnica>();
+            this.Stavke_primke = new HashSet<Stavke_primke>();
         }
     
-        public int id_mjerna_jedinica { get; set; }
-        public string oznaka_mjerne_jedinice { get; set; }
+        public int id_primka { get; set; }
+        public System.DateTime datum_vrijeme { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Namirnica> Namirnica { get; set; }
+        public virtual ICollection<Stavke_primke> Stavke_primke { get; set; }
     }
 }

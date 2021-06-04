@@ -76,6 +76,9 @@
     <Compile Include="Izbornik.Designer.cs">
       <DependentUpon>Izbornik.cs</DependentUpon>
     </Compile>
+    <Compile Include="Izdatnica.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Jelo.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -127,6 +130,9 @@
     <Compile Include="Narudzba.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Primka.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Racun.cs">
@@ -141,7 +147,13 @@
     <Compile Include="Rezervacija.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Stanje_zaliha.cs">
+    <Compile Include="Stavke_izdatnice.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stavke_primke.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stavke_racuna.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Stol.cs">

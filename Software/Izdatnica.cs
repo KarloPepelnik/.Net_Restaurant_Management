@@ -12,18 +12,18 @@ namespace ProgramskoIntenjerstvo
     using System;
     using System.Collections.Generic;
     
-    public partial class Mjerna_jedinica
+    public partial class Izdatnica
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Mjerna_jedinica()
+        public Izdatnica()
         {
-            this.Namirnica = new HashSet<Namirnica>();
+            this.Stavke_izdatnice = new HashSet<Stavke_izdatnice>();
         }
     
-        public int id_mjerna_jedinica { get; set; }
-        public string oznaka_mjerne_jedinice { get; set; }
+        public int id_izdatnica { get; set; }
+        public System.DateTime datum_vrijeme { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Namirnica> Namirnica { get; set; }
+        public virtual ICollection<Stavke_izdatnice> Stavke_izdatnice { get; set; }
     }
 }

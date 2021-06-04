@@ -18,7 +18,8 @@ namespace ProgramskoIntenjerstvo
         public Namirnica()
         {
             this.Jelo_sadrzi = new HashSet<Jelo_sadrzi>();
-            this.Stanje_zaliha = new HashSet<Stanje_zaliha>();
+            this.Stavke_izdatnice = new HashSet<Stavke_izdatnice>();
+            this.Stavke_primke = new HashSet<Stavke_primke>();
         }
     
         public int id_namirnica { get; set; }
@@ -26,12 +27,15 @@ namespace ProgramskoIntenjerstvo
         public int id_kategorije { get; set; }
         public double temperatura_pohrane { get; set; }
         public int id_mjerna_jedinica { get; set; }
+        public double kolicina_trenutna { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Jelo_sadrzi> Jelo_sadrzi { get; set; }
         public virtual Kategorija Kategorija { get; set; }
         public virtual Mjerna_jedinica Mjerna_jedinica { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Stanje_zaliha> Stanje_zaliha { get; set; }
+        public virtual ICollection<Stavke_izdatnice> Stavke_izdatnice { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Stavke_primke> Stavke_primke { get; set; }
     }
 }

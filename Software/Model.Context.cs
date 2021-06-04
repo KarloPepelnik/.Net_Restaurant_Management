@@ -26,6 +26,7 @@ namespace ProgramskoIntenjerstvo
         }
     
         public virtual DbSet<Dostava> Dostava { get; set; }
+        public virtual DbSet<Izdatnica> Izdatnica { get; set; }
         public virtual DbSet<Jelo> Jelo { get; set; }
         public virtual DbSet<Jelo_sadrzi> Jelo_sadrzi { get; set; }
         public virtual DbSet<Kasa> Kasa { get; set; }
@@ -36,9 +37,12 @@ namespace ProgramskoIntenjerstvo
         public virtual DbSet<Namirnica> Namirnica { get; set; }
         public virtual DbSet<Narucuje> Narucuje { get; set; }
         public virtual DbSet<Narudzba> Narudzba { get; set; }
+        public virtual DbSet<Primka> Primka { get; set; }
         public virtual DbSet<Racun> Racun { get; set; }
         public virtual DbSet<Rezervacija> Rezervacija { get; set; }
-        public virtual DbSet<Stanje_zaliha> Stanje_zaliha { get; set; }
+        public virtual DbSet<Stavke_izdatnice> Stavke_izdatnice { get; set; }
+        public virtual DbSet<Stavke_primke> Stavke_primke { get; set; }
+        public virtual DbSet<Stavke_racuna> Stavke_racuna { get; set; }
         public virtual DbSet<Stol> Stol { get; set; }
         public virtual DbSet<Tip_korisnika> Tip_korisnika { get; set; }
     }

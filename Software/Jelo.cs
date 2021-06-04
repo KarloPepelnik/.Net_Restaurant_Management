@@ -19,6 +19,7 @@ namespace ProgramskoIntenjerstvo
         {
             this.Jelo_sadrzi = new HashSet<Jelo_sadrzi>();
             this.Narucuje = new HashSet<Narucuje>();
+            this.Stavke_racuna = new HashSet<Stavke_racuna>();
             this.Meni = new HashSet<Meni>();
         }
     
@@ -32,6 +33,8 @@ namespace ProgramskoIntenjerstvo
         public virtual ICollection<Jelo_sadrzi> Jelo_sadrzi { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Narucuje> Narucuje { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Stavke_racuna> Stavke_racuna { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Meni> Meni { get; set; }
     }

@@ -19,6 +19,7 @@ namespace ProgramskoIntenjerstvo
         {
             this.Dostava = new HashSet<Dostava>();
             this.Kasa = new HashSet<Kasa>();
+            this.Stavke_racuna = new HashSet<Stavke_racuna>();
         }
     
         public int id_racun { get; set; }
@@ -33,5 +34,7 @@ namespace ProgramskoIntenjerstvo
         public virtual ICollection<Kasa> Kasa { get; set; }
         public virtual Korisnik Korisnik { get; set; }
         public virtual Narudzba Narudzba { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Stavke_racuna> Stavke_racuna { get; set; }
     }
 }

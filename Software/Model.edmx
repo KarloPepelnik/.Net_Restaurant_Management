@@ -16,6 +16,13 @@
           <Property Name="broj_telefona" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="cijena_dostave" Type="float" Nullable="false" />
         </EntityType>
+        <EntityType Name="Izdatnica">
+          <Key>
+            <PropertyRef Name="id_izdatnica" />
+          </Key>
+          <Property Name="id_izdatnica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="datum_vrijeme" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="Jelo">
           <Key>
             <PropertyRef Name="id_jelo" />
@@ -94,6 +101,7 @@
           <Property Name="id_kategorije" Type="int" Nullable="false" />
           <Property Name="temperatura_pohrane" Type="float" Nullable="false" />
           <Property Name="id_mjerna_jedinica" Type="int" Nullable="false" />
+          <Property Name="kolicina_trenutna" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="Narucuje">
           <Key>
@@ -110,6 +118,13 @@
           </Key>
           <Property Name="id_narudzba" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_korisnik" Type="int" Nullable="false" />
+          <Property Name="datum_vrijeme" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Primka">
+          <Key>
+            <PropertyRef Name="id_primka" />
+          </Key>
+          <Property Name="id_primka" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="datum_vrijeme" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Racun">
@@ -132,15 +147,32 @@
           <Property Name="datum_vrijeme" Type="datetime" Nullable="false" />
           <Property Name="opis_rezervacije" Type="text" />
         </EntityType>
-        <EntityType Name="Stanje_zaliha">
+        <EntityType Name="Stavke_izdatnice">
           <Key>
-            <PropertyRef Name="id_stanje_zalihe" />
+            <PropertyRef Name="id_izdatnica" />
+            <PropertyRef Name="id_namirnica" />
           </Key>
-          <Property Name="id_stanje_zalihe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_izdatnica" Type="int" Nullable="false" />
           <Property Name="id_namirnica" Type="int" Nullable="false" />
+          <Property Name="kolicina_izdavanja" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Stavke_primke">
+          <Key>
+            <PropertyRef Name="id_primka" />
+            <PropertyRef Name="id_namirnica" />
+          </Key>
+          <Property Name="id_primka" Type="int" Nullable="false" />
+          <Property Name="id_namirnica" Type="int" Nullable="false" />
+          <Property Name="kolicina_zaprimanja" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Stavke_racuna">
+          <Key>
+            <PropertyRef Name="id_racun" />
+            <PropertyRef Name="id_jelo" />
+          </Key>
+          <Property Name="id_racun" Type="int" Nullable="false" />
+          <Property Name="id_jelo" Type="int" Nullable="false" />
           <Property Name="kolicina" Type="float" Nullable="false" />
-          <Property Name="id_mjerna_jedinica" Type="int" Nullable="false" />
-          <Property Name="datum_vrijeme" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Stol">
           <Key>
@@ -329,39 +361,75 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Stanje_zaliha_Mjerna_jedinica">
-          <End Role="Mjerna_jedinica" Type="Self.Mjerna_jedinica" Multiplicity="1" />
-          <End Role="Stanje_zaliha" Type="Self.Stanje_zaliha" Multiplicity="*" />
+        <Association Name="FK_Stavke_izdatnice_Izdatnica">
+          <End Role="Izdatnica" Type="Self.Izdatnica" Multiplicity="1" />
+          <End Role="Stavke_izdatnice" Type="Self.Stavke_izdatnice" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Mjerna_jedinica">
-              <PropertyRef Name="id_mjerna_jedinica" />
+            <Principal Role="Izdatnica">
+              <PropertyRef Name="id_izdatnica" />
             </Principal>
-            <Dependent Role="Stanje_zaliha">
-              <PropertyRef Name="id_mjerna_jedinica" />
+            <Dependent Role="Stavke_izdatnice">
+              <PropertyRef Name="id_izdatnica" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Stanje_zaliha_Namirnica">
+        <Association Name="FK_Stavke_izdatnice_Namirnica">
           <End Role="Namirnica" Type="Self.Namirnica" Multiplicity="1" />
-          <End Role="Stanje_zaliha" Type="Self.Stanje_zaliha" Multiplicity="*" />
+          <End Role="Stavke_izdatnice" Type="Self.Stavke_izdatnice" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Namirnica">
               <PropertyRef Name="id_namirnica" />
             </Principal>
-            <Dependent Role="Stanje_zaliha">
+            <Dependent Role="Stavke_izdatnice">
               <PropertyRef Name="id_namirnica" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Stanje_zaliha_Stanje_zaliha">
-          <End Role="Stanje_zaliha" Type="Self.Stanje_zaliha" Multiplicity="1" />
-          <End Role="Stanje_zaliha1" Type="Self.Stanje_zaliha" Multiplicity="0..1" />
+        <Association Name="FK_Stavke_primke_Namirnica">
+          <End Role="Namirnica" Type="Self.Namirnica" Multiplicity="1" />
+          <End Role="Stavke_primke" Type="Self.Stavke_primke" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Stanje_zaliha">
-              <PropertyRef Name="id_stanje_zalihe" />
+            <Principal Role="Namirnica">
+              <PropertyRef Name="id_namirnica" />
             </Principal>
-            <Dependent Role="Stanje_zaliha1">
-              <PropertyRef Name="id_stanje_zalihe" />
+            <Dependent Role="Stavke_primke">
+              <PropertyRef Name="id_namirnica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stavke_primke_Primka">
+          <End Role="Primka" Type="Self.Primka" Multiplicity="1" />
+          <End Role="Stavke_primke" Type="Self.Stavke_primke" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Primka">
+              <PropertyRef Name="id_primka" />
+            </Principal>
+            <Dependent Role="Stavke_primke">
+              <PropertyRef Name="id_primka" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stavke_racuna_Jelo">
+          <End Role="Jelo" Type="Self.Jelo" Multiplicity="1" />
+          <End Role="Stavke_racuna" Type="Self.Stavke_racuna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jelo">
+              <PropertyRef Name="id_jelo" />
+            </Principal>
+            <Dependent Role="Stavke_racuna">
+              <PropertyRef Name="id_jelo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stavke_racuna_Racun">
+          <End Role="Racun" Type="Self.Racun" Multiplicity="1" />
+          <End Role="Stavke_racuna" Type="Self.Stavke_racuna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Racun">
+              <PropertyRef Name="id_racun" />
+            </Principal>
+            <Dependent Role="Stavke_racuna">
+              <PropertyRef Name="id_racun" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -433,6 +501,7 @@
         </Association>
         <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="Dostava" EntityType="Self.Dostava" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Izdatnica" EntityType="Self.Izdatnica" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Jelo" EntityType="Self.Jelo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Jelo_sadrzi" EntityType="Self.Jelo_sadrzi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Kasa" EntityType="Self.Kasa" Schema="dbo" store:Type="Tables" />
@@ -444,9 +513,12 @@
           <EntitySet Name="Namirnica" EntityType="Self.Namirnica" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Narucuje" EntityType="Self.Narucuje" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Narudzba" EntityType="Self.Narudzba" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Primka" EntityType="Self.Primka" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Racun" EntityType="Self.Racun" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rezervacija" EntityType="Self.Rezervacija" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Stanje_zaliha" EntityType="Self.Stanje_zaliha" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stavke_izdatnice" EntityType="Self.Stavke_izdatnice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stavke_primke" EntityType="Self.Stavke_primke" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stavke_racuna" EntityType="Self.Stavke_racuna" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Stol" EntityType="Self.Stol" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tip_korisnika" EntityType="Self.Tip_korisnika" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="Dostava_Korisnik_id_korisnik_fk" Association="Self.Dostava_Korisnik_id_korisnik_fk">
@@ -505,17 +577,29 @@
             <End Role="Stol" EntitySet="Stol" />
             <End Role="Rezervacija" EntitySet="Rezervacija" />
           </AssociationSet>
-          <AssociationSet Name="FK_Stanje_zaliha_Mjerna_jedinica" Association="Self.FK_Stanje_zaliha_Mjerna_jedinica">
-            <End Role="Mjerna_jedinica" EntitySet="Mjerna_jedinica" />
-            <End Role="Stanje_zaliha" EntitySet="Stanje_zaliha" />
+          <AssociationSet Name="FK_Stavke_izdatnice_Izdatnica" Association="Self.FK_Stavke_izdatnice_Izdatnica">
+            <End Role="Izdatnica" EntitySet="Izdatnica" />
+            <End Role="Stavke_izdatnice" EntitySet="Stavke_izdatnice" />
           </AssociationSet>
-          <AssociationSet Name="FK_Stanje_zaliha_Namirnica" Association="Self.FK_Stanje_zaliha_Namirnica">
+          <AssociationSet Name="FK_Stavke_izdatnice_Namirnica" Association="Self.FK_Stavke_izdatnice_Namirnica">
             <End Role="Namirnica" EntitySet="Namirnica" />
-            <End Role="Stanje_zaliha" EntitySet="Stanje_zaliha" />
+            <End Role="Stavke_izdatnice" EntitySet="Stavke_izdatnice" />
           </AssociationSet>
-          <AssociationSet Name="FK_Stanje_zaliha_Stanje_zaliha" Association="Self.FK_Stanje_zaliha_Stanje_zaliha">
-            <End Role="Stanje_zaliha" EntitySet="Stanje_zaliha" />
-            <End Role="Stanje_zaliha1" EntitySet="Stanje_zaliha" />
+          <AssociationSet Name="FK_Stavke_primke_Namirnica" Association="Self.FK_Stavke_primke_Namirnica">
+            <End Role="Namirnica" EntitySet="Namirnica" />
+            <End Role="Stavke_primke" EntitySet="Stavke_primke" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stavke_primke_Primka" Association="Self.FK_Stavke_primke_Primka">
+            <End Role="Primka" EntitySet="Primka" />
+            <End Role="Stavke_primke" EntitySet="Stavke_primke" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stavke_racuna_Jelo" Association="Self.FK_Stavke_racuna_Jelo">
+            <End Role="Jelo" EntitySet="Jelo" />
+            <End Role="Stavke_racuna" EntitySet="Stavke_racuna" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stavke_racuna_Racun" Association="Self.FK_Stavke_racuna_Racun">
+            <End Role="Racun" EntitySet="Racun" />
+            <End Role="Stavke_racuna" EntitySet="Stavke_racuna" />
           </AssociationSet>
           <AssociationSet Name="Kasa_Racun_id_racun_fk" Association="Self.Kasa_Racun_id_racun_fk">
             <End Role="Racun" EntitySet="Racun" />
@@ -544,6 +628,7 @@
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Dostava" EntityType="Model.Dostava" />
+          <EntitySet Name="Izdatnica" EntityType="Model.Izdatnica" />
           <EntitySet Name="Jelo" EntityType="Model.Jelo" />
           <EntitySet Name="Jelo_sadrzi" EntityType="Model.Jelo_sadrzi" />
           <EntitySet Name="Kasa" EntityType="Model.Kasa" />
@@ -554,9 +639,12 @@
           <EntitySet Name="Namirnica" EntityType="Model.Namirnica" />
           <EntitySet Name="Narucuje" EntityType="Model.Narucuje" />
           <EntitySet Name="Narudzba" EntityType="Model.Narudzba" />
+          <EntitySet Name="Primka" EntityType="Model.Primka" />
           <EntitySet Name="Racun" EntityType="Model.Racun" />
           <EntitySet Name="Rezervacija" EntityType="Model.Rezervacija" />
-          <EntitySet Name="Stanje_zaliha" EntityType="Model.Stanje_zaliha" />
+          <EntitySet Name="Stavke_izdatnice" EntityType="Model.Stavke_izdatnice" />
+          <EntitySet Name="Stavke_primke" EntityType="Model.Stavke_primke" />
+          <EntitySet Name="Stavke_racuna" EntityType="Model.Stavke_racuna" />
           <EntitySet Name="Stol" EntityType="Model.Stol" />
           <EntitySet Name="Tip_korisnika" EntityType="Model.Tip_korisnika" />
           <AssociationSet Name="Dostava_Korisnik_id_korisnik_fk" Association="Model.Dostava_Korisnik_id_korisnik_fk">
@@ -566,6 +654,10 @@
           <AssociationSet Name="FK_Dostava_Racun" Association="Model.FK_Dostava_Racun">
             <End Role="Racun" EntitySet="Racun" />
             <End Role="Dostava" EntitySet="Dostava" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stavke_izdatnice_Izdatnica" Association="Model.FK_Stavke_izdatnice_Izdatnica">
+            <End Role="Izdatnica" EntitySet="Izdatnica" />
+            <End Role="Stavke_izdatnice" EntitySet="Stavke_izdatnice" />
           </AssociationSet>
           <AssociationSet Name="FK_Jelo_Kategorija" Association="Model.FK_Jelo_Kategorija">
             <End Role="Kategorija" EntitySet="Kategorija" />
@@ -578,6 +670,10 @@
           <AssociationSet Name="FK_Narucuje_Jelo" Association="Model.FK_Narucuje_Jelo">
             <End Role="Jelo" EntitySet="Jelo" />
             <End Role="Narucuje" EntitySet="Narucuje" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stavke_racuna_Jelo" Association="Model.FK_Stavke_racuna_Jelo">
+            <End Role="Jelo" EntitySet="Jelo" />
+            <End Role="Stavke_racuna" EntitySet="Stavke_racuna" />
           </AssociationSet>
           <AssociationSet Name="FK_Jelo_sadrzi_Jelo_sadrzi" Association="Model.FK_Jelo_sadrzi_Jelo_sadrzi">
             <End Role="Jelo_sadrzi" EntitySet="Jelo_sadrzi" />
@@ -615,13 +711,13 @@
             <End Role="Mjerna_jedinica" EntitySet="Mjerna_jedinica" />
             <End Role="Namirnica" EntitySet="Namirnica" />
           </AssociationSet>
-          <AssociationSet Name="FK_Stanje_zaliha_Mjerna_jedinica" Association="Model.FK_Stanje_zaliha_Mjerna_jedinica">
-            <End Role="Mjerna_jedinica" EntitySet="Mjerna_jedinica" />
-            <End Role="Stanje_zaliha" EntitySet="Stanje_zaliha" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Stanje_zaliha_Namirnica" Association="Model.FK_Stanje_zaliha_Namirnica">
+          <AssociationSet Name="FK_Stavke_izdatnice_Namirnica" Association="Model.FK_Stavke_izdatnice_Namirnica">
             <End Role="Namirnica" EntitySet="Namirnica" />
-            <End Role="Stanje_zaliha" EntitySet="Stanje_zaliha" />
+            <End Role="Stavke_izdatnice" EntitySet="Stavke_izdatnice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stavke_primke_Namirnica" Association="Model.FK_Stavke_primke_Namirnica">
+            <End Role="Namirnica" EntitySet="Namirnica" />
+            <End Role="Stavke_primke" EntitySet="Stavke_primke" />
           </AssociationSet>
           <AssociationSet Name="FK_Narucuje_Narudzba" Association="Model.FK_Narucuje_Narudzba">
             <End Role="Narudzba" EntitySet="Narudzba" />
@@ -631,13 +727,17 @@
             <End Role="Narudzba" EntitySet="Narudzba" />
             <End Role="Racun" EntitySet="Racun" />
           </AssociationSet>
+          <AssociationSet Name="FK_Stavke_primke_Primka" Association="Model.FK_Stavke_primke_Primka">
+            <End Role="Primka" EntitySet="Primka" />
+            <End Role="Stavke_primke" EntitySet="Stavke_primke" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stavke_racuna_Racun" Association="Model.FK_Stavke_racuna_Racun">
+            <End Role="Racun" EntitySet="Racun" />
+            <End Role="Stavke_racuna" EntitySet="Stavke_racuna" />
+          </AssociationSet>
           <AssociationSet Name="FK_Rezervacija_Stol" Association="Model.FK_Rezervacija_Stol">
             <End Role="Stol" EntitySet="Stol" />
             <End Role="Rezervacija" EntitySet="Rezervacija" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Stanje_zaliha_Stanje_zaliha" Association="Model.FK_Stanje_zaliha_Stanje_zaliha">
-            <End Role="Stanje_zaliha" EntitySet="Stanje_zaliha" />
-            <End Role="Stanje_zaliha1" EntitySet="Stanje_zaliha" />
           </AssociationSet>
           <AssociationSet Name="Na_meniju" Association="Model.Na_meniju">
             <End Role="Jelo" EntitySet="Jelo" />
@@ -657,6 +757,14 @@
           <NavigationProperty Name="Korisnik" Relationship="Model.Dostava_Korisnik_id_korisnik_fk" FromRole="Dostava" ToRole="Korisnik" />
           <NavigationProperty Name="Racun" Relationship="Model.FK_Dostava_Racun" FromRole="Dostava" ToRole="Racun" />
         </EntityType>
+        <EntityType Name="Izdatnica">
+          <Key>
+            <PropertyRef Name="id_izdatnica" />
+          </Key>
+          <Property Name="id_izdatnica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="datum_vrijeme" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Stavke_izdatnice" Relationship="Model.FK_Stavke_izdatnice_Izdatnica" FromRole="Izdatnica" ToRole="Stavke_izdatnice" />
+        </EntityType>
         <EntityType Name="Jelo">
           <Key>
             <PropertyRef Name="id_jelo" />
@@ -668,6 +776,7 @@
           <NavigationProperty Name="Kategorija" Relationship="Model.FK_Jelo_Kategorija" FromRole="Jelo" ToRole="Kategorija" />
           <NavigationProperty Name="Jelo_sadrzi" Relationship="Model.FK_Jelo_sadrzi_Jelo" FromRole="Jelo" ToRole="Jelo_sadrzi" />
           <NavigationProperty Name="Narucuje" Relationship="Model.FK_Narucuje_Jelo" FromRole="Jelo" ToRole="Narucuje" />
+          <NavigationProperty Name="Stavke_racuna" Relationship="Model.FK_Stavke_racuna_Jelo" FromRole="Jelo" ToRole="Stavke_racuna" />
           <NavigationProperty Name="Meni" Relationship="Model.Na_meniju" FromRole="Jelo" ToRole="Meni" />
         </EntityType>
         <EntityType Name="Jelo_sadrzi">
@@ -735,7 +844,6 @@
           <Property Name="id_mjerna_jedinica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="oznaka_mjerne_jedinice" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Namirnica" Relationship="Model.FK_Namirnica_Mjerna_jedinica" FromRole="Mjerna_jedinica" ToRole="Namirnica" />
-          <NavigationProperty Name="Stanje_zaliha" Relationship="Model.FK_Stanje_zaliha_Mjerna_jedinica" FromRole="Mjerna_jedinica" ToRole="Stanje_zaliha" />
         </EntityType>
         <EntityType Name="Namirnica">
           <Key>
@@ -746,10 +854,12 @@
           <Property Name="id_kategorije" Type="Int32" Nullable="false" />
           <Property Name="temperatura_pohrane" Type="Double" Nullable="false" />
           <Property Name="id_mjerna_jedinica" Type="Int32" Nullable="false" />
+          <Property Name="kolicina_trenutna" Type="Double" Nullable="false" />
           <NavigationProperty Name="Jelo_sadrzi" Relationship="Model.FK_Jelo_sadrzi_Namirnica" FromRole="Namirnica" ToRole="Jelo_sadrzi" />
           <NavigationProperty Name="Kategorija" Relationship="Model.FK_Namirnica_Kategorija" FromRole="Namirnica" ToRole="Kategorija" />
           <NavigationProperty Name="Mjerna_jedinica" Relationship="Model.FK_Namirnica_Mjerna_jedinica" FromRole="Namirnica" ToRole="Mjerna_jedinica" />
-          <NavigationProperty Name="Stanje_zaliha" Relationship="Model.FK_Stanje_zaliha_Namirnica" FromRole="Namirnica" ToRole="Stanje_zaliha" />
+          <NavigationProperty Name="Stavke_izdatnice" Relationship="Model.FK_Stavke_izdatnice_Namirnica" FromRole="Namirnica" ToRole="Stavke_izdatnice" />
+          <NavigationProperty Name="Stavke_primke" Relationship="Model.FK_Stavke_primke_Namirnica" FromRole="Namirnica" ToRole="Stavke_primke" />
         </EntityType>
         <EntityType Name="Narucuje">
           <Key>
@@ -773,6 +883,14 @@
           <NavigationProperty Name="Narucuje" Relationship="Model.FK_Narucuje_Narudzba" FromRole="Narudzba" ToRole="Narucuje" />
           <NavigationProperty Name="Racun" Relationship="Model.Racun_Narudzba_id_narudzba_fk" FromRole="Narudzba" ToRole="Racun" />
         </EntityType>
+        <EntityType Name="Primka">
+          <Key>
+            <PropertyRef Name="id_primka" />
+          </Key>
+          <Property Name="id_primka" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="datum_vrijeme" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Stavke_primke" Relationship="Model.FK_Stavke_primke_Primka" FromRole="Primka" ToRole="Stavke_primke" />
+        </EntityType>
         <EntityType Name="Racun">
           <Key>
             <PropertyRef Name="id_racun" />
@@ -786,6 +904,7 @@
           <NavigationProperty Name="Kasa" Relationship="Model.Kasa_Racun_id_racun_fk" FromRole="Racun" ToRole="Kasa" />
           <NavigationProperty Name="Korisnik" Relationship="Model.Racun_Korisnik_id_korisnik_fk" FromRole="Racun" ToRole="Korisnik" />
           <NavigationProperty Name="Narudzba" Relationship="Model.Racun_Narudzba_id_narudzba_fk" FromRole="Racun" ToRole="Narudzba" />
+          <NavigationProperty Name="Stavke_racuna" Relationship="Model.FK_Stavke_racuna_Racun" FromRole="Racun" ToRole="Stavke_racuna" />
         </EntityType>
         <EntityType Name="Rezervacija">
           <Key>
@@ -799,19 +918,38 @@
           <NavigationProperty Name="Korisnik" Relationship="Model.FK_Rezervacija_Korisnik" FromRole="Rezervacija" ToRole="Korisnik" />
           <NavigationProperty Name="Stol" Relationship="Model.FK_Rezervacija_Stol" FromRole="Rezervacija" ToRole="Stol" />
         </EntityType>
-        <EntityType Name="Stanje_zaliha">
+        <EntityType Name="Stavke_izdatnice">
           <Key>
-            <PropertyRef Name="id_stanje_zalihe" />
+            <PropertyRef Name="id_izdatnica" />
+            <PropertyRef Name="id_namirnica" />
           </Key>
-          <Property Name="id_stanje_zalihe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_izdatnica" Type="Int32" Nullable="false" />
           <Property Name="id_namirnica" Type="Int32" Nullable="false" />
+          <Property Name="kolicina_izdavanja" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Izdatnica" Relationship="Model.FK_Stavke_izdatnice_Izdatnica" FromRole="Stavke_izdatnice" ToRole="Izdatnica" />
+          <NavigationProperty Name="Namirnica" Relationship="Model.FK_Stavke_izdatnice_Namirnica" FromRole="Stavke_izdatnice" ToRole="Namirnica" />
+        </EntityType>
+        <EntityType Name="Stavke_primke">
+          <Key>
+            <PropertyRef Name="id_primka" />
+            <PropertyRef Name="id_namirnica" />
+          </Key>
+          <Property Name="id_primka" Type="Int32" Nullable="false" />
+          <Property Name="id_namirnica" Type="Int32" Nullable="false" />
+          <Property Name="kolicina_zaprimanja" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Namirnica" Relationship="Model.FK_Stavke_primke_Namirnica" FromRole="Stavke_primke" ToRole="Namirnica" />
+          <NavigationProperty Name="Primka" Relationship="Model.FK_Stavke_primke_Primka" FromRole="Stavke_primke" ToRole="Primka" />
+        </EntityType>
+        <EntityType Name="Stavke_racuna">
+          <Key>
+            <PropertyRef Name="id_racun" />
+            <PropertyRef Name="id_jelo" />
+          </Key>
+          <Property Name="id_racun" Type="Int32" Nullable="false" />
+          <Property Name="id_jelo" Type="Int32" Nullable="false" />
           <Property Name="kolicina" Type="Double" Nullable="false" />
-          <Property Name="id_mjerna_jedinica" Type="Int32" Nullable="false" />
-          <Property Name="datum_vrijeme" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Mjerna_jedinica" Relationship="Model.FK_Stanje_zaliha_Mjerna_jedinica" FromRole="Stanje_zaliha" ToRole="Mjerna_jedinica" />
-          <NavigationProperty Name="Namirnica" Relationship="Model.FK_Stanje_zaliha_Namirnica" FromRole="Stanje_zaliha" ToRole="Namirnica" />
-          <NavigationProperty Name="Stanje_zaliha1" Relationship="Model.FK_Stanje_zaliha_Stanje_zaliha" FromRole="Stanje_zaliha" ToRole="Stanje_zaliha1" />
-          <NavigationProperty Name="Stanje_zaliha2" Relationship="Model.FK_Stanje_zaliha_Stanje_zaliha" FromRole="Stanje_zaliha1" ToRole="Stanje_zaliha" />
+          <NavigationProperty Name="Jelo" Relationship="Model.FK_Stavke_racuna_Jelo" FromRole="Stavke_racuna" ToRole="Jelo" />
+          <NavigationProperty Name="Racun" Relationship="Model.FK_Stavke_racuna_Racun" FromRole="Stavke_racuna" ToRole="Racun" />
         </EntityType>
         <EntityType Name="Stol">
           <Key>
@@ -856,6 +994,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Stavke_izdatnice_Izdatnica">
+          <End Type="Model.Izdatnica" Role="Izdatnica" Multiplicity="1" />
+          <End Type="Model.Stavke_izdatnice" Role="Stavke_izdatnice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Izdatnica">
+              <PropertyRef Name="id_izdatnica" />
+            </Principal>
+            <Dependent Role="Stavke_izdatnice">
+              <PropertyRef Name="id_izdatnica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Jelo_Kategorija">
           <End Type="Model.Kategorija" Role="Kategorija" Multiplicity="1" />
           <End Type="Model.Jelo" Role="Jelo" Multiplicity="*" />
@@ -888,6 +1038,18 @@
               <PropertyRef Name="id_jelo" />
             </Principal>
             <Dependent Role="Narucuje">
+              <PropertyRef Name="id_jelo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stavke_racuna_Jelo">
+          <End Type="Model.Jelo" Role="Jelo" Multiplicity="1" />
+          <End Type="Model.Stavke_racuna" Role="Stavke_racuna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jelo">
+              <PropertyRef Name="id_jelo" />
+            </Principal>
+            <Dependent Role="Stavke_racuna">
               <PropertyRef Name="id_jelo" />
             </Dependent>
           </ReferentialConstraint>
@@ -1006,26 +1168,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Stanje_zaliha_Mjerna_jedinica">
-          <End Type="Model.Mjerna_jedinica" Role="Mjerna_jedinica" Multiplicity="1" />
-          <End Type="Model.Stanje_zaliha" Role="Stanje_zaliha" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Mjerna_jedinica">
-              <PropertyRef Name="id_mjerna_jedinica" />
-            </Principal>
-            <Dependent Role="Stanje_zaliha">
-              <PropertyRef Name="id_mjerna_jedinica" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Stanje_zaliha_Namirnica">
+        <Association Name="FK_Stavke_izdatnice_Namirnica">
           <End Type="Model.Namirnica" Role="Namirnica" Multiplicity="1" />
-          <End Type="Model.Stanje_zaliha" Role="Stanje_zaliha" Multiplicity="*" />
+          <End Type="Model.Stavke_izdatnice" Role="Stavke_izdatnice" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Namirnica">
               <PropertyRef Name="id_namirnica" />
             </Principal>
-            <Dependent Role="Stanje_zaliha">
+            <Dependent Role="Stavke_izdatnice">
+              <PropertyRef Name="id_namirnica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stavke_primke_Namirnica">
+          <End Type="Model.Namirnica" Role="Namirnica" Multiplicity="1" />
+          <End Type="Model.Stavke_primke" Role="Stavke_primke" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Namirnica">
+              <PropertyRef Name="id_namirnica" />
+            </Principal>
+            <Dependent Role="Stavke_primke">
               <PropertyRef Name="id_namirnica" />
             </Dependent>
           </ReferentialConstraint>
@@ -1056,6 +1218,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Stavke_primke_Primka">
+          <End Type="Model.Primka" Role="Primka" Multiplicity="1" />
+          <End Type="Model.Stavke_primke" Role="Stavke_primke" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Primka">
+              <PropertyRef Name="id_primka" />
+            </Principal>
+            <Dependent Role="Stavke_primke">
+              <PropertyRef Name="id_primka" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stavke_racuna_Racun">
+          <End Type="Model.Racun" Role="Racun" Multiplicity="1" />
+          <End Type="Model.Stavke_racuna" Role="Stavke_racuna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Racun">
+              <PropertyRef Name="id_racun" />
+            </Principal>
+            <Dependent Role="Stavke_racuna">
+              <PropertyRef Name="id_racun" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Rezervacija_Stol">
           <End Type="Model.Stol" Role="Stol" Multiplicity="1" />
           <End Type="Model.Rezervacija" Role="Rezervacija" Multiplicity="*" />
@@ -1065,18 +1251,6 @@
             </Principal>
             <Dependent Role="Rezervacija">
               <PropertyRef Name="id_stol" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Stanje_zaliha_Stanje_zaliha">
-          <End Type="Model.Stanje_zaliha" Role="Stanje_zaliha" Multiplicity="1" />
-          <End Type="Model.Stanje_zaliha" Role="Stanje_zaliha1" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Stanje_zaliha">
-              <PropertyRef Name="id_stanje_zalihe" />
-            </Principal>
-            <Dependent Role="Stanje_zaliha1">
-              <PropertyRef Name="id_stanje_zalihe" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1099,6 +1273,14 @@
                 <ScalarProperty Name="id_racun" ColumnName="id_racun" />
                 <ScalarProperty Name="id_korisnik" ColumnName="id_korisnik" />
                 <ScalarProperty Name="id_dostava" ColumnName="id_dostava" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Izdatnica">
+            <EntityTypeMapping TypeName="Model.Izdatnica">
+              <MappingFragment StoreEntitySet="Izdatnica">
+                <ScalarProperty Name="datum_vrijeme" ColumnName="datum_vrijeme" />
+                <ScalarProperty Name="id_izdatnica" ColumnName="id_izdatnica" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1172,6 +1354,7 @@
           <EntitySetMapping Name="Namirnica">
             <EntityTypeMapping TypeName="Model.Namirnica">
               <MappingFragment StoreEntitySet="Namirnica">
+                <ScalarProperty Name="kolicina_trenutna" ColumnName="kolicina_trenutna" />
                 <ScalarProperty Name="id_mjerna_jedinica" ColumnName="id_mjerna_jedinica" />
                 <ScalarProperty Name="temperatura_pohrane" ColumnName="temperatura_pohrane" />
                 <ScalarProperty Name="id_kategorije" ColumnName="id_kategorije" />
@@ -1198,6 +1381,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Primka">
+            <EntityTypeMapping TypeName="Model.Primka">
+              <MappingFragment StoreEntitySet="Primka">
+                <ScalarProperty Name="datum_vrijeme" ColumnName="datum_vrijeme" />
+                <ScalarProperty Name="id_primka" ColumnName="id_primka" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Racun">
             <EntityTypeMapping TypeName="Model.Racun">
               <MappingFragment StoreEntitySet="Racun">
@@ -1220,14 +1411,30 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Stanje_zaliha">
-            <EntityTypeMapping TypeName="Model.Stanje_zaliha">
-              <MappingFragment StoreEntitySet="Stanje_zaliha">
-                <ScalarProperty Name="datum_vrijeme" ColumnName="datum_vrijeme" />
-                <ScalarProperty Name="id_mjerna_jedinica" ColumnName="id_mjerna_jedinica" />
-                <ScalarProperty Name="kolicina" ColumnName="kolicina" />
+          <EntitySetMapping Name="Stavke_izdatnice">
+            <EntityTypeMapping TypeName="Model.Stavke_izdatnice">
+              <MappingFragment StoreEntitySet="Stavke_izdatnice">
+                <ScalarProperty Name="kolicina_izdavanja" ColumnName="kolicina_izdavanja" />
                 <ScalarProperty Name="id_namirnica" ColumnName="id_namirnica" />
-                <ScalarProperty Name="id_stanje_zalihe" ColumnName="id_stanje_zalihe" />
+                <ScalarProperty Name="id_izdatnica" ColumnName="id_izdatnica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stavke_primke">
+            <EntityTypeMapping TypeName="Model.Stavke_primke">
+              <MappingFragment StoreEntitySet="Stavke_primke">
+                <ScalarProperty Name="kolicina_zaprimanja" ColumnName="kolicina_zaprimanja" />
+                <ScalarProperty Name="id_namirnica" ColumnName="id_namirnica" />
+                <ScalarProperty Name="id_primka" ColumnName="id_primka" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stavke_racuna">
+            <EntityTypeMapping TypeName="Model.Stavke_racuna">
+              <MappingFragment StoreEntitySet="Stavke_racuna">
+                <ScalarProperty Name="kolicina" ColumnName="kolicina" />
+                <ScalarProperty Name="id_jelo" ColumnName="id_jelo" />
+                <ScalarProperty Name="id_racun" ColumnName="id_racun" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
