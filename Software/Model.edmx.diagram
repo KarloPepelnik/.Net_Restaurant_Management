@@ -4,23 +4,6 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-<<<<<<< HEAD
-      <Diagram DiagramId="7294e9a22bae48409c082349945ca215" Name="Diagram1">
-        <EntityTypeShape EntityType="Model.Dostava" Width="1.5" PointX="5.25" PointY="4.375" />
-        <EntityTypeShape EntityType="Model.Jelo" Width="1.5" PointX="5.25" PointY="11.625" />
-        <EntityTypeShape EntityType="Model.Jelo_sadrzi" Width="1.5" PointX="10.5" PointY="13.75" />
-        <EntityTypeShape EntityType="Model.Kasa" Width="1.5" PointX="9.75" PointY="4.125" />
-        <EntityTypeShape EntityType="Model.Kategorija" Width="1.5" PointX="3" PointY="12.125" />
-        <EntityTypeShape EntityType="Model.Korisnik" Width="1.5" PointX="3" PointY="4.125" />
-        <EntityTypeShape EntityType="Model.Meni" Width="1.5" PointX="7.5" PointY="12.125" />
-        <EntityTypeShape EntityType="Model.Mjerna_jedinica" Width="1.5" PointX="5.25" PointY="18.875" />
-        <EntityTypeShape EntityType="Model.Namirnica" Width="1.5" PointX="5.25" PointY="15.5" />
-        <EntityTypeShape EntityType="Model.Narucuje" Width="1.5" PointX="7.5" PointY="8" />
-        <EntityTypeShape EntityType="Model.Narudzba" Width="1.5" PointX="5.25" PointY="7.875" />
-        <EntityTypeShape EntityType="Model.Racun" Width="1.5" PointX="7.5" PointY="3.75" />
-        <EntityTypeShape EntityType="Model.Stanje_zaliha" Width="1.5" PointX="7.5" PointY="15.5" />
-        <EntityTypeShape EntityType="Model.Stol" Width="1.5" PointX="0.75" PointY="0.75" />
-=======
       <Diagram DiagramId="7294e9a22bae48409c082349945ca215" Name="Diagram1" ZoomLevel="64">
         <EntityTypeShape EntityType="Model.Dostava" Width="1.5" PointX="5.25" PointY="4.375" />
         <EntityTypeShape EntityType="Model.Jelo" Width="1.5" PointX="5.25" PointY="11.625" />
@@ -37,7 +20,6 @@
         <EntityTypeShape EntityType="Model.Stanje_zaliha" Width="1.5" PointX="7.5" PointY="18.5" />
         <EntityTypeShape EntityType="Model.Stol" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="Model.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.75" />
->>>>>>> master
         <EntityTypeShape EntityType="Model.Tip_korisnika" Width="1.5" PointX="0.75" PointY="4.75" />
         <AssociationConnector Association="Model.Dostava_Korisnik_id_korisnik_fk" />
         <AssociationConnector Association="Model.FK_Dostava_Racun" />
@@ -55,12 +37,6 @@
         <AssociationConnector Association="Model.FK_Narucuje_Narudzba" />
         <AssociationConnector Association="Model.Racun_Narudzba_id_narudzba_fk" />
         <AssociationConnector Association="Model.Na_meniju" />
-<<<<<<< HEAD
-        <EntityTypeShape EntityType="Model.Rezervacija" Width="1.5" PointX="5.25" PointY="0.875" />
-        <AssociationConnector Association="Model.FK_Rezervacija_Korisnik" />
-        <AssociationConnector Association="Model.FK_Rezervacija_Stol" />
-=======
->>>>>>> master
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

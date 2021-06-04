@@ -41,9 +41,5 @@ namespace ProgramskoIntenjerstvo
         public virtual DbSet<Stol> Stol { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tip_korisnika> Tip_korisnika { get; set; }
-<<<<<<< HEAD
-        public virtual DbSet<Rezervacija> Rezervacija { get; set; }
-=======
->>>>>>> master
     }
 }
