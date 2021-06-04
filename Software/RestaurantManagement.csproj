@@ -61,7 +61,13 @@
     <Compile Include="Jelo.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Jelo_sadrzi.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Kasa.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kategorija.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Korisnik.cs">
@@ -74,6 +80,9 @@
       <DependentUpon>KreiranjeNarudzbi.cs</DependentUpon>
     </Compile>
     <Compile Include="Meni.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mjerna_jedinica.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model.Context.cs">
@@ -91,6 +100,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Namirnica.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Narucuje.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -107,6 +119,12 @@
     </Compile>
     <Compile Include="RacunIzdan.Designer.cs">
       <DependentUpon>RacunIzdan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rezervacija.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stanje_zaliha.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Stol.cs">
       <DependentUpon>Model.tt</DependentUpon>

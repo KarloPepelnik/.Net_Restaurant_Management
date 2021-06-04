@@ -12,23 +12,18 @@ namespace ProgramskoIntenjerstvo
     using System;
     using System.Collections.Generic;
     
-    public partial class Narudzba
+    public partial class Mjerna_jedinica
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Narudzba()
+        public Mjerna_jedinica()
         {
-            this.Narucuje = new HashSet<Narucuje>();
-            this.Racun = new HashSet<Racun>();
+            this.Stanje_zaliha = new HashSet<Stanje_zaliha>();
         }
     
-        public int id_narudzba { get; set; }
-        public int id_korisnik { get; set; }
-        public System.DateTime datum_vrijeme { get; set; }
+        public int id_mjerna_jedinica { get; set; }
+        public string oznaka_mjerne_jedinice { get; set; }
     
-        public virtual Korisnik Korisnik { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Narucuje> Narucuje { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Racun> Racun { get; set; }
+        public virtual ICollection<Stanje_zaliha> Stanje_zaliha { get; set; }
     }
 }

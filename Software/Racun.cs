@@ -17,6 +17,7 @@ namespace ProgramskoIntenjerstvo
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Racun()
         {
+            this.Dostava = new HashSet<Dostava>();
             this.Kasa = new HashSet<Kasa>();
         }
     
@@ -26,6 +27,8 @@ namespace ProgramskoIntenjerstvo
         public double iznos { get; set; }
         public System.DateTime datum_vrijeme { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Dostava> Dostava { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Kasa> Kasa { get; set; }
         public virtual Korisnik Korisnik { get; set; }

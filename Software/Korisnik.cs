@@ -20,6 +20,7 @@ namespace ProgramskoIntenjerstvo
             this.Dostava = new HashSet<Dostava>();
             this.Narudzba = new HashSet<Narudzba>();
             this.Racun = new HashSet<Racun>();
+            this.Rezervacija = new HashSet<Rezervacija>();
         }
     
         public int id_korisnik { get; set; }
@@ -37,5 +38,7 @@ namespace ProgramskoIntenjerstvo
         public virtual ICollection<Narudzba> Narudzba { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Racun> Racun { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Rezervacija> Rezervacija { get; set; }
     }
 }

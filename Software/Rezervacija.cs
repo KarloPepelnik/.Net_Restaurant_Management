@@ -12,16 +12,15 @@ namespace ProgramskoIntenjerstvo
     using System;
     using System.Collections.Generic;
     
-    public partial class Dostava
+    public partial class Rezervacija
     {
-        public int id_dostava { get; set; }
+        public int id_rezervacija { get; set; }
         public int id_korisnik { get; set; }
-        public int id_racun { get; set; }
-        public string adresa_dostave { get; set; }
-        public string broj_telefona { get; set; }
-        public double cijena_dostave { get; set; }
+        public int id_stol { get; set; }
+        public System.DateTime datum_vrijeme { get; set; }
+        public string opis_rezervacije { get; set; }
     
         public virtual Korisnik Korisnik { get; set; }
-        public virtual Racun Racun { get; set; }
+        public virtual Stol Stol { get; set; }
     }
 }

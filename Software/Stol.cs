@@ -14,9 +14,18 @@ namespace ProgramskoIntenjerstvo
     
     public partial class Stol
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Stol()
+        {
+            this.Rezervacija = new HashSet<Rezervacija>();
+        }
+    
         public int id_stol { get; set; }
         public string opis { get; set; }
         public int broj_mjesta { get; set; }
         public bool rezerviran { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Rezervacija> Rezervacija { get; set; }
     }
 }
