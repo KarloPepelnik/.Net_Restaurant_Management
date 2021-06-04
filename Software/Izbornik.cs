@@ -12,9 +12,11 @@ namespace ProgramskoIntenjerstvo
 {
     public partial class Izbornik : Form
     {
-        public Izbornik()
+        private Korisnik TrenutniKorisnik { get; set; }
+        public Izbornik(Korisnik korisnik)
         {
             InitializeComponent();
+            TrenutniKorisnik = korisnik;
         }
 
         private void btnOdjava_Click(object sender, EventArgs e)
@@ -36,6 +38,15 @@ namespace ProgramskoIntenjerstvo
             Hide();
             forma.ShowDialog();
             Show();
+        }
+
+        private void Izbornik_Load(object sender, EventArgs e)
+        {
+            if(TrenutniKorisnik.tip_korisnik > 2)
+            {
+                btnKorisnici.Hide();
+                btnMeni.Hide();
+            }
         }
     }
 }

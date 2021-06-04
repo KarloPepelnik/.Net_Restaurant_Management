@@ -81,7 +81,7 @@ namespace ProgramskoIntenjerstvo
             this.btnStatistika.Name = "btnStatistika";
             this.btnStatistika.Size = new System.Drawing.Size(135, 38);
             this.btnStatistika.TabIndex = 5;
-            this.btnStatistika.Text = "Izrada statistike";
+            this.btnStatistika.Text = "Statistika";
             this.btnStatistika.UseVisualStyleBackColor = true;
             // 
             // btnMeni
@@ -119,6 +119,7 @@ namespace ProgramskoIntenjerstvo
             this.Name = "Izbornik";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Izbornik";
+            this.Load += new System.EventHandler(this.Izbornik_Load);
             this.ResumeLayout(false);
 
         }

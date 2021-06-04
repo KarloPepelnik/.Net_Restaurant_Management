@@ -31,14 +31,14 @@ namespace ProgramskoIntenjerstvo
         {
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtBoxLozinka = new System.Windows.Forms.TextBox();
-            this.txtboxKorIme = new System.Windows.Forms.TextBox();
+            this.txtBoxPrezime = new System.Windows.Forms.TextBox();
+            this.txtBoxIme = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtBoxLozinka = new System.Windows.Forms.TextBox();
+            this.txtBoxKorime = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtBoxEmail = new System.Windows.Forms.TextBox();
             this.btnRegistriraj = new System.Windows.Forms.Button();
             this.btnOdustani = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -61,19 +61,19 @@ namespace ProgramskoIntenjerstvo
             this.label1.TabIndex = 8;
             this.label1.Text = "Ime:";
             // 
-            // txtBoxLozinka
+            // txtBoxPrezime
             // 
-            this.txtBoxLozinka.Location = new System.Drawing.Point(145, 113);
-            this.txtBoxLozinka.Name = "txtBoxLozinka";
-            this.txtBoxLozinka.Size = new System.Drawing.Size(134, 20);
-            this.txtBoxLozinka.TabIndex = 7;
+            this.txtBoxPrezime.Location = new System.Drawing.Point(145, 113);
+            this.txtBoxPrezime.Name = "txtBoxPrezime";
+            this.txtBoxPrezime.Size = new System.Drawing.Size(134, 20);
+            this.txtBoxPrezime.TabIndex = 7;
             // 
-            // txtboxKorIme
+            // txtBoxIme
             // 
-            this.txtboxKorIme.Location = new System.Drawing.Point(145, 42);
-            this.txtboxKorIme.Name = "txtboxKorIme";
-            this.txtboxKorIme.Size = new System.Drawing.Size(134, 20);
-            this.txtboxKorIme.TabIndex = 6;
+            this.txtBoxIme.Location = new System.Drawing.Point(145, 42);
+            this.txtBoxIme.Name = "txtBoxIme";
+            this.txtBoxIme.Size = new System.Drawing.Size(134, 20);
+            this.txtBoxIme.TabIndex = 6;
             // 
             // label3
             // 
@@ -93,19 +93,19 @@ namespace ProgramskoIntenjerstvo
             this.label4.TabIndex = 12;
             this.label4.Text = "Korisničko ime:";
             // 
-            // textBox1
+            // txtBoxLozinka
             // 
-            this.textBox1.Location = new System.Drawing.Point(145, 244);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(134, 20);
-            this.textBox1.TabIndex = 11;
+            this.txtBoxLozinka.Location = new System.Drawing.Point(145, 244);
+            this.txtBoxLozinka.Name = "txtBoxLozinka";
+            this.txtBoxLozinka.Size = new System.Drawing.Size(134, 20);
+            this.txtBoxLozinka.TabIndex = 11;
             // 
-            // textBox2
+            // txtBoxKorime
             // 
-            this.textBox2.Location = new System.Drawing.Point(145, 176);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(134, 20);
-            this.textBox2.TabIndex = 10;
+            this.txtBoxKorime.Location = new System.Drawing.Point(145, 176);
+            this.txtBoxKorime.Name = "txtBoxKorime";
+            this.txtBoxKorime.Size = new System.Drawing.Size(134, 20);
+            this.txtBoxKorime.TabIndex = 10;
             // 
             // label6
             // 
@@ -116,12 +116,12 @@ namespace ProgramskoIntenjerstvo
             this.label6.TabIndex = 16;
             this.label6.Text = "Email:";
             // 
-            // textBox4
+            // txtBoxEmail
             // 
-            this.textBox4.Location = new System.Drawing.Point(145, 302);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(134, 20);
-            this.textBox4.TabIndex = 14;
+            this.txtBoxEmail.Location = new System.Drawing.Point(145, 302);
+            this.txtBoxEmail.Name = "txtBoxEmail";
+            this.txtBoxEmail.Size = new System.Drawing.Size(134, 20);
+            this.txtBoxEmail.TabIndex = 14;
             // 
             // btnRegistriraj
             // 
@@ -151,18 +151,19 @@ namespace ProgramskoIntenjerstvo
             this.Controls.Add(this.btnOdustani);
             this.Controls.Add(this.btnRegistriraj);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtBoxEmail);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtBoxLozinka);
+            this.Controls.Add(this.txtBoxKorime);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtBoxLozinka);
-            this.Controls.Add(this.txtboxKorIme);
+            this.Controls.Add(this.txtBoxPrezime);
+            this.Controls.Add(this.txtBoxIme);
             this.Name = "FrmRegistracija";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmRegistracija";
+            this.Load += new System.EventHandler(this.FrmRegistracija_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,14 +173,14 @@ namespace ProgramskoIntenjerstvo
 
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtBoxLozinka;
-        private System.Windows.Forms.TextBox txtboxKorIme;
+        private System.Windows.Forms.TextBox txtBoxPrezime;
+        private System.Windows.Forms.TextBox txtBoxIme;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtBoxLozinka;
+        private System.Windows.Forms.TextBox txtBoxKorime;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtBoxEmail;
         private System.Windows.Forms.Button btnRegistriraj;
         private System.Windows.Forms.Button btnOdustani;
     }

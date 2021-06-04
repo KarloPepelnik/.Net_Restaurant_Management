@@ -12,6 +12,8 @@ namespace ProgramskoIntenjerstvo
 {
     public partial class FrmLogin : Form
     {
+        private Entities E { get; set; }
+        private Korisnik TrenutniKorisnik { get; set; }
         private List<Korisnik> sviKorisnici { get; set; }
         public FrmLogin()
         {
@@ -31,13 +33,14 @@ namespace ProgramskoIntenjerstvo
                     if(korisnik.lozinka == txtBoxLozinka.Text)
                     {
                         lozinkaOk = true;
+                        TrenutniKorisnik = korisnik;
                     }
                 }
             }
 
             if(lozinkaOk && korisnickoOk)
             {
-                Izbornik forma = new Izbornik();
+                Izbornik forma = new Izbornik(TrenutniKorisnik);
                 txtboxKorIme.Text = "";
                 txtBoxLozinka.Text = "";
                 Hide();
@@ -60,11 +63,18 @@ namespace ProgramskoIntenjerstvo
             Hide();
             forma.ShowDialog();
             Show();
+            Osvjezi();
+        }
+
+        private void Osvjezi()
+        {
+            E = new Entities();
+            sviKorisnici = E.Korisnik.ToList();
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-            Entities E = new Entities();
+            E = new Entities();
             sviKorisnici = E.Korisnik.ToList();
         }
     }
