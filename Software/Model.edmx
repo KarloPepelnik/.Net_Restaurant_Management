@@ -121,6 +121,7 @@
           <Property Name="iznos" Type="float" Nullable="false" />
           <Property Name="datum_vrijeme" Type="date" Nullable="false" />
         </EntityType>
+<<<<<<< HEAD
         <EntityType Name="Rezervacija">
           <Key>
             <PropertyRef Name="id_rezervacija" />
@@ -131,6 +132,8 @@
           <Property Name="datum_vrijeme" Type="datetime" Nullable="false" />
           <Property Name="opis_rezervacije" Type="text" />
         </EntityType>
+=======
+>>>>>>> master
         <EntityType Name="Stanje_zaliha">
           <Key>
             <PropertyRef Name="id_stanje_zalihe" />
@@ -149,6 +152,16 @@
           <Property Name="opis" Type="text" />
           <Property Name="broj_mjesta" Type="int" Nullable="false" />
           <Property Name="rezerviran" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Tip_korisnika">
           <Key>
@@ -278,6 +291,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+<<<<<<< HEAD
         <Association Name="FK_Rezervacija_Korisnik">
           <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="1" />
           <End Role="Rezervacija" Type="Self.Rezervacija" Multiplicity="*" />
@@ -302,6 +316,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+=======
+>>>>>>> master
         <Association Name="FK_Stanje_zaliha_Mjerna_jedinica">
           <End Role="Mjerna_jedinica" Type="Self.Mjerna_jedinica" Multiplicity="1" />
           <End Role="Stanje_zaliha" Type="Self.Stanje_zaliha" Multiplicity="*" />
@@ -406,9 +422,13 @@
           <EntitySet Name="Narucuje" EntityType="Self.Narucuje" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Narudzba" EntityType="Self.Narudzba" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Racun" EntityType="Self.Racun" Schema="dbo" store:Type="Tables" />
+<<<<<<< HEAD
           <EntitySet Name="Rezervacija" EntityType="Self.Rezervacija" Schema="dbo" store:Type="Tables" />
+=======
+>>>>>>> master
           <EntitySet Name="Stanje_zaliha" EntityType="Self.Stanje_zaliha" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Stol" EntityType="Self.Stol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tip_korisnika" EntityType="Self.Tip_korisnika" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="Dostava_Korisnik_id_korisnik_fk" Association="Self.Dostava_Korisnik_id_korisnik_fk">
             <End Role="Korisnik" EntitySet="Korisnik" />
@@ -425,11 +445,19 @@
           <AssociationSet Name="FK_Jelo_sadrzi_Jelo" Association="Self.FK_Jelo_sadrzi_Jelo">
             <End Role="Jelo" EntitySet="Jelo" />
             <End Role="Jelo_sadrzi" EntitySet="Jelo_sadrzi" />
+<<<<<<< HEAD
           </AssociationSet>
           <AssociationSet Name="FK_Jelo_sadrzi_Namirnica" Association="Self.FK_Jelo_sadrzi_Namirnica">
             <End Role="Namirnica" EntitySet="Namirnica" />
             <End Role="Jelo_sadrzi" EntitySet="Jelo_sadrzi" />
           </AssociationSet>
+=======
+          </AssociationSet>
+          <AssociationSet Name="FK_Jelo_sadrzi_Namirnica" Association="Self.FK_Jelo_sadrzi_Namirnica">
+            <End Role="Namirnica" EntitySet="Namirnica" />
+            <End Role="Jelo_sadrzi" EntitySet="Jelo_sadrzi" />
+          </AssociationSet>
+>>>>>>> master
           <AssociationSet Name="FK_Na_meniju_Jelo" Association="Self.FK_Na_meniju_Jelo">
             <End Role="Jelo" EntitySet="Jelo" />
             <End Role="Na_meniju" EntitySet="Na_meniju" />
@@ -450,6 +478,7 @@
             <End Role="Narudzba" EntitySet="Narudzba" />
             <End Role="Narucuje" EntitySet="Narucuje" />
           </AssociationSet>
+<<<<<<< HEAD
           <AssociationSet Name="FK_Rezervacija_Korisnik" Association="Self.FK_Rezervacija_Korisnik">
             <End Role="Korisnik" EntitySet="Korisnik" />
             <End Role="Rezervacija" EntitySet="Rezervacija" />
@@ -458,6 +487,8 @@
             <End Role="Stol" EntitySet="Stol" />
             <End Role="Rezervacija" EntitySet="Rezervacija" />
           </AssociationSet>
+=======
+>>>>>>> master
           <AssociationSet Name="FK_Stanje_zaliha_Mjerna_jedinica" Association="Self.FK_Stanje_zaliha_Mjerna_jedinica">
             <End Role="Mjerna_jedinica" EntitySet="Mjerna_jedinica" />
             <End Role="Stanje_zaliha" EntitySet="Stanje_zaliha" />
@@ -506,6 +537,10 @@
           <EntitySet Name="Racun" EntityType="Model.Racun" />
           <EntitySet Name="Stanje_zaliha" EntityType="Model.Stanje_zaliha" />
           <EntitySet Name="Stol" EntityType="Model.Stol" />
+<<<<<<< HEAD
+=======
+          <EntitySet Name="sysdiagrams" EntityType="Model.sysdiagrams" />
+>>>>>>> master
           <EntitySet Name="Tip_korisnika" EntityType="Model.Tip_korisnika" />
           <AssociationSet Name="Dostava_Korisnik_id_korisnik_fk" Association="Model.Dostava_Korisnik_id_korisnik_fk">
             <End Role="Korisnik" EntitySet="Korisnik" />
@@ -571,6 +606,7 @@
             <End Role="Jelo" EntitySet="Jelo" />
             <End Role="Meni" EntitySet="Meni" />
           </AssociationSet>
+<<<<<<< HEAD
           <EntitySet Name="Rezervacija" EntityType="Model.Rezervacija" />
           <AssociationSet Name="FK_Rezervacija_Korisnik" Association="Model.FK_Rezervacija_Korisnik">
             <End Role="Korisnik" EntitySet="Korisnik" />
@@ -580,6 +616,8 @@
             <End Role="Stol" EntitySet="Stol" />
             <End Role="Rezervacija" EntitySet="Rezervacija" />
           </AssociationSet>
+=======
+>>>>>>> master
         </EntityContainer>
         <EntityType Name="Dostava">
           <Key>
@@ -652,7 +690,10 @@
           <NavigationProperty Name="Tip_korisnika" Relationship="Model.Korisnik_Tip_korisnika_id_tip_fk" FromRole="Korisnik" ToRole="Tip_korisnika" />
           <NavigationProperty Name="Narudzba" Relationship="Model.Narudzba_Korisnik_id_korisnik_fk" FromRole="Korisnik" ToRole="Narudzba" />
           <NavigationProperty Name="Racun" Relationship="Model.Racun_Korisnik_id_korisnik_fk" FromRole="Korisnik" ToRole="Racun" />
+<<<<<<< HEAD
           <NavigationProperty Name="Rezervacija" Relationship="Model.FK_Rezervacija_Korisnik" FromRole="Korisnik" ToRole="Rezervacija" />
+=======
+>>>>>>> master
         </EntityType>
         <EntityType Name="Meni">
           <Key>
@@ -740,6 +781,16 @@
           <Property Name="broj_mjesta" Type="Int32" Nullable="false" />
           <Property Name="rezerviran" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Rezervacija" Relationship="Model.FK_Rezervacija_Stol" FromRole="Stol" ToRole="Rezervacija" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Tip_korisnika">
           <Key>
@@ -940,6 +991,7 @@
           <End Type="Model.Jelo" Role="Jelo" Multiplicity="*" />
           <End Type="Model.Meni" Role="Meni" Multiplicity="*" />
         </Association>
+<<<<<<< HEAD
         <EntityType Name="Rezervacija">
           <Key>
             <PropertyRef Name="id_rezervacija" />
@@ -977,6 +1029,9 @@
           </ReferentialConstraint>
         </Association>
         </Schema>
+=======
+      </Schema>
+>>>>>>> master
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1118,6 +1173,20 @@
                 <ScalarProperty Name="broj_mjesta" ColumnName="broj_mjesta" />
                 <ScalarProperty Name="opis" ColumnName="opis" />
                 <ScalarProperty Name="id_stol" ColumnName="id_stol" />
+<<<<<<< HEAD
+=======
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+>>>>>>> master
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
