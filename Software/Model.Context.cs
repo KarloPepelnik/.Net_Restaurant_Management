@@ -37,9 +37,9 @@ namespace ProgramskoIntenjerstvo
         public virtual DbSet<Narucuje> Narucuje { get; set; }
         public virtual DbSet<Narudzba> Narudzba { get; set; }
         public virtual DbSet<Racun> Racun { get; set; }
+        public virtual DbSet<Rezervacija> Rezervacija { get; set; }
         public virtual DbSet<Stanje_zaliha> Stanje_zaliha { get; set; }
         public virtual DbSet<Stol> Stol { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tip_korisnika> Tip_korisnika { get; set; }
     }
 }

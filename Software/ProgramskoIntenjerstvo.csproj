@@ -138,13 +138,13 @@
     <Compile Include="RacunIzdan.Designer.cs">
       <DependentUpon>RacunIzdan.cs</DependentUpon>
     </Compile>
+    <Compile Include="Rezervacija.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Stanje_zaliha.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Stol.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagrams.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Tip_korisnika.cs">

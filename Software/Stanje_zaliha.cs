@@ -22,5 +22,7 @@ namespace ProgramskoIntenjerstvo
     
         public virtual Mjerna_jedinica Mjerna_jedinica { get; set; }
         public virtual Namirnica Namirnica { get; set; }
+        public virtual Stanje_zaliha Stanje_zaliha1 { get; set; }
+        public virtual Stanje_zaliha Stanje_zaliha2 { get; set; }
     }
 }

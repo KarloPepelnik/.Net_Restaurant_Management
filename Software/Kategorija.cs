@@ -18,6 +18,7 @@ namespace ProgramskoIntenjerstvo
         public Kategorija()
         {
             this.Jelo = new HashSet<Jelo>();
+            this.Namirnica = new HashSet<Namirnica>();
         }
     
         public int id_kategorija { get; set; }
@@ -25,6 +26,7 @@ namespace ProgramskoIntenjerstvo
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Jelo> Jelo { get; set; }
-        public virtual Namirnica Namirnica { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Namirnica> Namirnica { get; set; }
     }
 }

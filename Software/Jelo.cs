@@ -25,7 +25,7 @@ namespace ProgramskoIntenjerstvo
         public int id_jelo { get; set; }
         public int id_kategorija { get; set; }
         public string naziv_jela { get; set; }
-        public double cijena_jela { get; set; }
+        public double cijena { get; set; }
     
         public virtual Kategorija Kategorija { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

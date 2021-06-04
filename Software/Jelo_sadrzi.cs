@@ -19,6 +19,8 @@ namespace ProgramskoIntenjerstvo
         public double kolicina { get; set; }
     
         public virtual Jelo Jelo { get; set; }
+        public virtual Jelo_sadrzi Jelo_sadrzi1 { get; set; }
+        public virtual Jelo_sadrzi Jelo_sadrzi2 { get; set; }
         public virtual Namirnica Namirnica { get; set; }
     }
 }

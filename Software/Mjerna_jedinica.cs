@@ -17,12 +17,15 @@ namespace ProgramskoIntenjerstvo
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Mjerna_jedinica()
         {
+            this.Namirnica = new HashSet<Namirnica>();
             this.Stanje_zaliha = new HashSet<Stanje_zaliha>();
         }
     
         public int id_mjerna_jedinica { get; set; }
         public string oznaka_mjerne_jedinice { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Namirnica> Namirnica { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stanje_zaliha> Stanje_zaliha { get; set; }
     }

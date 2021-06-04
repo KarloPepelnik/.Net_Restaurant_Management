@@ -25,10 +25,12 @@ namespace ProgramskoIntenjerstvo
         public string naziv_namirnice { get; set; }
         public int id_kategorije { get; set; }
         public double temperatura_pohrane { get; set; }
+        public int id_mjerna_jedinica { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Jelo_sadrzi> Jelo_sadrzi { get; set; }
         public virtual Kategorija Kategorija { get; set; }
+        public virtual Mjerna_jedinica Mjerna_jedinica { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stanje_zaliha> Stanje_zaliha { get; set; }
     }

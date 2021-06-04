@@ -18,9 +18,9 @@ namespace ProgramskoIntenjerstvo
         public Korisnik()
         {
             this.Dostava = new HashSet<Dostava>();
+            this.Rezervacija = new HashSet<Rezervacija>();
             this.Narudzba = new HashSet<Narudzba>();
             this.Racun = new HashSet<Racun>();
-            this.Rezervacija = new HashSet<Rezervacija>();
         }
     
         public int id_korisnik { get; set; }
@@ -33,12 +33,12 @@ namespace ProgramskoIntenjerstvo
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dostava> Dostava { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Rezervacija> Rezervacija { get; set; }
         public virtual Tip_korisnika Tip_korisnika { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Narudzba> Narudzba { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Racun> Racun { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Rezervacija> Rezervacija { get; set; }
     }
 }
