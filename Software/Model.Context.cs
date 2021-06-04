@@ -40,8 +40,6 @@ namespace ProgramskoIntenjerstvo
         public virtual DbSet<Primka> Primka { get; set; }
         public virtual DbSet<Racun> Racun { get; set; }
         public virtual DbSet<Rezervacija> Rezervacija { get; set; }
-        public virtual DbSet<Stavke_izdatnice> Stavke_izdatnice { get; set; }
-        public virtual DbSet<Stavke_primke> Stavke_primke { get; set; }
         public virtual DbSet<Stavke_racuna> Stavke_racuna { get; set; }
         public virtual DbSet<Stol> Stol { get; set; }
         public virtual DbSet<Tip_korisnika> Tip_korisnika { get; set; }
