@@ -16,7 +16,7 @@ namespace ProgramskoIntenjerstvo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UpravljanjeKasom());
+            Application.Run(new FrmLogin());
         }
     }
 }
