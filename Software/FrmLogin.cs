@@ -12,6 +12,7 @@ namespace ProgramskoIntenjerstvo
 {
     public partial class FrmLogin : Form
     {
+        private List<Korisnik> sviKorisnici { get; set; }
         public FrmLogin()
         {
             InitializeComponent();
@@ -19,10 +20,38 @@ namespace ProgramskoIntenjerstvo
 
         private void btnPrijaviSe_Click(object sender, EventArgs e)
         {
-            Izbornik forma = new Izbornik();
-            Hide();
-            forma.ShowDialog();
-            Show();
+            bool lozinkaOk = false;
+            bool korisnickoOk = false;
+
+            foreach (var korisnik in sviKorisnici)
+            {
+                if(korisnik.korisnicko_ime == txtboxKorIme.Text)
+                {
+                    korisnickoOk = true;
+                    if(korisnik.lozinka == txtBoxLozinka.Text)
+                    {
+                        lozinkaOk = true;
+                    }
+                }
+            }
+
+            if(lozinkaOk && korisnickoOk)
+            {
+                Izbornik forma = new Izbornik();
+                txtboxKorIme.Text = "";
+                txtBoxLozinka.Text = "";
+                Hide();
+                forma.ShowDialog();
+                Show();
+            }
+            else if (!lozinkaOk && korisnickoOk)
+            {
+                MessageBox.Show("Kriva lozinka!");
+            }
+            else
+            {
+                MessageBox.Show("Nepostojeći korisnik!");
+            }
         }
 
         private void btnRegistrirajSe_Click(object sender, EventArgs e)
@@ -31,6 +60,12 @@ namespace ProgramskoIntenjerstvo
             Hide();
             forma.ShowDialog();
             Show();
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+            Entities E = new Entities();
+            sviKorisnici = E.Korisnik.ToList();
         }
     }
 }

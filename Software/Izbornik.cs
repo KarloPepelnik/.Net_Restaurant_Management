@@ -25,7 +25,17 @@ namespace ProgramskoIntenjerstvo
         private void btnNarudžbe_Click(object sender, EventArgs e)
         {
             KreiranjeNarudzbi forma = new KreiranjeNarudzbi();
+            Hide();
             forma.ShowDialog();
+            Show();
+        }
+
+        private void btnMeni_Click(object sender, EventArgs e)
+        {
+            UpravljanjeKasom forma = new UpravljanjeKasom();
+            Hide();
+            forma.ShowDialog();
+            Show();
         }
     }
 }

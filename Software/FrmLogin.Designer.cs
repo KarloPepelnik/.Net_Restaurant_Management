@@ -49,7 +49,7 @@ namespace ProgramskoIntenjerstvo
             this.btnPrijaviSe.Location = new System.Drawing.Point(55, 207);
             this.btnPrijaviSe.Name = "btnPrijaviSe";
             this.btnPrijaviSe.Size = new System.Drawing.Size(139, 43);
-            this.btnPrijaviSe.TabIndex = 1;
+            this.btnPrijaviSe.TabIndex = 2;
             this.btnPrijaviSe.Text = "Prijavi se!";
             this.btnPrijaviSe.UseVisualStyleBackColor = true;
             this.btnPrijaviSe.Click += new System.EventHandler(this.btnPrijaviSe_Click);
@@ -59,7 +59,7 @@ namespace ProgramskoIntenjerstvo
             this.btnRegistrirajSe.Location = new System.Drawing.Point(270, 207);
             this.btnRegistrirajSe.Name = "btnRegistrirajSe";
             this.btnRegistrirajSe.Size = new System.Drawing.Size(139, 43);
-            this.btnRegistrirajSe.TabIndex = 2;
+            this.btnRegistrirajSe.TabIndex = 3;
             this.btnRegistrirajSe.Text = "Registriraj se!";
             this.btnRegistrirajSe.UseVisualStyleBackColor = true;
             this.btnRegistrirajSe.Click += new System.EventHandler(this.btnRegistrirajSe_Click);
@@ -68,8 +68,9 @@ namespace ProgramskoIntenjerstvo
             // 
             this.txtBoxLozinka.Location = new System.Drawing.Point(180, 152);
             this.txtBoxLozinka.Name = "txtBoxLozinka";
+            this.txtBoxLozinka.PasswordChar = '*';
             this.txtBoxLozinka.Size = new System.Drawing.Size(134, 20);
-            this.txtBoxLozinka.TabIndex = 3;
+            this.txtBoxLozinka.TabIndex = 1;
             // 
             // label1
             // 
@@ -101,7 +102,9 @@ namespace ProgramskoIntenjerstvo
             this.Controls.Add(this.btnPrijaviSe);
             this.Controls.Add(this.txtboxKorIme);
             this.Name = "FrmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

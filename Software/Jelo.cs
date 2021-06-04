@@ -17,22 +17,22 @@ namespace ProgramskoIntenjerstvo
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Jelo()
         {
+            this.Jelo_sadrzi = new HashSet<Jelo_sadrzi>();
             this.Narucuje = new HashSet<Narucuje>();
             this.Meni = new HashSet<Meni>();
         }
     
         public int id_jelo { get; set; }
+        public int id_kategorija { get; set; }
         public string naziv_jela { get; set; }
-        public double cijena { get; set; }
-        public string opis { get; set; }
+        public double cijena_jela { get; set; }
     
+        public virtual Kategorija Kategorija { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Jelo_sadrzi> Jelo_sadrzi { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Narucuje> Narucuje { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Meni> Meni { get; set; }
-        public override string ToString()
-        {
-            return naziv_jela;
-        }
     }
 }

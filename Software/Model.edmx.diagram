@@ -4,27 +4,39 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7294e9a22bae48409c082349945ca215" Name="Diagram1">
-        <EntityTypeShape EntityType="Model.Dostava" Width="1.5" PointX="7.5" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Jelo" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Kasa" Width="1.5" PointX="12.75" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Korisnik" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Meni" Width="1.5" PointX="7.5" PointY="13" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Narudzba" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Racun" Width="1.5" PointX="10.5" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Stol" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Tip_korisnika" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Narucuje" Width="1.5" PointX="7.5" PointY="9.875" IsExpanded="true" />
-        <AssociationConnector Association="Model.Dostava_Korisnik_id_korisnik_fk" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.Dostava_Narudzba_id_narudzba_fk" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.Narucuje_Jelo_id_jelo_fk" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.Kasa_Racun_id_racun_fk" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.Korisnik_Tip_korisnika_id_tip_fk" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.Narudzba_Korisnik_id_korisnik_fk" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.Racun_Korisnik_id_korisnik_fk" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.Narucuje_Narudzba_id_narudzba_fk" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.Racun_Narudzba_id_narudzba_fk" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.Na_meniju" ManuallyRouted="false" />
+      <Diagram DiagramId="7294e9a22bae48409c082349945ca215" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="Model.Dostava" Width="1.5" PointX="5.25" PointY="4.375" />
+        <EntityTypeShape EntityType="Model.Jelo" Width="1.5" PointX="5.25" PointY="11.625" />
+        <EntityTypeShape EntityType="Model.Jelo_sadrzi" Width="1.5" PointX="7.5" PointY="15.75" />
+        <EntityTypeShape EntityType="Model.Kasa" Width="1.5" PointX="9.75" PointY="6.125" />
+        <EntityTypeShape EntityType="Model.Kategorija" Width="1.5" PointX="3" PointY="12.125" />
+        <EntityTypeShape EntityType="Model.Korisnik" Width="1.5" PointX="3" PointY="4.125" />
+        <EntityTypeShape EntityType="Model.Meni" Width="1.5" PointX="7.5" PointY="13.125" />
+        <EntityTypeShape EntityType="Model.Mjerna_jedinica" Width="1.5" PointX="5.25" PointY="18.875" />
+        <EntityTypeShape EntityType="Model.Namirnica" Width="1.5" PointX="5.25" PointY="15.5" />
+        <EntityTypeShape EntityType="Model.Narucuje" Width="1.5" PointX="7.5" PointY="10" />
+        <EntityTypeShape EntityType="Model.Narudzba" Width="1.5" PointX="5.25" PointY="7.875" />
+        <EntityTypeShape EntityType="Model.Racun" Width="1.5" PointX="7.5" PointY="5.75" />
+        <EntityTypeShape EntityType="Model.Stanje_zaliha" Width="1.5" PointX="7.5" PointY="18.5" />
+        <EntityTypeShape EntityType="Model.Stol" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.Tip_korisnika" Width="1.5" PointX="0.75" PointY="4.75" />
+        <AssociationConnector Association="Model.Dostava_Korisnik_id_korisnik_fk" />
+        <AssociationConnector Association="Model.FK_Dostava_Racun" />
+        <AssociationConnector Association="Model.FK_Jelo_Kategorija" />
+        <AssociationConnector Association="Model.FK_Jelo_sadrzi_Jelo" />
+        <AssociationConnector Association="Model.FK_Narucuje_Jelo" />
+        <AssociationConnector Association="Model.FK_Jelo_sadrzi_Namirnica" />
+        <AssociationConnector Association="Model.Kasa_Racun_id_racun_fk" />
+        <AssociationConnector Association="Model.FK_Namirnica_Kategorija" />
+        <AssociationConnector Association="Model.Korisnik_Tip_korisnika_id_tip_fk" />
+        <AssociationConnector Association="Model.Narudzba_Korisnik_id_korisnik_fk" />
+        <AssociationConnector Association="Model.Racun_Korisnik_id_korisnik_fk" />
+        <AssociationConnector Association="Model.FK_Stanje_zaliha_Mjerna_jedinica" />
+        <AssociationConnector Association="Model.FK_Stanje_zaliha_Namirnica" />
+        <AssociationConnector Association="Model.FK_Narucuje_Narudzba" />
+        <AssociationConnector Association="Model.Racun_Narudzba_id_narudzba_fk" />
+        <AssociationConnector Association="Model.Na_meniju" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -92,6 +92,7 @@ namespace ProgramskoIntenjerstvo
             this.btnMeni.TabIndex = 4;
             this.btnMeni.Text = "Meni";
             this.btnMeni.UseVisualStyleBackColor = true;
+            this.btnMeni.Click += new System.EventHandler(this.btnMeni_Click);
             // 
             // btnOdjava
             // 
@@ -116,6 +117,7 @@ namespace ProgramskoIntenjerstvo
             this.Controls.Add(this.btnRezervacije);
             this.Controls.Add(this.btnKorisnici);
             this.Name = "Izbornik";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Izbornik";
             this.ResumeLayout(false);
 

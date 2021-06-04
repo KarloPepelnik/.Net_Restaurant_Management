@@ -161,6 +161,7 @@ namespace ProgramskoIntenjerstvo
             this.Controls.Add(this.txtBoxLozinka);
             this.Controls.Add(this.txtboxKorIme);
             this.Name = "FrmRegistracija";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmRegistracija";
             this.ResumeLayout(false);
             this.PerformLayout();

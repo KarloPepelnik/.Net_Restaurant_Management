@@ -55,13 +55,13 @@ namespace ProgramskoIntenjerstvo
             if (jela.TryGetValue(selected, out value))
             {
                 jela[selected] = value + 1;
-                ukupno += selected.cijena;
-                polog += selected.cijena;
+                ukupno += selected.cijena_jela;
+                polog += selected.cijena_jela;
             }
             else
             {
-                ukupno += selected.cijena;
-                polog += selected.cijena;
+                ukupno += selected.cijena_jela;
+                polog += selected.cijena_jela;
                 jela.Add(selected, 1);
             }
             outputDumpTXT.Text = ukupno.ToString();
@@ -81,8 +81,8 @@ namespace ProgramskoIntenjerstvo
             if (jela.TryGetValue(jelo, out value))
             {
                 jela[jelo] = value - 1;
-                ukupno -= jelo.cijena;
-                polog -= jelo.cijena;
+                ukupno -= jelo.cijena_jela;
+                polog -= jelo.cijena_jela;
             }
 
             if (jela[jelo] == 0)
