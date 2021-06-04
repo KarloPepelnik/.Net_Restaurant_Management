@@ -4,14 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Dostava">
           <Key>
             <PropertyRef Name="id_dostava" />
           </Key>
           <Property Name="id_dostava" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_korisnik" Type="int" Nullable="false" />
-          <Property Name="id_narudzba" Type="int" Nullable="false" />
+          <Property Name="id_racun" Type="int" Nullable="false" />
           <Property Name="adresa_dostave" Type="varchar" MaxLength="150" Nullable="false" />
           <Property Name="broj_telefona" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="cijena_dostave" Type="float" Nullable="false" />
@@ -21,9 +21,18 @@
             <PropertyRef Name="id_jelo" />
           </Key>
           <Property Name="id_jelo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_kategorija" Type="int" Nullable="false" />
           <Property Name="naziv_jela" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="cijena" Type="float" Nullable="false" />
-          <Property Name="opis" Type="text" />
+          <Property Name="cijena_jela" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Jelo_sadrzi">
+          <Key>
+            <PropertyRef Name="id_jelo" />
+            <PropertyRef Name="id_namirnica" />
+          </Key>
+          <Property Name="id_jelo" Type="int" Nullable="false" />
+          <Property Name="id_namirnica" Type="int" Nullable="false" />
+          <Property Name="kolicina" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="Kasa">
           <Key>
@@ -33,6 +42,13 @@
           <Property Name="stanje" Type="float" Nullable="false" />
           <Property Name="datum" Type="datetime" Nullable="false" />
           <Property Name="id_racun" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kategorija">
+          <Key>
+            <PropertyRef Name="id_kategorija" />
+          </Key>
+          <Property Name="id_kategorija" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="naziv_kategorije" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Korisnik">
           <Key>
@@ -54,8 +70,13 @@
           <Property Name="naziv" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="datum" Type="date" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'PI21-13_DB.dbo.Na_meniju' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Mjerna_jedinica">
+          <Key>
+            <PropertyRef Name="id_mjerna_jedinica" />
+          </Key>
+          <Property Name="id_mjerna_jedinica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="oznaka_mjerne_jedinice" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Na_meniju">
           <Key>
             <PropertyRef Name="id_meni" />
@@ -64,13 +85,19 @@ warning 6002: The table/view 'PI21-13_DB.dbo.Na_meniju' does not have a primary 
           <Property Name="id_meni" Type="int" Nullable="false" />
           <Property Name="id_jelo" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'PI21-13_DB.dbo.Narucuje' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Namirnica">
+          <Key>
+            <PropertyRef Name="id_namirnica" />
+          </Key>
+          <Property Name="id_namirnica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="naziv_namirnice" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_kategorije" Type="int" Nullable="false" />
+          <Property Name="temperatura_pohrane" Type="float" Nullable="false" />
+        </EntityType>
         <EntityType Name="Narucuje">
           <Key>
             <PropertyRef Name="id_narudzba" />
             <PropertyRef Name="id_jelo" />
-            <PropertyRef Name="kolicina" />
           </Key>
           <Property Name="id_narudzba" Type="int" Nullable="false" />
           <Property Name="id_jelo" Type="int" Nullable="false" />
@@ -94,6 +121,16 @@ warning 6002: The table/view 'PI21-13_DB.dbo.Narucuje' does not have a primary k
           <Property Name="iznos" Type="float" Nullable="false" />
           <Property Name="datum_vrijeme" Type="date" Nullable="false" />
         </EntityType>
+        <EntityType Name="Stanje_zaliha">
+          <Key>
+            <PropertyRef Name="id_stanje_zalihe" />
+          </Key>
+          <Property Name="id_stanje_zalihe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_namirnica" Type="int" Nullable="false" />
+          <Property Name="kolicina" Type="float" Nullable="false" />
+          <Property Name="id_mjerna_jedinica" Type="int" Nullable="false" />
+          <Property Name="datum_vrijeme" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="Stol">
           <Key>
             <PropertyRef Name="id_stol" />
@@ -102,6 +139,16 @@ warning 6002: The table/view 'PI21-13_DB.dbo.Narucuje' does not have a primary k
           <Property Name="opis" Type="text" />
           <Property Name="broj_mjesta" Type="int" Nullable="false" />
           <Property Name="rezerviran" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Tip_korisnika">
           <Key>
@@ -123,15 +170,135 @@ warning 6002: The table/view 'PI21-13_DB.dbo.Narucuje' does not have a primary k
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Dostava_Narudzba_id_narudzba_fk">
-          <End Role="Narudzba" Type="Self.Narudzba" Multiplicity="1" />
+        <Association Name="FK_Dostava_Racun">
+          <End Role="Racun" Type="Self.Racun" Multiplicity="1" />
           <End Role="Dostava" Type="Self.Dostava" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Racun">
+              <PropertyRef Name="id_racun" />
+            </Principal>
+            <Dependent Role="Dostava">
+              <PropertyRef Name="id_racun" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Jelo_Kategorija">
+          <End Role="Kategorija" Type="Self.Kategorija" Multiplicity="1" />
+          <End Role="Jelo" Type="Self.Jelo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategorija">
+              <PropertyRef Name="id_kategorija" />
+            </Principal>
+            <Dependent Role="Jelo">
+              <PropertyRef Name="id_kategorija" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Jelo_sadrzi_Jelo">
+          <End Role="Jelo" Type="Self.Jelo" Multiplicity="1" />
+          <End Role="Jelo_sadrzi" Type="Self.Jelo_sadrzi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jelo">
+              <PropertyRef Name="id_jelo" />
+            </Principal>
+            <Dependent Role="Jelo_sadrzi">
+              <PropertyRef Name="id_jelo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Jelo_sadrzi_Namirnica">
+          <End Role="Namirnica" Type="Self.Namirnica" Multiplicity="1" />
+          <End Role="Jelo_sadrzi" Type="Self.Jelo_sadrzi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Namirnica">
+              <PropertyRef Name="id_namirnica" />
+            </Principal>
+            <Dependent Role="Jelo_sadrzi">
+              <PropertyRef Name="id_namirnica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Na_meniju_Jelo">
+          <End Role="Jelo" Type="Self.Jelo" Multiplicity="1" />
+          <End Role="Na_meniju" Type="Self.Na_meniju" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jelo">
+              <PropertyRef Name="id_jelo" />
+            </Principal>
+            <Dependent Role="Na_meniju">
+              <PropertyRef Name="id_jelo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Na_meniju_Meni">
+          <End Role="Meni" Type="Self.Meni" Multiplicity="1" />
+          <End Role="Na_meniju" Type="Self.Na_meniju" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meni">
+              <PropertyRef Name="id_meni" />
+            </Principal>
+            <Dependent Role="Na_meniju">
+              <PropertyRef Name="id_meni" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Namirnica_Kategorija">
+          <End Role="Kategorija" Type="Self.Kategorija" Multiplicity="1" />
+          <End Role="Namirnica" Type="Self.Namirnica" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Kategorija">
+              <PropertyRef Name="id_kategorija" />
+            </Principal>
+            <Dependent Role="Namirnica">
+              <PropertyRef Name="id_namirnica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Narucuje_Jelo">
+          <End Role="Jelo" Type="Self.Jelo" Multiplicity="1" />
+          <End Role="Narucuje" Type="Self.Narucuje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jelo">
+              <PropertyRef Name="id_jelo" />
+            </Principal>
+            <Dependent Role="Narucuje">
+              <PropertyRef Name="id_jelo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Narucuje_Narudzba">
+          <End Role="Narudzba" Type="Self.Narudzba" Multiplicity="1" />
+          <End Role="Narucuje" Type="Self.Narucuje" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Narudzba">
               <PropertyRef Name="id_narudzba" />
             </Principal>
-            <Dependent Role="Dostava">
+            <Dependent Role="Narucuje">
               <PropertyRef Name="id_narudzba" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stanje_zaliha_Mjerna_jedinica">
+          <End Role="Mjerna_jedinica" Type="Self.Mjerna_jedinica" Multiplicity="1" />
+          <End Role="Stanje_zaliha" Type="Self.Stanje_zaliha" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mjerna_jedinica">
+              <PropertyRef Name="id_mjerna_jedinica" />
+            </Principal>
+            <Dependent Role="Stanje_zaliha">
+              <PropertyRef Name="id_mjerna_jedinica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stanje_zaliha_Namirnica">
+          <End Role="Namirnica" Type="Self.Namirnica" Multiplicity="1" />
+          <End Role="Stanje_zaliha" Type="Self.Stanje_zaliha" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Namirnica">
+              <PropertyRef Name="id_namirnica" />
+            </Principal>
+            <Dependent Role="Stanje_zaliha">
+              <PropertyRef Name="id_namirnica" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -158,54 +325,6 @@ warning 6002: The table/view 'PI21-13_DB.dbo.Narucuje' does not have a primary k
             </Principal>
             <Dependent Role="Korisnik">
               <PropertyRef Name="tip_korisnik" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Na_meniju_Jelo_id_jelo_fk">
-          <End Role="Jelo" Type="Self.Jelo" Multiplicity="1" />
-          <End Role="Na_meniju" Type="Self.Na_meniju" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Jelo">
-              <PropertyRef Name="id_jelo" />
-            </Principal>
-            <Dependent Role="Na_meniju">
-              <PropertyRef Name="id_jelo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Na_meniju_Meni_id_meni_fk">
-          <End Role="Meni" Type="Self.Meni" Multiplicity="1" />
-          <End Role="Na_meniju" Type="Self.Na_meniju" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Meni">
-              <PropertyRef Name="id_meni" />
-            </Principal>
-            <Dependent Role="Na_meniju">
-              <PropertyRef Name="id_meni" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Narucuje_Jelo_id_jelo_fk">
-          <End Role="Jelo" Type="Self.Jelo" Multiplicity="1" />
-          <End Role="Narucuje" Type="Self.Narucuje" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Jelo">
-              <PropertyRef Name="id_jelo" />
-            </Principal>
-            <Dependent Role="Narucuje">
-              <PropertyRef Name="id_jelo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Narucuje_Narudzba_id_narudzba_fk">
-          <End Role="Narudzba" Type="Self.Narudzba" Multiplicity="1" />
-          <End Role="Narucuje" Type="Self.Narucuje" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Narudzba">
-              <PropertyRef Name="id_narudzba" />
-            </Principal>
-            <Dependent Role="Narucuje">
-              <PropertyRef Name="id_narudzba" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -252,33 +371,68 @@ warning 6002: The table/view 'PI21-13_DB.dbo.Narucuje' does not have a primary k
         <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="Dostava" EntityType="Self.Dostava" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Jelo" EntityType="Self.Jelo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Jelo_sadrzi" EntityType="Self.Jelo_sadrzi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Kasa" EntityType="Self.Kasa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kategorija" EntityType="Self.Kategorija" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Korisnik" EntityType="Self.Korisnik" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Meni" EntityType="Self.Meni" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mjerna_jedinica" EntityType="Self.Mjerna_jedinica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Na_meniju" EntityType="Self.Na_meniju" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Namirnica" EntityType="Self.Namirnica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Narucuje" EntityType="Self.Narucuje" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Narudzba" EntityType="Self.Narudzba" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Racun" EntityType="Self.Racun" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stanje_zaliha" EntityType="Self.Stanje_zaliha" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Stol" EntityType="Self.Stol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tip_korisnika" EntityType="Self.Tip_korisnika" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Na_meniju" EntityType="Self.Na_meniju" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Na_meniju].[id_meni] AS [id_meni], 
-    [Na_meniju].[id_jelo] AS [id_jelo]
-    FROM [dbo].[Na_meniju] AS [Na_meniju]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Narucuje" EntityType="Self.Narucuje" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Narucuje].[id_narudzba] AS [id_narudzba], 
-    [Narucuje].[id_jelo] AS [id_jelo], 
-    [Narucuje].[kolicina] AS [kolicina]
-    FROM [dbo].[Narucuje] AS [Narucuje]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="Dostava_Korisnik_id_korisnik_fk" Association="Self.Dostava_Korisnik_id_korisnik_fk">
             <End Role="Korisnik" EntitySet="Korisnik" />
             <End Role="Dostava" EntitySet="Dostava" />
           </AssociationSet>
-          <AssociationSet Name="Dostava_Narudzba_id_narudzba_fk" Association="Self.Dostava_Narudzba_id_narudzba_fk">
-            <End Role="Narudzba" EntitySet="Narudzba" />
+          <AssociationSet Name="FK_Dostava_Racun" Association="Self.FK_Dostava_Racun">
+            <End Role="Racun" EntitySet="Racun" />
             <End Role="Dostava" EntitySet="Dostava" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Jelo_Kategorija" Association="Self.FK_Jelo_Kategorija">
+            <End Role="Kategorija" EntitySet="Kategorija" />
+            <End Role="Jelo" EntitySet="Jelo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Jelo_sadrzi_Jelo" Association="Self.FK_Jelo_sadrzi_Jelo">
+            <End Role="Jelo" EntitySet="Jelo" />
+            <End Role="Jelo_sadrzi" EntitySet="Jelo_sadrzi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Jelo_sadrzi_Namirnica" Association="Self.FK_Jelo_sadrzi_Namirnica">
+            <End Role="Namirnica" EntitySet="Namirnica" />
+            <End Role="Jelo_sadrzi" EntitySet="Jelo_sadrzi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Na_meniju_Jelo" Association="Self.FK_Na_meniju_Jelo">
+            <End Role="Jelo" EntitySet="Jelo" />
+            <End Role="Na_meniju" EntitySet="Na_meniju" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Na_meniju_Meni" Association="Self.FK_Na_meniju_Meni">
+            <End Role="Meni" EntitySet="Meni" />
+            <End Role="Na_meniju" EntitySet="Na_meniju" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Namirnica_Kategorija" Association="Self.FK_Namirnica_Kategorija">
+            <End Role="Kategorija" EntitySet="Kategorija" />
+            <End Role="Namirnica" EntitySet="Namirnica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Narucuje_Jelo" Association="Self.FK_Narucuje_Jelo">
+            <End Role="Jelo" EntitySet="Jelo" />
+            <End Role="Narucuje" EntitySet="Narucuje" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Narucuje_Narudzba" Association="Self.FK_Narucuje_Narudzba">
+            <End Role="Narudzba" EntitySet="Narudzba" />
+            <End Role="Narucuje" EntitySet="Narucuje" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stanje_zaliha_Mjerna_jedinica" Association="Self.FK_Stanje_zaliha_Mjerna_jedinica">
+            <End Role="Mjerna_jedinica" EntitySet="Mjerna_jedinica" />
+            <End Role="Stanje_zaliha" EntitySet="Stanje_zaliha" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stanje_zaliha_Namirnica" Association="Self.FK_Stanje_zaliha_Namirnica">
+            <End Role="Namirnica" EntitySet="Namirnica" />
+            <End Role="Stanje_zaliha" EntitySet="Stanje_zaliha" />
           </AssociationSet>
           <AssociationSet Name="Kasa_Racun_id_racun_fk" Association="Self.Kasa_Racun_id_racun_fk">
             <End Role="Racun" EntitySet="Racun" />
@@ -287,22 +441,6 @@ warning 6002: The table/view 'PI21-13_DB.dbo.Narucuje' does not have a primary k
           <AssociationSet Name="Korisnik_Tip_korisnika_id_tip_fk" Association="Self.Korisnik_Tip_korisnika_id_tip_fk">
             <End Role="Tip_korisnika" EntitySet="Tip_korisnika" />
             <End Role="Korisnik" EntitySet="Korisnik" />
-          </AssociationSet>
-          <AssociationSet Name="Na_meniju_Jelo_id_jelo_fk" Association="Self.Na_meniju_Jelo_id_jelo_fk">
-            <End Role="Jelo" EntitySet="Jelo" />
-            <End Role="Na_meniju" EntitySet="Na_meniju" />
-          </AssociationSet>
-          <AssociationSet Name="Na_meniju_Meni_id_meni_fk" Association="Self.Na_meniju_Meni_id_meni_fk">
-            <End Role="Meni" EntitySet="Meni" />
-            <End Role="Na_meniju" EntitySet="Na_meniju" />
-          </AssociationSet>
-          <AssociationSet Name="Narucuje_Jelo_id_jelo_fk" Association="Self.Narucuje_Jelo_id_jelo_fk">
-            <End Role="Jelo" EntitySet="Jelo" />
-            <End Role="Narucuje" EntitySet="Narucuje" />
-          </AssociationSet>
-          <AssociationSet Name="Narucuje_Narudzba_id_narudzba_fk" Association="Self.Narucuje_Narudzba_id_narudzba_fk">
-            <End Role="Narudzba" EntitySet="Narudzba" />
-            <End Role="Narucuje" EntitySet="Narucuje" />
           </AssociationSet>
           <AssociationSet Name="Narudzba_Korisnik_id_korisnik_fk" Association="Self.Narudzba_Korisnik_id_korisnik_fk">
             <End Role="Korisnik" EntitySet="Korisnik" />
@@ -317,34 +455,128 @@ warning 6002: The table/view 'PI21-13_DB.dbo.Narucuje' does not have a primary k
             <End Role="Racun" EntitySet="Racun" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Dostava" EntityType="Model.Dostava" />
+          <EntitySet Name="Jelo" EntityType="Model.Jelo" />
+          <EntitySet Name="Jelo_sadrzi" EntityType="Model.Jelo_sadrzi" />
+          <EntitySet Name="Kasa" EntityType="Model.Kasa" />
+          <EntitySet Name="Kategorija" EntityType="Model.Kategorija" />
+          <EntitySet Name="Korisnik" EntityType="Model.Korisnik" />
+          <EntitySet Name="Meni" EntityType="Model.Meni" />
+          <EntitySet Name="Mjerna_jedinica" EntityType="Model.Mjerna_jedinica" />
+          <EntitySet Name="Namirnica" EntityType="Model.Namirnica" />
+          <EntitySet Name="Narucuje" EntityType="Model.Narucuje" />
+          <EntitySet Name="Narudzba" EntityType="Model.Narudzba" />
+          <EntitySet Name="Racun" EntityType="Model.Racun" />
+          <EntitySet Name="Stanje_zaliha" EntityType="Model.Stanje_zaliha" />
+          <EntitySet Name="Stol" EntityType="Model.Stol" />
+          <EntitySet Name="sysdiagrams" EntityType="Model.sysdiagrams" />
+          <EntitySet Name="Tip_korisnika" EntityType="Model.Tip_korisnika" />
+          <AssociationSet Name="Dostava_Korisnik_id_korisnik_fk" Association="Model.Dostava_Korisnik_id_korisnik_fk">
+            <End Role="Korisnik" EntitySet="Korisnik" />
+            <End Role="Dostava" EntitySet="Dostava" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dostava_Racun" Association="Model.FK_Dostava_Racun">
+            <End Role="Racun" EntitySet="Racun" />
+            <End Role="Dostava" EntitySet="Dostava" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Jelo_Kategorija" Association="Model.FK_Jelo_Kategorija">
+            <End Role="Kategorija" EntitySet="Kategorija" />
+            <End Role="Jelo" EntitySet="Jelo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Jelo_sadrzi_Jelo" Association="Model.FK_Jelo_sadrzi_Jelo">
+            <End Role="Jelo" EntitySet="Jelo" />
+            <End Role="Jelo_sadrzi" EntitySet="Jelo_sadrzi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Narucuje_Jelo" Association="Model.FK_Narucuje_Jelo">
+            <End Role="Jelo" EntitySet="Jelo" />
+            <End Role="Narucuje" EntitySet="Narucuje" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Jelo_sadrzi_Namirnica" Association="Model.FK_Jelo_sadrzi_Namirnica">
+            <End Role="Namirnica" EntitySet="Namirnica" />
+            <End Role="Jelo_sadrzi" EntitySet="Jelo_sadrzi" />
+          </AssociationSet>
+          <AssociationSet Name="Kasa_Racun_id_racun_fk" Association="Model.Kasa_Racun_id_racun_fk">
+            <End Role="Racun" EntitySet="Racun" />
+            <End Role="Kasa" EntitySet="Kasa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Namirnica_Kategorija" Association="Model.FK_Namirnica_Kategorija">
+            <End Role="Kategorija" EntitySet="Kategorija" />
+            <End Role="Namirnica" EntitySet="Namirnica" />
+          </AssociationSet>
+          <AssociationSet Name="Korisnik_Tip_korisnika_id_tip_fk" Association="Model.Korisnik_Tip_korisnika_id_tip_fk">
+            <End Role="Tip_korisnika" EntitySet="Tip_korisnika" />
+            <End Role="Korisnik" EntitySet="Korisnik" />
+          </AssociationSet>
+          <AssociationSet Name="Narudzba_Korisnik_id_korisnik_fk" Association="Model.Narudzba_Korisnik_id_korisnik_fk">
+            <End Role="Korisnik" EntitySet="Korisnik" />
+            <End Role="Narudzba" EntitySet="Narudzba" />
+          </AssociationSet>
+          <AssociationSet Name="Racun_Korisnik_id_korisnik_fk" Association="Model.Racun_Korisnik_id_korisnik_fk">
+            <End Role="Korisnik" EntitySet="Korisnik" />
+            <End Role="Racun" EntitySet="Racun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stanje_zaliha_Mjerna_jedinica" Association="Model.FK_Stanje_zaliha_Mjerna_jedinica">
+            <End Role="Mjerna_jedinica" EntitySet="Mjerna_jedinica" />
+            <End Role="Stanje_zaliha" EntitySet="Stanje_zaliha" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stanje_zaliha_Namirnica" Association="Model.FK_Stanje_zaliha_Namirnica">
+            <End Role="Namirnica" EntitySet="Namirnica" />
+            <End Role="Stanje_zaliha" EntitySet="Stanje_zaliha" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Narucuje_Narudzba" Association="Model.FK_Narucuje_Narudzba">
+            <End Role="Narudzba" EntitySet="Narudzba" />
+            <End Role="Narucuje" EntitySet="Narucuje" />
+          </AssociationSet>
+          <AssociationSet Name="Racun_Narudzba_id_narudzba_fk" Association="Model.Racun_Narudzba_id_narudzba_fk">
+            <End Role="Narudzba" EntitySet="Narudzba" />
+            <End Role="Racun" EntitySet="Racun" />
+          </AssociationSet>
+          <AssociationSet Name="Na_meniju" Association="Model.Na_meniju">
+            <End Role="Jelo" EntitySet="Jelo" />
+            <End Role="Meni" EntitySet="Meni" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Dostava">
           <Key>
             <PropertyRef Name="id_dostava" />
           </Key>
           <Property Name="id_dostava" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_korisnik" Type="Int32" Nullable="false" />
-          <Property Name="id_narudzba" Type="Int32" Nullable="false" />
-          <Property Name="adresa_dostave" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="broj_telefona" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_racun" Type="Int32" Nullable="false" />
+          <Property Name="adresa_dostave" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="broj_telefona" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="cijena_dostave" Type="Double" Nullable="false" />
-          <NavigationProperty Name="Korisnik" Relationship="Self.Dostava_Korisnik_id_korisnik_fk" FromRole="Dostava" ToRole="Korisnik" />
-          <NavigationProperty Name="Narudzba" Relationship="Self.Dostava_Narudzba_id_narudzba_fk" FromRole="Dostava" ToRole="Narudzba" />
+          <NavigationProperty Name="Korisnik" Relationship="Model.Dostava_Korisnik_id_korisnik_fk" FromRole="Dostava" ToRole="Korisnik" />
+          <NavigationProperty Name="Racun" Relationship="Model.FK_Dostava_Racun" FromRole="Dostava" ToRole="Racun" />
         </EntityType>
         <EntityType Name="Jelo">
           <Key>
             <PropertyRef Name="id_jelo" />
           </Key>
           <Property Name="id_jelo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="naziv_jela" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="cijena" Type="Double" Nullable="false" />
-          <Property Name="opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Narucuje" Relationship="Self.Narucuje_Jelo_id_jelo_fk" FromRole="Jelo" ToRole="Narucuje" />
-          <NavigationProperty Name="Meni" Relationship="Self.Na_meniju" FromRole="Jelo" ToRole="Meni" />
+          <Property Name="id_kategorija" Type="Int32" Nullable="false" />
+          <Property Name="naziv_jela" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cijena_jela" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Kategorija" Relationship="Model.FK_Jelo_Kategorija" FromRole="Jelo" ToRole="Kategorija" />
+          <NavigationProperty Name="Jelo_sadrzi" Relationship="Model.FK_Jelo_sadrzi_Jelo" FromRole="Jelo" ToRole="Jelo_sadrzi" />
+          <NavigationProperty Name="Narucuje" Relationship="Model.FK_Narucuje_Jelo" FromRole="Jelo" ToRole="Narucuje" />
+          <NavigationProperty Name="Meni" Relationship="Model.Na_meniju" FromRole="Jelo" ToRole="Meni" />
+        </EntityType>
+        <EntityType Name="Jelo_sadrzi">
+          <Key>
+            <PropertyRef Name="id_jelo" />
+            <PropertyRef Name="id_namirnica" />
+          </Key>
+          <Property Name="id_jelo" Type="Int32" Nullable="false" />
+          <Property Name="id_namirnica" Type="Int32" Nullable="false" />
+          <Property Name="kolicina" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Jelo" Relationship="Model.FK_Jelo_sadrzi_Jelo" FromRole="Jelo_sadrzi" ToRole="Jelo" />
+          <NavigationProperty Name="Namirnica" Relationship="Model.FK_Jelo_sadrzi_Namirnica" FromRole="Jelo_sadrzi" ToRole="Namirnica" />
         </EntityType>
         <EntityType Name="Kasa">
           <Key>
@@ -354,7 +586,16 @@ warning 6002: The table/view 'PI21-13_DB.dbo.Narucuje' does not have a primary k
           <Property Name="stanje" Type="Double" Nullable="false" />
           <Property Name="datum" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="id_racun" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Racun" Relationship="Self.Kasa_Racun_id_racun_fk" FromRole="Kasa" ToRole="Racun" />
+          <NavigationProperty Name="Racun" Relationship="Model.Kasa_Racun_id_racun_fk" FromRole="Kasa" ToRole="Racun" />
+        </EntityType>
+        <EntityType Name="Kategorija">
+          <Key>
+            <PropertyRef Name="id_kategorija" />
+          </Key>
+          <Property Name="id_kategorija" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="naziv_kategorije" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Jelo" Relationship="Model.FK_Jelo_Kategorija" FromRole="Kategorija" ToRole="Jelo" />
+          <NavigationProperty Name="Namirnica" Relationship="Model.FK_Namirnica_Kategorija" FromRole="Kategorija" ToRole="Namirnica" />
         </EntityType>
         <EntityType Name="Korisnik">
           <Key>
@@ -362,24 +603,55 @@ warning 6002: The table/view 'PI21-13_DB.dbo.Narucuje' does not have a primary k
           </Key>
           <Property Name="id_korisnik" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="tip_korisnik" Type="Int32" Nullable="false" />
-          <Property Name="korisnicko_ime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="lozinka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Dostava" Relationship="Self.Dostava_Korisnik_id_korisnik_fk" FromRole="Korisnik" ToRole="Dostava" />
-          <NavigationProperty Name="Tip_korisnika" Relationship="Self.Korisnik_Tip_korisnika_id_tip_fk" FromRole="Korisnik" ToRole="Tip_korisnika" />
-          <NavigationProperty Name="Narudzba" Relationship="Self.Narudzba_Korisnik_id_korisnik_fk" FromRole="Korisnik" ToRole="Narudzba" />
-          <NavigationProperty Name="Racun" Relationship="Self.Racun_Korisnik_id_korisnik_fk" FromRole="Korisnik" ToRole="Racun" />
+          <Property Name="korisnicko_ime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lozinka" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="prezime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Dostava" Relationship="Model.Dostava_Korisnik_id_korisnik_fk" FromRole="Korisnik" ToRole="Dostava" />
+          <NavigationProperty Name="Tip_korisnika" Relationship="Model.Korisnik_Tip_korisnika_id_tip_fk" FromRole="Korisnik" ToRole="Tip_korisnika" />
+          <NavigationProperty Name="Narudzba" Relationship="Model.Narudzba_Korisnik_id_korisnik_fk" FromRole="Korisnik" ToRole="Narudzba" />
+          <NavigationProperty Name="Racun" Relationship="Model.Racun_Korisnik_id_korisnik_fk" FromRole="Korisnik" ToRole="Racun" />
         </EntityType>
         <EntityType Name="Meni">
           <Key>
             <PropertyRef Name="id_meni" />
           </Key>
           <Property Name="id_meni" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="naziv" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="datum" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Jelo" Relationship="Self.Na_meniju" FromRole="Meni" ToRole="Jelo" />
+          <NavigationProperty Name="Jelo" Relationship="Model.Na_meniju" FromRole="Meni" ToRole="Jelo" />
+        </EntityType>
+        <EntityType Name="Mjerna_jedinica">
+          <Key>
+            <PropertyRef Name="id_mjerna_jedinica" />
+          </Key>
+          <Property Name="id_mjerna_jedinica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="oznaka_mjerne_jedinice" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Stanje_zaliha" Relationship="Model.FK_Stanje_zaliha_Mjerna_jedinica" FromRole="Mjerna_jedinica" ToRole="Stanje_zaliha" />
+        </EntityType>
+        <EntityType Name="Namirnica">
+          <Key>
+            <PropertyRef Name="id_namirnica" />
+          </Key>
+          <Property Name="id_namirnica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="naziv_namirnice" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_kategorije" Type="Int32" Nullable="false" />
+          <Property Name="temperatura_pohrane" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Jelo_sadrzi" Relationship="Model.FK_Jelo_sadrzi_Namirnica" FromRole="Namirnica" ToRole="Jelo_sadrzi" />
+          <NavigationProperty Name="Kategorija" Relationship="Model.FK_Namirnica_Kategorija" FromRole="Namirnica" ToRole="Kategorija" />
+          <NavigationProperty Name="Stanje_zaliha" Relationship="Model.FK_Stanje_zaliha_Namirnica" FromRole="Namirnica" ToRole="Stanje_zaliha" />
+        </EntityType>
+        <EntityType Name="Narucuje">
+          <Key>
+            <PropertyRef Name="id_narudzba" />
+            <PropertyRef Name="id_jelo" />
+          </Key>
+          <Property Name="id_narudzba" Type="Int32" Nullable="false" />
+          <Property Name="id_jelo" Type="Int32" Nullable="false" />
+          <Property Name="kolicina" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Jelo" Relationship="Model.FK_Narucuje_Jelo" FromRole="Narucuje" ToRole="Jelo" />
+          <NavigationProperty Name="Narudzba" Relationship="Model.FK_Narucuje_Narudzba" FromRole="Narucuje" ToRole="Narudzba" />
         </EntityType>
         <EntityType Name="Narudzba">
           <Key>
@@ -388,10 +660,9 @@ warning 6002: The table/view 'PI21-13_DB.dbo.Narucuje' does not have a primary k
           <Property Name="id_narudzba" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_korisnik" Type="Int32" Nullable="false" />
           <Property Name="datum_vrijeme" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Dostava" Relationship="Self.Dostava_Narudzba_id_narudzba_fk" FromRole="Narudzba" ToRole="Dostava" />
-          <NavigationProperty Name="Korisnik" Relationship="Self.Narudzba_Korisnik_id_korisnik_fk" FromRole="Narudzba" ToRole="Korisnik" />
-          <NavigationProperty Name="Narucuje" Relationship="Self.Narucuje_Narudzba_id_narudzba_fk" FromRole="Narudzba" ToRole="Narucuje" />
-          <NavigationProperty Name="Racun" Relationship="Self.Racun_Narudzba_id_narudzba_fk" FromRole="Narudzba" ToRole="Racun" />
+          <NavigationProperty Name="Korisnik" Relationship="Model.Narudzba_Korisnik_id_korisnik_fk" FromRole="Narudzba" ToRole="Korisnik" />
+          <NavigationProperty Name="Narucuje" Relationship="Model.FK_Narucuje_Narudzba" FromRole="Narudzba" ToRole="Narucuje" />
+          <NavigationProperty Name="Racun" Relationship="Model.Racun_Narudzba_id_narudzba_fk" FromRole="Narudzba" ToRole="Racun" />
         </EntityType>
         <EntityType Name="Racun">
           <Key>
@@ -402,9 +673,22 @@ warning 6002: The table/view 'PI21-13_DB.dbo.Narucuje' does not have a primary k
           <Property Name="id_korisnik" Type="Int32" Nullable="false" />
           <Property Name="iznos" Type="Double" Nullable="false" />
           <Property Name="datum_vrijeme" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Kasa" Relationship="Self.Kasa_Racun_id_racun_fk" FromRole="Racun" ToRole="Kasa" />
-          <NavigationProperty Name="Korisnik" Relationship="Self.Racun_Korisnik_id_korisnik_fk" FromRole="Racun" ToRole="Korisnik" />
-          <NavigationProperty Name="Narudzba" Relationship="Self.Racun_Narudzba_id_narudzba_fk" FromRole="Racun" ToRole="Narudzba" />
+          <NavigationProperty Name="Dostava" Relationship="Model.FK_Dostava_Racun" FromRole="Racun" ToRole="Dostava" />
+          <NavigationProperty Name="Kasa" Relationship="Model.Kasa_Racun_id_racun_fk" FromRole="Racun" ToRole="Kasa" />
+          <NavigationProperty Name="Korisnik" Relationship="Model.Racun_Korisnik_id_korisnik_fk" FromRole="Racun" ToRole="Korisnik" />
+          <NavigationProperty Name="Narudzba" Relationship="Model.Racun_Narudzba_id_narudzba_fk" FromRole="Racun" ToRole="Narudzba" />
+        </EntityType>
+        <EntityType Name="Stanje_zaliha">
+          <Key>
+            <PropertyRef Name="id_stanje_zalihe" />
+          </Key>
+          <Property Name="id_stanje_zalihe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_namirnica" Type="Int32" Nullable="false" />
+          <Property Name="kolicina" Type="Double" Nullable="false" />
+          <Property Name="id_mjerna_jedinica" Type="Int32" Nullable="false" />
+          <Property Name="datum_vrijeme" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Mjerna_jedinica" Relationship="Model.FK_Stanje_zaliha_Mjerna_jedinica" FromRole="Stanje_zaliha" ToRole="Mjerna_jedinica" />
+          <NavigationProperty Name="Namirnica" Relationship="Model.FK_Stanje_zaliha_Namirnica" FromRole="Stanje_zaliha" ToRole="Namirnica" />
         </EntityType>
         <EntityType Name="Stol">
           <Key>
@@ -415,30 +699,28 @@ warning 6002: The table/view 'PI21-13_DB.dbo.Narucuje' does not have a primary k
           <Property Name="broj_mjesta" Type="Int32" Nullable="false" />
           <Property Name="rezerviran" Type="Boolean" Nullable="false" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="Tip_korisnika">
           <Key>
             <PropertyRef Name="id_tip" />
           </Key>
           <Property Name="id_tip" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="naziv" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Korisnik" Relationship="Self.Korisnik_Tip_korisnika_id_tip_fk" FromRole="Tip_korisnika" ToRole="Korisnik" />
-        </EntityType>
-        <EntityType Name="Narucuje">
-          <Key>
-            <PropertyRef Name="id_narudzba" />
-            <PropertyRef Name="id_jelo" />
-            <PropertyRef Name="kolicina" />
-          </Key>
-          <Property Name="id_narudzba" Type="Int32" Nullable="false" />
-          <Property Name="id_jelo" Type="Int32" Nullable="false" />
-          <Property Name="kolicina" Type="Double" Nullable="false" />
-          <NavigationProperty Name="Jelo" Relationship="Self.Narucuje_Jelo_id_jelo_fk" FromRole="Narucuje" ToRole="Jelo" />
-          <NavigationProperty Name="Narudzba" Relationship="Self.Narucuje_Narudzba_id_narudzba_fk" FromRole="Narucuje" ToRole="Narudzba" />
+          <NavigationProperty Name="Korisnik" Relationship="Model.Korisnik_Tip_korisnika_id_tip_fk" FromRole="Tip_korisnika" ToRole="Korisnik" />
         </EntityType>
         <Association Name="Dostava_Korisnik_id_korisnik_fk">
-          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="1" />
-          <End Role="Dostava" Type="Self.Dostava" Multiplicity="*" />
+          <End Type="Model.Korisnik" Role="Korisnik" Multiplicity="1" />
+          <End Type="Model.Dostava" Role="Dostava" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Korisnik">
               <PropertyRef Name="id_korisnik" />
@@ -448,21 +730,45 @@ warning 6002: The table/view 'PI21-13_DB.dbo.Narucuje' does not have a primary k
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Dostava_Narudzba_id_narudzba_fk">
-          <End Role="Narudzba" Type="Self.Narudzba" Multiplicity="1" />
-          <End Role="Dostava" Type="Self.Dostava" Multiplicity="*" />
+        <Association Name="FK_Dostava_Racun">
+          <End Type="Model.Racun" Role="Racun" Multiplicity="1" />
+          <End Type="Model.Dostava" Role="Dostava" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Narudzba">
-              <PropertyRef Name="id_narudzba" />
+            <Principal Role="Racun">
+              <PropertyRef Name="id_racun" />
             </Principal>
             <Dependent Role="Dostava">
-              <PropertyRef Name="id_narudzba" />
+              <PropertyRef Name="id_racun" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Narucuje_Jelo_id_jelo_fk">
-          <End Role="Jelo" Type="Self.Jelo" Multiplicity="1" />
-          <End Role="Narucuje" Type="Self.Narucuje" Multiplicity="*" />
+        <Association Name="FK_Jelo_Kategorija">
+          <End Type="Model.Kategorija" Role="Kategorija" Multiplicity="1" />
+          <End Type="Model.Jelo" Role="Jelo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategorija">
+              <PropertyRef Name="id_kategorija" />
+            </Principal>
+            <Dependent Role="Jelo">
+              <PropertyRef Name="id_kategorija" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Jelo_sadrzi_Jelo">
+          <End Type="Model.Jelo" Role="Jelo" Multiplicity="1" />
+          <End Type="Model.Jelo_sadrzi" Role="Jelo_sadrzi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jelo">
+              <PropertyRef Name="id_jelo" />
+            </Principal>
+            <Dependent Role="Jelo_sadrzi">
+              <PropertyRef Name="id_jelo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Narucuje_Jelo">
+          <End Type="Model.Jelo" Role="Jelo" Multiplicity="1" />
+          <End Type="Model.Narucuje" Role="Narucuje" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Jelo">
               <PropertyRef Name="id_jelo" />
@@ -472,9 +778,21 @@ warning 6002: The table/view 'PI21-13_DB.dbo.Narucuje' does not have a primary k
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Jelo_sadrzi_Namirnica">
+          <End Type="Model.Namirnica" Role="Namirnica" Multiplicity="1" />
+          <End Type="Model.Jelo_sadrzi" Role="Jelo_sadrzi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Namirnica">
+              <PropertyRef Name="id_namirnica" />
+            </Principal>
+            <Dependent Role="Jelo_sadrzi">
+              <PropertyRef Name="id_namirnica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="Kasa_Racun_id_racun_fk">
-          <End Role="Racun" Type="Self.Racun" Multiplicity="1" />
-          <End Role="Kasa" Type="Self.Kasa" Multiplicity="*" />
+          <End Type="Model.Racun" Role="Racun" Multiplicity="1" />
+          <End Type="Model.Kasa" Role="Kasa" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Racun">
               <PropertyRef Name="id_racun" />
@@ -484,11 +802,23 @@ warning 6002: The table/view 'PI21-13_DB.dbo.Narucuje' does not have a primary k
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Namirnica_Kategorija">
+          <End Type="Model.Kategorija" Role="Kategorija" Multiplicity="1" />
+          <End Type="Model.Namirnica" Role="Namirnica" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Kategorija">
+              <PropertyRef Name="id_kategorija" />
+            </Principal>
+            <Dependent Role="Namirnica">
+              <PropertyRef Name="id_namirnica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="Korisnik_Tip_korisnika_id_tip_fk">
-          <End Role="Tip_korisnika" Type="Self.Tip_korisnika" Multiplicity="1">
+          <End Type="Model.Tip_korisnika" Role="Tip_korisnika" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="*" />
+          <End Type="Model.Korisnik" Role="Korisnik" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tip_korisnika">
               <PropertyRef Name="id_tip" />
@@ -499,10 +829,10 @@ warning 6002: The table/view 'PI21-13_DB.dbo.Narucuje' does not have a primary k
           </ReferentialConstraint>
         </Association>
         <Association Name="Narudzba_Korisnik_id_korisnik_fk">
-          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="1">
+          <End Type="Model.Korisnik" Role="Korisnik" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Narudzba" Type="Self.Narudzba" Multiplicity="*" />
+          <End Type="Model.Narudzba" Role="Narudzba" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Korisnik">
               <PropertyRef Name="id_korisnik" />
@@ -513,8 +843,8 @@ warning 6002: The table/view 'PI21-13_DB.dbo.Narucuje' does not have a primary k
           </ReferentialConstraint>
         </Association>
         <Association Name="Racun_Korisnik_id_korisnik_fk">
-          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="1" />
-          <End Role="Racun" Type="Self.Racun" Multiplicity="*" />
+          <End Type="Model.Korisnik" Role="Korisnik" Multiplicity="1" />
+          <End Type="Model.Racun" Role="Racun" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Korisnik">
               <PropertyRef Name="id_korisnik" />
@@ -524,9 +854,33 @@ warning 6002: The table/view 'PI21-13_DB.dbo.Narucuje' does not have a primary k
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Narucuje_Narudzba_id_narudzba_fk">
-          <End Role="Narudzba" Type="Self.Narudzba" Multiplicity="1" />
-          <End Role="Narucuje" Type="Self.Narucuje" Multiplicity="*" />
+        <Association Name="FK_Stanje_zaliha_Mjerna_jedinica">
+          <End Type="Model.Mjerna_jedinica" Role="Mjerna_jedinica" Multiplicity="1" />
+          <End Type="Model.Stanje_zaliha" Role="Stanje_zaliha" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mjerna_jedinica">
+              <PropertyRef Name="id_mjerna_jedinica" />
+            </Principal>
+            <Dependent Role="Stanje_zaliha">
+              <PropertyRef Name="id_mjerna_jedinica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stanje_zaliha_Namirnica">
+          <End Type="Model.Namirnica" Role="Namirnica" Multiplicity="1" />
+          <End Type="Model.Stanje_zaliha" Role="Stanje_zaliha" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Namirnica">
+              <PropertyRef Name="id_namirnica" />
+            </Principal>
+            <Dependent Role="Stanje_zaliha">
+              <PropertyRef Name="id_namirnica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Narucuje_Narudzba">
+          <End Type="Model.Narudzba" Role="Narudzba" Multiplicity="1" />
+          <End Type="Model.Narucuje" Role="Narucuje" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Narudzba">
               <PropertyRef Name="id_narudzba" />
@@ -537,10 +891,10 @@ warning 6002: The table/view 'PI21-13_DB.dbo.Narucuje' does not have a primary k
           </ReferentialConstraint>
         </Association>
         <Association Name="Racun_Narudzba_id_narudzba_fk">
-          <End Role="Narudzba" Type="Self.Narudzba" Multiplicity="1">
+          <End Type="Model.Narudzba" Role="Narudzba" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Racun" Type="Self.Racun" Multiplicity="*" />
+          <End Type="Model.Racun" Role="Racun" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Narudzba">
               <PropertyRef Name="id_narudzba" />
@@ -551,61 +905,9 @@ warning 6002: The table/view 'PI21-13_DB.dbo.Narucuje' does not have a primary k
           </ReferentialConstraint>
         </Association>
         <Association Name="Na_meniju">
-          <End Role="Jelo" Type="Self.Jelo" Multiplicity="*" />
-          <End Role="Meni" Type="Self.Meni" Multiplicity="*" />
+          <End Type="Model.Jelo" Role="Jelo" Multiplicity="*" />
+          <End Type="Model.Meni" Role="Meni" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Dostava" EntityType="Self.Dostava" />
-          <EntitySet Name="Jelo" EntityType="Self.Jelo" />
-          <EntitySet Name="Kasa" EntityType="Self.Kasa" />
-          <EntitySet Name="Korisnik" EntityType="Self.Korisnik" />
-          <EntitySet Name="Meni" EntityType="Self.Meni" />
-          <EntitySet Name="Narudzba" EntityType="Self.Narudzba" />
-          <EntitySet Name="Racun" EntityType="Self.Racun" />
-          <EntitySet Name="Stol" EntityType="Self.Stol" />
-          <EntitySet Name="Tip_korisnika" EntityType="Self.Tip_korisnika" />
-          <EntitySet Name="Narucuje" EntityType="Self.Narucuje" />
-          <AssociationSet Name="Dostava_Korisnik_id_korisnik_fk" Association="Self.Dostava_Korisnik_id_korisnik_fk">
-            <End Role="Korisnik" EntitySet="Korisnik" />
-            <End Role="Dostava" EntitySet="Dostava" />
-          </AssociationSet>
-          <AssociationSet Name="Dostava_Narudzba_id_narudzba_fk" Association="Self.Dostava_Narudzba_id_narudzba_fk">
-            <End Role="Narudzba" EntitySet="Narudzba" />
-            <End Role="Dostava" EntitySet="Dostava" />
-          </AssociationSet>
-          <AssociationSet Name="Narucuje_Jelo_id_jelo_fk" Association="Self.Narucuje_Jelo_id_jelo_fk">
-            <End Role="Jelo" EntitySet="Jelo" />
-            <End Role="Narucuje" EntitySet="Narucuje" />
-          </AssociationSet>
-          <AssociationSet Name="Kasa_Racun_id_racun_fk" Association="Self.Kasa_Racun_id_racun_fk">
-            <End Role="Racun" EntitySet="Racun" />
-            <End Role="Kasa" EntitySet="Kasa" />
-          </AssociationSet>
-          <AssociationSet Name="Korisnik_Tip_korisnika_id_tip_fk" Association="Self.Korisnik_Tip_korisnika_id_tip_fk">
-            <End Role="Tip_korisnika" EntitySet="Tip_korisnika" />
-            <End Role="Korisnik" EntitySet="Korisnik" />
-          </AssociationSet>
-          <AssociationSet Name="Narudzba_Korisnik_id_korisnik_fk" Association="Self.Narudzba_Korisnik_id_korisnik_fk">
-            <End Role="Korisnik" EntitySet="Korisnik" />
-            <End Role="Narudzba" EntitySet="Narudzba" />
-          </AssociationSet>
-          <AssociationSet Name="Racun_Korisnik_id_korisnik_fk" Association="Self.Racun_Korisnik_id_korisnik_fk">
-            <End Role="Korisnik" EntitySet="Korisnik" />
-            <End Role="Racun" EntitySet="Racun" />
-          </AssociationSet>
-          <AssociationSet Name="Narucuje_Narudzba_id_narudzba_fk" Association="Self.Narucuje_Narudzba_id_narudzba_fk">
-            <End Role="Narudzba" EntitySet="Narudzba" />
-            <End Role="Narucuje" EntitySet="Narucuje" />
-          </AssociationSet>
-          <AssociationSet Name="Racun_Narudzba_id_narudzba_fk" Association="Self.Racun_Narudzba_id_narudzba_fk">
-            <End Role="Narudzba" EntitySet="Narudzba" />
-            <End Role="Racun" EntitySet="Racun" />
-          </AssociationSet>
-          <AssociationSet Name="Na_meniju" Association="Self.Na_meniju">
-            <End Role="Jelo" EntitySet="Jelo" />
-            <End Role="Meni" EntitySet="Meni" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -615,111 +917,168 @@ warning 6002: The table/view 'PI21-13_DB.dbo.Narucuje' does not have a primary k
           <EntitySetMapping Name="Dostava">
             <EntityTypeMapping TypeName="Model.Dostava">
               <MappingFragment StoreEntitySet="Dostava">
-                <ScalarProperty Name="id_dostava" ColumnName="id_dostava" />
-                <ScalarProperty Name="id_korisnik" ColumnName="id_korisnik" />
-                <ScalarProperty Name="id_narudzba" ColumnName="id_narudzba" />
-                <ScalarProperty Name="adresa_dostave" ColumnName="adresa_dostave" />
-                <ScalarProperty Name="broj_telefona" ColumnName="broj_telefona" />
                 <ScalarProperty Name="cijena_dostave" ColumnName="cijena_dostave" />
+                <ScalarProperty Name="broj_telefona" ColumnName="broj_telefona" />
+                <ScalarProperty Name="adresa_dostave" ColumnName="adresa_dostave" />
+                <ScalarProperty Name="id_racun" ColumnName="id_racun" />
+                <ScalarProperty Name="id_korisnik" ColumnName="id_korisnik" />
+                <ScalarProperty Name="id_dostava" ColumnName="id_dostava" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Jelo">
             <EntityTypeMapping TypeName="Model.Jelo">
               <MappingFragment StoreEntitySet="Jelo">
-                <ScalarProperty Name="id_jelo" ColumnName="id_jelo" />
+                <ScalarProperty Name="cijena_jela" ColumnName="cijena_jela" />
                 <ScalarProperty Name="naziv_jela" ColumnName="naziv_jela" />
-                <ScalarProperty Name="cijena" ColumnName="cijena" />
-                <ScalarProperty Name="opis" ColumnName="opis" />
+                <ScalarProperty Name="id_kategorija" ColumnName="id_kategorija" />
+                <ScalarProperty Name="id_jelo" ColumnName="id_jelo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jelo_sadrzi">
+            <EntityTypeMapping TypeName="Model.Jelo_sadrzi">
+              <MappingFragment StoreEntitySet="Jelo_sadrzi">
+                <ScalarProperty Name="kolicina" ColumnName="kolicina" />
+                <ScalarProperty Name="id_namirnica" ColumnName="id_namirnica" />
+                <ScalarProperty Name="id_jelo" ColumnName="id_jelo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Kasa">
             <EntityTypeMapping TypeName="Model.Kasa">
               <MappingFragment StoreEntitySet="Kasa">
-                <ScalarProperty Name="id_kase" ColumnName="id_kase" />
-                <ScalarProperty Name="stanje" ColumnName="stanje" />
-                <ScalarProperty Name="datum" ColumnName="datum" />
                 <ScalarProperty Name="id_racun" ColumnName="id_racun" />
+                <ScalarProperty Name="datum" ColumnName="datum" />
+                <ScalarProperty Name="stanje" ColumnName="stanje" />
+                <ScalarProperty Name="id_kase" ColumnName="id_kase" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kategorija">
+            <EntityTypeMapping TypeName="Model.Kategorija">
+              <MappingFragment StoreEntitySet="Kategorija">
+                <ScalarProperty Name="naziv_kategorije" ColumnName="naziv_kategorije" />
+                <ScalarProperty Name="id_kategorija" ColumnName="id_kategorija" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Korisnik">
             <EntityTypeMapping TypeName="Model.Korisnik">
               <MappingFragment StoreEntitySet="Korisnik">
-                <ScalarProperty Name="id_korisnik" ColumnName="id_korisnik" />
-                <ScalarProperty Name="tip_korisnik" ColumnName="tip_korisnik" />
-                <ScalarProperty Name="korisnicko_ime" ColumnName="korisnicko_ime" />
-                <ScalarProperty Name="lozinka" ColumnName="lozinka" />
-                <ScalarProperty Name="ime" ColumnName="ime" />
-                <ScalarProperty Name="prezime" ColumnName="prezime" />
                 <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="prezime" ColumnName="prezime" />
+                <ScalarProperty Name="ime" ColumnName="ime" />
+                <ScalarProperty Name="lozinka" ColumnName="lozinka" />
+                <ScalarProperty Name="korisnicko_ime" ColumnName="korisnicko_ime" />
+                <ScalarProperty Name="tip_korisnik" ColumnName="tip_korisnik" />
+                <ScalarProperty Name="id_korisnik" ColumnName="id_korisnik" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Meni">
             <EntityTypeMapping TypeName="Model.Meni">
               <MappingFragment StoreEntitySet="Meni">
-                <ScalarProperty Name="id_meni" ColumnName="id_meni" />
-                <ScalarProperty Name="naziv" ColumnName="naziv" />
                 <ScalarProperty Name="datum" ColumnName="datum" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Narudzba">
-            <EntityTypeMapping TypeName="Model.Narudzba">
-              <MappingFragment StoreEntitySet="Narudzba">
-                <ScalarProperty Name="id_narudzba" ColumnName="id_narudzba" />
-                <ScalarProperty Name="id_korisnik" ColumnName="id_korisnik" />
-                <ScalarProperty Name="datum_vrijeme" ColumnName="datum_vrijeme" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Racun">
-            <EntityTypeMapping TypeName="Model.Racun">
-              <MappingFragment StoreEntitySet="Racun">
-                <ScalarProperty Name="id_racun" ColumnName="id_racun" />
-                <ScalarProperty Name="id_narudzba" ColumnName="id_narudzba" />
-                <ScalarProperty Name="id_korisnik" ColumnName="id_korisnik" />
-                <ScalarProperty Name="iznos" ColumnName="iznos" />
-                <ScalarProperty Name="datum_vrijeme" ColumnName="datum_vrijeme" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Stol">
-            <EntityTypeMapping TypeName="Model.Stol">
-              <MappingFragment StoreEntitySet="Stol">
-                <ScalarProperty Name="id_stol" ColumnName="id_stol" />
-                <ScalarProperty Name="opis" ColumnName="opis" />
-                <ScalarProperty Name="broj_mjesta" ColumnName="broj_mjesta" />
-                <ScalarProperty Name="rezerviran" ColumnName="rezerviran" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tip_korisnika">
-            <EntityTypeMapping TypeName="Model.Tip_korisnika">
-              <MappingFragment StoreEntitySet="Tip_korisnika">
-                <ScalarProperty Name="id_tip" ColumnName="id_tip" />
                 <ScalarProperty Name="naziv" ColumnName="naziv" />
-                <ScalarProperty Name="opis" ColumnName="opis" />
+                <ScalarProperty Name="id_meni" ColumnName="id_meni" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mjerna_jedinica">
+            <EntityTypeMapping TypeName="Model.Mjerna_jedinica">
+              <MappingFragment StoreEntitySet="Mjerna_jedinica">
+                <ScalarProperty Name="oznaka_mjerne_jedinice" ColumnName="oznaka_mjerne_jedinice" />
+                <ScalarProperty Name="id_mjerna_jedinica" ColumnName="id_mjerna_jedinica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Namirnica">
+            <EntityTypeMapping TypeName="Model.Namirnica">
+              <MappingFragment StoreEntitySet="Namirnica">
+                <ScalarProperty Name="temperatura_pohrane" ColumnName="temperatura_pohrane" />
+                <ScalarProperty Name="id_kategorije" ColumnName="id_kategorije" />
+                <ScalarProperty Name="naziv_namirnice" ColumnName="naziv_namirnice" />
+                <ScalarProperty Name="id_namirnica" ColumnName="id_namirnica" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Narucuje">
             <EntityTypeMapping TypeName="Model.Narucuje">
               <MappingFragment StoreEntitySet="Narucuje">
-                <ScalarProperty Name="id_narudzba" ColumnName="id_narudzba" />
-                <ScalarProperty Name="id_jelo" ColumnName="id_jelo" />
                 <ScalarProperty Name="kolicina" ColumnName="kolicina" />
+                <ScalarProperty Name="id_jelo" ColumnName="id_jelo" />
+                <ScalarProperty Name="id_narudzba" ColumnName="id_narudzba" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Narudzba">
+            <EntityTypeMapping TypeName="Model.Narudzba">
+              <MappingFragment StoreEntitySet="Narudzba">
+                <ScalarProperty Name="datum_vrijeme" ColumnName="datum_vrijeme" />
+                <ScalarProperty Name="id_korisnik" ColumnName="id_korisnik" />
+                <ScalarProperty Name="id_narudzba" ColumnName="id_narudzba" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Racun">
+            <EntityTypeMapping TypeName="Model.Racun">
+              <MappingFragment StoreEntitySet="Racun">
+                <ScalarProperty Name="datum_vrijeme" ColumnName="datum_vrijeme" />
+                <ScalarProperty Name="iznos" ColumnName="iznos" />
+                <ScalarProperty Name="id_korisnik" ColumnName="id_korisnik" />
+                <ScalarProperty Name="id_narudzba" ColumnName="id_narudzba" />
+                <ScalarProperty Name="id_racun" ColumnName="id_racun" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stanje_zaliha">
+            <EntityTypeMapping TypeName="Model.Stanje_zaliha">
+              <MappingFragment StoreEntitySet="Stanje_zaliha">
+                <ScalarProperty Name="datum_vrijeme" ColumnName="datum_vrijeme" />
+                <ScalarProperty Name="id_mjerna_jedinica" ColumnName="id_mjerna_jedinica" />
+                <ScalarProperty Name="kolicina" ColumnName="kolicina" />
+                <ScalarProperty Name="id_namirnica" ColumnName="id_namirnica" />
+                <ScalarProperty Name="id_stanje_zalihe" ColumnName="id_stanje_zalihe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stol">
+            <EntityTypeMapping TypeName="Model.Stol">
+              <MappingFragment StoreEntitySet="Stol">
+                <ScalarProperty Name="rezerviran" ColumnName="rezerviran" />
+                <ScalarProperty Name="broj_mjesta" ColumnName="broj_mjesta" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+                <ScalarProperty Name="id_stol" ColumnName="id_stol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tip_korisnika">
+            <EntityTypeMapping TypeName="Model.Tip_korisnika">
+              <MappingFragment StoreEntitySet="Tip_korisnika">
+                <ScalarProperty Name="opis" ColumnName="opis" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
+                <ScalarProperty Name="id_tip" ColumnName="id_tip" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <AssociationSetMapping Name="Na_meniju" TypeName="Model.Na_meniju" StoreEntitySet="Na_meniju">
-            <EndProperty Name="Jelo">
-              <ScalarProperty Name="id_jelo" ColumnName="id_jelo" />
-            </EndProperty>
             <EndProperty Name="Meni">
               <ScalarProperty Name="id_meni" ColumnName="id_meni" />
+            </EndProperty>
+            <EndProperty Name="Jelo">
+              <ScalarProperty Name="id_jelo" ColumnName="id_jelo" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>

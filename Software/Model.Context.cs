@@ -27,13 +27,19 @@ namespace ProgramskoIntenjerstvo
     
         public virtual DbSet<Dostava> Dostava { get; set; }
         public virtual DbSet<Jelo> Jelo { get; set; }
+        public virtual DbSet<Jelo_sadrzi> Jelo_sadrzi { get; set; }
         public virtual DbSet<Kasa> Kasa { get; set; }
+        public virtual DbSet<Kategorija> Kategorija { get; set; }
         public virtual DbSet<Korisnik> Korisnik { get; set; }
         public virtual DbSet<Meni> Meni { get; set; }
+        public virtual DbSet<Mjerna_jedinica> Mjerna_jedinica { get; set; }
+        public virtual DbSet<Namirnica> Namirnica { get; set; }
+        public virtual DbSet<Narucuje> Narucuje { get; set; }
         public virtual DbSet<Narudzba> Narudzba { get; set; }
         public virtual DbSet<Racun> Racun { get; set; }
+        public virtual DbSet<Stanje_zaliha> Stanje_zaliha { get; set; }
         public virtual DbSet<Stol> Stol { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tip_korisnika> Tip_korisnika { get; set; }
-        public virtual DbSet<Narucuje> Narucuje { get; set; }
     }
 }

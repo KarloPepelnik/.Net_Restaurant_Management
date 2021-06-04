@@ -12,16 +12,12 @@ namespace ProgramskoIntenjerstvo
     using System;
     using System.Collections.Generic;
     
-    public partial class Dostava
+    public partial class sysdiagrams
     {
-        public int id_dostava { get; set; }
-        public int id_korisnik { get; set; }
-        public int id_racun { get; set; }
-        public string adresa_dostave { get; set; }
-        public string broj_telefona { get; set; }
-        public double cijena_dostave { get; set; }
-    
-        public virtual Korisnik Korisnik { get; set; }
-        public virtual Racun Racun { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
