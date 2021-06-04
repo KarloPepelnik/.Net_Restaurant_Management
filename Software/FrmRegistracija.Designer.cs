@@ -41,6 +41,8 @@ namespace ProgramskoIntenjerstvo
             this.txtBoxEmail = new System.Windows.Forms.TextBox();
             this.btnRegistriraj = new System.Windows.Forms.Button();
             this.btnOdustani = new System.Windows.Forms.Button();
+            this.labelLozinka = new System.Windows.Forms.Label();
+            this.labelEmail = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -99,6 +101,7 @@ namespace ProgramskoIntenjerstvo
             this.txtBoxLozinka.Name = "txtBoxLozinka";
             this.txtBoxLozinka.Size = new System.Drawing.Size(134, 20);
             this.txtBoxLozinka.TabIndex = 11;
+            this.txtBoxLozinka.UseSystemPasswordChar = true;
             // 
             // txtBoxKorime
             // 
@@ -143,11 +146,34 @@ namespace ProgramskoIntenjerstvo
             this.btnOdustani.UseVisualStyleBackColor = true;
             this.btnOdustani.Click += new System.EventHandler(this.btnOdustani_Click);
             // 
+            // labelLozinka
+            // 
+            this.labelLozinka.AutoSize = true;
+            this.labelLozinka.ForeColor = System.Drawing.Color.Red;
+            this.labelLozinka.Location = new System.Drawing.Point(285, 226);
+            this.labelLozinka.Name = "labelLozinka";
+            this.labelLozinka.Size = new System.Drawing.Size(217, 52);
+            this.labelLozinka.TabIndex = 19;
+            this.labelLozinka.Text = "Preslaba lozinka! \r\nLozinka mora sadržavati slova i brojeve!\r\nLozinka mora imati " +
+    "najmanje 8 znakova.\r\nLozinka mora imati barem jedno veliko slovo.";
+            // 
+            // labelEmail
+            // 
+            this.labelEmail.AutoSize = true;
+            this.labelEmail.ForeColor = System.Drawing.Color.Red;
+            this.labelEmail.Location = new System.Drawing.Point(285, 296);
+            this.labelEmail.Name = "labelEmail";
+            this.labelEmail.Size = new System.Drawing.Size(129, 26);
+            this.labelEmail.TabIndex = 20;
+            this.labelEmail.Text = "Neispravan format emaila!\r\nnpr. netko@nesto.hr";
+            // 
             // FrmRegistracija
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(509, 450);
+            this.Controls.Add(this.labelEmail);
+            this.Controls.Add(this.labelLozinka);
             this.Controls.Add(this.btnOdustani);
             this.Controls.Add(this.btnRegistriraj);
             this.Controls.Add(this.label6);
@@ -183,5 +209,7 @@ namespace ProgramskoIntenjerstvo
         private System.Windows.Forms.TextBox txtBoxEmail;
         private System.Windows.Forms.Button btnRegistriraj;
         private System.Windows.Forms.Button btnOdustani;
+        private System.Windows.Forms.Label labelLozinka;
+        private System.Windows.Forms.Label labelEmail;
     }
 }

@@ -68,9 +68,9 @@ namespace ProgramskoIntenjerstvo
             // 
             this.txtBoxLozinka.Location = new System.Drawing.Point(180, 152);
             this.txtBoxLozinka.Name = "txtBoxLozinka";
-            this.txtBoxLozinka.PasswordChar = '*';
             this.txtBoxLozinka.Size = new System.Drawing.Size(134, 20);
             this.txtBoxLozinka.TabIndex = 1;
+            this.txtBoxLozinka.UseSystemPasswordChar = true;
             // 
             // label1
             // 
