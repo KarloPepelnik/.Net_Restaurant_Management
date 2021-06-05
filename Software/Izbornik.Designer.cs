@@ -74,6 +74,7 @@ namespace ProgramskoIntenjerstvo
             this.btnZalihe.TabIndex = 2;
             this.btnZalihe.Text = "Zalihe";
             this.btnZalihe.UseVisualStyleBackColor = true;
+            this.btnZalihe.Click += new System.EventHandler(this.btnZalihe_Click);
             // 
             // btnStatistika
             // 
