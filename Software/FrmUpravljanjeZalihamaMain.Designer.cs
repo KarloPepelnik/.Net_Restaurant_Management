@@ -36,12 +36,12 @@ namespace ProgramskoIntenjerstvo
             this.label3 = new System.Windows.Forms.Label();
             this.btnNovaIzdatnica = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnVratiIzKuhinje = new System.Windows.Forms.Button();
             this.btnPovratak = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtBoxDatumVrijemeTrenutno = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnTrenutnoStanje = new System.Windows.Forms.Button();
+            this.txtBoxDatumVrijemeTrenutno = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,6 +67,7 @@ namespace ProgramskoIntenjerstvo
             this.btnDodajPrimku.TabIndex = 1;
             this.btnDodajPrimku.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnDodajPrimku.UseVisualStyleBackColor = true;
+            this.btnDodajPrimku.Click += new System.EventHandler(this.btnDodajPrimku_Click);
             // 
             // label2
             // 
@@ -98,6 +99,7 @@ namespace ProgramskoIntenjerstvo
             this.btnNovaIzdatnica.TabIndex = 5;
             this.btnNovaIzdatnica.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnNovaIzdatnica.UseVisualStyleBackColor = true;
+            this.btnNovaIzdatnica.Click += new System.EventHandler(this.btnNovaIzdatnica_Click);
             // 
             // label4
             // 
@@ -109,16 +111,17 @@ namespace ProgramskoIntenjerstvo
             this.label4.TabIndex = 8;
             this.label4.Text = "Vrati iz kuhinje";
             // 
-            // button2
+            // btnVratiIzKuhinje
             // 
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Location = new System.Drawing.Point(593, 51);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(144, 115);
-            this.button2.TabIndex = 7;
-            this.button2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnVratiIzKuhinje.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnVratiIzKuhinje.BackgroundImage")));
+            this.btnVratiIzKuhinje.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnVratiIzKuhinje.Location = new System.Drawing.Point(593, 51);
+            this.btnVratiIzKuhinje.Name = "btnVratiIzKuhinje";
+            this.btnVratiIzKuhinje.Size = new System.Drawing.Size(144, 115);
+            this.btnVratiIzKuhinje.TabIndex = 7;
+            this.btnVratiIzKuhinje.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnVratiIzKuhinje.UseVisualStyleBackColor = true;
+            this.btnVratiIzKuhinje.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnPovratak
             // 
@@ -138,7 +141,7 @@ namespace ProgramskoIntenjerstvo
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.btnTrenutnoStanje);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.btnVratiIzKuhinje);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.btnNovaIzdatnica);
             this.groupBox1.Controls.Add(this.label2);
@@ -148,15 +151,6 @@ namespace ProgramskoIntenjerstvo
             this.groupBox1.Size = new System.Drawing.Size(743, 236);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
-            // 
-            // txtBoxDatumVrijemeTrenutno
-            // 
-            this.txtBoxDatumVrijemeTrenutno.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtBoxDatumVrijemeTrenutno.Location = new System.Drawing.Point(333, 413);
-            this.txtBoxDatumVrijemeTrenutno.Name = "txtBoxDatumVrijemeTrenutno";
-            this.txtBoxDatumVrijemeTrenutno.Size = new System.Drawing.Size(144, 25);
-            this.txtBoxDatumVrijemeTrenutno.TabIndex = 11;
-            this.txtBoxDatumVrijemeTrenutno.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label5
             // 
@@ -179,6 +173,15 @@ namespace ProgramskoIntenjerstvo
             this.btnTrenutnoStanje.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnTrenutnoStanje.UseVisualStyleBackColor = true;
             this.btnTrenutnoStanje.Click += new System.EventHandler(this.btnTrenutnoStanje_Click);
+            // 
+            // txtBoxDatumVrijemeTrenutno
+            // 
+            this.txtBoxDatumVrijemeTrenutno.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtBoxDatumVrijemeTrenutno.Location = new System.Drawing.Point(315, 413);
+            this.txtBoxDatumVrijemeTrenutno.Name = "txtBoxDatumVrijemeTrenutno";
+            this.txtBoxDatumVrijemeTrenutno.Size = new System.Drawing.Size(198, 25);
+            this.txtBoxDatumVrijemeTrenutno.TabIndex = 11;
+            this.txtBoxDatumVrijemeTrenutno.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FrmUpravljanjeZalihamaMain
             // 
@@ -207,7 +210,7 @@ namespace ProgramskoIntenjerstvo
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnNovaIzdatnica;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnVratiIzKuhinje;
         private System.Windows.Forms.Button btnPovratak;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtBoxDatumVrijemeTrenutno;

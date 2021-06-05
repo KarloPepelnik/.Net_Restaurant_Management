@@ -38,5 +38,23 @@ namespace ProgramskoIntenjerstvo
             FrmTrenutnoStanje form = new FrmTrenutnoStanje();
             form.ShowDialog();
         }
+
+        private void btnDodajPrimku_Click(object sender, EventArgs e)
+        {
+            FrmPrimka frm = new FrmPrimka();
+            frm.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FrmPrimka frmPrimka = new FrmPrimka();
+            frmPrimka.ShowDialog();
+        }
+
+        private void btnNovaIzdatnica_Click(object sender, EventArgs e)
+        {
+            FrmIzdatnica frmIzdatnica = new FrmIzdatnica();
+            frmIzdatnica.ShowDialog();
+        }
     }
 }
