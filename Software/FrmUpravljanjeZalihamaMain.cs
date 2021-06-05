@@ -12,14 +12,17 @@ namespace ProgramskoIntenjerstvo
 {
     public partial class FrmUpravljanjeZalihamaMain : Form
     {
-        public FrmUpravljanjeZalihamaMain()
+        private Korisnik CurrentUser { get; set; }
+        public FrmUpravljanjeZalihamaMain(Korisnik korisnik)
         {
             InitializeComponent();
+            CurrentUser = korisnik;
         }
 
         private void FrmUpravljanjeZalihamaMain_Load(object sender, EventArgs e)
         {
             OsvjeziTrenutnoDatumVrijeme();
+            HideAdminFeatures();
         }
 
         private void OsvjeziTrenutnoDatumVrijeme()
@@ -55,6 +58,21 @@ namespace ProgramskoIntenjerstvo
         {
             FrmIzdatnica frmIzdatnica = new FrmIzdatnica();
             frmIzdatnica.ShowDialog();
+        }
+
+        private void HideAdminFeatures()
+        {
+            if (CurrentUser.Tip_korisnika.id_tip != 1)
+            {
+                lblAdminOptions.Visible = false;
+                btnAdminOptions.Visible = false;
+            }
+        }
+
+        private void btnAdminOptions_Click(object sender, EventArgs e)
+        {
+            FrmUpravljanjeZalihamaAdminFeatures frmUpravljanjeZalihamaAdminFeatures = new FrmUpravljanjeZalihamaAdminFeatures();
+            frmUpravljanjeZalihamaAdminFeatures.ShowDialog();
         }
     }
 }

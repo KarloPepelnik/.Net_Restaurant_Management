@@ -64,31 +64,31 @@ namespace ProgramskoIntenjerstvo
             using (var context = new Entities())
             {
                 int namirnicaId = GetSelectedNamirnica().id_namirnica;
-                float kolicinaZaprimanja = float.Parse(txtBoxKolicinaZaprimanja.Text);
+                float kolicinaIzdavanja = float.Parse(txtBoxKolicinaZaprimanja.Text);
                 DateTime dateTime = dtpDatumPrimke.Value.Date;
                 Mjerna_jedinica mjerna_Jedinica = cmbBoxMjernaJedinica.SelectedItem as Mjerna_jedinica;
                 context.Mjerna_jedinica.Attach(mjerna_Jedinica);
 
-                Primka newPrimka = new Primka()
+                Izdatnica newIzdatnica = new Izdatnica()
                 {
                     id_namirnica = namirnicaId,
-                    kolicina = kolicinaZaprimanja,
+                    kolicina = kolicinaIzdavanja,
                     datum_vrijeme = dateTime,
                     id_mjerna_jedinica = mjerna_Jedinica.id_mjerna_jedinica,
                 };
 
-                context.Primka.Add(newPrimka);
+                context.Izdatnica.Add(newIzdatnica);
 
                 Namirnica namirnicaEdit = GetSelectedNamirnica();
                 context.Namirnica.Attach(namirnicaEdit);
 
-                if (newPrimka.id_mjerna_jedinica == namirnicaEdit.id_mjerna_jedinica)
+                if (newIzdatnica.id_mjerna_jedinica == namirnicaEdit.id_mjerna_jedinica)
                 {
-                    namirnicaEdit.kolicina_trenutna -= kolicinaZaprimanja;
+                    namirnicaEdit.kolicina_trenutna -= kolicinaIzdavanja;
                 }
                 else
                 {
-                    throw new InvalidOperationException($"Nemoguće pretvoriti mjerna jedinicu primke ({newPrimka.Mjerna_jedinica.oznaka_mjerne_jedinice}) " +
+                    throw new InvalidOperationException($"Nemoguće pretvoriti mjerna jedinicu primke ({newIzdatnica.Mjerna_jedinica.oznaka_mjerne_jedinice}) " +
                                                         $" u mjernu jedinicu trenutne količine namirnice ({namirnicaEdit.Mjerna_jedinica.oznaka_mjerne_jedinice}) ");
                 }
 

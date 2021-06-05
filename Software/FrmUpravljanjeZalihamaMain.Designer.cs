@@ -42,6 +42,8 @@ namespace ProgramskoIntenjerstvo
             this.label5 = new System.Windows.Forms.Label();
             this.btnTrenutnoStanje = new System.Windows.Forms.Button();
             this.txtBoxDatumVrijemeTrenutno = new System.Windows.Forms.TextBox();
+            this.btnAdminOptions = new System.Windows.Forms.Button();
+            this.lblAdminOptions = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -177,17 +179,43 @@ namespace ProgramskoIntenjerstvo
             // txtBoxDatumVrijemeTrenutno
             // 
             this.txtBoxDatumVrijemeTrenutno.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtBoxDatumVrijemeTrenutno.Location = new System.Drawing.Point(315, 413);
+            this.txtBoxDatumVrijemeTrenutno.Location = new System.Drawing.Point(304, 413);
             this.txtBoxDatumVrijemeTrenutno.Name = "txtBoxDatumVrijemeTrenutno";
             this.txtBoxDatumVrijemeTrenutno.Size = new System.Drawing.Size(198, 25);
             this.txtBoxDatumVrijemeTrenutno.TabIndex = 11;
             this.txtBoxDatumVrijemeTrenutno.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btnAdminOptions
+            // 
+            this.btnAdminOptions.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAdminOptions.BackgroundImage")));
+            this.btnAdminOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAdminOptions.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAdminOptions.Location = new System.Drawing.Point(32, 350);
+            this.btnAdminOptions.Name = "btnAdminOptions";
+            this.btnAdminOptions.Size = new System.Drawing.Size(102, 64);
+            this.btnAdminOptions.TabIndex = 12;
+            this.btnAdminOptions.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnAdminOptions.UseVisualStyleBackColor = true;
+            this.btnAdminOptions.Click += new System.EventHandler(this.btnAdminOptions_Click);
+            // 
+            // lblAdminOptions
+            // 
+            this.lblAdminOptions.AutoSize = true;
+            this.lblAdminOptions.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblAdminOptions.Location = new System.Drawing.Point(29, 417);
+            this.lblAdminOptions.Name = "lblAdminOptions";
+            this.lblAdminOptions.Size = new System.Drawing.Size(176, 16);
+            this.lblAdminOptions.TabIndex = 13;
+            this.lblAdminOptions.Text = "Mogućnosti administratora";
+            this.lblAdminOptions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmUpravljanjeZalihamaMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(813, 450);
+            this.Controls.Add(this.lblAdminOptions);
+            this.Controls.Add(this.btnAdminOptions);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtBoxDatumVrijemeTrenutno);
             this.Controls.Add(this.groupBox1);
@@ -216,5 +244,7 @@ namespace ProgramskoIntenjerstvo
         private System.Windows.Forms.TextBox txtBoxDatumVrijemeTrenutno;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnTrenutnoStanje;
+        private System.Windows.Forms.Button btnAdminOptions;
+        private System.Windows.Forms.Label lblAdminOptions;
     }
 }

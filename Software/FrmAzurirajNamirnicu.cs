@@ -14,7 +14,7 @@ namespace ProgramskoIntenjerstvo
     {
         private Namirnica selectedNamirnica;
 
-        //private Entities context = new Entities();
+        
         public FrmAzurirajNamirnicu(Namirnica namirnica)
         {
             InitializeComponent();
@@ -39,9 +39,7 @@ namespace ProgramskoIntenjerstvo
             {
                 mjerneJedinice = context.Mjerna_jedinica.ToList();
             }
-            
-            
-
+         
             cmbBoxMjernaJedinica.DataSource = mjerneJedinice;
 
             for (int i = 0; i < cmbBoxMjernaJedinica.Items.Count; i++)
@@ -87,19 +85,19 @@ namespace ProgramskoIntenjerstvo
                 float temperatura = float.Parse(txtBoxTemperatura.Text);
 
                 Kategorija kategorija = cmbBoxKategorija.SelectedItem as Kategorija;
-                //context.Kategorija.Attach(kategorija);
+                
 
                 Mjerna_jedinica mjerna_Jedinica = cmbBoxMjernaJedinica.SelectedItem as Mjerna_jedinica;
-                //context.Mjerna_jedinica.Attach(mjerna_Jedinica);
+                
 
                 float kolicina = float.Parse(txtBoxKolicina.Text);
 
                 
 
                 selectedNamirnica.naziv_namirnice = naziv;
-                //selectedNamirnica.Kategorija.id_kategorija = kategorija.id_kategorija;
+                selectedNamirnica.Kategorija.id_kategorija = kategorija.id_kategorija;
                 selectedNamirnica.temperatura_pohrane = temperatura;
-                //selectedNamirnica.Mjerna_jedinica.id_mjerna_jedinica = mjerna_Jedinica.id_mjerna_jedinica;
+                selectedNamirnica.Mjerna_jedinica.id_mjerna_jedinica = mjerna_Jedinica.id_mjerna_jedinica;
                 selectedNamirnica.kolicina_trenutna = kolicina;
 
                 context.SaveChanges();

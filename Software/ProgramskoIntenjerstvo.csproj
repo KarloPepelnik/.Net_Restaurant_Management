@@ -58,11 +58,23 @@
     <Compile Include="Dostava.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="FrmAzurirajIzdatnicu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAzurirajIzdatnicu.Designer.cs">
+      <DependentUpon>FrmAzurirajIzdatnicu.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAzurirajNamirnicu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmAzurirajNamirnicu.Designer.cs">
       <DependentUpon>FrmAzurirajNamirnicu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAzurirajPrimku.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAzurirajPrimku.Designer.cs">
+      <DependentUpon>FrmAzurirajPrimku.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmDodajNamirnicu.cs">
       <SubType>Form</SubType>
@@ -99,6 +111,12 @@
     </Compile>
     <Compile Include="FrmTrenutnoStanje.Designer.cs">
       <DependentUpon>FrmTrenutnoStanje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUpravljanjeZalihamaAdminFeatures.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUpravljanjeZalihamaAdminFeatures.Designer.cs">
+      <DependentUpon>FrmUpravljanjeZalihamaAdminFeatures.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmUpravljanjeZalihamaMain.cs">
       <SubType>Form</SubType>
@@ -159,6 +177,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Namirnica.code.cs" />
     <Compile Include="Namirnica.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -200,8 +219,14 @@
     <Compile Include="UpravljanjeKasom.Designer.cs">
       <DependentUpon>UpravljanjeKasom.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmAzurirajIzdatnicu.resx">
+      <DependentUpon>FrmAzurirajIzdatnicu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAzurirajNamirnicu.resx">
       <DependentUpon>FrmAzurirajNamirnicu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAzurirajPrimku.resx">
+      <DependentUpon>FrmAzurirajPrimku.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDodajNamirnicu.resx">
       <DependentUpon>FrmDodajNamirnicu.cs</DependentUpon>
@@ -220,6 +245,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTrenutnoStanje.resx">
       <DependentUpon>FrmTrenutnoStanje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpravljanjeZalihamaAdminFeatures.resx">
+      <DependentUpon>FrmUpravljanjeZalihamaAdminFeatures.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUpravljanjeZalihamaMain.resx">
       <DependentUpon>FrmUpravljanjeZalihamaMain.cs</DependentUpon>

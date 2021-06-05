@@ -51,7 +51,7 @@ namespace ProgramskoIntenjerstvo
 
         private void btnZalihe_Click(object sender, EventArgs e)
         {
-            FrmUpravljanjeZalihamaMain form = new FrmUpravljanjeZalihamaMain();
+            FrmUpravljanjeZalihamaMain form = new FrmUpravljanjeZalihamaMain(TrenutniKorisnik);
             form.ShowDialog();
         }
     }
