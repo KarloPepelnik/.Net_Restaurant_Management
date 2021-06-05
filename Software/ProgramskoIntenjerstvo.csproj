@@ -58,6 +58,18 @@
     <Compile Include="Dostava.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="FrmAzurirajNamirnicu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAzurirajNamirnicu.Designer.cs">
+      <DependentUpon>FrmAzurirajNamirnicu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDodajNamirnicu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDodajNamirnicu.Designer.cs">
+      <DependentUpon>FrmDodajNamirnicu.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +81,12 @@
     </Compile>
     <Compile Include="FrmRegistracija.Designer.cs">
       <DependentUpon>FrmRegistracija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTrenutnoStanje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTrenutnoStanje.Designer.cs">
+      <DependentUpon>FrmTrenutnoStanje.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmUpravljanjeZalihamaMain.cs">
       <SubType>Form</SubType>
@@ -94,6 +112,7 @@
     <Compile Include="Kasa.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Kategorija.code.cs" />
     <Compile Include="Kategorija.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -109,6 +128,7 @@
     <Compile Include="Meni.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Mjerna_jedinica.code.cs" />
     <Compile Include="Mjerna_jedinica.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -168,11 +188,20 @@
     <Compile Include="UpravljanjeKasom.Designer.cs">
       <DependentUpon>UpravljanjeKasom.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmAzurirajNamirnicu.resx">
+      <DependentUpon>FrmAzurirajNamirnicu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDodajNamirnicu.resx">
+      <DependentUpon>FrmDodajNamirnicu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistracija.resx">
       <DependentUpon>FrmRegistracija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTrenutnoStanje.resx">
+      <DependentUpon>FrmTrenutnoStanje.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUpravljanjeZalihamaMain.resx">
       <DependentUpon>FrmUpravljanjeZalihamaMain.cs</DependentUpon>

@@ -17,6 +17,26 @@ namespace ProgramskoIntenjerstvo
             InitializeComponent();
         }
 
-        
+        private void FrmUpravljanjeZalihamaMain_Load(object sender, EventArgs e)
+        {
+            OsvjeziTrenutnoDatumVrijeme();
+        }
+
+        private void OsvjeziTrenutnoDatumVrijeme()
+        {
+            txtBoxDatumVrijemeTrenutno.Text = DateTime.Now.ToString("dddd , MMM dd yyyy,hh:mm:ss");
+            txtBoxDatumVrijemeTrenutno.Enabled = false;
+        }
+
+        private void btnPovratak_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnTrenutnoStanje_Click(object sender, EventArgs e)
+        {
+            FrmTrenutnoStanje form = new FrmTrenutnoStanje();
+            form.ShowDialog();
+        }
     }
 }
