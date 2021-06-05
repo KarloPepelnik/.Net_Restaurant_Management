@@ -113,7 +113,7 @@ namespace ProgramskoIntenjerstvo
                 "Prikazi sve namirnice",
                 "Sortiraj prema nazivu uzlazno",
                 "Sortiraj prema količini uzlazno",
-                "Sortiraj prema količini silazno",
+                "Sortiraj prema količini silazno"
             };
 
 

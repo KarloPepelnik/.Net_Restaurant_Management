@@ -63,7 +63,6 @@ namespace ProgramskoIntenjerstvo
             this.label1.TabIndex = 1;
             this.label1.Text = "Trenutno stanje zaliha";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.UseWaitCursor = true;
             // 
             // dgvTrenutnoStanjeZaliha
             // 
@@ -101,7 +100,6 @@ namespace ProgramskoIntenjerstvo
             this.dgvTrenutnoStanjeZaliha.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTrenutnoStanjeZaliha.Size = new System.Drawing.Size(922, 328);
             this.dgvTrenutnoStanjeZaliha.TabIndex = 2;
-            this.dgvTrenutnoStanjeZaliha.UseWaitCursor = true;
             // 
             // btnDodajNamirnicu
             // 
@@ -112,7 +110,6 @@ namespace ProgramskoIntenjerstvo
             this.btnDodajNamirnicu.TabIndex = 3;
             this.btnDodajNamirnicu.Text = "Dodaj namirnicu";
             this.btnDodajNamirnicu.UseVisualStyleBackColor = true;
-            this.btnDodajNamirnicu.UseWaitCursor = true;
             this.btnDodajNamirnicu.Click += new System.EventHandler(this.btnDodajNamirnicu_Click);
             // 
             // btnAzurirajNamirnicu
@@ -124,7 +121,6 @@ namespace ProgramskoIntenjerstvo
             this.btnAzurirajNamirnicu.TabIndex = 4;
             this.btnAzurirajNamirnicu.Text = "Ažuriraj namirnicu";
             this.btnAzurirajNamirnicu.UseVisualStyleBackColor = true;
-            this.btnAzurirajNamirnicu.UseWaitCursor = true;
             this.btnAzurirajNamirnicu.Click += new System.EventHandler(this.btnAzurirajNamirnicu_Click);
             // 
             // btnIzbrisiNamirnicu
@@ -136,7 +132,6 @@ namespace ProgramskoIntenjerstvo
             this.btnIzbrisiNamirnicu.TabIndex = 5;
             this.btnIzbrisiNamirnicu.Text = "Izbriši namirnicu";
             this.btnIzbrisiNamirnicu.UseVisualStyleBackColor = true;
-            this.btnIzbrisiNamirnicu.UseWaitCursor = true;
             this.btnIzbrisiNamirnicu.Click += new System.EventHandler(this.btnIzbrisiNamirnicu_Click);
             // 
             // btnIzlaz
@@ -148,7 +143,6 @@ namespace ProgramskoIntenjerstvo
             this.btnIzlaz.TabIndex = 6;
             this.btnIzlaz.Text = "Izlaz";
             this.btnIzlaz.UseVisualStyleBackColor = true;
-            this.btnIzlaz.UseWaitCursor = true;
             this.btnIzlaz.Click += new System.EventHandler(this.btnIzlaz_Click);
             // 
             // groupBox1
@@ -168,7 +162,6 @@ namespace ProgramskoIntenjerstvo
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filter";
-            this.groupBox1.UseWaitCursor = true;
             // 
             // btnPrikaziKategoriju
             // 
@@ -178,7 +171,6 @@ namespace ProgramskoIntenjerstvo
             this.btnPrikaziKategoriju.TabIndex = 7;
             this.btnPrikaziKategoriju.Text = "Prikazi kategoriju";
             this.btnPrikaziKategoriju.UseVisualStyleBackColor = true;
-            this.btnPrikaziKategoriju.UseWaitCursor = true;
             this.btnPrikaziKategoriju.Click += new System.EventHandler(this.btnPrikaziKategoriju_Click);
             // 
             // cmbBoxPrikazPoKategoriji
@@ -188,7 +180,6 @@ namespace ProgramskoIntenjerstvo
             this.cmbBoxPrikazPoKategoriji.Name = "cmbBoxPrikazPoKategoriji";
             this.cmbBoxPrikazPoKategoriji.Size = new System.Drawing.Size(193, 24);
             this.cmbBoxPrikazPoKategoriji.TabIndex = 6;
-            this.cmbBoxPrikazPoKategoriji.UseWaitCursor = true;
             // 
             // label4
             // 
@@ -198,7 +189,6 @@ namespace ProgramskoIntenjerstvo
             this.label4.Size = new System.Drawing.Size(123, 16);
             this.label4.TabIndex = 5;
             this.label4.Text = "Prikaz po kategoriji:";
-            this.label4.UseWaitCursor = true;
             // 
             // btnTrazi
             // 
@@ -208,7 +198,6 @@ namespace ProgramskoIntenjerstvo
             this.btnTrazi.TabIndex = 4;
             this.btnTrazi.Text = "Traži";
             this.btnTrazi.UseVisualStyleBackColor = true;
-            this.btnTrazi.UseWaitCursor = true;
             this.btnTrazi.Click += new System.EventHandler(this.btnTrazi_Click);
             // 
             // txtBoxPretraga
@@ -217,7 +206,6 @@ namespace ProgramskoIntenjerstvo
             this.txtBoxPretraga.Name = "txtBoxPretraga";
             this.txtBoxPretraga.Size = new System.Drawing.Size(137, 22);
             this.txtBoxPretraga.TabIndex = 3;
-            this.txtBoxPretraga.UseWaitCursor = true;
             // 
             // label3
             // 
@@ -227,7 +215,6 @@ namespace ProgramskoIntenjerstvo
             this.label3.Size = new System.Drawing.Size(118, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "Pretraga po imenu:";
-            this.label3.UseWaitCursor = true;
             // 
             // cmbBoxSortiraj
             // 
@@ -236,7 +223,6 @@ namespace ProgramskoIntenjerstvo
             this.cmbBoxSortiraj.Name = "cmbBoxSortiraj";
             this.cmbBoxSortiraj.Size = new System.Drawing.Size(204, 24);
             this.cmbBoxSortiraj.TabIndex = 1;
-            this.cmbBoxSortiraj.UseWaitCursor = true;
             this.cmbBoxSortiraj.SelectedIndexChanged += new System.EventHandler(this.cmbBoxSortiraj_SelectedIndexChanged);
             // 
             // label2
@@ -247,7 +233,6 @@ namespace ProgramskoIntenjerstvo
             this.label2.Size = new System.Drawing.Size(93, 16);
             this.label2.TabIndex = 0;
             this.label2.Text = "Sortiraj prema:";
-            this.label2.UseWaitCursor = true;
             // 
             // FrmTrenutnoStanje
             // 
@@ -263,7 +248,6 @@ namespace ProgramskoIntenjerstvo
             this.Controls.Add(this.label1);
             this.Name = "FrmTrenutnoStanje";
             this.Text = "Trenutno stanje";
-            this.UseWaitCursor = true;
             this.Load += new System.EventHandler(this.FrmTrenutnoStanje_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrenutnoStanjeZaliha)).EndInit();
             this.groupBox1.ResumeLayout(false);
