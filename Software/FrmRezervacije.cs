@@ -12,13 +12,15 @@ namespace ProgramskoIntenjerstvo
 {
     public partial class FrmRezervacije : Form
     {
+        private Korisnik TrenutniKorisnik { get; set; }
         private List<DateTime> RezerviraniDatumi { get; set; }
         private List<Rezervacija> SveRezervacije { get; set; }
-        public FrmRezervacije()
+        public FrmRezervacije(Korisnik korisnik)
         {
             InitializeComponent();
             RezerviraniDatumi = new List<DateTime>();
             SveRezervacije = new List<Rezervacija>();
+            TrenutniKorisnik = korisnik;
         }
 
         private void btnOdustani_Click(object sender, EventArgs e)
@@ -29,6 +31,13 @@ namespace ProgramskoIntenjerstvo
         private void FrmRezervacije_Load(object sender, EventArgs e)
         {
             Osvjezi();
+            using (var context = new Entities())
+            {
+                var query = from s in context.Stol
+                            select s;
+                List<Stol> sviStolovi = query.ToList();
+                cboxStolovi.DataSource = sviStolovi;
+            }
         }
 
         private void Osvjezi()
@@ -73,6 +82,8 @@ namespace ProgramskoIntenjerstvo
             dgvRezervacije.Columns["opis_rezervacije"].HeaderText = "Prezime";
             dgvRezervacije.Columns["datum_vrijeme"].HeaderText = "Datum i vrijeme";
             dgvRezervacije.Columns["id_stol"].HeaderText = "Broj stola";
+
+            dateTimeDatum.Value = kalendar.SelectionStart.Date;
         }
 
         private void btnIzmjeni_Click(object sender, EventArgs e)
@@ -93,6 +104,27 @@ namespace ProgramskoIntenjerstvo
                 context.SaveChanges();
             }
             Osvjezi();
+        }
+
+        private void btnDodaj_Click(object sender, EventArgs e)
+        {
+            Rezervacija nova = new Rezervacija();
+            nova.id_korisnik = TrenutniKorisnik.id_korisnik;
+            nova.id_stol = cboxStolovi.SelectedIndex + 1;
+            nova.datum_vrijeme = dateTimeDatum.Value.Date + dateTimeVrijeme.Value.TimeOfDay;
+            nova.opis_rezervacije = txtPrezime.Text;
+
+            using (var context = new Entities())
+            {
+                context.Rezervacija.Attach(nova);
+                context.Rezervacija.Add(nova);
+                context.SaveChanges();
+            }
+            Osvjezi();
+            cboxStolovi.SelectedIndex = 0;
+            dateTimeDatum.Value = DateTime.Now.Date;
+            dateTimeVrijeme.Value = DateTime.Now;
+            txtPrezime.Text = "";
         }
     }
 }

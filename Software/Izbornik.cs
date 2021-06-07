@@ -63,7 +63,7 @@ namespace ProgramskoIntenjerstvo
 
         private void btnRezervacije_Click(object sender, EventArgs e)
         {
-            FrmRezervacije forma = new FrmRezervacije();
+            FrmRezervacije forma = new FrmRezervacije(TrenutniKorisnik);
             forma.ShowDialog();
         }
     }

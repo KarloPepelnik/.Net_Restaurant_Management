@@ -40,7 +40,8 @@ namespace ProgramskoIntenjerstvo
             this.txtPrezime = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cboxStolovi = new System.Windows.Forms.ComboBox();
-            this.dateTimeDatumIVrijeme = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeDatum = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeVrijeme = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRezervacije)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,6 +86,7 @@ namespace ProgramskoIntenjerstvo
             this.btnDodaj.TabIndex = 9;
             this.btnDodaj.Text = "Dodaj";
             this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
             // 
             // btnIzmjeni
             // 
@@ -140,19 +142,28 @@ namespace ProgramskoIntenjerstvo
             this.cboxStolovi.Size = new System.Drawing.Size(139, 21);
             this.cboxStolovi.TabIndex = 15;
             // 
-            // dateTimeDatumIVrijeme
+            // dateTimeDatum
             // 
-            this.dateTimeDatumIVrijeme.Location = new System.Drawing.Point(100, 345);
-            this.dateTimeDatumIVrijeme.Name = "dateTimeDatumIVrijeme";
-            this.dateTimeDatumIVrijeme.Size = new System.Drawing.Size(200, 20);
-            this.dateTimeDatumIVrijeme.TabIndex = 16;
+            this.dateTimeDatum.Location = new System.Drawing.Point(100, 345);
+            this.dateTimeDatum.Name = "dateTimeDatum";
+            this.dateTimeDatum.Size = new System.Drawing.Size(126, 20);
+            this.dateTimeDatum.TabIndex = 16;
+            // 
+            // dateTimeVrijeme
+            // 
+            this.dateTimeVrijeme.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimeVrijeme.Location = new System.Drawing.Point(241, 345);
+            this.dateTimeVrijeme.Name = "dateTimeVrijeme";
+            this.dateTimeVrijeme.Size = new System.Drawing.Size(66, 20);
+            this.dateTimeVrijeme.TabIndex = 17;
             // 
             // FrmRezervacije
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dateTimeDatumIVrijeme);
+            this.Controls.Add(this.dateTimeVrijeme);
+            this.Controls.Add(this.dateTimeDatum);
             this.Controls.Add(this.cboxStolovi);
             this.Controls.Add(this.txtPrezime);
             this.Controls.Add(this.label4);
@@ -186,6 +197,7 @@ namespace ProgramskoIntenjerstvo
         private System.Windows.Forms.TextBox txtPrezime;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cboxStolovi;
-        private System.Windows.Forms.DateTimePicker dateTimeDatumIVrijeme;
+        private System.Windows.Forms.DateTimePicker dateTimeDatum;
+        private System.Windows.Forms.DateTimePicker dateTimeVrijeme;
     }
 }
