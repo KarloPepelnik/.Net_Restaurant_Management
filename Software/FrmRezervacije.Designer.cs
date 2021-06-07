@@ -49,6 +49,7 @@ namespace ProgramskoIntenjerstvo
             this.kalendar.Location = new System.Drawing.Point(18, 18);
             this.kalendar.Name = "kalendar";
             this.kalendar.TabIndex = 1;
+            this.kalendar.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.kalendar_DateSelected);
             // 
             // dgvRezervacije
             // 
@@ -163,6 +164,7 @@ namespace ProgramskoIntenjerstvo
             this.Controls.Add(this.kalendar);
             this.Name = "FrmRezervacije";
             this.Text = "FrmRezervacije";
+            this.Load += new System.EventHandler(this.FrmRezervacije_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRezervacije)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
