@@ -43,6 +43,7 @@ namespace ProgramskoIntenjerstvo
                 
                     RezerviraniDatumi.Add(rezervacija.datum_vrijeme);
                 }
+                kalendar.BoldedDates = RezerviraniDatumi.ToArray();
                 dgvRezervacije.DataSource = SveRezervacije;
                 dgvRezervacije.Columns["korisnik"].Visible = false;
                 dgvRezervacije.Columns["stol"].Visible = false;
