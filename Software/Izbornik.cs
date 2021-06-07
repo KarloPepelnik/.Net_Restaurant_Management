@@ -54,5 +54,11 @@ namespace ProgramskoIntenjerstvo
             FrmUpravljanjeZalihamaMain form = new FrmUpravljanjeZalihamaMain(TrenutniKorisnik);
             form.ShowDialog();
         }
+
+        private void btnKorisnici_Click(object sender, EventArgs e)
+        {
+            FrmKorisnici forma = new FrmKorisnici();
+            forma.ShowDialog();
+        }
     }
 }

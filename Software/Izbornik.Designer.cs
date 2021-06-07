@@ -46,6 +46,7 @@ namespace ProgramskoIntenjerstvo
             this.btnKorisnici.TabIndex = 0;
             this.btnKorisnici.Text = "Korisnici";
             this.btnKorisnici.UseVisualStyleBackColor = true;
+            this.btnKorisnici.Click += new System.EventHandler(this.btnKorisnici_Click);
             // 
             // btnRezervacije
             // 
