@@ -39,8 +39,8 @@ namespace ProgramskoIntenjerstvo
                             select r;
 
                 SveRezervacije = query.ToList();
+                RezerviraniDatumi.Clear();
                 foreach (var rezervacija in SveRezervacije) {
-                
                     RezerviraniDatumi.Add(rezervacija.datum_vrijeme);
                 }
                 kalendar.BoldedDates = RezerviraniDatumi.ToArray();
@@ -73,6 +73,26 @@ namespace ProgramskoIntenjerstvo
             dgvRezervacije.Columns["opis_rezervacije"].HeaderText = "Prezime";
             dgvRezervacije.Columns["datum_vrijeme"].HeaderText = "Datum i vrijeme";
             dgvRezervacije.Columns["id_stol"].HeaderText = "Broj stola";
+        }
+
+        private void btnIzmjeni_Click(object sender, EventArgs e)
+        {
+            Rezervacija odabrana = dgvRezervacije.CurrentRow.DataBoundItem as Rezervacija;
+            FrmIzmjenaRezervacije forma = new FrmIzmjenaRezervacije(odabrana);
+            forma.ShowDialog();
+            Osvjezi();
+        }
+
+        private void btnObriši_Click(object sender, EventArgs e)
+        {
+            Rezervacija odabrana = dgvRezervacije.CurrentRow.DataBoundItem as Rezervacija;
+            using (var context = new Entities())
+            {
+                context.Rezervacija.Attach(odabrana);
+                context.Rezervacija.Remove(odabrana);
+                context.SaveChanges();
+            }
+            Osvjezi();
         }
     }
 }

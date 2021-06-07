@@ -94,6 +94,7 @@ namespace ProgramskoIntenjerstvo
             this.btnIzmjeni.TabIndex = 10;
             this.btnIzmjeni.Text = "Izmjeni";
             this.btnIzmjeni.UseVisualStyleBackColor = true;
+            this.btnIzmjeni.Click += new System.EventHandler(this.btnIzmjeni_Click);
             // 
             // btnObriši
             // 
@@ -103,6 +104,7 @@ namespace ProgramskoIntenjerstvo
             this.btnObriši.TabIndex = 11;
             this.btnObriši.Text = "Obriši";
             this.btnObriši.UseVisualStyleBackColor = true;
+            this.btnObriši.Click += new System.EventHandler(this.btnObriši_Click);
             // 
             // btnOdustani
             // 
