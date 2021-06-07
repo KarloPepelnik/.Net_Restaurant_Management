@@ -61,7 +61,10 @@ namespace ProgramskoIntenjerstvo
 
         private void btnIzmjeni_Click(object sender, EventArgs e)
         {
-
+            Korisnik selektirani = dgvKorisnici.CurrentRow.DataBoundItem as Korisnik;
+            FrmEditKorisnika forma = new FrmEditKorisnika(selektirani);
+            forma.ShowDialog();
+            RefreshGUI();
         }
     }
 }

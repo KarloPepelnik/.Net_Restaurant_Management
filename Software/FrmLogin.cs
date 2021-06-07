@@ -46,6 +46,7 @@ namespace ProgramskoIntenjerstvo
                 Hide();
                 forma.ShowDialog();
                 Show();
+                Osvjezi();
             }
             else if (!lozinkaOk && korisnickoOk)
             {
