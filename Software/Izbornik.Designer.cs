@@ -56,6 +56,7 @@ namespace ProgramskoIntenjerstvo
             this.btnRezervacije.TabIndex = 1;
             this.btnRezervacije.Text = "Rezervacije";
             this.btnRezervacije.UseVisualStyleBackColor = true;
+            this.btnRezervacije.Click += new System.EventHandler(this.btnRezervacije_Click);
             // 
             // btnNarudžbe
             // 

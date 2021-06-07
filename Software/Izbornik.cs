@@ -60,5 +60,11 @@ namespace ProgramskoIntenjerstvo
             FrmKorisnici forma = new FrmKorisnici();
             forma.ShowDialog();
         }
+
+        private void btnRezervacije_Click(object sender, EventArgs e)
+        {
+            FrmRezervacije forma = new FrmRezervacije();
+            forma.ShowDialog();
+        }
     }
 }

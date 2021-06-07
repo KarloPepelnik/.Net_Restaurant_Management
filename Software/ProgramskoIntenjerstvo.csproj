@@ -118,6 +118,12 @@
     <Compile Include="FrmRegistracija.Designer.cs">
       <DependentUpon>FrmRegistracija.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmRezervacije.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRezervacije.Designer.cs">
+      <DependentUpon>FrmRezervacije.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmTrenutnoStanje.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistracija.resx">
       <DependentUpon>FrmRegistracija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRezervacije.resx">
+      <DependentUpon>FrmRezervacije.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTrenutnoStanje.resx">
       <DependentUpon>FrmTrenutnoStanje.cs</DependentUpon>
