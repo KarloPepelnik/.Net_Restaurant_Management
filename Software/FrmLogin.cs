@@ -75,8 +75,7 @@ namespace ProgramskoIntenjerstvo
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-            E = new Entities();
-            sviKorisnici = E.Korisnik.ToList();
+            Osvjezi();
         }
     }
 }
