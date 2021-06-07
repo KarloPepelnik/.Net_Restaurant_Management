@@ -15,12 +15,14 @@ namespace ProgramskoIntenjerstvo
         private Korisnik TrenutniKorisnik { get; set; }
         private List<DateTime> RezerviraniDatumi { get; set; }
         private List<Rezervacija> SveRezervacije { get; set; }
+        private List<Stol> slobodniStolovi { get; set; }
         public FrmRezervacije(Korisnik korisnik)
         {
             InitializeComponent();
             RezerviraniDatumi = new List<DateTime>();
             SveRezervacije = new List<Rezervacija>();
             TrenutniKorisnik = korisnik;
+            slobodniStolovi = new List<Stol>();
         }
 
         private void btnOdustani_Click(object sender, EventArgs e)
@@ -31,17 +33,29 @@ namespace ProgramskoIntenjerstvo
         private void FrmRezervacije_Load(object sender, EventArgs e)
         {
             Osvjezi();
+        }
+
+        private void Osvjezi()
+        {
             using (var context = new Entities())
             {
                 var query = from s in context.Stol
                             select s;
                 List<Stol> sviStolovi = query.ToList();
-                cboxStolovi.DataSource = sviStolovi;
+                slobodniStolovi.Clear();
+                foreach (var stol in sviStolovi)
+                {
+                    var query1 = from r in context.Rezervacija
+                                 where r.id_stol == stol.id_stol
+                                 select r;
+                    if (query1.ToList().Count == 0)
+                    {
+                        slobodniStolovi.Add(stol);
+                    }
+                }
+                cboxStolovi.DataSource = slobodniStolovi;
             }
-        }
 
-        private void Osvjezi()
-        {
             using (var context = new Entities())
             {
                 var query = from r in context.Rezervacija
@@ -110,7 +124,7 @@ namespace ProgramskoIntenjerstvo
         {
             Rezervacija nova = new Rezervacija();
             nova.id_korisnik = TrenutniKorisnik.id_korisnik;
-            nova.id_stol = cboxStolovi.SelectedIndex + 1;
+            nova.id_stol = int.Parse(cboxStolovi.SelectedValue.ToString());
             nova.datum_vrijeme = dateTimeDatum.Value.Date + dateTimeVrijeme.Value.TimeOfDay;
             nova.opis_rezervacije = txtPrezime.Text;
 
