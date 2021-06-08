@@ -150,12 +150,23 @@ namespace ProgramskoIntenjerstvo
             nova.id_stol = int.Parse(cboxStolovi.SelectedValue.ToString());
             nova.datum_vrijeme = dateTimeDatum.Value.Date + dateTimeVrijeme.Value.TimeOfDay;
             nova.opis_rezervacije = txtPrezime.Text;
-
-            using (var context = new Entities())
+            
+            if(dateTimeDatum.Value.Date < DateTime.Today.Date)
             {
-                context.Rezervacija.Attach(nova);
-                context.Rezervacija.Add(nova);
-                context.SaveChanges();
+                MessageBox.Show("Ne možete rezervirati datum prije današnjeg dana!");
+            }
+            else if(dateTimeVrijeme.Value.TimeOfDay < DateTime.Now.TimeOfDay)
+            {
+                MessageBox.Show("Ne možete rezervirati termin prije trenutnog vremena!");
+            }
+            else
+            {
+                using (var context = new Entities())
+                {
+                    context.Rezervacija.Attach(nova);
+                    context.Rezervacija.Add(nova);
+                    context.SaveChanges();
+                }
             }
             Osvjezi();
             cboxStolovi.SelectedIndex = 0;
