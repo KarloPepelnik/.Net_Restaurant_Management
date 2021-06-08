@@ -42,7 +42,10 @@ namespace ProgramskoIntenjerstvo
             this.cboxStolovi = new System.Windows.Forms.ComboBox();
             this.dateTimeDatum = new System.Windows.Forms.DateTimePicker();
             this.dateTimeVrijeme = new System.Windows.Forms.DateTimePicker();
+            this.dgvStolovi = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRezervacije)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStolovi)).BeginInit();
             this.SuspendLayout();
             // 
             // kalendar
@@ -110,7 +113,7 @@ namespace ProgramskoIntenjerstvo
             // 
             // btnOdustani
             // 
-            this.btnOdustani.Location = new System.Drawing.Point(695, 406);
+            this.btnOdustani.Location = new System.Drawing.Point(1111, 408);
             this.btnOdustani.Name = "btnOdustani";
             this.btnOdustani.Size = new System.Drawing.Size(93, 32);
             this.btnOdustani.TabIndex = 12;
@@ -157,11 +160,30 @@ namespace ProgramskoIntenjerstvo
             this.dateTimeVrijeme.Size = new System.Drawing.Size(66, 20);
             this.dateTimeVrijeme.TabIndex = 17;
             // 
+            // dgvStolovi
+            // 
+            this.dgvStolovi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStolovi.Location = new System.Drawing.Point(859, 51);
+            this.dgvStolovi.Name = "dgvStolovi";
+            this.dgvStolovi.Size = new System.Drawing.Size(345, 196);
+            this.dgvStolovi.TabIndex = 18;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(856, 18);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Stolovi:";
+            // 
             // FrmRezervacije
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1216, 452);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.dgvStolovi);
             this.Controls.Add(this.dateTimeVrijeme);
             this.Controls.Add(this.dateTimeDatum);
             this.Controls.Add(this.cboxStolovi);
@@ -179,6 +201,7 @@ namespace ProgramskoIntenjerstvo
             this.Text = "FrmRezervacije";
             this.Load += new System.EventHandler(this.FrmRezervacije_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRezervacije)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStolovi)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,5 +222,7 @@ namespace ProgramskoIntenjerstvo
         private System.Windows.Forms.ComboBox cboxStolovi;
         private System.Windows.Forms.DateTimePicker dateTimeDatum;
         private System.Windows.Forms.DateTimePicker dateTimeVrijeme;
+        private System.Windows.Forms.DataGridView dgvStolovi;
+        private System.Windows.Forms.Label label3;
     }
 }

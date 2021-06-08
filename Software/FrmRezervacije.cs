@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -32,29 +33,17 @@ namespace ProgramskoIntenjerstvo
 
         private void FrmRezervacije_Load(object sender, EventArgs e)
         {
+            if (TrenutniKorisnik.tip_korisnik >2)
+            {
+                btnIzmjeni.Visible = false;
+                btnObriši.Visible = false;
+            }
             Osvjezi();
         }
 
         private void Osvjezi()
         {
-            using (var context = new Entities())
-            {
-                var query = from s in context.Stol
-                            select s;
-                List<Stol> sviStolovi = query.ToList();
-                slobodniStolovi.Clear();
-                foreach (var stol in sviStolovi)
-                {
-                    var query1 = from r in context.Rezervacija
-                                 where r.id_stol == stol.id_stol
-                                 select r;
-                    if (query1.ToList().Count == 0)
-                    {
-                        slobodniStolovi.Add(stol);
-                    }
-                }
-                cboxStolovi.DataSource = slobodniStolovi;
-            }
+            Osvjezi_Stolove();
 
             using (var context = new Entities())
             {
@@ -78,6 +67,39 @@ namespace ProgramskoIntenjerstvo
             }
         }
 
+        private void Osvjezi_Stolove()
+        {
+            slobodniStolovi.Clear();
+            cboxStolovi.DataSource = null;
+            dgvStolovi.DataSource = null;
+
+            using (var context = new Entities())
+            {
+                var query = from s in context.Stol
+                            select s;
+                List<Stol> sviStolovi = query.ToList();
+                DateTime oznacenoVrijeme = kalendar.SelectionStart;
+
+                foreach (var stol in sviStolovi)
+                {
+                    var query1 = from r in context.Rezervacija
+                                 where r.id_stol == stol.id_stol && DbFunctions.TruncateTime(r.datum_vrijeme) == DbFunctions.TruncateTime(oznacenoVrijeme)
+                                 select r;
+                    if (query1.ToList().Count == 0)
+                    {
+                        slobodniStolovi.Add(stol);
+                    }
+                }
+                cboxStolovi.DataSource = slobodniStolovi;
+                dgvStolovi.DataSource = slobodniStolovi;
+                dgvStolovi.Columns["rezerviran"].Visible = false;
+                dgvStolovi.Columns["rezervacija"].Visible = false;
+                dgvStolovi.Columns["id_stol"].HeaderText = "Broj stola";
+                dgvStolovi.Columns["opis"].HeaderText = "Pozicija stola";
+                dgvStolovi.Columns["broj_mjesta"].HeaderText = "Broj mjesta";
+            }
+        }
+
         private void kalendar_DateSelected(object sender, DateRangeEventArgs e)
         {
             List<Rezervacija> naDanRezervacije = new List<Rezervacija>();
@@ -98,6 +120,7 @@ namespace ProgramskoIntenjerstvo
             dgvRezervacije.Columns["id_stol"].HeaderText = "Broj stola";
 
             dateTimeDatum.Value = kalendar.SelectionStart.Date;
+            Osvjezi_Stolove();
         }
 
         private void btnIzmjeni_Click(object sender, EventArgs e)
