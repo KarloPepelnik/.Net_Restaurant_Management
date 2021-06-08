@@ -174,5 +174,12 @@ namespace ProgramskoIntenjerstvo
             dateTimeVrijeme.Value = DateTime.Now;
             txtPrezime.Text = "";
         }
+
+        private void btnRucnoDodaj_Click(object sender, EventArgs e)
+        {
+            FrmRucnoDodavanje forma = new FrmRucnoDodavanje(TrenutniKorisnik);
+            forma.ShowDialog();
+            Osvjezi();
+        }
     }
 }

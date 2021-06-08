@@ -44,6 +44,7 @@ namespace ProgramskoIntenjerstvo
             this.dateTimeVrijeme = new System.Windows.Forms.DateTimePicker();
             this.dgvStolovi = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnRucnoDodaj = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRezervacije)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStolovi)).BeginInit();
             this.SuspendLayout();
@@ -125,7 +126,7 @@ namespace ProgramskoIntenjerstvo
             // 
             this.txtPrezime.Location = new System.Drawing.Point(80, 374);
             this.txtPrezime.Name = "txtPrezime";
-            this.txtPrezime.Size = new System.Drawing.Size(139, 20);
+            this.txtPrezime.Size = new System.Drawing.Size(125, 20);
             this.txtPrezime.TabIndex = 14;
             // 
             // label4
@@ -142,22 +143,22 @@ namespace ProgramskoIntenjerstvo
             this.cboxStolovi.FormattingEnabled = true;
             this.cboxStolovi.Location = new System.Drawing.Point(80, 318);
             this.cboxStolovi.Name = "cboxStolovi";
-            this.cboxStolovi.Size = new System.Drawing.Size(139, 21);
+            this.cboxStolovi.Size = new System.Drawing.Size(125, 21);
             this.cboxStolovi.TabIndex = 15;
             // 
             // dateTimeDatum
             // 
             this.dateTimeDatum.Location = new System.Drawing.Point(100, 345);
             this.dateTimeDatum.Name = "dateTimeDatum";
-            this.dateTimeDatum.Size = new System.Drawing.Size(126, 20);
+            this.dateTimeDatum.Size = new System.Drawing.Size(112, 20);
             this.dateTimeDatum.TabIndex = 16;
             // 
             // dateTimeVrijeme
             // 
             this.dateTimeVrijeme.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimeVrijeme.Location = new System.Drawing.Point(241, 345);
+            this.dateTimeVrijeme.Location = new System.Drawing.Point(218, 345);
             this.dateTimeVrijeme.Name = "dateTimeVrijeme";
-            this.dateTimeVrijeme.Size = new System.Drawing.Size(66, 20);
+            this.dateTimeVrijeme.Size = new System.Drawing.Size(48, 20);
             this.dateTimeVrijeme.TabIndex = 17;
             // 
             // dgvStolovi
@@ -177,11 +178,22 @@ namespace ProgramskoIntenjerstvo
             this.label3.TabIndex = 19;
             this.label3.Text = "Stolovi:";
             // 
+            // btnRucnoDodaj
+            // 
+            this.btnRucnoDodaj.Location = new System.Drawing.Point(459, 332);
+            this.btnRucnoDodaj.Name = "btnRucnoDodaj";
+            this.btnRucnoDodaj.Size = new System.Drawing.Size(93, 32);
+            this.btnRucnoDodaj.TabIndex = 20;
+            this.btnRucnoDodaj.Text = "Ručno dodaj";
+            this.btnRucnoDodaj.UseVisualStyleBackColor = true;
+            this.btnRucnoDodaj.Click += new System.EventHandler(this.btnRucnoDodaj_Click);
+            // 
             // FrmRezervacije
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1216, 452);
+            this.Controls.Add(this.btnRucnoDodaj);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dgvStolovi);
             this.Controls.Add(this.dateTimeVrijeme);
@@ -224,5 +236,6 @@ namespace ProgramskoIntenjerstvo
         private System.Windows.Forms.DateTimePicker dateTimeVrijeme;
         private System.Windows.Forms.DataGridView dgvStolovi;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnRucnoDodaj;
     }
 }
