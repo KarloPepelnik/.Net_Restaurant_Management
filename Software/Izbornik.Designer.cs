@@ -36,6 +36,7 @@ namespace ProgramskoIntenjerstvo
             this.btnStatistika = new System.Windows.Forms.Button();
             this.btnMeni = new System.Windows.Forms.Button();
             this.btnOdjava = new System.Windows.Forms.Button();
+            this.btnInventar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnKorisnici
@@ -107,11 +108,22 @@ namespace ProgramskoIntenjerstvo
             this.btnOdjava.UseVisualStyleBackColor = true;
             this.btnOdjava.Click += new System.EventHandler(this.btnOdjava_Click);
             // 
+            // btnInventar
+            // 
+            this.btnInventar.Location = new System.Drawing.Point(155, 507);
+            this.btnInventar.Name = "btnInventar";
+            this.btnInventar.Size = new System.Drawing.Size(135, 38);
+            this.btnInventar.TabIndex = 7;
+            this.btnInventar.Text = "Inventar";
+            this.btnInventar.UseVisualStyleBackColor = true;
+            this.btnInventar.Click += new System.EventHandler(this.btnInventar_Click);
+            // 
             // Izbornik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(463, 557);
+            this.Controls.Add(this.btnInventar);
             this.Controls.Add(this.btnOdjava);
             this.Controls.Add(this.btnStatistika);
             this.Controls.Add(this.btnMeni);
@@ -136,5 +148,6 @@ namespace ProgramskoIntenjerstvo
         private System.Windows.Forms.Button btnStatistika;
         private System.Windows.Forms.Button btnMeni;
         private System.Windows.Forms.Button btnOdjava;
+        private System.Windows.Forms.Button btnInventar;
     }
 }

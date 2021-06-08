@@ -82,11 +82,29 @@
     <Compile Include="FrmDodajNamirnicu.Designer.cs">
       <DependentUpon>FrmDodajNamirnicu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDodajStol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDodajStol.Designer.cs">
+      <DependentUpon>FrmDodajStol.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmEditKorisnika.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmEditKorisnika.Designer.cs">
       <DependentUpon>FrmEditKorisnika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEditStol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditStol.Designer.cs">
+      <DependentUpon>FrmEditStol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmInventar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInventar.Designer.cs">
+      <DependentUpon>FrmInventar.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmIzdatnica.cs">
       <SubType>Form</SubType>
@@ -262,8 +280,17 @@
     <EmbeddedResource Include="FrmDodajNamirnicu.resx">
       <DependentUpon>FrmDodajNamirnicu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmDodajStol.resx">
+      <DependentUpon>FrmDodajStol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmEditKorisnika.resx">
       <DependentUpon>FrmEditKorisnika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditStol.resx">
+      <DependentUpon>FrmEditStol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmInventar.resx">
+      <DependentUpon>FrmInventar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmIzdatnica.resx">
       <DependentUpon>FrmIzdatnica.cs</DependentUpon>

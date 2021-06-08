@@ -159,7 +159,7 @@ namespace ProgramskoIntenjerstvo
             this.dateTimeVrijeme.Location = new System.Drawing.Point(218, 345);
             this.dateTimeVrijeme.Name = "dateTimeVrijeme";
             this.dateTimeVrijeme.ShowUpDown = true;
-            this.dateTimeVrijeme.Size = new System.Drawing.Size(48, 20);
+            this.dateTimeVrijeme.Size = new System.Drawing.Size(50, 20);
             this.dateTimeVrijeme.TabIndex = 17;
             // 
             // dgvStolovi

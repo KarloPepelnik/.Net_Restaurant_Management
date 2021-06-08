@@ -46,6 +46,7 @@ namespace ProgramskoIntenjerstvo
             {
                 btnKorisnici.Hide();
                 btnMeni.Hide();
+                btnInventar.Hide();
             }
         }
 
@@ -64,6 +65,14 @@ namespace ProgramskoIntenjerstvo
         private void btnRezervacije_Click(object sender, EventArgs e)
         {
             FrmRezervacije forma = new FrmRezervacije(TrenutniKorisnik);
+            Hide();
+            forma.ShowDialog();
+            Show();
+        }
+
+        private void btnInventar_Click(object sender, EventArgs e)
+        {
+            FrmInventar forma = new FrmInventar();
             Hide();
             forma.ShowDialog();
             Show();

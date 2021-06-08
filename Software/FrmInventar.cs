@@ -1,0 +1,75 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace ProgramskoIntenjerstvo
+{
+    public partial class FrmInventar : Form
+    {
+        public FrmInventar()
+        {
+            InitializeComponent();
+        }
+
+        private void btnOdustani_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void FrmInventar_Load(object sender, EventArgs e)
+        {
+            Osvjezi();
+        }
+
+        private void Osvjezi()
+        {
+            using (var context = new Entities())
+            {
+                var query = from s in context.Stol
+                            select s;
+                List<Stol> sviStolovi = query.ToList();
+
+                dgvStolovi.DataSource = sviStolovi;
+                dgvStolovi.Columns["rezerviran"].Visible = false;
+                dgvStolovi.Columns["rezervacija"].Visible = false;
+                dgvStolovi.Columns["id_stol"].HeaderText = "Broj stola";
+                dgvStolovi.Columns["opis"].HeaderText = "Pozicija stola";
+                dgvStolovi.Columns["broj_mjesta"].HeaderText = "Broj mjesta";
+            }
+        }
+
+        private void btnObrisi_Click(object sender, EventArgs e)
+        {
+            Stol odabrani = dgvStolovi.CurrentRow.DataBoundItem as Stol;
+
+            using (var context = new Entities())
+            {
+                context.Stol.Attach(odabrani);
+                context.Stol.Remove(odabrani);
+                context.SaveChanges();
+            }
+            Osvjezi();
+        }
+
+        private void btnIzmjeni_Click(object sender, EventArgs e)
+        {
+            Stol odabrani = dgvStolovi.CurrentRow.DataBoundItem as Stol;
+            FrmEditStol forma = new FrmEditStol(odabrani);
+            forma.ShowDialog();
+            Osvjezi();
+        }
+
+        private void btnDodaj_Click(object sender, EventArgs e)
+        {
+            FrmDodajStol forma = new FrmDodajStol();
+            forma.ShowDialog();
+            Osvjezi();
+        }
+    }
+}
