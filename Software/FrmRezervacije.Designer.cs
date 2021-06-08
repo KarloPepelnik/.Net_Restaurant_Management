@@ -158,6 +158,7 @@ namespace ProgramskoIntenjerstvo
             this.dateTimeVrijeme.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimeVrijeme.Location = new System.Drawing.Point(218, 345);
             this.dateTimeVrijeme.Name = "dateTimeVrijeme";
+            this.dateTimeVrijeme.ShowUpDown = true;
             this.dateTimeVrijeme.Size = new System.Drawing.Size(48, 20);
             this.dateTimeVrijeme.TabIndex = 17;
             // 
@@ -210,6 +211,7 @@ namespace ProgramskoIntenjerstvo
             this.Controls.Add(this.dgvRezervacije);
             this.Controls.Add(this.kalendar);
             this.Name = "FrmRezervacije";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmRezervacije";
             this.Load += new System.EventHandler(this.FrmRezervacije_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRezervacije)).EndInit();

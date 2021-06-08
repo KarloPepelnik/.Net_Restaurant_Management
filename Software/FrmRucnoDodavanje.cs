@@ -59,7 +59,7 @@ namespace ProgramskoIntenjerstvo
             {
                 MessageBox.Show("Ne možete rezervirati datum prije današnjeg dana!");
             }
-            else if (dateTimeVrijeme.Value.TimeOfDay < DateTime.Now.TimeOfDay)
+            else if (dateTimeVrijeme.Value.TimeOfDay < DateTime.Now.TimeOfDay && dateTimeDatum.Value.Date == DateTime.Today.Date)
             {
                 MessageBox.Show("Ne možete rezervirati termin prije trenutnog vremena!");
             }

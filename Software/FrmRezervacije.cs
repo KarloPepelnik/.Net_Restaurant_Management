@@ -16,11 +16,13 @@ namespace ProgramskoIntenjerstvo
         private Korisnik TrenutniKorisnik { get; set; }
         private List<DateTime> RezerviraniDatumi { get; set; }
         private List<Rezervacija> SveRezervacije { get; set; }
+        private List<Rezervacija> SveNoveRezervacije { get; set; }
         private List<Stol> slobodniStolovi { get; set; }
         public FrmRezervacije(Korisnik korisnik)
         {
             InitializeComponent();
             RezerviraniDatumi = new List<DateTime>();
+            SveNoveRezervacije = new List<Rezervacija>();
             SveRezervacije = new List<Rezervacija>();
             TrenutniKorisnik = korisnik;
             slobodniStolovi = new List<Stol>();
@@ -43,20 +45,19 @@ namespace ProgramskoIntenjerstvo
 
         private void Osvjezi()
         {
-            Osvjezi_Stolove();
-
             using (var context = new Entities())
             {
                 var query = from r in context.Rezervacija
                             select r;
 
                 SveRezervacije = query.ToList();
+                SveNoveRezervacije = ObrisiStareRezervacije(SveRezervacije);
                 RezerviraniDatumi.Clear();
-                foreach (var rezervacija in SveRezervacije) {
+                foreach (var rezervacija in SveNoveRezervacije) {
                     RezerviraniDatumi.Add(rezervacija.datum_vrijeme);
                 }
                 kalendar.BoldedDates = RezerviraniDatumi.ToArray();
-                dgvRezervacije.DataSource = SveRezervacije;
+                dgvRezervacije.DataSource = SveNoveRezervacije;
                 dgvRezervacije.Columns["korisnik"].Visible = false;
                 dgvRezervacije.Columns["stol"].Visible = false;
                 dgvRezervacije.Columns["id_korisnik"].Visible = false;
@@ -65,6 +66,19 @@ namespace ProgramskoIntenjerstvo
                 dgvRezervacije.Columns["datum_vrijeme"].HeaderText = "Datum i vrijeme";
                 dgvRezervacije.Columns["id_stol"].HeaderText = "Broj stola";
             }
+            Osvjezi_Stolove();
+        }
+
+        private List<Rezervacija> ObrisiStareRezervacije(List<Rezervacija> sveRezervacije)
+        {
+                foreach (var rezervacija in sveRezervacije.ToList())
+                {
+                    if((rezervacija.datum_vrijeme.Date < DateTime.Today.Date) || (rezervacija.datum_vrijeme.Date == DateTime.Today.Date && rezervacija.datum_vrijeme.TimeOfDay < DateTime.Now.TimeOfDay))
+                    {
+                    sveRezervacije.Remove(rezervacija);
+                    }
+                }
+            return sveRezervacije;
         }
 
         private void Osvjezi_Stolove()
@@ -82,8 +96,9 @@ namespace ProgramskoIntenjerstvo
 
                 foreach (var stol in sviStolovi)
                 {
-                    var query1 = from r in context.Rezervacija
-                                 where r.id_stol == stol.id_stol && DbFunctions.TruncateTime(r.datum_vrijeme) == DbFunctions.TruncateTime(oznacenoVrijeme)
+                    var query1 = from r in SveNoveRezervacije
+                                 where r.id_stol == stol.id_stol && r.datum_vrijeme.Date == oznacenoVrijeme.Date
+                                 //where r.id_stol == stol.id_stol && DbFunctions.TruncateTime(r.datum_vrijeme) == DbFunctions.TruncateTime(oznacenoVrijeme)
                                  select r;
                     if (query1.ToList().Count == 0)
                     {
@@ -155,7 +170,7 @@ namespace ProgramskoIntenjerstvo
             {
                 MessageBox.Show("Ne možete rezervirati datum prije današnjeg dana!");
             }
-            else if(dateTimeVrijeme.Value.TimeOfDay < DateTime.Now.TimeOfDay)
+            else if(dateTimeVrijeme.Value.TimeOfDay < DateTime.Now.TimeOfDay && dateTimeDatum.Value.Date  == DateTime.Today.Date)
             {
                 MessageBox.Show("Ne možete rezervirati termin prije trenutnog vremena!");
             }

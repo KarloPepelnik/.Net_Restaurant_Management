@@ -76,6 +76,7 @@ namespace ProgramskoIntenjerstvo
             this.dateTimeVrijeme.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimeVrijeme.Location = new System.Drawing.Point(212, 113);
             this.dateTimeVrijeme.Name = "dateTimeVrijeme";
+            this.dateTimeVrijeme.ShowUpDown = true;
             this.dateTimeVrijeme.Size = new System.Drawing.Size(47, 20);
             this.dateTimeVrijeme.TabIndex = 24;
             // 
