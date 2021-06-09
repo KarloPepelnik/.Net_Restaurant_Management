@@ -133,6 +133,7 @@ namespace ProgramskoIntenjerstvo
 
         private void kalendar_DateSelected(object sender, DateRangeEventArgs e)
         {
+            radioBtnDan.Checked = true;
             List<Rezervacija> naDanRezervacije = new List<Rezervacija>();
             foreach (var rezervacija in SveRezervacije)
             {
@@ -153,6 +154,52 @@ namespace ProgramskoIntenjerstvo
 
             dateTimeDatum.Value = kalendar.SelectionStart.Date;
             Osvjezi_Stolove();
+            OsvjeziPogled();
+        }
+
+        private void OsvjeziPogled()
+        {
+            dgvRezervacije.DataSource = null;
+            if (radioBtnDan.Checked)
+            {
+                List<Rezervacija> naDanRezervacije = new List<Rezervacija>();
+                foreach (var rezervacija in SveRezervacije)
+                {
+                    if (rezervacija.datum_vrijeme.ToShortDateString() == kalendar.SelectionStart.ToShortDateString())
+                    {
+                        naDanRezervacije.Add(rezervacija);
+                    }
+                }
+                dgvRezervacije.DataSource = naDanRezervacije;
+                dgvRezervacije.Columns["korisnik"].Visible = false;
+                dgvRezervacije.Columns["stol"].Visible = false;
+                dgvRezervacije.Columns["id_korisnik"].Visible = false;
+                dgvRezervacije.Columns["id_rezervacija"].Visible = false;
+                dgvRezervacije.Columns["opis_rezervacije"].HeaderText = "Prezime";
+                dgvRezervacije.Columns["datum_vrijeme"].HeaderText = "Datum i vrijeme";
+                dgvRezervacije.Columns["OznakaStola"].HeaderText = "Broj stola";
+                dgvRezervacije.Columns["id_stol"].Visible = false;
+            }
+            else if(radioBtnTjedan.Checked)
+            {
+                List<Rezervacija> tjedanRezervacije = new List<Rezervacija>();
+                foreach (var rezervacija in SveRezervacije)
+                {
+                    if (rezervacija.datum_vrijeme.Date <= kalendar.SelectionStart.Date.AddDays(7) && rezervacija.datum_vrijeme.Date >= kalendar.SelectionStart.Date)
+                    {
+                        tjedanRezervacije.Add(rezervacija);
+                    }
+                }
+                dgvRezervacije.DataSource = tjedanRezervacije;
+                dgvRezervacije.Columns["korisnik"].Visible = false;
+                dgvRezervacije.Columns["stol"].Visible = false;
+                dgvRezervacije.Columns["id_korisnik"].Visible = false;
+                dgvRezervacije.Columns["id_rezervacija"].Visible = false;
+                dgvRezervacije.Columns["opis_rezervacije"].HeaderText = "Prezime";
+                dgvRezervacije.Columns["datum_vrijeme"].HeaderText = "Datum i vrijeme";
+                dgvRezervacije.Columns["OznakaStola"].HeaderText = "Broj stola";
+                dgvRezervacije.Columns["id_stol"].Visible = false;
+            }
         }
 
         private void btnIzmjeni_Click(object sender, EventArgs e)
@@ -223,6 +270,11 @@ namespace ProgramskoIntenjerstvo
             FrmRucnoDodavanje forma = new FrmRucnoDodavanje(TrenutniKorisnik);
             forma.ShowDialog();
             Osvjezi();
+        }
+
+        private void radioBtnDan_CheckedChanged(object sender, EventArgs e)
+        {
+            OsvjeziPogled();
         }
     }
 }

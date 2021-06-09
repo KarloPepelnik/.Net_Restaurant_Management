@@ -45,6 +45,8 @@ namespace ProgramskoIntenjerstvo
             this.dgvStolovi = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.btnRucnoDodaj = new System.Windows.Forms.Button();
+            this.radioBtnDan = new System.Windows.Forms.RadioButton();
+            this.radioBtnTjedan = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRezervacije)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStolovi)).BeginInit();
             this.SuspendLayout();
@@ -59,7 +61,7 @@ namespace ProgramskoIntenjerstvo
             // dgvRezervacije
             // 
             this.dgvRezervacije.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRezervacije.Location = new System.Drawing.Point(290, 18);
+            this.dgvRezervacije.Location = new System.Drawing.Point(312, 71);
             this.dgvRezervacije.Name = "dgvRezervacije";
             this.dgvRezervacije.Size = new System.Drawing.Size(460, 309);
             this.dgvRezervacije.TabIndex = 2;
@@ -94,7 +96,7 @@ namespace ProgramskoIntenjerstvo
             // 
             // btnIzmjeni
             // 
-            this.btnIzmjeni.Location = new System.Drawing.Point(558, 333);
+            this.btnIzmjeni.Location = new System.Drawing.Point(580, 386);
             this.btnIzmjeni.Name = "btnIzmjeni";
             this.btnIzmjeni.Size = new System.Drawing.Size(93, 32);
             this.btnIzmjeni.TabIndex = 10;
@@ -104,7 +106,7 @@ namespace ProgramskoIntenjerstvo
             // 
             // btnObriši
             // 
-            this.btnObriši.Location = new System.Drawing.Point(657, 333);
+            this.btnObriši.Location = new System.Drawing.Point(679, 386);
             this.btnObriši.Name = "btnObriši";
             this.btnObriši.Size = new System.Drawing.Size(93, 32);
             this.btnObriši.TabIndex = 11;
@@ -181,7 +183,7 @@ namespace ProgramskoIntenjerstvo
             // 
             // btnRucnoDodaj
             // 
-            this.btnRucnoDodaj.Location = new System.Drawing.Point(459, 332);
+            this.btnRucnoDodaj.Location = new System.Drawing.Point(481, 385);
             this.btnRucnoDodaj.Name = "btnRucnoDodaj";
             this.btnRucnoDodaj.Size = new System.Drawing.Size(93, 32);
             this.btnRucnoDodaj.TabIndex = 20;
@@ -189,11 +191,36 @@ namespace ProgramskoIntenjerstvo
             this.btnRucnoDodaj.UseVisualStyleBackColor = true;
             this.btnRucnoDodaj.Click += new System.EventHandler(this.btnRucnoDodaj_Click);
             // 
+            // radioBtnDan
+            // 
+            this.radioBtnDan.AutoSize = true;
+            this.radioBtnDan.Location = new System.Drawing.Point(469, 48);
+            this.radioBtnDan.Name = "radioBtnDan";
+            this.radioBtnDan.Size = new System.Drawing.Size(45, 17);
+            this.radioBtnDan.TabIndex = 21;
+            this.radioBtnDan.TabStop = true;
+            this.radioBtnDan.Text = "Dan";
+            this.radioBtnDan.UseVisualStyleBackColor = true;
+            this.radioBtnDan.CheckedChanged += new System.EventHandler(this.radioBtnDan_CheckedChanged);
+            // 
+            // radioBtnTjedan
+            // 
+            this.radioBtnTjedan.AutoSize = true;
+            this.radioBtnTjedan.Location = new System.Drawing.Point(560, 48);
+            this.radioBtnTjedan.Name = "radioBtnTjedan";
+            this.radioBtnTjedan.Size = new System.Drawing.Size(58, 17);
+            this.radioBtnTjedan.TabIndex = 22;
+            this.radioBtnTjedan.TabStop = true;
+            this.radioBtnTjedan.Text = "Tjedan";
+            this.radioBtnTjedan.UseVisualStyleBackColor = true;
+            // 
             // FrmRezervacije
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1216, 452);
+            this.Controls.Add(this.radioBtnTjedan);
+            this.Controls.Add(this.radioBtnDan);
             this.Controls.Add(this.btnRucnoDodaj);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dgvStolovi);
@@ -239,5 +266,7 @@ namespace ProgramskoIntenjerstvo
         private System.Windows.Forms.DataGridView dgvStolovi;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnRucnoDodaj;
+        private System.Windows.Forms.RadioButton radioBtnDan;
+        private System.Windows.Forms.RadioButton radioBtnTjedan;
     }
 }
