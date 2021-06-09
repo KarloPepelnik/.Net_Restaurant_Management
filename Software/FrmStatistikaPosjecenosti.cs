@@ -44,7 +44,37 @@ namespace ProgramskoIntenjerstvo
 
         private void IzracunajPosjecenost()
         {
-            
+            chartPosjecenost.Series["Broj rezervacija"].Points.Clear();
+
+            int[] posjecenost = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
+            for (int i = 1; i < 13; i++)
+            {
+                foreach (var rezervacija in SveRezervacije)
+                {
+                    if(rezervacija.datum_vrijeme.Date.Month == i)
+                    {
+                        posjecenost[i]++;
+                    }
+                }
+            }
+
+            if (radioBtnMjesec.Checked)
+            {
+                for (int i = 1; i < 13; i++)
+                {
+                    chartPosjecenost.Series["Broj rezervacija"].Points.AddXY(i,posjecenost[i]);
+                }
+            }
+            else
+            {
+                chartPosjecenost.Series["Broj rezervacija"].Points.AddXY(1, 200);
+            }
+        }
+
+        private void radioBtnMjesec_CheckedChanged(object sender, EventArgs e)
+        {
+            IzracunajPosjecenost();
         }
     }
 }
