@@ -77,5 +77,13 @@ namespace ProgramskoIntenjerstvo
             forma.ShowDialog();
             Show();
         }
+
+        private void btnStatistika_Click(object sender, EventArgs e)
+        {
+            FrmStatistika forma = new FrmStatistika();
+            Hide();
+            forma.ShowDialog();
+            Show();
+        }
     }
 }

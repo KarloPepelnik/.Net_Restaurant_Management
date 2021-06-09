@@ -87,6 +87,7 @@ namespace ProgramskoIntenjerstvo
             this.btnStatistika.TabIndex = 5;
             this.btnStatistika.Text = "Statistika";
             this.btnStatistika.UseVisualStyleBackColor = true;
+            this.btnStatistika.Click += new System.EventHandler(this.btnStatistika_Click);
             // 
             // btnMeni
             // 
