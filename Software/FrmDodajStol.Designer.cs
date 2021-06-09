@@ -122,6 +122,7 @@ namespace ProgramskoIntenjerstvo
             this.Controls.Add(this.label1);
             this.Name = "FrmDodajStol";
             this.Text = "FrmDodajStol";
+            this.Load += new System.EventHandler(this.FrmDodajStol_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

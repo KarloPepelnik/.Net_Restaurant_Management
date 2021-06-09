@@ -25,7 +25,7 @@ namespace ProgramskoIntenjerstvo
         private void btnPohrani_Click(object sender, EventArgs e)
         {
             Stol novi = new Stol();
-            novi.id_stol = int.Parse(txtBrojStola.Text);
+            novi.oznaka = int.Parse(txtBrojStola.Text);
             novi.opis = txtPozicijaStola.Text;
             novi.broj_mjesta = int.Parse(txtBrojMjesta.Text);
 
@@ -36,6 +36,19 @@ namespace ProgramskoIntenjerstvo
                 context.SaveChanges();
             }
             Close();
+        }
+
+        private void FrmDodajStol_Load(object sender, EventArgs e)
+        {
+            using (var context = new Entities())
+            {
+                var query = from s in context.Stol
+                            select s;
+                List<Stol> sviStolovi = query.ToList();
+                Stol pomocni = sviStolovi.Last();
+                txtBrojStola.Text = (pomocni.oznaka +1).ToString() ;
+            }
+            txtBrojStola.Enabled = false;
         }
     }
 }

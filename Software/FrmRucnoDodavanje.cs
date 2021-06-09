@@ -41,7 +41,9 @@ namespace ProgramskoIntenjerstvo
                 cboxStolovi.DataSource = sviStolovi;
                 dgvStolovi.Columns["rezerviran"].Visible = false;
                 dgvStolovi.Columns["rezervacija"].Visible = false;
-                dgvStolovi.Columns["id_stol"].HeaderText = "Broj stola";
+                dgvStolovi.Columns["id_stol"].Visible = false;
+                dgvStolovi.Columns["oznaka"].HeaderText = "Broj stola";
+                dgvStolovi.Columns["oznaka"].DisplayIndex = 0;
                 dgvStolovi.Columns["opis"].HeaderText = "Pozicija stola";
                 dgvStolovi.Columns["broj_mjesta"].HeaderText = "Broj mjesta";
             }
@@ -49,9 +51,19 @@ namespace ProgramskoIntenjerstvo
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
+            int idStola;
+            int odabraniStol = int.Parse(cboxStolovi.SelectedItem.ToString());
+            using (var context = new Entities())
+            {
+                var query = from s in context.Stol
+                            where s.oznaka == odabraniStol
+                            select s;
+                Stol pomocni = query.Single();
+                idStola = pomocni.id_stol;
+            }
             Rezervacija nova = new Rezervacija();
             nova.id_korisnik = TrenutniKorisnik.id_korisnik;
-            nova.id_stol = int.Parse(cboxStolovi.SelectedValue.ToString());
+            nova.id_stol = idStola;
             nova.datum_vrijeme = dateTimeDatum.Value.Date + dateTimeVrijeme.Value.TimeOfDay;
             nova.opis_rezervacije = txtPrezime.Text;
 

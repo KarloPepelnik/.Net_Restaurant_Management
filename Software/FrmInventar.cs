@@ -38,7 +38,9 @@ namespace ProgramskoIntenjerstvo
                 dgvStolovi.DataSource = sviStolovi;
                 dgvStolovi.Columns["rezerviran"].Visible = false;
                 dgvStolovi.Columns["rezervacija"].Visible = false;
-                dgvStolovi.Columns["id_stol"].HeaderText = "Broj stola";
+                dgvStolovi.Columns["id_stol"].Visible = false;
+                dgvStolovi.Columns["oznaka"].HeaderText = "Broj stola";
+                dgvStolovi.Columns["oznaka"].DisplayIndex = 0;
                 dgvStolovi.Columns["opis"].HeaderText = "Pozicija stola";
                 dgvStolovi.Columns["broj_mjesta"].HeaderText = "Broj mjesta";
             }
