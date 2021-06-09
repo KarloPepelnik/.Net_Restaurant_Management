@@ -40,6 +40,31 @@ namespace ProgramskoIntenjerstvo
                 SviStolovi = query1.ToList();
             }
             IzracunajPosjecenost();
+            IzracunajProsjekGostiju();
+        }
+
+        private void IzracunajProsjekGostiju()
+        {
+            int[] brojGostiju = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            foreach (var stol in SviStolovi)
+            {
+                foreach (var rezervacija in SveRezervacije)
+                {
+                    if (rezervacija.id_stol == stol.id_stol)
+                    {
+                        brojGostiju[stol.broj_mjesta-1]++;
+                    }
+                }
+            }
+
+            for (int i = 1; i < 10; i++)
+            {
+                if (brojGostiju[i] > 0)
+                {
+                    chartBrojGostiju.Series["Broj gostiju"].Points.AddXY(i+1, brojGostiju[i]);
+                }
+                
+            }
         }
 
         private void IzracunajPosjecenost()
@@ -47,6 +72,8 @@ namespace ProgramskoIntenjerstvo
             chartPosjecenost.Series["Broj rezervacija"].Points.Clear();
 
             int[] posjecenost = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            double[] posjecenostTjedan = { 0, 0, 0, 0, 0, 0, 0 };
+            int[] brojRezervacija = { 1, 1, 1, 1, 1, 1, 1 };
 
             for (int i = 1; i < 13; i++)
             {
@@ -55,6 +82,17 @@ namespace ProgramskoIntenjerstvo
                     if(rezervacija.datum_vrijeme.Date.Month == i)
                     {
                         posjecenost[i]++;
+                    }
+                }
+            }
+            for (int i = 0; i < 7; i++)
+            {
+                foreach (var rezervacija in SveRezervacije)
+                {
+                    if(rezervacija.datum_vrijeme.Date.DayOfWeek == (DayOfWeek)i)
+                    {
+                        posjecenostTjedan[i]++;
+                        brojRezervacija[i]++;
                     }
                 }
             }
@@ -68,7 +106,11 @@ namespace ProgramskoIntenjerstvo
             }
             else
             {
-                chartPosjecenost.Series["Broj rezervacija"].Points.AddXY(1, 200);
+                for (int i = 0; i < 7; i++)
+                {
+                    chartPosjecenost.Series["Broj rezervacija"].Points.AddXY(((DayOfWeek)i).ToString(), posjecenostTjedan[i]); ;
+                    chartPosjecenost.Series["Broj rezervacija"].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Auto;
+                }
             }
         }
 

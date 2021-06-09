@@ -29,13 +29,14 @@ namespace ProgramskoIntenjerstvo
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chartPosjecenost = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartBrojGostiju = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.radioBtnMjesec = new System.Windows.Forms.RadioButton();
@@ -49,41 +50,44 @@ namespace ProgramskoIntenjerstvo
             // 
             // chartPosjecenost
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chartPosjecenost.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chartPosjecenost.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            this.chartPosjecenost.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartPosjecenost.Legends.Add(legend1);
             this.chartPosjecenost.Location = new System.Drawing.Point(12, 39);
             this.chartPosjecenost.Name = "chartPosjecenost";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Broj rezervacija";
-            series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            series3.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            this.chartPosjecenost.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Broj rezervacija";
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.chartPosjecenost.Series.Add(series1);
             this.chartPosjecenost.Size = new System.Drawing.Size(516, 432);
             this.chartPosjecenost.TabIndex = 0;
             this.chartPosjecenost.Text = "Graf posjećenosti";
-            title2.Name = "Posjećenost";
-            title2.Text = "Posjećenost";
-            this.chartPosjecenost.Titles.Add(title2);
+            title1.Name = "Posjećenost";
+            title1.Text = "Posjećenost";
+            this.chartPosjecenost.Titles.Add(title1);
             // 
             // chartBrojGostiju
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chartBrojGostiju.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chartBrojGostiju.Legends.Add(legend4);
+            chartArea2.Name = "ChartArea1";
+            this.chartBrojGostiju.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartBrojGostiju.Legends.Add(legend2);
             this.chartBrojGostiju.Location = new System.Drawing.Point(623, 60);
             this.chartBrojGostiju.Name = "chartBrojGostiju";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chartBrojGostiju.Series.Add(series4);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Legend = "Legend1";
+            series2.Name = "Broj gostiju";
+            this.chartBrojGostiju.Series.Add(series2);
             this.chartBrojGostiju.Size = new System.Drawing.Size(387, 330);
             this.chartBrojGostiju.TabIndex = 1;
             this.chartBrojGostiju.Text = "chart2";
+            title2.Name = "Title1";
+            title2.Text = "Zastupljenost po broju gostiju";
+            this.chartBrojGostiju.Titles.Add(title2);
             // 
             // radioBtnMjesec
             // 
