@@ -24,6 +24,7 @@ namespace ProgramskoIntenjerstvo
         public string opis { get; set; }
         public int broj_mjesta { get; set; }
         public bool rezerviran { get; set; }
+        public Nullable<int> oznaka { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rezervacija> Rezervacija { get; set; }

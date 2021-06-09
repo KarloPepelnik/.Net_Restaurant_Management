@@ -47,6 +47,8 @@
         <AssociationConnector Association="Model.FK_Stavke_racuna_Racun" />
         <AssociationConnector Association="Model.FK_Rezervacija_Stol" />
         <AssociationConnector Association="Model.Na_meniju" />
+        <EntityTypeShape EntityType="Model.Stavke_izdatnice" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.Stavke_primke" Width="1.5" PointX="2.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -33,7 +33,7 @@ namespace ProgramskoIntenjerstvo
 
                 List<Stol> sviStolovi = query.ToList();
                 cboxStol.DataSource = sviStolovi;
-                cboxStol.SelectedIndex = Odabrana.id_stol - 1;
+                cboxStol.SelectedIndex = Odabrana.OznakaStola - 1;
             }
             datumIVrijeme.Format = DateTimePickerFormat.Custom;
             datumIVrijeme.CustomFormat = "d.M.yyyy. HH:mm";
@@ -43,10 +43,19 @@ namespace ProgramskoIntenjerstvo
 
         private void btnSpremi_Click(object sender, EventArgs e)
         {
+            int idStola;
+            using (var context = new Entities())
+            {
+                var query = from s in context.Stol
+                            where s.oznaka == cboxStol.SelectedIndex + 1
+                            select s;
+                Stol pomocni = query.Single();
+                idStola = pomocni.id_stol;
+            }
             using (var context = new Entities())
             {
                 context.Rezervacija.Attach(Odabrana);
-                Odabrana.id_stol = cboxStol.SelectedIndex + 1;
+                Odabrana.id_stol = idStola;
                 Odabrana.datum_vrijeme = datumIVrijeme.Value;
                 Odabrana.opis_rezervacije = txtPrezime.Text;
                 context.SaveChanges();

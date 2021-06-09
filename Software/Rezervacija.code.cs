@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace ProgramskoIntenjerstvo
 {
-    public partial class Stol
+    public partial class Rezervacija
     {
-        public override string ToString()
-        {
-            return oznaka.ToString();
-        }
+        public int OznakaStola { get; set; }
     }
 }

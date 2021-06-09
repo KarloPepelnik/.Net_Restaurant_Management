@@ -249,7 +249,14 @@
     <Compile Include="RacunIzdan.Designer.cs">
       <DependentUpon>RacunIzdan.cs</DependentUpon>
     </Compile>
+    <Compile Include="Rezervacija.code.cs" />
     <Compile Include="Rezervacija.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stavke_izdatnice.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stavke_primke.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Stavke_racuna.cs">

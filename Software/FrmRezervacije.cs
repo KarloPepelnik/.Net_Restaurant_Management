@@ -49,9 +49,22 @@ namespace ProgramskoIntenjerstvo
             {
                 var query = from r in context.Rezervacija
                             select r;
+                var query1 = from s in context.Stol
+                             select s;
+                List<Stol> sviStolovi = query1.ToList();
 
                 SveRezervacije = query.ToList();
                 SveNoveRezervacije = ObrisiStareRezervacije(SveRezervacije);
+                foreach (var rezervacija in SveNoveRezervacije)
+                {
+                    foreach (var stol in sviStolovi)
+                    {
+                        if(rezervacija.id_stol == stol.id_stol)
+                        {
+                            rezervacija.OznakaStola = stol.oznaka.Value;
+                        }
+                    }
+                }
                 RezerviraniDatumi.Clear();
                 foreach (var rezervacija in SveNoveRezervacije) {
                     RezerviraniDatumi.Add(rezervacija.datum_vrijeme);
@@ -64,7 +77,8 @@ namespace ProgramskoIntenjerstvo
                 dgvRezervacije.Columns["id_rezervacija"].Visible = false;
                 dgvRezervacije.Columns["opis_rezervacije"].HeaderText = "Prezime";
                 dgvRezervacije.Columns["datum_vrijeme"].HeaderText = "Datum i vrijeme";
-                dgvRezervacije.Columns["id_stol"].HeaderText = "Broj stola";
+                dgvRezervacije.Columns["OznakaStola"].HeaderText = "Broj stola";
+                dgvRezervacije.Columns["id_stol"].Visible = false;
             }
             Osvjezi_Stolove();
         }
@@ -109,7 +123,9 @@ namespace ProgramskoIntenjerstvo
                 dgvStolovi.DataSource = slobodniStolovi;
                 dgvStolovi.Columns["rezerviran"].Visible = false;
                 dgvStolovi.Columns["rezervacija"].Visible = false;
-                dgvStolovi.Columns["id_stol"].HeaderText = "Broj stola";
+                dgvStolovi.Columns["id_stol"].Visible = false;
+                dgvStolovi.Columns["oznaka"].HeaderText = "Broj stola";
+                dgvStolovi.Columns["oznaka"].DisplayIndex = 0;
                 dgvStolovi.Columns["opis"].HeaderText = "Pozicija stola";
                 dgvStolovi.Columns["broj_mjesta"].HeaderText = "Broj mjesta";
             }
@@ -132,7 +148,8 @@ namespace ProgramskoIntenjerstvo
             dgvRezervacije.Columns["id_rezervacija"].Visible = false;
             dgvRezervacije.Columns["opis_rezervacije"].HeaderText = "Prezime";
             dgvRezervacije.Columns["datum_vrijeme"].HeaderText = "Datum i vrijeme";
-            dgvRezervacije.Columns["id_stol"].HeaderText = "Broj stola";
+            dgvRezervacije.Columns["OznakaStola"].HeaderText = "Broj stola";
+            dgvRezervacije.Columns["id_stol"].Visible = false;
 
             dateTimeDatum.Value = kalendar.SelectionStart.Date;
             Osvjezi_Stolove();
@@ -160,9 +177,20 @@ namespace ProgramskoIntenjerstvo
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
+            int idStola;
+            int odabraniStol = int.Parse(cboxStolovi.SelectedItem.ToString());
+            using (var context = new Entities())
+            {
+                var query = from s in context.Stol
+                            where s.oznaka == odabraniStol
+                            select s;
+                Stol pomocni = query.Single();
+                idStola = pomocni.id_stol;
+            }
+
             Rezervacija nova = new Rezervacija();
             nova.id_korisnik = TrenutniKorisnik.id_korisnik;
-            nova.id_stol = int.Parse(cboxStolovi.SelectedValue.ToString());
+            nova.id_stol = idStola;
             nova.datum_vrijeme = dateTimeDatum.Value.Date + dateTimeVrijeme.Value.TimeOfDay;
             nova.opis_rezervacije = txtPrezime.Text;
             
