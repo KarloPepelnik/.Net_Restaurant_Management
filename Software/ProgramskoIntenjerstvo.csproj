@@ -64,6 +64,18 @@
     <Compile Include="FrmAzurirajIzdatnicu.Designer.cs">
       <DependentUpon>FrmAzurirajIzdatnicu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAzurirajJelo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAzurirajJelo.Designer.cs">
+      <DependentUpon>FrmAzurirajJelo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAzurirajKategoriju.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAzurirajKategoriju.Designer.cs">
+      <DependentUpon>FrmAzurirajKategoriju.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAzurirajNamirnicu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,11 +88,29 @@
     <Compile Include="FrmAzurirajPrimku.Designer.cs">
       <DependentUpon>FrmAzurirajPrimku.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDodajJelo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDodajJelo.Designer.cs">
+      <DependentUpon>FrmDodajJelo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDodajKategoriju.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDodajKategoriju.Designer.cs">
+      <DependentUpon>FrmDodajKategoriju.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDodajNamirnicu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmDodajNamirnicu.Designer.cs">
       <DependentUpon>FrmDodajNamirnicu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDodajSastojkeJela.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDodajSastojkeJela.Designer.cs">
+      <DependentUpon>FrmDodajSastojkeJela.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmDodajStol.cs">
       <SubType>Form</SubType>
@@ -117,6 +147,12 @@
     </Compile>
     <Compile Include="FrmIzmjenaRezervacije.Designer.cs">
       <DependentUpon>FrmIzmjenaRezervacije.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmKategorijeJela.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmKategorijeJela.Designer.cs">
+      <DependentUpon>FrmKategorijeJela.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmKorisnici.cs">
       <SubType>Form</SubType>
@@ -269,6 +305,12 @@
     <Compile Include="Tip_korisnika.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="FrmUpravljanjeJelimaMenijima.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUpravljanjeJelimaMenijima.Designer.cs">
+      <DependentUpon>FrmUpravljanjeJelimaMenijima.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpravljanjeKasom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,14 +320,29 @@
     <EmbeddedResource Include="FrmAzurirajIzdatnicu.resx">
       <DependentUpon>FrmAzurirajIzdatnicu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAzurirajJelo.resx">
+      <DependentUpon>FrmAzurirajJelo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAzurirajKategoriju.resx">
+      <DependentUpon>FrmAzurirajKategoriju.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAzurirajNamirnicu.resx">
       <DependentUpon>FrmAzurirajNamirnicu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAzurirajPrimku.resx">
       <DependentUpon>FrmAzurirajPrimku.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmDodajJelo.resx">
+      <DependentUpon>FrmDodajJelo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDodajKategoriju.resx">
+      <DependentUpon>FrmDodajKategoriju.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDodajNamirnicu.resx">
       <DependentUpon>FrmDodajNamirnicu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDodajSastojkeJela.resx">
+      <DependentUpon>FrmDodajSastojkeJela.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDodajStol.resx">
       <DependentUpon>FrmDodajStol.cs</DependentUpon>
@@ -304,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmIzmjenaRezervacije.resx">
       <DependentUpon>FrmIzmjenaRezervacije.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmKategorijeJela.resx">
+      <DependentUpon>FrmKategorijeJela.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmKorisnici.resx">
       <DependentUpon>FrmKorisnici.cs</DependentUpon>
@@ -349,6 +409,9 @@
     </Compile>
     <EmbeddedResource Include="RacunIzdan.resx">
       <DependentUpon>RacunIzdan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpravljanjeJelimaMenijima.resx">
+      <DependentUpon>FrmUpravljanjeJelimaMenijima.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpravljanjeKasom.resx">
       <DependentUpon>UpravljanjeKasom.cs</DependentUpon>

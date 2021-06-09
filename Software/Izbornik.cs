@@ -42,11 +42,15 @@ namespace ProgramskoIntenjerstvo
 
         private void Izbornik_Load(object sender, EventArgs e)
         {
-            if(TrenutniKorisnik.tip_korisnik > 2)
+            txtBoxTrenutniKorsinik.Text = TrenutniKorisnik.korisnicko_ime;
+            txtBoxTrenutniKorsinik.ReadOnly = true;
+
+            if(TrenutniKorisnik.tip_korisnik == 3)
             {
-                btnKorisnici.Hide();
-                btnMeni.Hide();
-                btnInventar.Hide();
+                btnKorisnici.Visible = false;
+                btnMeni.Visible = false;
+                btnInventar.Visible = false;
+                btnUpravljanjeJelimaMenijima.Visible = false;
             }
         }
 
@@ -76,6 +80,12 @@ namespace ProgramskoIntenjerstvo
             Hide();
             forma.ShowDialog();
             Show();
+        }
+
+        private void btnUpravljanjeJelimaMenijima_Click(object sender, EventArgs e)
+        {
+            FrmUpravljanjeJelimaMenijima form = new FrmUpravljanjeJelimaMenijima();
+            form.ShowDialog();
         }
     }
 }

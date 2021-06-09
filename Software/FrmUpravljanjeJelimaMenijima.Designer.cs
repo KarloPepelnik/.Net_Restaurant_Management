@@ -1,0 +1,220 @@
+﻿
+namespace ProgramskoIntenjerstvo
+{
+    partial class FrmUpravljanjeJelimaMenijima
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUpravljanjeJelimaMenijima));
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabCtrlJelaMeniji = new System.Windows.Forms.TabControl();
+            this.tabPageJela = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnPregledJela = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnKategorije = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnDodajJelo = new System.Windows.Forms.Button();
+            this.tabPageMeniji = new System.Windows.Forms.TabPage();
+            this.btnPovratak = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tabCtrlJelaMeniji.SuspendLayout();
+            this.tabPageJela.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(276, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(176, 34);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Jela i meniji";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // tabCtrlJelaMeniji
+            // 
+            this.tabCtrlJelaMeniji.Controls.Add(this.tabPageJela);
+            this.tabCtrlJelaMeniji.Controls.Add(this.tabPageMeniji);
+            this.tabCtrlJelaMeniji.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tabCtrlJelaMeniji.Location = new System.Drawing.Point(31, 79);
+            this.tabCtrlJelaMeniji.Name = "tabCtrlJelaMeniji";
+            this.tabCtrlJelaMeniji.SelectedIndex = 0;
+            this.tabCtrlJelaMeniji.Size = new System.Drawing.Size(644, 335);
+            this.tabCtrlJelaMeniji.TabIndex = 3;
+            // 
+            // tabPageJela
+            // 
+            this.tabPageJela.Controls.Add(this.label4);
+            this.tabPageJela.Controls.Add(this.label3);
+            this.tabPageJela.Controls.Add(this.btnPregledJela);
+            this.tabPageJela.Controls.Add(this.label2);
+            this.tabPageJela.Controls.Add(this.btnKategorije);
+            this.tabPageJela.Controls.Add(this.label5);
+            this.tabPageJela.Controls.Add(this.btnDodajJelo);
+            this.tabPageJela.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tabPageJela.Location = new System.Drawing.Point(4, 25);
+            this.tabPageJela.Name = "tabPageJela";
+            this.tabPageJela.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageJela.Size = new System.Drawing.Size(636, 306);
+            this.tabPageJela.TabIndex = 0;
+            this.tabPageJela.Text = "Upravljanje jelima";
+            this.tabPageJela.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(252, 200);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(134, 19);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Pregled svih jela";
+            // 
+            // btnPregledJela
+            // 
+            this.btnPregledJela.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPregledJela.BackgroundImage")));
+            this.btnPregledJela.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPregledJela.Location = new System.Drawing.Point(241, 82);
+            this.btnPregledJela.Name = "btnPregledJela";
+            this.btnPregledJela.Size = new System.Drawing.Size(155, 115);
+            this.btnPregledJela.TabIndex = 15;
+            this.btnPregledJela.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnPregledJela.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(475, 200);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(117, 19);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Kategorije jela";
+            // 
+            // btnKategorije
+            // 
+            this.btnKategorije.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnKategorije.BackgroundImage")));
+            this.btnKategorije.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnKategorije.Location = new System.Drawing.Point(463, 82);
+            this.btnKategorije.Name = "btnKategorije";
+            this.btnKategorije.Size = new System.Drawing.Size(144, 115);
+            this.btnKategorije.TabIndex = 13;
+            this.btnKategorije.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnKategorije.UseVisualStyleBackColor = true;
+            this.btnKategorije.Click += new System.EventHandler(this.btnKategorije_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Location = new System.Drawing.Point(29, 200);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(128, 19);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Dodaj novo jelo";
+            // 
+            // btnDodajJelo
+            // 
+            this.btnDodajJelo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDodajJelo.BackgroundImage")));
+            this.btnDodajJelo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDodajJelo.Location = new System.Drawing.Point(22, 82);
+            this.btnDodajJelo.Name = "btnDodajJelo";
+            this.btnDodajJelo.Size = new System.Drawing.Size(144, 115);
+            this.btnDodajJelo.TabIndex = 11;
+            this.btnDodajJelo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnDodajJelo.UseVisualStyleBackColor = true;
+            this.btnDodajJelo.Click += new System.EventHandler(this.btnDodajJelo_Click);
+            // 
+            // tabPageMeniji
+            // 
+            this.tabPageMeniji.Location = new System.Drawing.Point(4, 25);
+            this.tabPageMeniji.Name = "tabPageMeniji";
+            this.tabPageMeniji.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageMeniji.Size = new System.Drawing.Size(636, 306);
+            this.tabPageMeniji.TabIndex = 1;
+            this.tabPageMeniji.Text = "Upravljanje menijima";
+            this.tabPageMeniji.UseVisualStyleBackColor = true;
+            // 
+            // btnPovratak
+            // 
+            this.btnPovratak.Location = new System.Drawing.Point(525, 452);
+            this.btnPovratak.Name = "btnPovratak";
+            this.btnPovratak.Size = new System.Drawing.Size(150, 28);
+            this.btnPovratak.TabIndex = 4;
+            this.btnPovratak.Text = "Povratak";
+            this.btnPovratak.UseVisualStyleBackColor = true;
+            this.btnPovratak.Click += new System.EventHandler(this.btnPovratak_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(18, 219);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(152, 19);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Dodaj sastojke jela";
+            // 
+            // FrmUpravljanjeJelimaMenijima
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(703, 492);
+            this.Controls.Add(this.btnPovratak);
+            this.Controls.Add(this.tabCtrlJelaMeniji);
+            this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Name = "FrmUpravljanjeJelimaMenijima";
+            this.Text = "Upravljanje jelima i menijima";
+            this.tabCtrlJelaMeniji.ResumeLayout(false);
+            this.tabPageJela.ResumeLayout(false);
+            this.tabPageJela.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TabControl tabCtrlJelaMeniji;
+        private System.Windows.Forms.TabPage tabPageJela;
+        private System.Windows.Forms.TabPage tabPageMeniji;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnKategorije;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnDodajJelo;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnPregledJela;
+        private System.Windows.Forms.Button btnPovratak;
+        private System.Windows.Forms.Label label4;
+    }
+}
