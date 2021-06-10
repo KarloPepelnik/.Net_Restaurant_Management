@@ -35,5 +35,11 @@ namespace ProgramskoIntenjerstvo
             FrmDodajJelo frmDodajJelo = new FrmDodajJelo();
             frmDodajJelo.ShowDialog();
         }
+
+        private void btnPregledJela_Click(object sender, EventArgs e)
+        {
+            FrmPregledJela frmPregledJela = new FrmPregledJela();
+            frmPregledJela.ShowDialog();
+        }
     }
 }

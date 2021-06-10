@@ -33,6 +33,7 @@ namespace ProgramskoIntenjerstvo
             this.label1 = new System.Windows.Forms.Label();
             this.tabCtrlJelaMeniji = new System.Windows.Forms.TabControl();
             this.tabPageJela = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnPregledJela = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,7 +42,7 @@ namespace ProgramskoIntenjerstvo
             this.btnDodajJelo = new System.Windows.Forms.Button();
             this.tabPageMeniji = new System.Windows.Forms.TabPage();
             this.btnPovratak = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.tabCtrlJelaMeniji.SuspendLayout();
             this.tabPageJela.SuspendLayout();
             this.SuspendLayout();
@@ -71,6 +72,7 @@ namespace ProgramskoIntenjerstvo
             // 
             // tabPageJela
             // 
+            this.tabPageJela.Controls.Add(this.label6);
             this.tabPageJela.Controls.Add(this.label4);
             this.tabPageJela.Controls.Add(this.label3);
             this.tabPageJela.Controls.Add(this.btnPregledJela);
@@ -86,6 +88,16 @@ namespace ProgramskoIntenjerstvo
             this.tabPageJela.TabIndex = 0;
             this.tabPageJela.Text = "Upravljanje jelima";
             this.tabPageJela.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(18, 219);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(152, 19);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Dodaj sastojke jela";
             // 
             // label3
             // 
@@ -107,12 +119,13 @@ namespace ProgramskoIntenjerstvo
             this.btnPregledJela.TabIndex = 15;
             this.btnPregledJela.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnPregledJela.UseVisualStyleBackColor = true;
+            this.btnPregledJela.Click += new System.EventHandler(this.btnPregledJela_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(475, 200);
+            this.label2.Location = new System.Drawing.Point(477, 200);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(117, 19);
             this.label2.TabIndex = 14;
@@ -172,15 +185,15 @@ namespace ProgramskoIntenjerstvo
             this.btnPovratak.UseVisualStyleBackColor = true;
             this.btnPovratak.Click += new System.EventHandler(this.btnPovratak_Click);
             // 
-            // label4
+            // label6
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(18, 219);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(152, 19);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Dodaj sastojke jela";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(459, 219);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(166, 19);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Kategorije namirnica";
             // 
             // FrmUpravljanjeJelimaMenijima
             // 
@@ -216,5 +229,6 @@ namespace ProgramskoIntenjerstvo
         private System.Windows.Forms.Button btnPregledJela;
         private System.Windows.Forms.Button btnPovratak;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
     }
 }

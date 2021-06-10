@@ -34,39 +34,40 @@ namespace ProgramskoIntenjerstvo
             this.label2 = new System.Windows.Forms.Label();
             this.txtBoxNazivJela = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtBoxCijena = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.cmbBoxKategorijeJela = new System.Windows.Forms.ComboBox();
             this.btnDodajJelo = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtBoxCijena = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dgvPopisJela = new System.Windows.Forms.DataGridView();
-            this.btnAzuriraj = new System.Windows.Forms.Button();
-            this.btnIzbrisiJelo = new System.Windows.Forms.Button();
-            this.btnIzlaz = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnPrikaziSastojkeJela = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cmbBoxKategorijaJelaSort = new System.Windows.Forms.ComboBox();
-            this.btnFilterPoKategoriji = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnPrikaziSastojkeJela = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnIzbrisiJelo = new System.Windows.Forms.Button();
+            this.btnAzuriraj = new System.Windows.Forms.Button();
+            this.dgvPopisJela = new System.Windows.Forms.DataGridView();
+            this.btnIzlaz = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnPrikaziSvaJela = new System.Windows.Forms.Button();
             this.cmbBoxSortOptions = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnFilterPoKategoriji = new System.Windows.Forms.Button();
+            this.cmbBoxKategorijaJelaSort = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.btnPretrazi = new System.Windows.Forms.Button();
             this.txtBoxNazivJelaSearch = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnPretrazi = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPopisJela)).BeginInit();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,33 +116,6 @@ namespace ProgramskoIntenjerstvo
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Novo jelo";
             // 
-            // txtBoxCijena
-            // 
-            this.txtBoxCijena.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtBoxCijena.Location = new System.Drawing.Point(108, 59);
-            this.txtBoxCijena.Name = "txtBoxCijena";
-            this.txtBoxCijena.Size = new System.Drawing.Size(88, 22);
-            this.txtBoxCijena.TabIndex = 7;
-            this.txtBoxCijena.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 65);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 16);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Cijena:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 97);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 16);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Kategorija jela:";
-            // 
             // cmbBoxKategorijeJela
             // 
             this.cmbBoxKategorijeJela.FormattingEnabled = true;
@@ -159,6 +133,33 @@ namespace ProgramskoIntenjerstvo
             this.btnDodajJelo.Text = "Dodaj jelo";
             this.btnDodajJelo.UseVisualStyleBackColor = true;
             this.btnDodajJelo.Click += new System.EventHandler(this.btnDodajJelo_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 97);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(94, 16);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Kategorija jela:";
+            // 
+            // txtBoxCijena
+            // 
+            this.txtBoxCijena.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtBoxCijena.Location = new System.Drawing.Point(108, 59);
+            this.txtBoxCijena.Name = "txtBoxCijena";
+            this.txtBoxCijena.Size = new System.Drawing.Size(88, 22);
+            this.txtBoxCijena.TabIndex = 7;
+            this.txtBoxCijena.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 65);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 16);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Cijena:";
             // 
             // pictureBox1
             // 
@@ -182,89 +183,6 @@ namespace ProgramskoIntenjerstvo
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Popis svih jela";
             // 
-            // dgvPopisJela
-            // 
-            this.dgvPopisJela.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvPopisJela.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvPopisJela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPopisJela.Location = new System.Drawing.Point(11, 31);
-            this.dgvPopisJela.Name = "dgvPopisJela";
-            this.dgvPopisJela.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPopisJela.Size = new System.Drawing.Size(614, 280);
-            this.dgvPopisJela.TabIndex = 0;
-            // 
-            // btnAzuriraj
-            // 
-            this.btnAzuriraj.Location = new System.Drawing.Point(27, 21);
-            this.btnAzuriraj.Name = "btnAzuriraj";
-            this.btnAzuriraj.Size = new System.Drawing.Size(148, 35);
-            this.btnAzuriraj.TabIndex = 12;
-            this.btnAzuriraj.Text = "Ažuriraj jelo";
-            this.btnAzuriraj.UseVisualStyleBackColor = true;
-            this.btnAzuriraj.Click += new System.EventHandler(this.btnAzuriraj_Click);
-            // 
-            // btnIzbrisiJelo
-            // 
-            this.btnIzbrisiJelo.Location = new System.Drawing.Point(27, 62);
-            this.btnIzbrisiJelo.Name = "btnIzbrisiJelo";
-            this.btnIzbrisiJelo.Size = new System.Drawing.Size(148, 35);
-            this.btnIzbrisiJelo.TabIndex = 13;
-            this.btnIzbrisiJelo.Text = "Izbriši jelo";
-            this.btnIzbrisiJelo.UseVisualStyleBackColor = true;
-            this.btnIzbrisiJelo.Click += new System.EventHandler(this.btnIzbrisiJelo_Click);
-            // 
-            // btnIzlaz
-            // 
-            this.btnIzlaz.Location = new System.Drawing.Point(748, 683);
-            this.btnIzlaz.Name = "btnIzlaz";
-            this.btnIzlaz.Size = new System.Drawing.Size(125, 35);
-            this.btnIzlaz.TabIndex = 14;
-            this.btnIzlaz.Text = "Izlaz";
-            this.btnIzlaz.UseVisualStyleBackColor = true;
-            this.btnIzlaz.Click += new System.EventHandler(this.btnIzlaz_Click);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.cmbBoxSortOptions);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.btnFilterPoKategoriji);
-            this.groupBox3.Controls.Add(this.cmbBoxKategorijaJelaSort);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Location = new System.Drawing.Point(35, 579);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(481, 97);
-            this.groupBox3.TabIndex = 15;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Sortiranja i filtriranja";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.btnIzbrisiJelo);
-            this.groupBox4.Controls.Add(this.btnAzuriraj);
-            this.groupBox4.Location = new System.Drawing.Point(631, 208);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(196, 114);
-            this.groupBox4.TabIndex = 16;
-            this.groupBox4.TabStop = false;
-            // 
-            // btnPrikaziSastojkeJela
-            // 
-            this.btnPrikaziSastojkeJela.Location = new System.Drawing.Point(20, 33);
-            this.btnPrikaziSastojkeJela.Name = "btnPrikaziSastojkeJela";
-            this.btnPrikaziSastojkeJela.Size = new System.Drawing.Size(155, 24);
-            this.btnPrikaziSastojkeJela.TabIndex = 1;
-            this.btnPrikaziSastojkeJela.Text = "Prikaži sastojke jela";
-            this.btnPrikaziSastojkeJela.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(20, 72);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 24);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Dodaj sastojke jela";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.button2);
@@ -286,22 +204,121 @@ namespace ProgramskoIntenjerstvo
             this.button2.Text = "Uredi sastojke jela";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // button1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 29);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 16);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Odaberi kategoriju";
+            this.button1.Location = new System.Drawing.Point(20, 72);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(155, 24);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Dodaj sastojke jela";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // cmbBoxKategorijaJelaSort
+            // btnPrikaziSastojkeJela
             // 
-            this.cmbBoxKategorijaJelaSort.FormattingEnabled = true;
-            this.cmbBoxKategorijaJelaSort.Location = new System.Drawing.Point(125, 26);
-            this.cmbBoxKategorijaJelaSort.Name = "cmbBoxKategorijaJelaSort";
-            this.cmbBoxKategorijaJelaSort.Size = new System.Drawing.Size(154, 24);
-            this.cmbBoxKategorijaJelaSort.TabIndex = 1;
+            this.btnPrikaziSastojkeJela.Location = new System.Drawing.Point(20, 33);
+            this.btnPrikaziSastojkeJela.Name = "btnPrikaziSastojkeJela";
+            this.btnPrikaziSastojkeJela.Size = new System.Drawing.Size(155, 24);
+            this.btnPrikaziSastojkeJela.TabIndex = 1;
+            this.btnPrikaziSastojkeJela.Text = "Prikaži sastojke jela";
+            this.btnPrikaziSastojkeJela.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.btnIzbrisiJelo);
+            this.groupBox4.Controls.Add(this.btnAzuriraj);
+            this.groupBox4.Location = new System.Drawing.Point(631, 208);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(196, 114);
+            this.groupBox4.TabIndex = 16;
+            this.groupBox4.TabStop = false;
+            // 
+            // btnIzbrisiJelo
+            // 
+            this.btnIzbrisiJelo.Location = new System.Drawing.Point(27, 62);
+            this.btnIzbrisiJelo.Name = "btnIzbrisiJelo";
+            this.btnIzbrisiJelo.Size = new System.Drawing.Size(148, 35);
+            this.btnIzbrisiJelo.TabIndex = 13;
+            this.btnIzbrisiJelo.Text = "Izbriši jelo";
+            this.btnIzbrisiJelo.UseVisualStyleBackColor = true;
+            this.btnIzbrisiJelo.Click += new System.EventHandler(this.btnIzbrisiJelo_Click);
+            // 
+            // btnAzuriraj
+            // 
+            this.btnAzuriraj.Location = new System.Drawing.Point(27, 21);
+            this.btnAzuriraj.Name = "btnAzuriraj";
+            this.btnAzuriraj.Size = new System.Drawing.Size(148, 35);
+            this.btnAzuriraj.TabIndex = 12;
+            this.btnAzuriraj.Text = "Ažuriraj jelo";
+            this.btnAzuriraj.UseVisualStyleBackColor = true;
+            this.btnAzuriraj.Click += new System.EventHandler(this.btnAzuriraj_Click);
+            // 
+            // dgvPopisJela
+            // 
+            this.dgvPopisJela.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvPopisJela.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPopisJela.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dgvPopisJela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPopisJela.Location = new System.Drawing.Point(11, 31);
+            this.dgvPopisJela.Name = "dgvPopisJela";
+            this.dgvPopisJela.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            this.dgvPopisJela.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPopisJela.Size = new System.Drawing.Size(614, 280);
+            this.dgvPopisJela.TabIndex = 0;
+            // 
+            // btnIzlaz
+            // 
+            this.btnIzlaz.Location = new System.Drawing.Point(748, 683);
+            this.btnIzlaz.Name = "btnIzlaz";
+            this.btnIzlaz.Size = new System.Drawing.Size(125, 35);
+            this.btnIzlaz.TabIndex = 14;
+            this.btnIzlaz.Text = "Izlaz";
+            this.btnIzlaz.UseVisualStyleBackColor = true;
+            this.btnIzlaz.Click += new System.EventHandler(this.btnIzlaz_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnPrikaziSvaJela);
+            this.groupBox3.Controls.Add(this.cmbBoxSortOptions);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.btnFilterPoKategoriji);
+            this.groupBox3.Controls.Add(this.cmbBoxKategorijaJelaSort);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Location = new System.Drawing.Point(35, 579);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(531, 119);
+            this.groupBox3.TabIndex = 15;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Sortiranja i filtriranja";
+            // 
+            // btnPrikaziSvaJela
+            // 
+            this.btnPrikaziSvaJela.Location = new System.Drawing.Point(125, 88);
+            this.btnPrikaziSvaJela.Name = "btnPrikaziSvaJela";
+            this.btnPrikaziSvaJela.Size = new System.Drawing.Size(154, 26);
+            this.btnPrikaziSvaJela.TabIndex = 5;
+            this.btnPrikaziSvaJela.Text = "Prikaži sva jela";
+            this.btnPrikaziSvaJela.UseVisualStyleBackColor = true;
+            this.btnPrikaziSvaJela.Click += new System.EventHandler(this.btnPrikaziSvaJela_Click);
+            // 
+            // cmbBoxSortOptions
+            // 
+            this.cmbBoxSortOptions.FormattingEnabled = true;
+            this.cmbBoxSortOptions.Location = new System.Drawing.Point(299, 58);
+            this.cmbBoxSortOptions.Name = "cmbBoxSortOptions";
+            this.cmbBoxSortOptions.Size = new System.Drawing.Size(203, 24);
+            this.cmbBoxSortOptions.TabIndex = 4;
+            this.cmbBoxSortOptions.SelectedIndexChanged += new System.EventHandler(this.cmbBoxSortOptions_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(296, 34);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(89, 16);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Sortiraj prema";
             // 
             // btnFilterPoKategoriji
             // 
@@ -311,35 +328,46 @@ namespace ProgramskoIntenjerstvo
             this.btnFilterPoKategoriji.TabIndex = 2;
             this.btnFilterPoKategoriji.Text = "Filtriraj";
             this.btnFilterPoKategoriji.UseVisualStyleBackColor = true;
+            this.btnFilterPoKategoriji.Click += new System.EventHandler(this.btnFilterPoKategoriji_Click);
             // 
-            // cmbBoxSortOptions
+            // cmbBoxKategorijaJelaSort
             // 
-            this.cmbBoxSortOptions.FormattingEnabled = true;
-            this.cmbBoxSortOptions.Location = new System.Drawing.Point(308, 45);
-            this.cmbBoxSortOptions.Name = "cmbBoxSortOptions";
-            this.cmbBoxSortOptions.Size = new System.Drawing.Size(154, 24);
-            this.cmbBoxSortOptions.TabIndex = 4;
+            this.cmbBoxKategorijaJelaSort.FormattingEnabled = true;
+            this.cmbBoxKategorijaJelaSort.Location = new System.Drawing.Point(125, 26);
+            this.cmbBoxKategorijaJelaSort.Name = "cmbBoxKategorijaJelaSort";
+            this.cmbBoxKategorijaJelaSort.Size = new System.Drawing.Size(154, 24);
+            this.cmbBoxKategorijaJelaSort.TabIndex = 1;
             // 
-            // label6
+            // label5
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(305, 26);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 16);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Sortiraj prema";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 29);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(113, 16);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Odaberi kategoriju";
             // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.btnPretrazi);
             this.groupBox6.Controls.Add(this.txtBoxNazivJelaSearch);
             this.groupBox6.Controls.Add(this.label7);
-            this.groupBox6.Location = new System.Drawing.Point(535, 579);
+            this.groupBox6.Location = new System.Drawing.Point(585, 579);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(338, 96);
+            this.groupBox6.Size = new System.Drawing.Size(288, 96);
             this.groupBox6.TabIndex = 16;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Pretraživanje";
+            // 
+            // btnPretrazi
+            // 
+            this.btnPretrazi.Location = new System.Drawing.Point(114, 54);
+            this.btnPretrazi.Name = "btnPretrazi";
+            this.btnPretrazi.Size = new System.Drawing.Size(161, 26);
+            this.btnPretrazi.TabIndex = 5;
+            this.btnPretrazi.Text = "Pretraži";
+            this.btnPretrazi.UseVisualStyleBackColor = true;
+            this.btnPretrazi.Click += new System.EventHandler(this.btnPretrazi_Click);
             // 
             // txtBoxNazivJelaSearch
             // 
@@ -357,15 +385,6 @@ namespace ProgramskoIntenjerstvo
             this.label7.Size = new System.Drawing.Size(102, 16);
             this.label7.TabIndex = 10;
             this.label7.Text = "Unesi naziv jela:";
-            // 
-            // btnPretrazi
-            // 
-            this.btnPretrazi.Location = new System.Drawing.Point(114, 54);
-            this.btnPretrazi.Name = "btnPretrazi";
-            this.btnPretrazi.Size = new System.Drawing.Size(161, 26);
-            this.btnPretrazi.TabIndex = 5;
-            this.btnPretrazi.Text = "Pretraži";
-            this.btnPretrazi.UseVisualStyleBackColor = true;
             // 
             // FrmDodajJelo
             // 
@@ -388,11 +407,11 @@ namespace ProgramskoIntenjerstvo
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPopisJela)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
@@ -432,5 +451,6 @@ namespace ProgramskoIntenjerstvo
         private System.Windows.Forms.Button btnPretrazi;
         private System.Windows.Forms.TextBox txtBoxNazivJelaSearch;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnPrikaziSvaJela;
     }
 }

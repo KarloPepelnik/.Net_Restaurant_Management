@@ -166,6 +166,12 @@
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPregledJela.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPregledJela.Designer.cs">
+      <DependentUpon>FrmPregledJela.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPrimka.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -370,6 +376,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPregledJela.resx">
+      <DependentUpon>FrmPregledJela.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrimka.resx">
       <DependentUpon>FrmPrimka.cs</DependentUpon>

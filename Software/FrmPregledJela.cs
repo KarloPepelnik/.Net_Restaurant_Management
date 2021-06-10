@@ -10,19 +10,18 @@ using System.Windows.Forms;
 
 namespace ProgramskoIntenjerstvo
 {
-    public partial class FrmDodajJelo : Form
+    public partial class FrmPregledJela : Form
     {
-        public FrmDodajJelo()
+        public FrmPregledJela()
         {
             InitializeComponent();
         }
 
-        private void FrmDodajJelo_Load(object sender, EventArgs e)
+        private void FrmPregledJela_Load(object sender, EventArgs e)
         {
             FillKategorijaJelaCmb();
             FillPopisJelaDgv();
             FillSortOptionsCmb();
-            
         }
 
         private void FillSortOptionsCmb()
@@ -53,10 +52,7 @@ namespace ProgramskoIntenjerstvo
                 dgvPopisJela.Columns[3].HeaderText = "Cijena jela";
                 dgvPopisJela.Rows[0].Selected = true;
                 dgvPopisJela.Columns[3].DefaultCellStyle.Format = "c";
-                dgvPopisJela.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                dgvPopisJela.Columns[2].Width = 340;
                 
-
             }
         }
 
@@ -65,92 +61,13 @@ namespace ProgramskoIntenjerstvo
             using (var context = new Entities())
             {
                 List<Kategorija> kategorije = context.Kategorija.ToList();
-                cmbBoxKategorijeJela.DataSource = kategorije;
                 cmbBoxKategorijaJelaSort.DataSource = kategorije;
             }
         }
 
-        private void btnDodajJelo_Click(object sender, EventArgs e)
-        {
-            using (var context = new Entities())
-            {
-                string nazivJela = txtBoxNazivJela.Text;
-                float cijenaJela = float.Parse(txtBoxCijena.Text);
-                Kategorija kategorijaJela = cmbBoxKategorijeJela.SelectedItem as Kategorija;
-                context.Kategorija.Attach(kategorijaJela);
-
-                Jelo newJelo = new Jelo()
-                {
-                    naziv_jela = nazivJela,
-                    cijena = cijenaJela,
-                    id_kategorija = kategorijaJela.id_kategorija
-                };
-
-                
-                context.Jelo.Add(newJelo);
-                context.SaveChanges();
-            }
-            FillPopisJelaDgv();
-            RefreshTxtBoxes();
-        }
-
-        private void RefreshTxtBoxes()
-        {
-            txtBoxNazivJela.Text = "";
-            txtBoxCijena.Text = "";
-        }
-
-        private void btnIzbrisiJelo_Click(object sender, EventArgs e)
-        {
-            Jelo selectedJelo = GetSelectedJelo();
-            using (var context = new Entities())
-            {
-                context.Jelo.Attach(selectedJelo);
-                context.Jelo.Remove(selectedJelo);
-                context.SaveChanges();
-            }
-            FillPopisJelaDgv();
-        }
-
         private Jelo GetSelectedJelo()
         {
-                return dgvPopisJela.Rows[0].DataBoundItem as Jelo;   
-        }
-
-        private void btnAzuriraj_Click(object sender, EventArgs e)
-        {
-            FrmAzurirajJelo frmAzurirajJelo = new FrmAzurirajJelo(GetSelectedJelo());
-            frmAzurirajJelo.ShowDialog();
-
-            FillPopisJelaDgv();
-        }
-
-        private void btnIzlaz_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void btnFilterPoKategoriji_Click(object sender, EventArgs e)
-        {
-            Kategorija selectedKategorija = cmbBoxKategorijaJelaSort.SelectedItem as Kategorija;
-            using (var context = new Entities())
-            {
-                var query = from j in context.Jelo
-                            where j.id_kategorija == selectedKategorija.id_kategorija
-                            select j;
-
-                dgvPopisJela.DataSource = query.ToList();
-            }
-        }
-
-        private void btnPrikaziSvaJela_Click(object sender, EventArgs e)
-        {
-            FillPopisJelaDgv();
-        }
-
-        private void cmbBoxSortOptions_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Filer(cmbBoxSortOptions.SelectedIndex);
+            return dgvPopisJela.Rows[0].DataBoundItem as Jelo;
         }
 
         private void Filer(int selectedIndex)
@@ -162,7 +79,7 @@ namespace ProgramskoIntenjerstvo
                 case 2: FilterSvaJelaNazivDesc(); break;
                 case 3: FilterSvaJelaCijenaAsc(); break;
                 case 4: FilterSvaJelaCijenaDesc(); break;
-                
+
             }
         }
 
@@ -210,7 +127,32 @@ namespace ProgramskoIntenjerstvo
             }
         }
 
-        private void btnPretrazi_Click(object sender, EventArgs e)
+        private void btnIzbrisiJelo_Click_1(object sender, EventArgs e)
+        {
+            Jelo selectedJelo = GetSelectedJelo();
+            using (var context = new Entities())
+            {
+                context.Jelo.Attach(selectedJelo);
+                context.Jelo.Remove(selectedJelo);
+                context.SaveChanges();
+            }
+            FillPopisJelaDgv();
+        }
+
+        private void btnAzuriraj_Click_1(object sender, EventArgs e)
+        {
+            FrmAzurirajJelo frmAzurirajJelo = new FrmAzurirajJelo(GetSelectedJelo());
+            frmAzurirajJelo.ShowDialog();
+
+            FillPopisJelaDgv();
+        }
+
+        private void btnIzlaz_Click_1(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnPretrazi_Click_1(object sender, EventArgs e)
         {
             using (var context = new Entities())
             {
@@ -221,6 +163,29 @@ namespace ProgramskoIntenjerstvo
                 dgvPopisJela.DataSource = query.ToList();
                 txtBoxNazivJelaSearch.Text = "";
             }
+        }
+
+        private void btnFilterPoKategoriji_Click_1(object sender, EventArgs e)
+        {
+            Kategorija selectedKategorija = cmbBoxKategorijaJelaSort.SelectedItem as Kategorija;
+            using (var context = new Entities())
+            {
+                var query = from j in context.Jelo
+                            where j.id_kategorija == selectedKategorija.id_kategorija
+                            select j;
+
+                dgvPopisJela.DataSource = query.ToList();
+            }
+        }
+
+        private void btnPrikaziSvaJela_Click_1(object sender, EventArgs e)
+        {
+            FillPopisJelaDgv();
+        }
+
+        private void cmbBoxSortOptions_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            Filer(cmbBoxSortOptions.SelectedIndex);
         }
     }
 }

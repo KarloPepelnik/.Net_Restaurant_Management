@@ -71,7 +71,7 @@ namespace ProgramskoIntenjerstvo
 
                 context.SaveChanges();
             }
-            
+            Close();
         }
     }
 }
