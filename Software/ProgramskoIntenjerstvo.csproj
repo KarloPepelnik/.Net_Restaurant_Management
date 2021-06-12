@@ -288,6 +288,7 @@
     <Compile Include="UpravljanjeKasom.Designer.cs">
       <DependentUpon>UpravljanjeKasom.cs</DependentUpon>
     </Compile>
+    <Compile Include="ValidatorKorisnik.cs" />
     <EmbeddedResource Include="FrmAzurirajIzdatnicu.resx">
       <DependentUpon>FrmAzurirajIzdatnicu.cs</DependentUpon>
     </EmbeddedResource>
@@ -407,6 +408,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Validacija\Validacija.csproj">
+      <Project>{14260e41-5c7c-4fa7-a266-e7b89be50be2}</Project>
+      <Name>Validacija</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
