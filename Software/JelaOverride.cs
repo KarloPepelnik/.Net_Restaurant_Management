@@ -1,10 +1,10 @@
 ﻿namespace ProgramskoIntenjerstvo
 {
-    public partial class Mjerna_jedinica
+    public partial class Jelo
     {
         public override string ToString()
         {
-            return oznaka_mjerne_jedinice;
+            return naziv_jela;
         }
     }
 }

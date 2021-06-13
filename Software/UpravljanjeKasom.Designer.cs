@@ -37,6 +37,7 @@ namespace ProgramskoIntenjerstvo
             this.stornoBtn = new System.Windows.Forms.Button();
             this.vrijemeDatumPicker = new System.Windows.Forms.DateTimePicker();
             this.popisRacunaDgv = new System.Windows.Forms.DataGridView();
+            this.btnPrikazStavki = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.popisArtikalaPoRacunuDgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popisRacunaDgv)).BeginInit();
             this.SuspendLayout();
@@ -103,7 +104,16 @@ namespace ProgramskoIntenjerstvo
             this.popisRacunaDgv.Name = "popisRacunaDgv";
             this.popisRacunaDgv.Size = new System.Drawing.Size(338, 353);
             this.popisRacunaDgv.TabIndex = 8;
-            this.popisRacunaDgv.SelectionChanged += new System.EventHandler(this.popisRacunaDgv_SelectionChanged);
+            // 
+            // btnPrikazStavki
+            // 
+            this.btnPrikazStavki.Location = new System.Drawing.Point(317, 427);
+            this.btnPrikazStavki.Name = "btnPrikazStavki";
+            this.btnPrikazStavki.Size = new System.Drawing.Size(75, 23);
+            this.btnPrikazStavki.TabIndex = 16;
+            this.btnPrikazStavki.Text = "Prikaz stavki";
+            this.btnPrikazStavki.UseVisualStyleBackColor = true;
+            this.btnPrikazStavki.Click += new System.EventHandler(this.btnPrikazStavki_Click);
             // 
             // UpravljanjeKasom
             // 
@@ -112,6 +122,7 @@ namespace ProgramskoIntenjerstvo
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(728, 515);
+            this.Controls.Add(this.btnPrikazStavki);
             this.Controls.Add(this.zatvoriBtn);
             this.Controls.Add(this.popisArtikalaPoRacunuDgv);
             this.Controls.Add(this.label1);
@@ -138,5 +149,6 @@ namespace ProgramskoIntenjerstvo
         private System.Windows.Forms.Button stornoBtn;
         private System.Windows.Forms.DateTimePicker vrijemeDatumPicker;
         private System.Windows.Forms.DataGridView popisRacunaDgv;
+        private System.Windows.Forms.Button btnPrikazStavki;
     }
 }

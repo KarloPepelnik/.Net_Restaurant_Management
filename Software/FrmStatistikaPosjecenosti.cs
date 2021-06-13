@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProgramskoIntenjerstvo
@@ -52,7 +48,7 @@ namespace ProgramskoIntenjerstvo
                 {
                     if (rezervacija.id_stol == stol.id_stol)
                     {
-                        brojGostiju[stol.broj_mjesta-1]++;
+                        brojGostiju[stol.broj_mjesta - 1]++;
                     }
                 }
             }
@@ -61,9 +57,9 @@ namespace ProgramskoIntenjerstvo
             {
                 if (brojGostiju[i] > 0)
                 {
-                    chartBrojGostiju.Series["Broj gostiju"].Points.AddXY(i+1, brojGostiju[i]);
+                    chartBrojGostiju.Series["Broj gostiju"].Points.AddXY(i + 1, brojGostiju[i]);
                 }
-                
+
             }
         }
 
@@ -79,7 +75,7 @@ namespace ProgramskoIntenjerstvo
             {
                 foreach (var rezervacija in SveRezervacije)
                 {
-                    if(rezervacija.datum_vrijeme.Date.Month == i)
+                    if (rezervacija.datum_vrijeme.Date.Month == i)
                     {
                         posjecenost[i]++;
                     }
@@ -89,7 +85,7 @@ namespace ProgramskoIntenjerstvo
             {
                 foreach (var rezervacija in SveRezervacije)
                 {
-                    if(rezervacija.datum_vrijeme.Date.DayOfWeek == (DayOfWeek)i)
+                    if (rezervacija.datum_vrijeme.Date.DayOfWeek == (DayOfWeek)i)
                     {
                         posjecenostTjedan[i]++;
                         brojRezervacija[i]++;
@@ -101,7 +97,7 @@ namespace ProgramskoIntenjerstvo
             {
                 for (int i = 1; i < 13; i++)
                 {
-                    chartPosjecenost.Series["Broj rezervacija"].Points.AddXY(i,posjecenost[i]);
+                    chartPosjecenost.Series["Broj rezervacija"].Points.AddXY(i, posjecenost[i]);
                 }
             }
             else

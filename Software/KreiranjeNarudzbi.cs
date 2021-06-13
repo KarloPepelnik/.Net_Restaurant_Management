@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProgramskoIntenjerstvo
@@ -16,7 +12,7 @@ namespace ProgramskoIntenjerstvo
         Entities E = new Entities();
         Dictionary<Jelo, int> jela = new Dictionary<Jelo, int>();
         double ukupno;
-        public static double polog { get; set; } = 500;
+        public static double polog { get; set; }
         public KreiranjeNarudzbi()
         {
             InitializeComponent();
@@ -37,6 +33,9 @@ namespace ProgramskoIntenjerstvo
             jeloDataGrid.Columns[0].Visible = false;
             jeloDataGrid.Columns[4].Visible = false;
             jeloDataGrid.Columns[5].Visible = false;
+            jeloDataGrid.Columns[6].Visible = false;
+            jeloDataGrid.Columns[7].Visible = false;
+            jeloDataGrid.Columns[8].Visible = false;
             jeloDataGrid.Columns[1].HeaderText = "Jelo";
             jeloDataGrid.Columns[2].HeaderText = "Cijena";
             jeloDataGrid.Columns[3].HeaderText = "Opis";
@@ -50,20 +49,10 @@ namespace ProgramskoIntenjerstvo
                 removeBtn.Enabled = true;
                 racunBtn.Enabled = true;
             }
+
             Jelo selected = (Jelo)jeloDataGrid.CurrentRow.DataBoundItem;
-            int value;
-            if (jela.TryGetValue(selected, out value))
-            {
-                jela[selected] = value + 1;
-                ukupno += selected.cijena;
-                polog += selected.cijena;
-            }
-            else
-            {
-                ukupno += selected.cijena;
-                polog += selected.cijena;
-                jela.Add(selected, 1);
-            }
+            DodajJelo(selected);
+
             outputDumpTXT.Text = ukupno.ToString();
             odabranaJelaDataGrid.DataSource = null;
             odabranaJelaDataGrid.DataSource = jela.ToList();
@@ -73,10 +62,39 @@ namespace ProgramskoIntenjerstvo
 
         private void removeBtn_Click(object sender, EventArgs e)
         {
-            int value;
-
             KeyValuePair<Jelo, int> selected = (KeyValuePair<Jelo, int>)odabranaJelaDataGrid.CurrentRow.DataBoundItem;
+            ObrisiJelo(selected);
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void racunBtn_Click(object sender, EventArgs e)
+        {
+            KreirajRacun();
+            using (Entities context = new Entities())
+            {
+                var query = from k in context.Kasa
+                            where k.datum == DateTime.Today
+                            select k.stanje;
+                polog = query.Single();
+            }
+
+            E.Database.ExecuteSqlCommand($"UPDATE Kasa SET stanje = {polog + ukupno} WHERE datum = '{DateTime.Today.ToString("yyyy-MM-dd")}'");
+            RacunIzdan racunIzdan = new RacunIzdan();
+            racunIzdan.ShowDialog();
+            jela.Clear();
+            odabranaJelaDataGrid.DataSource = null;
+            outputDumpTXT.Text = null;
+            removeBtn.Enabled = false;
+            ukupno = 0;
+        }
+
+        public void ObrisiJelo(KeyValuePair<Jelo, int> selected)
+        {
+            int value;
             Jelo jelo = selected.Key;
             if (jela.TryGetValue(jelo, out value))
             {
@@ -98,33 +116,42 @@ namespace ProgramskoIntenjerstvo
             odabranaJelaDataGrid.DataSource = null;
             odabranaJelaDataGrid.DataSource = jela.ToList();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        public void DodajJelo(Jelo selected)
         {
-            Close();
-        }
 
-        private void racunBtn_Click(object sender, EventArgs e)
-        {
-            foreach (KeyValuePair<Jelo, int> k in jela)
+            int value;
+            if (jela.TryGetValue(selected, out value))
             {
-                string sql = $"INSERT INTO Narucuje (id_narudzba, id_jelo, kolicina) VALUES (1, {k.Key.id_jelo}, {k.Value})";
-                E.Database.ExecuteSqlCommand(sql);
+                jela[selected] = value + 1;
+                ukupno += selected.cijena;
+                polog += selected.cijena;
+
             }
-
+            else
+            {
+                ukupno += selected.cijena;
+                polog += selected.cijena;
+                jela.Add(selected, 1);
+            }
+        }
+        public void KreirajRacun()
+        {
             DateTime now = DateTime.Now;
-
             string sql1 = $"INSERT INTO Racun (id_narudzba, id_korisnik, iznos, datum_vrijeme) VALUES (1, 2, {ukupno}, '{now.ToString("yyyy-MM-dd")}')";
             E.Database.ExecuteSqlCommand(sql1);
-
-            ukupno = 0;
-            RacunIzdan racunIzdan = new RacunIzdan();
-            racunIzdan.ShowDialog();
-            jela.Clear();
-            odabranaJelaDataGrid.DataSource = null;
-            outputDumpTXT.Text = null;
-            removeBtn.Enabled = false;
+            int sifraRacuna = 0;
+            using (Entities context = new Entities())
+            {
+                var query = context.Racun.OrderByDescending(i => i.id_racun).FirstOrDefault();
+                sifraRacuna = query.id_racun;
+            }
+            foreach (KeyValuePair<Jelo, int> k in jela)
+            {
+                string sql3 = $"INSERT INTO Stavke_racuna (id_racun, id_jelo, kolicina) VALUES ({sifraRacuna}, {k.Key.id_jelo}, {k.Value})";
+                E.Database.ExecuteSqlCommand(sql3);
+            }
         }
+
     }
 }
 

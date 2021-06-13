@@ -194,6 +194,7 @@
     <Compile Include="Izdatnica.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="JelaOverride.cs" />
     <Compile Include="Jelo.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -266,6 +267,12 @@
     <Compile Include="Rezervacija.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="StatistikaPrihodi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatistikaPrihodi.Designer.cs">
+      <DependentUpon>StatistikaPrihodi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Stavke_izdatnice.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -277,6 +284,9 @@
     </Compile>
     <Compile Include="Stol.code.cs" />
     <Compile Include="Stol.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Tip_korisnika.cs">
@@ -369,6 +379,9 @@
     <EmbeddedResource Include="RacunIzdan.resx">
       <DependentUpon>RacunIzdan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StatistikaPrihodi.resx">
+      <DependentUpon>StatistikaPrihodi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UpravljanjeKasom.resx">
       <DependentUpon>UpravljanjeKasom.cs</DependentUpon>
     </EmbeddedResource>
@@ -394,19 +407,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
       <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

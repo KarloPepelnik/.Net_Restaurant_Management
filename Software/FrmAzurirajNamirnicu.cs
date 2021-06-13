@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProgramskoIntenjerstvo
@@ -14,7 +9,7 @@ namespace ProgramskoIntenjerstvo
     {
         private Namirnica selectedNamirnica;
 
-        
+
         public FrmAzurirajNamirnicu(Namirnica namirnica)
         {
             InitializeComponent();
@@ -30,7 +25,7 @@ namespace ProgramskoIntenjerstvo
             txtBoxTemperatura.Text = selectedNamirnica.temperatura_pohrane.ToString();
             txtBoxKolicina.Text = selectedNamirnica.kolicina_trenutna.ToString();
         }
-        
+
         private void FillMjernu_jedinicu()
         {
             List<Mjerna_jedinica> mjerneJedinice;
@@ -39,7 +34,7 @@ namespace ProgramskoIntenjerstvo
             {
                 mjerneJedinice = context.Mjerna_jedinica.ToList();
             }
-         
+
             cmbBoxMjernaJedinica.DataSource = mjerneJedinice;
 
             for (int i = 0; i < cmbBoxMjernaJedinica.Items.Count; i++)
@@ -60,8 +55,8 @@ namespace ProgramskoIntenjerstvo
             {
                 kategorije = context.Kategorija.ToList();
             }
-            
-            
+
+
 
             cmbBoxKategorija.DataSource = kategorije;
 
@@ -85,14 +80,14 @@ namespace ProgramskoIntenjerstvo
                 float temperatura = float.Parse(txtBoxTemperatura.Text);
 
                 Kategorija kategorija = cmbBoxKategorija.SelectedItem as Kategorija;
-                
+
 
                 Mjerna_jedinica mjerna_Jedinica = cmbBoxMjernaJedinica.SelectedItem as Mjerna_jedinica;
-                
+
 
                 float kolicina = float.Parse(txtBoxKolicina.Text);
 
-                
+
 
                 selectedNamirnica.naziv_namirnice = naziv;
                 selectedNamirnica.Kategorija.id_kategorija = kategorija.id_kategorija;
@@ -103,8 +98,8 @@ namespace ProgramskoIntenjerstvo
                 context.SaveChanges();
 
             }
-                Close();
-            
+            Close();
+
         }
 
         private void btnOdustani_Click_1(object sender, EventArgs e)
@@ -112,7 +107,7 @@ namespace ProgramskoIntenjerstvo
             Close();
         }
 
-        
+
     }
 }
 
