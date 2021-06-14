@@ -264,6 +264,12 @@
     <Compile Include="NarudzbaIzdana.Designer.cs">
       <DependentUpon>NarudzbaIzdana.cs</DependentUpon>
     </Compile>
+    <Compile Include="PregledNarudzbiZaVan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PregledNarudzbiZaVan.Designer.cs">
+      <DependentUpon>PregledNarudzbiZaVan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Primka.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -388,6 +394,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NarudzbaIzdana.resx">
       <DependentUpon>NarudzbaIzdana.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PregledNarudzbiZaVan.resx">
+      <DependentUpon>PregledNarudzbiZaVan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

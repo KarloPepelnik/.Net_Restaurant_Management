@@ -81,9 +81,9 @@ namespace ProgramskoIntenjerstvo
 
         private void narudzbeZaVanBtn_Click(object sender, EventArgs e)
         {
-            IzradaTakeOut izradaTakeOut = new IzradaTakeOut();
+            PregledNarudzbiZaVan pregledNarudzbiZaVan = new PregledNarudzbiZaVan();
             Hide();
-            izradaTakeOut.ShowDialog();
+            pregledNarudzbiZaVan.ShowDialog();
             Show();
         }
     }

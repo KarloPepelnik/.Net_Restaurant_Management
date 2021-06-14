@@ -76,12 +76,13 @@ namespace ProgramskoIntenjerstvo
 
         private void dodajBtn_Click(object sender, EventArgs e)
         {
-            E.Database.ExecuteSqlCommand($"INSERT INTO Dostava (id_korisnik, id_racun, adresa_dostave, broj_telefona, cijena_dostave" +
-                $"VALUES ({Izbornik.TrenutniKorisnik.id_korisnik}, {sifraRacuna}, '{adresaTxt.Text}', '{telefonTxt.Text}', 25))");
+            E.Database.ExecuteSqlCommand($"INSERT INTO Dostava (id_korisnik, id_racun, adresa_dostave, broj_telefona, cijena_dostave) " +
+                $"VALUES ({Izbornik.TrenutniKorisnik.id_korisnik}, {sifraRacuna}, '{adresaTxt.Text}', '{telefonTxt.Text}', 25)");
             NarudzbaIzdana narudzbaIzdana = new NarudzbaIzdana();
             Hide();
             narudzbaIzdana.ShowDialog();
             Show();
+            Close();
         }
     }
 }
