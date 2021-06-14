@@ -11,6 +11,7 @@ namespace ProgramskoIntenjerstvo
     {
         Entities E = new Entities();
         Dictionary<Jelo, int> jela = new Dictionary<Jelo, int>();
+        int sifraRacuna;
         public static Racun racunZaVan { get; set; }
         double ukupno;
         public static double polog { get; set; }
@@ -96,7 +97,8 @@ namespace ProgramskoIntenjerstvo
             }
             else
             {
-                IzradaTakeOut takeOut = new IzradaTakeOut();
+                KreirajRacun();
+                IzradaTakeOut takeOut = new IzradaTakeOut(sifraRacuna);
                 Hide();
                 takeOut.ShowDialog();
                 Show();
@@ -150,14 +152,12 @@ namespace ProgramskoIntenjerstvo
             DateTime now = DateTime.Now;
             KreiranjeNarudzbi.racunZaVan = new Racun();
             string sql1 = $"INSERT INTO Racun (id_narudzba, id_korisnik, iznos, datum_vrijeme) VALUES (1, 2, {ukupno}, '{now.ToString("yyyy-MM-dd")}')";
-            E.Database.ExecuteSqlCommand(sql1);
-            int sifraRacuna = 0;
+            E.Database.ExecuteSqlCommand(sql1);            
             using (Entities context = new Entities())
             {
                 var query = context.Racun.OrderByDescending(i => i.id_racun).FirstOrDefault();
                 sifraRacuna = query.id_racun;
-            }
-            racunZaVan.id_racun = sifraRacuna;
+            }            
             foreach (KeyValuePair<Jelo, int> k in jela)
             {
                 string sql3 = $"INSERT INTO Stavke_racuna (id_racun, id_jelo, kolicina) VALUES ({sifraRacuna}, {k.Key.id_jelo}, {k.Value})";
