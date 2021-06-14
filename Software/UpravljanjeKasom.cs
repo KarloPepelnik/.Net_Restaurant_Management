@@ -44,6 +44,8 @@ namespace ProgramskoIntenjerstvo
             popisRacunaDgv.Columns[5].Visible = false;
             popisRacunaDgv.Columns[6].Visible = false;
             popisRacunaDgv.Columns[7].Visible = false;
+            popisRacunaDgv.Columns[8].Visible = false;
+            popisRacunaDgv.Columns[9].Visible = false;
             stanjeKaseText.Text = DohvatiVrijednostKase().ToString();
         }
 
