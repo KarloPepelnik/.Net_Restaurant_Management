@@ -62,6 +62,7 @@ namespace ProgramskoIntenjerstvo
             this.btnPrihodi.TabIndex = 2;
             this.btnPrihodi.Text = "Statistika o prihodima";
             this.btnPrihodi.UseVisualStyleBackColor = true;
+            this.btnPrihodi.Click += new System.EventHandler(this.btnPrihodi_Click);
             // 
             // btnIzadi
             // 

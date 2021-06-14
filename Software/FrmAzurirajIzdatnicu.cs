@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProgramskoIntenjerstvo
@@ -113,11 +108,11 @@ namespace ProgramskoIntenjerstvo
                 {
                     if (kolicina > prethodnaKolicina)
                     {
-                        namirnicaEdit.kolicina_trenutna -= (kolicina-prethodnaKolicina);
+                        namirnicaEdit.kolicina_trenutna -= (kolicina - prethodnaKolicina);
                     }
                     else
                     {
-                        namirnicaEdit.kolicina_trenutna += (prethodnaKolicina-kolicina);
+                        namirnicaEdit.kolicina_trenutna += (prethodnaKolicina - kolicina);
                     }
                 }
                 else

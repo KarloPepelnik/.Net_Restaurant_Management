@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProgramskoIntenjerstvo
@@ -40,7 +35,7 @@ namespace ProgramskoIntenjerstvo
         private void FillCmbMjernaJedinica()
         {
             List<Mjerna_jedinica> mjerneJedinice;
-            
+
             using (var context = new Entities())
             {
                 mjerneJedinice = context.Mjerna_jedinica.ToList();
@@ -92,7 +87,7 @@ namespace ProgramskoIntenjerstvo
                     throw new InvalidOperationException($"Nemoguće pretvoriti mjerna jedinicu primke ({newPrimka.Mjerna_jedinica.oznaka_mjerne_jedinice}) " +
                                                         $" u mjernu jedinicu trenutne količine namirnice ({namirnicaEdit.Mjerna_jedinica.oznaka_mjerne_jedinice}) ");
                 }
-                
+
 
                 context.SaveChanges();
             }

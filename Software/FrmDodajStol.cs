@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProgramskoIntenjerstvo
@@ -46,7 +42,7 @@ namespace ProgramskoIntenjerstvo
                             select s;
                 List<Stol> sviStolovi = query.ToList();
                 Stol pomocni = sviStolovi.Last();
-                txtBrojStola.Text = (pomocni.oznaka +1).ToString() ;
+                txtBrojStola.Text = (pomocni.oznaka + 1).ToString();
             }
             txtBrojStola.Enabled = false;
         }
