@@ -19,19 +19,24 @@ namespace ProgramskoIntenjerstvo
 
         private void UpravljanjeKasom_Load(object sender, EventArgs e)
         {
-            PostavljanjeKase();
-            E.Racun.Load();
+            PostavljanjeKase();            
             Osvjezi();
+            vrijemeDatumPicker.Value = DateTime.Today;
         }
         private void Osvjezi()
         {
+            E.Racun.Load();
             string datum = vrijemeDatumPicker.Value.ToString("yyyy-MM-dd");
             popisRacunaDgv.DataSource = null;
             racuniPoVremenu.Clear();
             foreach (Racun r in E.Racun.Local)
             {
                 if (r.datum_vrijeme.ToString("yyyy-MM-dd") == datum)
+                {
                     racuniPoVremenu.Add(r);
+                    Console.WriteLine(r.id_racun.ToString());
+                }
+                    
             }
             popisRacunaDgv.DataSource = racuniPoVremenu;
             popisRacunaDgv.Columns[1].Visible = false;
@@ -53,6 +58,7 @@ namespace ProgramskoIntenjerstvo
         {
             if(DohvatiVrijednostKase()>0){
                 Racun selected = (Racun)popisRacunaDgv.CurrentRow.DataBoundItem;
+                E.Racun.Remove(selected);
                 E.Database.ExecuteSqlCommand($"DELETE FROM Stavke_racuna WHERE id_racun = {selected.id_racun}");
                 E.Database.ExecuteSqlCommand($"DELETE FROM Racun WHERE id_racun = {selected.id_racun}");
                 E.Database.ExecuteSqlCommand($"UPDATE Kasa SET Stanje = {DohvatiVrijednostKase() - selected.iznos} WHERE datum = '{DateTime.Today.ToString("yyyy-MM-dd")}'");
@@ -67,7 +73,6 @@ namespace ProgramskoIntenjerstvo
 
         private void btnPrikazStavki_Click(object sender, EventArgs e)
         {
-            Osvjezi();
             Racun selected = (Racun)popisRacunaDgv.CurrentRow.DataBoundItem;
             List<Narucuje> artikli = new List<Narucuje>();
             List<Stavke_racuna> stavke = new List<Stavke_racuna>();
@@ -84,7 +89,7 @@ namespace ProgramskoIntenjerstvo
             popisArtikalaPoRacunuDgv.Columns[6].Visible = false;
             popisArtikalaPoRacunuDgv.Columns[7].Visible = false;
             popisArtikalaPoRacunuDgv.Columns[8].Visible = false;
-
+            Osvjezi();
         }
         private void PrikazStavki(List<Stavke_racuna> stavke, Racun selected, List<Jelo> jela)
         {
@@ -98,15 +103,15 @@ namespace ProgramskoIntenjerstvo
                             select s;
 
                 stavke = query.ToList();
-            }
-            foreach (Stavke_racuna s in stavke)
-            {
-                using (Entities context = new Entities())
+            }                        
+            using (Entities context = new Entities())
                 {
-                    var query = from j in context.Jelo
+                    foreach (Stavke_racuna s in stavke) 
+                { 
+                        var query = from j in context.Jelo
                                 where j.id_jelo == s.id_jelo
                                 select j;
-                    jela.AddRange(query);
+                    jela.Add(query.Single());
                 }
             }
         }
