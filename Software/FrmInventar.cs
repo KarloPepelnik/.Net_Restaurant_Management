@@ -45,12 +45,28 @@ namespace ProgramskoIntenjerstvo
         private void btnObrisi_Click(object sender, EventArgs e)
         {
             Stol odabrani = dgvStolovi.CurrentRow.DataBoundItem as Stol;
+            List<Rezervacija> odabrana = null;
 
             using (var context = new Entities())
             {
-                context.Stol.Attach(odabrani);
-                context.Stol.Remove(odabrani);
-                context.SaveChanges();
+                var query = from r in context.Rezervacija
+                            where r.id_stol == odabrani.id_stol
+                            select r;
+                odabrana = query.ToList();
+            }
+
+            if(odabrana.Count == 0)
+            {
+                using (var context = new Entities())
+                {
+                    context.Stol.Attach(odabrani);
+                    context.Stol.Remove(odabrani);
+                    context.SaveChanges();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Stol se nalazi u postojecoj rezervaciji!");
             }
             Osvjezi();
         }
