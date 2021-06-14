@@ -37,8 +37,8 @@ namespace ProgramskoIntenjerstvo
             jeloDataGrid.Columns[7].Visible = false;
             jeloDataGrid.Columns[8].Visible = false;
             jeloDataGrid.Columns[1].HeaderText = "Jelo";
-            jeloDataGrid.Columns[2].HeaderText = "Cijena";
-            jeloDataGrid.Columns[3].HeaderText = "Opis";
+            jeloDataGrid.Columns[2].HeaderText = "Opis";
+            jeloDataGrid.Columns[3].HeaderText = "Cijena";
             racunBtn.Enabled = false;
         }
 
