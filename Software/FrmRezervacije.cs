@@ -35,6 +35,7 @@ namespace ProgramskoIntenjerstvo
                 btnIzmjeni.Visible = false;
                 btnObriši.Visible = false;
             }
+            dateTimeVrijeme.Value = DateTime.Parse("12:00");
             Osvjezi();
         }
 
@@ -257,13 +258,13 @@ namespace ProgramskoIntenjerstvo
             Osvjezi();
             cboxStolovi.SelectedIndex = 0;
             dateTimeDatum.Value = DateTime.Now.Date;
-            dateTimeVrijeme.Value = DateTime.Now;
+            dateTimeVrijeme.Value = DateTime.Parse("12:00");
             txtPrezime.Text = "";
         }
 
         private void btnRucnoDodaj_Click(object sender, EventArgs e)
         {
-            FrmRucnoDodavanje forma = new FrmRucnoDodavanje(TrenutniKorisnik);
+            FrmRucnoDodavanje forma = new FrmRucnoDodavanje(TrenutniKorisnik, dateTimeDatum.Value.Date);
             forma.ShowDialog();
             Osvjezi();
         }
