@@ -121,9 +121,12 @@ namespace ProgramskoIntenjerstvo
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.Name = "FrmIzmjenaRezervacije";
-            this.Text = "FrmIzmjenaRezervacije";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Izmjena rezervacije";
             this.Load += new System.EventHandler(this.FrmIzmjenaRezervacije_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmIzmjenaRezervacije_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

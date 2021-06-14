@@ -114,5 +114,13 @@ namespace ProgramskoIntenjerstvo
         {
             IzracunajPosjecenost();
         }
+
+        private void FrmStatistikaPosjecenosti_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, "RestoranApp.chm", HelpNavigator.Topic, "Statistika_posje_enosti/index.html");
+            }
+        }
     }
 }

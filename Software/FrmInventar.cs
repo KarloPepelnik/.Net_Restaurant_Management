@@ -69,5 +69,13 @@ namespace ProgramskoIntenjerstvo
             forma.ShowDialog();
             Osvjezi();
         }
+
+        private void FrmInventar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, "RestoranApp.chm", HelpNavigator.Topic, "Inventar/index.html");
+            }
+        }
     }
 }

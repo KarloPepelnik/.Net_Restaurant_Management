@@ -62,5 +62,13 @@ namespace ProgramskoIntenjerstvo
             forma.ShowDialog();
             RefreshGUI();
         }
+
+        private void FrmKorisnici_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, "RestoranApp.chm", HelpNavigator.Topic, "Korisnici/index.html");
+            }
+        }
     }
 }

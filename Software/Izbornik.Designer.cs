@@ -132,10 +132,12 @@ namespace ProgramskoIntenjerstvo
             this.Controls.Add(this.btnZalihe);
             this.Controls.Add(this.btnRezervacije);
             this.Controls.Add(this.btnKorisnici);
+            this.KeyPreview = true;
             this.Name = "Izbornik";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Izbornik";
             this.Load += new System.EventHandler(this.Izbornik_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Izbornik_KeyDown);
             this.ResumeLayout(false);
 
         }

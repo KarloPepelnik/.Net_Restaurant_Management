@@ -49,5 +49,13 @@ namespace ProgramskoIntenjerstvo
             txtPozicijaStola.Text = OdabraniStol.opis;
             txtBrojMjesta.Text = OdabraniStol.broj_mjesta.ToString();
         }
+
+        private void FrmEditStol_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, "RestoranApp.chm", HelpNavigator.Topic, "Inventar/Izmjeni_stol/index.html");
+            }
+        }
     }
 }

@@ -202,9 +202,12 @@ namespace ProgramskoIntenjerstvo
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.Name = "FrmEditKorisnika";
-            this.Text = "FrmEditKorisnika";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Izmjeni korisnika";
             this.Load += new System.EventHandler(this.FrmEditKorisnika_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmEditKorisnika_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

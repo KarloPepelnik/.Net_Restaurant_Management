@@ -52,7 +52,9 @@ namespace ProgramskoIntenjerstvo
         private void btnKorisnici_Click(object sender, EventArgs e)
         {
             FrmKorisnici forma = new FrmKorisnici();
+            Hide();
             forma.ShowDialog();
+            Show();
         }
 
         private void btnRezervacije_Click(object sender, EventArgs e)
@@ -77,6 +79,14 @@ namespace ProgramskoIntenjerstvo
             Hide();
             forma.ShowDialog();
             Show();
+        }
+
+        private void Izbornik_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, "RestoranApp.chm", HelpNavigator.Topic, "Izbornik/index.html");
+            }
         }
     }
 }
