@@ -41,6 +41,7 @@ namespace ProgramskoIntenjerstvo
             this.dodajBtn = new System.Windows.Forms.Button();
             this.odabranaJelaDataGrid = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.jeloDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.odabranaJelaDataGrid)).BeginInit();
             this.SuspendLayout();
@@ -146,6 +147,16 @@ namespace ProgramskoIntenjerstvo
             this.label3.TabIndex = 15;
             this.label3.Text = "Odabrana Jela";
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(220, 315);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(113, 17);
+            this.checkBox1.TabIndex = 24;
+            this.checkBox1.Text = "Narudžba za van?";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // KreiranjeNarudzbi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -153,6 +164,7 @@ namespace ProgramskoIntenjerstvo
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(678, 391);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.racunBtn);
             this.Controls.Add(this.removeBtn);
@@ -187,5 +199,6 @@ namespace ProgramskoIntenjerstvo
         private System.Windows.Forms.Button dodajBtn;
         private System.Windows.Forms.DataGridView odabranaJelaDataGrid;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

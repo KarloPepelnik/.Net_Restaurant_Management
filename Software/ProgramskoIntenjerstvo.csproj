@@ -197,6 +197,12 @@
     <Compile Include="Izdatnica.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="IzradaTakeOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IzradaTakeOut.Designer.cs">
+      <DependentUpon>IzradaTakeOut.cs</DependentUpon>
+    </Compile>
     <Compile Include="JelaOverride.cs" />
     <Compile Include="Jelo.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -367,6 +373,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Izbornik.resx">
       <DependentUpon>Izbornik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IzradaTakeOut.resx">
+      <DependentUpon>IzradaTakeOut.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KreiranjeNarudzbi.resx">
       <DependentUpon>KreiranjeNarudzbi.cs</DependentUpon>

@@ -37,11 +37,12 @@ namespace ProgramskoIntenjerstvo
             this.btnMeni = new System.Windows.Forms.Button();
             this.btnOdjava = new System.Windows.Forms.Button();
             this.btnInventar = new System.Windows.Forms.Button();
+            this.narudzbeZaVanBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnKorisnici
             // 
-            this.btnKorisnici.Location = new System.Drawing.Point(155, 69);
+            this.btnKorisnici.Location = new System.Drawing.Point(158, 12);
             this.btnKorisnici.Name = "btnKorisnici";
             this.btnKorisnici.Size = new System.Drawing.Size(135, 38);
             this.btnKorisnici.TabIndex = 0;
@@ -51,7 +52,7 @@ namespace ProgramskoIntenjerstvo
             // 
             // btnRezervacije
             // 
-            this.btnRezervacije.Location = new System.Drawing.Point(155, 143);
+            this.btnRezervacije.Location = new System.Drawing.Point(158, 86);
             this.btnRezervacije.Name = "btnRezervacije";
             this.btnRezervacije.Size = new System.Drawing.Size(135, 38);
             this.btnRezervacije.TabIndex = 1;
@@ -61,7 +62,7 @@ namespace ProgramskoIntenjerstvo
             // 
             // btnNarudžbe
             // 
-            this.btnNarudžbe.Location = new System.Drawing.Point(155, 291);
+            this.btnNarudžbe.Location = new System.Drawing.Point(158, 234);
             this.btnNarudžbe.Name = "btnNarudžbe";
             this.btnNarudžbe.Size = new System.Drawing.Size(135, 38);
             this.btnNarudžbe.TabIndex = 3;
@@ -71,7 +72,7 @@ namespace ProgramskoIntenjerstvo
             // 
             // btnZalihe
             // 
-            this.btnZalihe.Location = new System.Drawing.Point(155, 217);
+            this.btnZalihe.Location = new System.Drawing.Point(158, 160);
             this.btnZalihe.Name = "btnZalihe";
             this.btnZalihe.Size = new System.Drawing.Size(135, 38);
             this.btnZalihe.TabIndex = 2;
@@ -81,7 +82,7 @@ namespace ProgramskoIntenjerstvo
             // 
             // btnStatistika
             // 
-            this.btnStatistika.Location = new System.Drawing.Point(155, 439);
+            this.btnStatistika.Location = new System.Drawing.Point(158, 382);
             this.btnStatistika.Name = "btnStatistika";
             this.btnStatistika.Size = new System.Drawing.Size(135, 38);
             this.btnStatistika.TabIndex = 5;
@@ -91,7 +92,7 @@ namespace ProgramskoIntenjerstvo
             // 
             // btnMeni
             // 
-            this.btnMeni.Location = new System.Drawing.Point(155, 365);
+            this.btnMeni.Location = new System.Drawing.Point(158, 308);
             this.btnMeni.Name = "btnMeni";
             this.btnMeni.Size = new System.Drawing.Size(135, 38);
             this.btnMeni.TabIndex = 4;
@@ -111,7 +112,7 @@ namespace ProgramskoIntenjerstvo
             // 
             // btnInventar
             // 
-            this.btnInventar.Location = new System.Drawing.Point(155, 507);
+            this.btnInventar.Location = new System.Drawing.Point(158, 450);
             this.btnInventar.Name = "btnInventar";
             this.btnInventar.Size = new System.Drawing.Size(135, 38);
             this.btnInventar.TabIndex = 7;
@@ -119,11 +120,22 @@ namespace ProgramskoIntenjerstvo
             this.btnInventar.UseVisualStyleBackColor = true;
             this.btnInventar.Click += new System.EventHandler(this.btnInventar_Click);
             // 
+            // narudzbeZaVanBtn
+            // 
+            this.narudzbeZaVanBtn.Location = new System.Drawing.Point(158, 507);
+            this.narudzbeZaVanBtn.Name = "narudzbeZaVanBtn";
+            this.narudzbeZaVanBtn.Size = new System.Drawing.Size(135, 38);
+            this.narudzbeZaVanBtn.TabIndex = 8;
+            this.narudzbeZaVanBtn.Text = "Narudžbe za van";
+            this.narudzbeZaVanBtn.UseVisualStyleBackColor = true;
+            this.narudzbeZaVanBtn.Click += new System.EventHandler(this.narudzbeZaVanBtn_Click);
+            // 
             // Izbornik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(463, 557);
+            this.Controls.Add(this.narudzbeZaVanBtn);
             this.Controls.Add(this.btnInventar);
             this.Controls.Add(this.btnOdjava);
             this.Controls.Add(this.btnStatistika);
@@ -150,5 +162,6 @@ namespace ProgramskoIntenjerstvo
         private System.Windows.Forms.Button btnMeni;
         private System.Windows.Forms.Button btnOdjava;
         private System.Windows.Forms.Button btnInventar;
+        private System.Windows.Forms.Button narudzbeZaVanBtn;
     }
 }

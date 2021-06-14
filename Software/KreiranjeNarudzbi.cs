@@ -11,6 +11,7 @@ namespace ProgramskoIntenjerstvo
     {
         Entities E = new Entities();
         Dictionary<Jelo, int> jela = new Dictionary<Jelo, int>();
+        public static Racun racunZaVan { get; set; }
         double ukupno;
         public static double polog { get; set; }
         public KreiranjeNarudzbi()
@@ -73,23 +74,33 @@ namespace ProgramskoIntenjerstvo
 
         private void racunBtn_Click(object sender, EventArgs e)
         {
-            KreirajRacun();
-            using (Entities context = new Entities())
+            if (checkBox1.Checked == false)
             {
-                var query = from k in context.Kasa
-                            where k.datum == DateTime.Today
-                            select k.stanje;
-                polog = query.Single();
-            }
+                KreirajRacun();
+                using (Entities context = new Entities())
+                {
+                    var query = from k in context.Kasa
+                                where k.datum == DateTime.Today
+                                select k.stanje;
+                    polog = query.Single();
+                }
 
-            E.Database.ExecuteSqlCommand($"UPDATE Kasa SET stanje = {polog + ukupno} WHERE datum = '{DateTime.Today.ToString("yyyy-MM-dd")}'");
-            RacunIzdan racunIzdan = new RacunIzdan();
-            racunIzdan.ShowDialog();
-            jela.Clear();
-            odabranaJelaDataGrid.DataSource = null;
-            outputDumpTXT.Text = null;
-            removeBtn.Enabled = false;
-            ukupno = 0;
+                E.Database.ExecuteSqlCommand($"UPDATE Kasa SET stanje = {polog + ukupno} WHERE datum = '{DateTime.Today.ToString("yyyy-MM-dd")}'");
+                RacunIzdan racunIzdan = new RacunIzdan();
+                racunIzdan.ShowDialog();
+                jela.Clear();
+                odabranaJelaDataGrid.DataSource = null;
+                outputDumpTXT.Text = null;
+                removeBtn.Enabled = false;
+                ukupno = 0;
+            }
+            else
+            {
+                IzradaTakeOut takeOut = new IzradaTakeOut();
+                Hide();
+                takeOut.ShowDialog();
+                Show();
+            }
         }
 
         public void ObrisiJelo(KeyValuePair<Jelo, int> selected)
@@ -137,6 +148,7 @@ namespace ProgramskoIntenjerstvo
         public void KreirajRacun()
         {
             DateTime now = DateTime.Now;
+            KreiranjeNarudzbi.racunZaVan = new Racun();
             string sql1 = $"INSERT INTO Racun (id_narudzba, id_korisnik, iznos, datum_vrijeme) VALUES (1, 2, {ukupno}, '{now.ToString("yyyy-MM-dd")}')";
             E.Database.ExecuteSqlCommand(sql1);
             int sifraRacuna = 0;
@@ -145,6 +157,7 @@ namespace ProgramskoIntenjerstvo
                 var query = context.Racun.OrderByDescending(i => i.id_racun).FirstOrDefault();
                 sifraRacuna = query.id_racun;
             }
+            racunZaVan.id_racun = sifraRacuna;
             foreach (KeyValuePair<Jelo, int> k in jela)
             {
                 string sql3 = $"INSERT INTO Stavke_racuna (id_racun, id_jelo, kolicina) VALUES ({sifraRacuna}, {k.Key.id_jelo}, {k.Value})";

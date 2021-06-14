@@ -5,7 +5,7 @@ namespace ProgramskoIntenjerstvo
 {
     public partial class Izbornik : Form
     {
-        private Korisnik TrenutniKorisnik { get; set; }
+        public static Korisnik TrenutniKorisnik { get; set; }
         public Izbornik(Korisnik korisnik)
         {
             InitializeComponent();
@@ -76,6 +76,14 @@ namespace ProgramskoIntenjerstvo
             FrmStatistika forma = new FrmStatistika();
             Hide();
             forma.ShowDialog();
+            Show();
+        }
+
+        private void narudzbeZaVanBtn_Click(object sender, EventArgs e)
+        {
+            IzradaTakeOut izradaTakeOut = new IzradaTakeOut();
+            Hide();
+            izradaTakeOut.ShowDialog();
             Show();
         }
     }
