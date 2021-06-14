@@ -55,7 +55,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Validacija">
-      <HintPath>Validacija\bin\Debug\Validacija.dll</HintPath>
+      <HintPath>Validacija\obj\Debug\Validacija.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
