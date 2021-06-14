@@ -44,13 +44,30 @@ namespace ProgramskoIntenjerstvo
         private void btnObrisi_Click(object sender, EventArgs e)
         {
             Korisnik selektirani = dgvKorisnici.CurrentRow.DataBoundItem as Korisnik;
+            List<Rezervacija> odabrana = null;
 
             using (var context = new Entities())
             {
-                context.Korisnik.Attach(selektirani);
+                var query = from r in context.Rezervacija
+                            where r.id_korisnik == selektirani.id_korisnik
+                            select r;
+                odabrana = query.ToList();
+            }
 
-                context.Korisnik.Remove(selektirani);
-                context.SaveChanges();
+            if(odabrana.Count == 0)
+            {
+
+                using (var context = new Entities())
+                {
+                    context.Korisnik.Attach(selektirani);
+
+                    context.Korisnik.Remove(selektirani);
+                    context.SaveChanges();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Korisnik povezan sa rezervacijom!");
             }
             RefreshGUI();
         }
