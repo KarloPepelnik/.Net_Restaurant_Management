@@ -1,5 +1,0 @@
-C:\Users\Dominik\Desktop\pi21-dkukovec-lkusinec-kpepelnik\Validacija\obj\Debug\Validacija.csproj.CoreCompileInputs.cache
-C:\Users\Dominik\Desktop\pi21-dkukovec-lkusinec-kpepelnik\Validacija\bin\Debug\Validacija.dll
-C:\Users\Dominik\Desktop\pi21-dkukovec-lkusinec-kpepelnik\Validacija\bin\Debug\Validacija.pdb
-C:\Users\Dominik\Desktop\pi21-dkukovec-lkusinec-kpepelnik\Validacija\obj\Debug\Validacija.dll
-C:\Users\Dominik\Desktop\pi21-dkukovec-lkusinec-kpepelnik\Validacija\obj\Debug\Validacija.pdb

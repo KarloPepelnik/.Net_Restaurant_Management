@@ -95,7 +95,7 @@ namespace ProgramskoIntenjerstvo
             this.btnMeni.Name = "btnMeni";
             this.btnMeni.Size = new System.Drawing.Size(135, 38);
             this.btnMeni.TabIndex = 4;
-            this.btnMeni.Text = "Meni";
+            this.btnMeni.Text = "Kasa";
             this.btnMeni.UseVisualStyleBackColor = true;
             this.btnMeni.Click += new System.EventHandler(this.btnMeni_Click);
             // 

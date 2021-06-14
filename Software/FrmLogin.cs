@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProgramskoIntenjerstvo
@@ -27,10 +22,10 @@ namespace ProgramskoIntenjerstvo
 
             foreach (var korisnik in sviKorisnici)
             {
-                if(korisnik.korisnicko_ime == txtboxKorIme.Text)
+                if (korisnik.korisnicko_ime == txtboxKorIme.Text)
                 {
                     korisnickoOk = true;
-                    if(korisnik.lozinka == txtBoxLozinka.Text)
+                    if (korisnik.lozinka == txtBoxLozinka.Text)
                     {
                         lozinkaOk = true;
                         TrenutniKorisnik = korisnik;
@@ -38,7 +33,7 @@ namespace ProgramskoIntenjerstvo
                 }
             }
 
-            if(lozinkaOk && korisnickoOk)
+            if (lozinkaOk && korisnickoOk)
             {
                 Izbornik forma = new Izbornik(TrenutniKorisnik);
                 txtboxKorIme.Text = "";
