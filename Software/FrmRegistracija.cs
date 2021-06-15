@@ -120,5 +120,13 @@ namespace ProgramskoIntenjerstvo
         {
             ValidacijaEmail();
         }
+
+        private void FrmRegistracija_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, "RestoranApp.chm", HelpNavigator.Topic, "Registracija/index.html");
+            }
+        }
     }
 }

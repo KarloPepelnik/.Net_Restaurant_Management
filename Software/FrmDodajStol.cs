@@ -46,5 +46,13 @@ namespace ProgramskoIntenjerstvo
             }
             txtBrojStola.Enabled = false;
         }
+
+        private void FrmDodajStol_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, "RestoranApp.chm", HelpNavigator.Topic, "Inventar/Dodaj_stol/index.html");
+            }
+        }
     }
 }

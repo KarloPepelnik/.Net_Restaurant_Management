@@ -72,5 +72,13 @@ namespace ProgramskoIntenjerstvo
         {
             Osvjezi();
         }
+
+        private void FrmLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, "RestoranApp.chm", HelpNavigator.Topic, "Login/index.html");
+            }
+        }
     }
 }

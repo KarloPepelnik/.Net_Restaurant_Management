@@ -235,10 +235,12 @@ namespace ProgramskoIntenjerstvo
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtBoxPrezime);
             this.Controls.Add(this.txtBoxIme);
+            this.KeyPreview = true;
             this.Name = "FrmRegistracija";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmRegistracija";
+            this.Text = "Registracija";
             this.Load += new System.EventHandler(this.FrmRegistracija_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmRegistracija_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

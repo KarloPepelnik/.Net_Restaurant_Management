@@ -85,7 +85,7 @@ namespace ProgramskoIntenjerstvo
             this.Controls.Add(this.btnStatistikaPosjecenosti);
             this.Name = "FrmStatistika";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmStatistika";
+            this.Text = "Statistika";
             this.ResumeLayout(false);
 
         }

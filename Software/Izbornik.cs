@@ -5,7 +5,7 @@ namespace ProgramskoIntenjerstvo
 {
     public partial class Izbornik : Form
     {
-        public static Korisnik TrenutniKorisnik { get; set; }
+        private Korisnik TrenutniKorisnik { get; set; }
         public Izbornik(Korisnik korisnik)
         {
             InitializeComponent();
@@ -35,10 +35,10 @@ namespace ProgramskoIntenjerstvo
 
         private void Izbornik_Load(object sender, EventArgs e)
         {
-            if (TrenutniKorisnik.tip_korisnik > 2)
+            if (TrenutniKorisnik.tip_korisnik != 1)
             {
                 btnKorisnici.Hide();
-                btnMeni.Hide();
+                //btnMeni.Hide();
                 btnInventar.Hide();
             }
         }
@@ -52,7 +52,9 @@ namespace ProgramskoIntenjerstvo
         private void btnKorisnici_Click(object sender, EventArgs e)
         {
             FrmKorisnici forma = new FrmKorisnici();
+            Hide();
             forma.ShowDialog();
+            Show();
         }
 
         private void btnRezervacije_Click(object sender, EventArgs e)
@@ -79,12 +81,12 @@ namespace ProgramskoIntenjerstvo
             Show();
         }
 
-        private void narudzbeZaVanBtn_Click(object sender, EventArgs e)
+        private void Izbornik_KeyDown(object sender, KeyEventArgs e)
         {
-            PregledNarudzbiZaVan pregledNarudzbiZaVan = new PregledNarudzbiZaVan();
-            Hide();
-            pregledNarudzbiZaVan.ShowDialog();
-            Show();
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, "RestoranApp.chm", HelpNavigator.Topic, "Izbornik/index.html");
+            }
         }
     }
 }

@@ -35,6 +35,7 @@ namespace ProgramskoIntenjerstvo
                 btnIzmjeni.Visible = false;
                 btnObriši.Visible = false;
             }
+            dateTimeVrijeme.Value = DateTime.Parse("12:00");
             Osvjezi();
         }
 
@@ -257,13 +258,13 @@ namespace ProgramskoIntenjerstvo
             Osvjezi();
             cboxStolovi.SelectedIndex = 0;
             dateTimeDatum.Value = DateTime.Now.Date;
-            dateTimeVrijeme.Value = DateTime.Now;
+            dateTimeVrijeme.Value = DateTime.Parse("12:00");
             txtPrezime.Text = "";
         }
 
         private void btnRucnoDodaj_Click(object sender, EventArgs e)
         {
-            FrmRucnoDodavanje forma = new FrmRucnoDodavanje(TrenutniKorisnik);
+            FrmRucnoDodavanje forma = new FrmRucnoDodavanje(TrenutniKorisnik, dateTimeDatum.Value.Date);
             forma.ShowDialog();
             Osvjezi();
         }
@@ -271,6 +272,14 @@ namespace ProgramskoIntenjerstvo
         private void radioBtnDan_CheckedChanged(object sender, EventArgs e)
         {
             OsvjeziPogled();
+        }
+
+        private void FrmRezervacije_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, "RestoranApp.chm", HelpNavigator.Topic, "Rezervacije/index.html");
+            }
         }
     }
 }

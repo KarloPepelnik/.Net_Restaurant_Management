@@ -10,10 +10,12 @@ namespace ProgramskoIntenjerstvo
     public partial class FrmRucnoDodavanje : Form
     {
         private Korisnik TrenutniKorisnik { get; set; }
-        public FrmRucnoDodavanje(Korisnik korisnik)
+        private DateTime SelektiraniDatum { get; set; }
+        public FrmRucnoDodavanje(Korisnik korisnik, DateTime datum)
         {
             InitializeComponent();
             TrenutniKorisnik = korisnik;
+            SelektiraniDatum = datum;
         }
 
         private void btnOdustani_Click(object sender, EventArgs e)
@@ -25,6 +27,8 @@ namespace ProgramskoIntenjerstvo
         {
             labelOprez.ForeColor = Color.Red;
             Osvjezi();
+            dateTimeDatum.Value = SelektiraniDatum;
+            dateTimeVrijeme.Value = DateTime.Parse("12:00");
         }
 
         private void Osvjezi()
@@ -81,6 +85,14 @@ namespace ProgramskoIntenjerstvo
                     context.SaveChanges();
                 }
                 Close();
+            }
+        }
+
+        private void FrmRucnoDodavanje_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, "RestoranApp.chm", HelpNavigator.Topic, "Rezervacije/Ru_no_dodavanje/index.html");
             }
         }
     }

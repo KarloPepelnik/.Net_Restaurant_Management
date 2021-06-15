@@ -152,10 +152,12 @@ namespace ProgramskoIntenjerstvo
             this.Controls.Add(this.radioBtnMjesec);
             this.Controls.Add(this.chartBrojGostiju);
             this.Controls.Add(this.chartPosjecenost);
+            this.KeyPreview = true;
             this.Name = "FrmStatistikaPosjecenosti";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmStatistikaPosjecenosti";
+            this.Text = "Statistika posjećenosti";
             this.Load += new System.EventHandler(this.FrmStatistikaPosjecenosti_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmStatistikaPosjecenosti_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.chartPosjecenost)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartBrojGostiju)).EndInit();
             this.ResumeLayout(false);
