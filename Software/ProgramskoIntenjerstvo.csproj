@@ -321,6 +321,11 @@
       <DependentUpon>UpravljanjeKasom.cs</DependentUpon>
     </Compile>
     <Compile Include="ValidatorKorisnik.cs" />
+    <Compile Include="_PI21_13_DBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_PI21_13_DBDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FrmAzurirajIzdatnicu.resx">
       <DependentUpon>FrmAzurirajIzdatnicu.cs</DependentUpon>
     </EmbeddedResource>
@@ -436,6 +441,17 @@
     </Compile>
     <None Include="RestoranApp.chm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="_PI21_13_DBDataSet.xsc">
+      <DependentUpon>_PI21_13_DBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_PI21_13_DBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_PI21_13_DBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_PI21_13_DBDataSet.xss">
+      <DependentUpon>_PI21_13_DBDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

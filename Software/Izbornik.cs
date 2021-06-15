@@ -81,14 +81,12 @@ namespace ProgramskoIntenjerstvo
             Show();
         }
 
-        private void Izbornik_KeyDown(object sender, KeyEventArgs e)
-        {
-
-            if (e.KeyCode == Keys.F1)
-            {
-                Help.ShowHelp(this, "RestoranApp.chm", HelpNavigator.Topic, "Izbornik/index.html");
-            }
-
+        private void narudzbeZaVanBtn_Click(object sender, EventArgs e)
+        {            
+            PregledNarudzbiZaVan pregledNarudzbiZaVan = new PregledNarudzbiZaVan();
+            Hide();
+            pregledNarudzbiZaVan.ShowDialog();
+            Show();
         }
     }
 }

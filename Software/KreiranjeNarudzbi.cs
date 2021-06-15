@@ -102,7 +102,6 @@ namespace ProgramskoIntenjerstvo
                 Hide();
                 takeOut.ShowDialog();
                 Show();
-                Close();
             }
         }
 
