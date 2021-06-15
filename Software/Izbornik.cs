@@ -5,7 +5,7 @@ namespace ProgramskoIntenjerstvo
 {
     public partial class Izbornik : Form
     {
-        private Korisnik TrenutniKorisnik { get; set; }
+        public static Korisnik TrenutniKorisnik { get; set; }
         public Izbornik(Korisnik korisnik)
         {
             InitializeComponent();
