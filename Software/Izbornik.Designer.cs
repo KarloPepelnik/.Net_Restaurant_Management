@@ -149,6 +149,7 @@ namespace ProgramskoIntenjerstvo
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Izbornik";
             this.Load += new System.EventHandler(this.Izbornik_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Izbornik_KeyDown);
             this.ResumeLayout(false);
 
         }

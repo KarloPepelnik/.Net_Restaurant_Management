@@ -88,5 +88,13 @@ namespace ProgramskoIntenjerstvo
             pregledNarudzbiZaVan.ShowDialog();
             Show();
         }
+
+        private void Izbornik_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, "RestoranApp.chm", HelpNavigator.Topic, "Izbornik/index.html");
+            }
+        }
     }
 }
