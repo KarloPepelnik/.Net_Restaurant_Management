@@ -169,7 +169,7 @@ namespace ProgramskoIntenjerstvo
         {
             if (e.KeyCode == Keys.F1)
             {
-                Help.ShowHelp(this, "RestoranApp.chm", HelpNavigator.Topic, "Rezervacije/index.html");
+                Help.ShowHelp(this, "RestoranApp.chm", HelpNavigator.Topic, "Kreiranje_narudzbi/index.html");
             }
         }
     }
