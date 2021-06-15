@@ -58,5 +58,13 @@ namespace ProgramskoIntenjerstvo
                 chart1.Series["Promet"].Points.AddXY(temp.ToString().Replace(" 0:00:00", ""), ukupnoRacuni);
             }
         }
+
+        private void StatistikaPrihodi_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, "RestoranApp.chm", HelpNavigator.Topic, "Rezervacije/index.html");
+            }
+        }
     }
 }

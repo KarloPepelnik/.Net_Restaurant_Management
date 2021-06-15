@@ -130,9 +130,11 @@ namespace ProgramskoIntenjerstvo
             this.Controls.Add(this.stornoBtn);
             this.Controls.Add(this.vrijemeDatumPicker);
             this.Controls.Add(this.popisRacunaDgv);
+            this.KeyPreview = true;
             this.Name = "UpravljanjeKasom";
             this.Text = "Kasa";
             this.Load += new System.EventHandler(this.UpravljanjeKasom_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UpravljanjeKasom_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.popisArtikalaPoRacunuDgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popisRacunaDgv)).EndInit();
             this.ResumeLayout(false);

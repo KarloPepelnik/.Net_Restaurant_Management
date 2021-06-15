@@ -91,9 +91,11 @@ namespace ProgramskoIntenjerstvo
             this.Controls.Add(this.narudzbeDgv);
             this.Controls.Add(this.zatvoriBtn);
             this.Controls.Add(this.izvrsenaBtn);
+            this.KeyPreview = true;
             this.Name = "PregledNarudzbiZaVan";
             this.Text = "Narudžbe za van";
             this.Load += new System.EventHandler(this.PregledNarudzbiZaVan_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PregledNarudzbiZaVan_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.narudzbeDgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dostavaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._PI21_13_DBDataSet)).EndInit();

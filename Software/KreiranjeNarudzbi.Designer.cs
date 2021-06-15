@@ -176,9 +176,11 @@ namespace ProgramskoIntenjerstvo
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.jeloDataGrid);
+            this.KeyPreview = true;
             this.Name = "KreiranjeNarudzbi";
             this.Text = "KreiranjeNarudzbi";
             this.Load += new System.EventHandler(this.KreiranjeNarudzbi_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KreiranjeNarudzbi_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.jeloDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.odabranaJelaDataGrid)).EndInit();
             this.ResumeLayout(false);

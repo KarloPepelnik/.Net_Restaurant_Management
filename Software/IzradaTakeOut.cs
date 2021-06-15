@@ -61,7 +61,6 @@ namespace ProgramskoIntenjerstvo
             }
             dataGridView1.DataSource = jelaSaNarudzbe;
             dataGridView1.Columns[1].Visible = false;
-            //dataGridView1.Columns[3].Visible = false;
             dataGridView1.Columns[4].Visible = false;
             dataGridView1.Columns[5].Visible = false;
             dataGridView1.Columns[6].Visible = false;
@@ -83,6 +82,14 @@ namespace ProgramskoIntenjerstvo
             narudzbaIzdana.ShowDialog();
             Show();
             Close();
+        }
+
+        private void IzradaTakeOut_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, "RestoranApp.chm", HelpNavigator.Topic, "Rezervacije/index.html");
+            }
         }
     }
 }

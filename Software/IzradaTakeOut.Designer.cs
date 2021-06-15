@@ -174,9 +174,11 @@ namespace ProgramskoIntenjerstvo
             this.Controls.Add(this.button1);
             this.Controls.Add(this.racunTxt);
             this.Controls.Add(this.dataGridView1);
+            this.KeyPreview = true;
             this.Name = "IzradaTakeOut";
             this.Text = "Narudžba za van";
             this.Load += new System.EventHandler(this.IzradaTakeOut_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.IzradaTakeOut_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

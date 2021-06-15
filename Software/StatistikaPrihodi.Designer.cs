@@ -80,9 +80,11 @@ namespace ProgramskoIntenjerstvo
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.zatvoriBtn);
             this.Controls.Add(this.chart1);
+            this.KeyPreview = true;
             this.Name = "StatistikaPrihodi";
             this.Text = "Prihodi";
             this.Load += new System.EventHandler(this.StatistikaPrihodi_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.StatistikaPrihodi_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
