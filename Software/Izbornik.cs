@@ -35,10 +35,10 @@ namespace ProgramskoIntenjerstvo
 
         private void Izbornik_Load(object sender, EventArgs e)
         {
-            if (TrenutniKorisnik.tip_korisnik > 2)
+            if (TrenutniKorisnik.tip_korisnik != 1)
             {
                 btnKorisnici.Hide();
-                btnMeni.Hide();
+                //btnMeni.Hide();
                 btnInventar.Hide();
             }
         }
