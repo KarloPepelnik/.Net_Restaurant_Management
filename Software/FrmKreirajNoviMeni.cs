@@ -118,7 +118,7 @@ namespace ProgramskoIntenjerstvo
 
         private void dtpVazeciDatumMenija_ValueChanged(object sender, EventArgs e)
         {
-            txtBoxDatumMenija.Text = dtpVazeciDatumMenija.Value.Date.ToString();
+            txtBoxDatumMenija.Text = dtpVazeciDatumMenija.Value.Date.ToShortDateString();
         }
 
         private void btnKreirajMeni_Click(object sender, EventArgs e)
@@ -131,7 +131,8 @@ namespace ProgramskoIntenjerstvo
                 Meni newMeni = new Meni()
                 {
                     naziv = nazivMenija,
-                    datum = datumMenija
+                    datum = datumMenija,
+                    cijena_menija = float.Parse(txtBoxCijenaMenija.Text)
                 };
                 
                 context.Meni.Add(newMeni);
@@ -183,6 +184,7 @@ namespace ProgramskoIntenjerstvo
                 };
                 context.Na_meniju.Add(na_MenijuDesert);
                 context.SaveChanges();
+            Close();
             }
         }
 
