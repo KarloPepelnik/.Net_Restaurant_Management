@@ -41,5 +41,17 @@ namespace ProgramskoIntenjerstvo
             FrmPregledJela frmPregledJela = new FrmPregledJela();
             frmPregledJela.ShowDialog();
         }
+
+        private void btnKreirajMeni_Click(object sender, EventArgs e)
+        {
+            FrmKreirajNoviMeni frmKreirajMeni = new FrmKreirajNoviMeni();
+            frmKreirajMeni.ShowDialog();
+        }
+
+        private void btnAllMenus_Click(object sender, EventArgs e)
+        {
+            FrmSviMeniji frmSviMeniji = new FrmSviMeniji();
+            frmSviMeniji.ShowDialog();
+        }
     }
 }

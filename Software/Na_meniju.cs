@@ -12,13 +12,13 @@ namespace ProgramskoIntenjerstvo
     using System;
     using System.Collections.Generic;
     
-    public partial class Stavke_primke
+    public partial class Na_meniju
     {
-        public int id_primka { get; set; }
-        public int id_namirnica { get; set; }
-        public double kolicina_zaprimanja { get; set; }
+        public int id_meni { get; set; }
+        public int id_jelo { get; set; }
+        public Nullable<int> entityframeowrkfix { get; set; }
     
-        public virtual Namirnica Namirnica { get; set; }
-        public virtual Primka Primka { get; set; }
+        public virtual Jelo Jelo { get; set; }
+        public virtual Meni Meni { get; set; }
     }
 }

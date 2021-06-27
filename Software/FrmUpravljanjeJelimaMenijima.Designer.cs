@@ -33,6 +33,7 @@ namespace ProgramskoIntenjerstvo
             this.label1 = new System.Windows.Forms.Label();
             this.tabCtrlJelaMeniji = new System.Windows.Forms.TabControl();
             this.tabPageJela = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnPregledJela = new System.Windows.Forms.Button();
@@ -41,10 +42,15 @@ namespace ProgramskoIntenjerstvo
             this.label5 = new System.Windows.Forms.Label();
             this.btnDodajJelo = new System.Windows.Forms.Button();
             this.tabPageMeniji = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnKreirajMeni = new System.Windows.Forms.Button();
             this.btnPovratak = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnAllMenus = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
             this.tabCtrlJelaMeniji.SuspendLayout();
             this.tabPageJela.SuspendLayout();
+            this.tabPageMeniji.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -88,6 +94,16 @@ namespace ProgramskoIntenjerstvo
             this.tabPageJela.TabIndex = 0;
             this.tabPageJela.Text = "Upravljanje jelima";
             this.tabPageJela.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(459, 219);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(166, 19);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Kategorije namirnica";
             // 
             // label4
             // 
@@ -167,6 +183,11 @@ namespace ProgramskoIntenjerstvo
             // 
             // tabPageMeniji
             // 
+            this.tabPageMeniji.Controls.Add(this.label9);
+            this.tabPageMeniji.Controls.Add(this.label8);
+            this.tabPageMeniji.Controls.Add(this.btnAllMenus);
+            this.tabPageMeniji.Controls.Add(this.label7);
+            this.tabPageMeniji.Controls.Add(this.btnKreirajMeni);
             this.tabPageMeniji.Location = new System.Drawing.Point(4, 25);
             this.tabPageMeniji.Name = "tabPageMeniji";
             this.tabPageMeniji.Padding = new System.Windows.Forms.Padding(3);
@@ -174,6 +195,28 @@ namespace ProgramskoIntenjerstvo
             this.tabPageMeniji.TabIndex = 1;
             this.tabPageMeniji.Text = "Upravljanje menijima";
             this.tabPageMeniji.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label7.Location = new System.Drawing.Point(126, 194);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(137, 19);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Kreiraj novi meni";
+            // 
+            // btnKreirajMeni
+            // 
+            this.btnKreirajMeni.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnKreirajMeni.BackgroundImage")));
+            this.btnKreirajMeni.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnKreirajMeni.Location = new System.Drawing.Point(130, 76);
+            this.btnKreirajMeni.Name = "btnKreirajMeni";
+            this.btnKreirajMeni.Size = new System.Drawing.Size(133, 115);
+            this.btnKreirajMeni.TabIndex = 11;
+            this.btnKreirajMeni.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnKreirajMeni.UseVisualStyleBackColor = true;
+            this.btnKreirajMeni.Click += new System.EventHandler(this.btnKreirajMeni_Click);
             // 
             // btnPovratak
             // 
@@ -185,15 +228,37 @@ namespace ProgramskoIntenjerstvo
             this.btnPovratak.UseVisualStyleBackColor = true;
             this.btnPovratak.Click += new System.EventHandler(this.btnPovratak_Click);
             // 
-            // label6
+            // label8
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(459, 219);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(166, 19);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Kategorije namirnica";
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label8.Location = new System.Drawing.Point(350, 194);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(158, 19);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Pregled svih menija";
+            // 
+            // btnAllMenus
+            // 
+            this.btnAllMenus.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAllMenus.BackgroundImage")));
+            this.btnAllMenus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAllMenus.Location = new System.Drawing.Point(354, 76);
+            this.btnAllMenus.Name = "btnAllMenus";
+            this.btnAllMenus.Size = new System.Drawing.Size(133, 115);
+            this.btnAllMenus.TabIndex = 13;
+            this.btnAllMenus.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAllMenus.UseVisualStyleBackColor = true;
+            this.btnAllMenus.Click += new System.EventHandler(this.btnAllMenus_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label9.Location = new System.Drawing.Point(350, 213);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(155, 19);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Izvoz menija u PDF";
             // 
             // FrmUpravljanjeJelimaMenijima
             // 
@@ -210,6 +275,8 @@ namespace ProgramskoIntenjerstvo
             this.tabCtrlJelaMeniji.ResumeLayout(false);
             this.tabPageJela.ResumeLayout(false);
             this.tabPageJela.PerformLayout();
+            this.tabPageMeniji.ResumeLayout(false);
+            this.tabPageMeniji.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,5 +297,10 @@ namespace ProgramskoIntenjerstvo
         private System.Windows.Forms.Button btnPovratak;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnKreirajMeni;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnAllMenus;
     }
 }

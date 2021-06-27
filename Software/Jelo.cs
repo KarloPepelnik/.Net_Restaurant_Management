@@ -18,9 +18,9 @@ namespace ProgramskoIntenjerstvo
         public Jelo()
         {
             this.Jelo_sadrzi = new HashSet<Jelo_sadrzi>();
+            this.Na_meniju = new HashSet<Na_meniju>();
             this.Narucuje = new HashSet<Narucuje>();
             this.Stavke_racuna = new HashSet<Stavke_racuna>();
-            this.Meni = new HashSet<Meni>();
         }
     
         public int id_jelo { get; set; }
@@ -32,10 +32,10 @@ namespace ProgramskoIntenjerstvo
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Jelo_sadrzi> Jelo_sadrzi { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Na_meniju> Na_meniju { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Narucuje> Narucuje { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stavke_racuna> Stavke_racuna { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Meni> Meni { get; set; }
     }
 }

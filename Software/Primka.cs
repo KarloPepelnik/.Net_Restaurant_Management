@@ -14,6 +14,12 @@ namespace ProgramskoIntenjerstvo
     
     public partial class Primka
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Primka()
+        {
+            this.Stavke_primke = new HashSet<Stavke_primke>();
+        }
+    
         public int id_primka { get; set; }
         public System.DateTime datum_vrijeme { get; set; }
         public int id_namirnica { get; set; }
@@ -22,5 +28,7 @@ namespace ProgramskoIntenjerstvo
     
         public virtual Mjerna_jedinica Mjerna_jedinica { get; set; }
         public virtual Namirnica Namirnica { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Stavke_primke> Stavke_primke { get; set; }
     }
 }

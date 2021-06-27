@@ -17,5 +17,8 @@ namespace ProgramskoIntenjerstvo
         public int id_izdatnica { get; set; }
         public int id_namirnica { get; set; }
         public double kolicina_izdavanja { get; set; }
+    
+        public virtual Izdatnica Izdatnica { get; set; }
+        public virtual Namirnica Namirnica { get; set; }
     }
 }

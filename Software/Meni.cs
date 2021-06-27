@@ -17,14 +17,15 @@ namespace ProgramskoIntenjerstvo
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Meni()
         {
-            this.Jelo = new HashSet<Jelo>();
+            this.Na_meniju = new HashSet<Na_meniju>();
         }
     
         public int id_meni { get; set; }
         public string naziv { get; set; }
         public System.DateTime datum { get; set; }
+        public double cijena_menija { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Jelo> Jelo { get; set; }
+        public virtual ICollection<Na_meniju> Na_meniju { get; set; }
     }
 }

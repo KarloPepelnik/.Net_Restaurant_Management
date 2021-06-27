@@ -160,6 +160,12 @@
     <Compile Include="FrmKorisnici.Designer.cs">
       <DependentUpon>FrmKorisnici.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmKreirajNoviMeni.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmKreirajNoviMeni.Designer.cs">
+      <DependentUpon>FrmKreirajNoviMeni.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,6 +283,9 @@
     <Compile Include="Narudzba.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Na_meniju.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Primka.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -373,6 +382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmKorisnici.resx">
       <DependentUpon>FrmKorisnici.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmKreirajNoviMeni.resx">
+      <DependentUpon>FrmKreirajNoviMeni.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
