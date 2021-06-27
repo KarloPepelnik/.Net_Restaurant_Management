@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProgramskoIntenjerstvo
@@ -48,13 +44,30 @@ namespace ProgramskoIntenjerstvo
         private void btnObrisi_Click(object sender, EventArgs e)
         {
             Korisnik selektirani = dgvKorisnici.CurrentRow.DataBoundItem as Korisnik;
+            List<Rezervacija> odabrana = null;
 
             using (var context = new Entities())
             {
-                context.Korisnik.Attach(selektirani);
+                var query = from r in context.Rezervacija
+                            where r.id_korisnik == selektirani.id_korisnik
+                            select r;
+                odabrana = query.ToList();
+            }
 
-                context.Korisnik.Remove(selektirani);
-                context.SaveChanges();
+            if(odabrana.Count == 0)
+            {
+
+                using (var context = new Entities())
+                {
+                    context.Korisnik.Attach(selektirani);
+
+                    context.Korisnik.Remove(selektirani);
+                    context.SaveChanges();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Korisnik povezan sa rezervacijom!");
             }
             RefreshGUI();
         }
@@ -65,6 +78,14 @@ namespace ProgramskoIntenjerstvo
             FrmEditKorisnika forma = new FrmEditKorisnika(selektirani);
             forma.ShowDialog();
             RefreshGUI();
+        }
+
+        private void FrmKorisnici_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, "RestoranApp.chm", HelpNavigator.Topic, "Korisnici/index.html");
+            }
         }
     }
 }

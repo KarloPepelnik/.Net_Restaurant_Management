@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProgramskoIntenjerstvo
@@ -49,12 +45,28 @@ namespace ProgramskoIntenjerstvo
         private void btnObrisi_Click(object sender, EventArgs e)
         {
             Stol odabrani = dgvStolovi.CurrentRow.DataBoundItem as Stol;
+            List<Rezervacija> odabrana = null;
 
             using (var context = new Entities())
             {
-                context.Stol.Attach(odabrani);
-                context.Stol.Remove(odabrani);
-                context.SaveChanges();
+                var query = from r in context.Rezervacija
+                            where r.id_stol == odabrani.id_stol
+                            select r;
+                odabrana = query.ToList();
+            }
+
+            if(odabrana.Count == 0)
+            {
+                using (var context = new Entities())
+                {
+                    context.Stol.Attach(odabrani);
+                    context.Stol.Remove(odabrani);
+                    context.SaveChanges();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Stol se nalazi u postojecoj rezervaciji!");
             }
             Osvjezi();
         }
@@ -72,6 +84,14 @@ namespace ProgramskoIntenjerstvo
             FrmDodajStol forma = new FrmDodajStol();
             forma.ShowDialog();
             Osvjezi();
+        }
+
+        private void FrmInventar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, "RestoranApp.chm", HelpNavigator.Topic, "Inventar/index.html");
+            }
         }
     }
 }

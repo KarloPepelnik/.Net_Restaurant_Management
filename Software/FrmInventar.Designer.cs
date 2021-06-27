@@ -95,10 +95,12 @@ namespace ProgramskoIntenjerstvo
             this.Controls.Add(this.btnIzmjeni);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.dgvStolovi);
+            this.KeyPreview = true;
             this.Name = "FrmInventar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmInventar";
+            this.Text = "Inventar";
             this.Load += new System.EventHandler(this.FrmInventar_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmInventar_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStolovi)).EndInit();
             this.ResumeLayout(false);
 

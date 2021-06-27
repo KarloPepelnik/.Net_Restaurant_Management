@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramskoIntenjerstvo", "ProgramskoIntenjerstvo.csproj", "{134B55BA-877D-4877-A84D-9D8980927347}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validacija", "Validacija\Validacija.csproj", "{14260E41-5C7C-4FA7-A266-E7B89BE50BE2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{134B55BA-877D-4877-A84D-9D8980927347}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{134B55BA-877D-4877-A84D-9D8980927347}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{134B55BA-877D-4877-A84D-9D8980927347}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14260E41-5C7C-4FA7-A266-E7B89BE50BE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14260E41-5C7C-4FA7-A266-E7B89BE50BE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14260E41-5C7C-4FA7-A266-E7B89BE50BE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14260E41-5C7C-4FA7-A266-E7B89BE50BE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
