@@ -1,6 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProgramskoIntenjerstvo
@@ -34,7 +39,7 @@ namespace ProgramskoIntenjerstvo
         private void FillCategory()
         {
             List<Kategorija> kategorije;
-
+            
             using (var context = new Entities())
             {
                 kategorije = context.Kategorija.ToList();
@@ -54,10 +59,10 @@ namespace ProgramskoIntenjerstvo
             {
                 string naziv = txtBoxNaziv.Text;
                 float temperatura = float.Parse(txtBoxTemperatura.Text);
-
+                
                 Kategorija kategorija = cmbBoxKategorija.SelectedItem as Kategorija;
                 context.Kategorija.Attach(kategorija);
-
+                
                 Mjerna_jedinica mjerna_Jedinica = cmbBoxMjernaJedinica.SelectedItem as Mjerna_jedinica;
                 context.Mjerna_jedinica.Attach(mjerna_Jedinica);
 
@@ -65,8 +70,8 @@ namespace ProgramskoIntenjerstvo
 
                 Namirnica novaNamirnica = new Namirnica
                 {
-                    naziv_namirnice = naziv,
-                    id_kategorije = kategorija.id_kategorija,
+                    naziv_namirnice=naziv,
+                    id_kategorije=kategorija.id_kategorija,
                     temperatura_pohrane = temperatura,
                     id_mjerna_jedinica = mjerna_Jedinica.id_mjerna_jedinica,
                     kolicina_trenutna = kolicina

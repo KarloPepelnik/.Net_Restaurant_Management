@@ -237,12 +237,10 @@ namespace ProgramskoIntenjerstvo
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvRezervacije);
             this.Controls.Add(this.kalendar);
-            this.KeyPreview = true;
             this.Name = "FrmRezervacije";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Rezervacije";
+            this.Text = "FrmRezervacije";
             this.Load += new System.EventHandler(this.FrmRezervacije_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmRezervacije_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRezervacije)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStolovi)).EndInit();
             this.ResumeLayout(false);

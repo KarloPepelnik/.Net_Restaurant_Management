@@ -83,12 +83,9 @@ namespace ProgramskoIntenjerstvo
             this.Controls.Add(this.btnOdustani);
             this.Controls.Add(this.btnIzmjeni);
             this.Controls.Add(this.dgvKorisnici);
-            this.KeyPreview = true;
             this.Name = "FrmKorisnici";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Upravljanje korisnicima";
+            this.Text = "FrmKorisnici";
             this.Load += new System.EventHandler(this.FrmKorisnici_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmKorisnici_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKorisnici)).EndInit();
             this.ResumeLayout(false);
 

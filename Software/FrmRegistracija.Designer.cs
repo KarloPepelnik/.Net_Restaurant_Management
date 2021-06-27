@@ -43,10 +43,6 @@ namespace ProgramskoIntenjerstvo
             this.btnOdustani = new System.Windows.Forms.Button();
             this.labelLozinka = new System.Windows.Forms.Label();
             this.labelEmail = new System.Windows.Forms.Label();
-            this.labelponovo = new System.Windows.Forms.Label();
-            this.txtLozinkaPonovo = new System.Windows.Forms.TextBox();
-            this.labelPodudaraju = new System.Windows.Forms.Label();
-            this.labelImeZauzeto = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -72,14 +68,14 @@ namespace ProgramskoIntenjerstvo
             this.txtBoxPrezime.Location = new System.Drawing.Point(145, 113);
             this.txtBoxPrezime.Name = "txtBoxPrezime";
             this.txtBoxPrezime.Size = new System.Drawing.Size(134, 20);
-            this.txtBoxPrezime.TabIndex = 2;
+            this.txtBoxPrezime.TabIndex = 7;
             // 
             // txtBoxIme
             // 
             this.txtBoxIme.Location = new System.Drawing.Point(145, 42);
             this.txtBoxIme.Name = "txtBoxIme";
             this.txtBoxIme.Size = new System.Drawing.Size(134, 20);
-            this.txtBoxIme.TabIndex = 1;
+            this.txtBoxIme.TabIndex = 6;
             // 
             // label3
             // 
@@ -104,22 +100,20 @@ namespace ProgramskoIntenjerstvo
             this.txtBoxLozinka.Location = new System.Drawing.Point(145, 244);
             this.txtBoxLozinka.Name = "txtBoxLozinka";
             this.txtBoxLozinka.Size = new System.Drawing.Size(134, 20);
-            this.txtBoxLozinka.TabIndex = 4;
+            this.txtBoxLozinka.TabIndex = 11;
             this.txtBoxLozinka.UseSystemPasswordChar = true;
-            this.txtBoxLozinka.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBoxLozinka_KeyUp);
             // 
             // txtBoxKorime
             // 
             this.txtBoxKorime.Location = new System.Drawing.Point(145, 176);
             this.txtBoxKorime.Name = "txtBoxKorime";
             this.txtBoxKorime.Size = new System.Drawing.Size(134, 20);
-            this.txtBoxKorime.TabIndex = 3;
-            this.txtBoxKorime.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBoxKorime_KeyUp);
+            this.txtBoxKorime.TabIndex = 10;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(62, 386);
+            this.label6.Location = new System.Drawing.Point(62, 305);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 13);
             this.label6.TabIndex = 16;
@@ -127,28 +121,27 @@ namespace ProgramskoIntenjerstvo
             // 
             // txtBoxEmail
             // 
-            this.txtBoxEmail.Location = new System.Drawing.Point(145, 383);
+            this.txtBoxEmail.Location = new System.Drawing.Point(145, 302);
             this.txtBoxEmail.Name = "txtBoxEmail";
             this.txtBoxEmail.Size = new System.Drawing.Size(134, 20);
-            this.txtBoxEmail.TabIndex = 6;
-            this.txtBoxEmail.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBoxEmail_KeyUp);
+            this.txtBoxEmail.TabIndex = 14;
             // 
             // btnRegistriraj
             // 
-            this.btnRegistriraj.Location = new System.Drawing.Point(41, 442);
+            this.btnRegistriraj.Location = new System.Drawing.Point(43, 375);
             this.btnRegistriraj.Name = "btnRegistriraj";
             this.btnRegistriraj.Size = new System.Drawing.Size(120, 43);
-            this.btnRegistriraj.TabIndex = 7;
+            this.btnRegistriraj.TabIndex = 17;
             this.btnRegistriraj.Text = "Registriraj!";
             this.btnRegistriraj.UseVisualStyleBackColor = true;
             this.btnRegistriraj.Click += new System.EventHandler(this.btnRegistriraj_Click);
             // 
             // btnOdustani
             // 
-            this.btnOdustani.Location = new System.Drawing.Point(219, 442);
+            this.btnOdustani.Location = new System.Drawing.Point(221, 375);
             this.btnOdustani.Name = "btnOdustani";
             this.btnOdustani.Size = new System.Drawing.Size(120, 43);
-            this.btnOdustani.TabIndex = 8;
+            this.btnOdustani.TabIndex = 18;
             this.btnOdustani.Text = "Odustani!";
             this.btnOdustani.UseVisualStyleBackColor = true;
             this.btnOdustani.Click += new System.EventHandler(this.btnOdustani_Click);
@@ -168,59 +161,17 @@ namespace ProgramskoIntenjerstvo
             // 
             this.labelEmail.AutoSize = true;
             this.labelEmail.ForeColor = System.Drawing.Color.Red;
-            this.labelEmail.Location = new System.Drawing.Point(285, 377);
+            this.labelEmail.Location = new System.Drawing.Point(285, 296);
             this.labelEmail.Name = "labelEmail";
             this.labelEmail.Size = new System.Drawing.Size(129, 26);
             this.labelEmail.TabIndex = 20;
             this.labelEmail.Text = "Neispravan format emaila!\r\nnpr. netko@nesto.hr";
             // 
-            // labelponovo
-            // 
-            this.labelponovo.AutoSize = true;
-            this.labelponovo.Location = new System.Drawing.Point(40, 313);
-            this.labelponovo.Name = "labelponovo";
-            this.labelponovo.Size = new System.Drawing.Size(86, 13);
-            this.labelponovo.TabIndex = 22;
-            this.labelponovo.Text = "Lozinka ponovo:";
-            // 
-            // txtLozinkaPonovo
-            // 
-            this.txtLozinkaPonovo.Location = new System.Drawing.Point(145, 310);
-            this.txtLozinkaPonovo.Name = "txtLozinkaPonovo";
-            this.txtLozinkaPonovo.Size = new System.Drawing.Size(134, 20);
-            this.txtLozinkaPonovo.TabIndex = 5;
-            this.txtLozinkaPonovo.UseSystemPasswordChar = true;
-            this.txtLozinkaPonovo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtLozinkaPonovo_KeyUp);
-            // 
-            // labelPodudaraju
-            // 
-            this.labelPodudaraju.AutoSize = true;
-            this.labelPodudaraju.ForeColor = System.Drawing.Color.Red;
-            this.labelPodudaraju.Location = new System.Drawing.Point(285, 310);
-            this.labelPodudaraju.Name = "labelPodudaraju";
-            this.labelPodudaraju.Size = new System.Drawing.Size(132, 13);
-            this.labelPodudaraju.TabIndex = 23;
-            this.labelPodudaraju.Text = "Lozinke se ne podudaraju!";
-            // 
-            // labelImeZauzeto
-            // 
-            this.labelImeZauzeto.AutoSize = true;
-            this.labelImeZauzeto.ForeColor = System.Drawing.Color.Red;
-            this.labelImeZauzeto.Location = new System.Drawing.Point(285, 179);
-            this.labelImeZauzeto.Name = "labelImeZauzeto";
-            this.labelImeZauzeto.Size = new System.Drawing.Size(118, 13);
-            this.labelImeZauzeto.TabIndex = 24;
-            this.labelImeZauzeto.Text = "Korisničko ime zauzeto!";
-            // 
             // FrmRegistracija
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 540);
-            this.Controls.Add(this.labelImeZauzeto);
-            this.Controls.Add(this.labelPodudaraju);
-            this.Controls.Add(this.labelponovo);
-            this.Controls.Add(this.txtLozinkaPonovo);
+            this.ClientSize = new System.Drawing.Size(509, 450);
             this.Controls.Add(this.labelEmail);
             this.Controls.Add(this.labelLozinka);
             this.Controls.Add(this.btnOdustani);
@@ -235,12 +186,10 @@ namespace ProgramskoIntenjerstvo
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtBoxPrezime);
             this.Controls.Add(this.txtBoxIme);
-            this.KeyPreview = true;
             this.Name = "FrmRegistracija";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Registracija";
+            this.Text = "FrmRegistracija";
             this.Load += new System.EventHandler(this.FrmRegistracija_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmRegistracija_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,9 +211,5 @@ namespace ProgramskoIntenjerstvo
         private System.Windows.Forms.Button btnOdustani;
         private System.Windows.Forms.Label labelLozinka;
         private System.Windows.Forms.Label labelEmail;
-        private System.Windows.Forms.Label labelponovo;
-        private System.Windows.Forms.TextBox txtLozinkaPonovo;
-        private System.Windows.Forms.Label labelPodudaraju;
-        private System.Windows.Forms.Label labelImeZauzeto;
     }
 }

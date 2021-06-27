@@ -1,7 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Data.Entity;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProgramskoIntenjerstvo
@@ -30,12 +35,11 @@ namespace ProgramskoIntenjerstvo
 
         private void FrmRezervacije_Load(object sender, EventArgs e)
         {
-            if (TrenutniKorisnik.tip_korisnik > 2)
+            if (TrenutniKorisnik.tip_korisnik >2)
             {
                 btnIzmjeni.Visible = false;
                 btnObriši.Visible = false;
             }
-            dateTimeVrijeme.Value = DateTime.Parse("12:00");
             Osvjezi();
         }
 
@@ -55,15 +59,14 @@ namespace ProgramskoIntenjerstvo
                 {
                     foreach (var stol in sviStolovi)
                     {
-                        if (rezervacija.id_stol == stol.id_stol)
+                        if(rezervacija.id_stol == stol.id_stol)
                         {
                             rezervacija.OznakaStola = stol.oznaka.Value;
                         }
                     }
                 }
                 RezerviraniDatumi.Clear();
-                foreach (var rezervacija in SveNoveRezervacije)
-                {
+                foreach (var rezervacija in SveNoveRezervacije) {
                     RezerviraniDatumi.Add(rezervacija.datum_vrijeme);
                 }
                 kalendar.BoldedDates = RezerviraniDatumi.ToArray();
@@ -82,13 +85,13 @@ namespace ProgramskoIntenjerstvo
 
         private List<Rezervacija> ObrisiStareRezervacije(List<Rezervacija> sveRezervacije)
         {
-            foreach (var rezervacija in sveRezervacije.ToList())
-            {
-                if ((rezervacija.datum_vrijeme.Date < DateTime.Today.Date) || (rezervacija.datum_vrijeme.Date == DateTime.Today.Date && rezervacija.datum_vrijeme.TimeOfDay < DateTime.Now.TimeOfDay))
+                foreach (var rezervacija in sveRezervacije.ToList())
                 {
+                    if((rezervacija.datum_vrijeme.Date < DateTime.Today.Date) || (rezervacija.datum_vrijeme.Date == DateTime.Today.Date && rezervacija.datum_vrijeme.TimeOfDay < DateTime.Now.TimeOfDay))
+                    {
                     sveRezervacije.Remove(rezervacija);
+                    }
                 }
-            }
             return sveRezervacije;
         }
 
@@ -177,7 +180,7 @@ namespace ProgramskoIntenjerstvo
                 dgvRezervacije.Columns["OznakaStola"].HeaderText = "Broj stola";
                 dgvRezervacije.Columns["id_stol"].Visible = false;
             }
-            else if (radioBtnTjedan.Checked)
+            else if(radioBtnTjedan.Checked)
             {
                 List<Rezervacija> tjedanRezervacije = new List<Rezervacija>();
                 foreach (var rezervacija in SveRezervacije)
@@ -237,12 +240,12 @@ namespace ProgramskoIntenjerstvo
             nova.id_stol = idStola;
             nova.datum_vrijeme = dateTimeDatum.Value.Date + dateTimeVrijeme.Value.TimeOfDay;
             nova.opis_rezervacije = txtPrezime.Text;
-
-            if (dateTimeDatum.Value.Date < DateTime.Today.Date)
+            
+            if(dateTimeDatum.Value.Date < DateTime.Today.Date)
             {
                 MessageBox.Show("Ne možete rezervirati datum prije današnjeg dana!");
             }
-            else if (dateTimeVrijeme.Value.TimeOfDay < DateTime.Now.TimeOfDay && dateTimeDatum.Value.Date == DateTime.Today.Date)
+            else if(dateTimeVrijeme.Value.TimeOfDay < DateTime.Now.TimeOfDay && dateTimeDatum.Value.Date  == DateTime.Today.Date)
             {
                 MessageBox.Show("Ne možete rezervirati termin prije trenutnog vremena!");
             }
@@ -258,13 +261,13 @@ namespace ProgramskoIntenjerstvo
             Osvjezi();
             cboxStolovi.SelectedIndex = 0;
             dateTimeDatum.Value = DateTime.Now.Date;
-            dateTimeVrijeme.Value = DateTime.Parse("12:00");
+            dateTimeVrijeme.Value = DateTime.Now;
             txtPrezime.Text = "";
         }
 
         private void btnRucnoDodaj_Click(object sender, EventArgs e)
         {
-            FrmRucnoDodavanje forma = new FrmRucnoDodavanje(TrenutniKorisnik, dateTimeDatum.Value.Date);
+            FrmRucnoDodavanje forma = new FrmRucnoDodavanje(TrenutniKorisnik);
             forma.ShowDialog();
             Osvjezi();
         }
@@ -272,14 +275,6 @@ namespace ProgramskoIntenjerstvo
         private void radioBtnDan_CheckedChanged(object sender, EventArgs e)
         {
             OsvjeziPogled();
-        }
-
-        private void FrmRezervacije_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.F1)
-            {
-                Help.ShowHelp(this, "RestoranApp.chm", HelpNavigator.Topic, "Rezervacije/index.html");
-            }
         }
     }
 }

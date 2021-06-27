@@ -120,12 +120,10 @@ namespace ProgramskoIntenjerstvo
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtBrojStola);
             this.Controls.Add(this.label1);
-            this.KeyPreview = true;
             this.Name = "FrmEditStol";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Izmjeni stol";
+            this.Text = "FrmEditStol";
             this.Load += new System.EventHandler(this.FrmEditStol_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmEditStol_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

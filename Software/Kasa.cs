@@ -17,7 +17,7 @@ namespace ProgramskoIntenjerstvo
         public int id_kase { get; set; }
         public double stanje { get; set; }
         public System.DateTime datum { get; set; }
-        public Nullable<int> id_racun { get; set; }
+        public int id_racun { get; set; }
     
         public virtual Racun Racun { get; set; }
     }

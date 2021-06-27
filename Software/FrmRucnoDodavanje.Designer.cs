@@ -154,12 +154,9 @@ namespace ProgramskoIntenjerstvo
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.btnOdustani);
             this.Controls.Add(this.dgvStolovi);
-            this.KeyPreview = true;
             this.Name = "FrmRucnoDodavanje";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Ručno dodavanje";
+            this.Text = "FrmRucnoDodavanje";
             this.Load += new System.EventHandler(this.FrmRucnoDodavanje_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmRucnoDodavanje_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStolovi)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

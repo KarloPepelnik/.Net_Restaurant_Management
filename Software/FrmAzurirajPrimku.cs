@@ -1,6 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProgramskoIntenjerstvo
@@ -9,11 +14,11 @@ namespace ProgramskoIntenjerstvo
     {
         private Primka selectedPrimka;
 
-
+       
         public FrmAzurirajPrimku(Primka primka)
         {
             InitializeComponent();
-
+            
             selectedPrimka = primka;
         }
 
@@ -26,7 +31,7 @@ namespace ProgramskoIntenjerstvo
             txtBoxKolicinaZaprimanja.Text = selectedPrimka.kolicina.ToString();
             dtpDatumPrimke.Value = selectedPrimka.datum_vrijeme.Date;
             prethodnaKolicina = selectedPrimka.kolicina;
-
+            
         }
 
         private string FillOdabranaNamirnica()
@@ -124,11 +129,11 @@ namespace ProgramskoIntenjerstvo
                 MessageBox.Show($"Uspješno azurirana kolicina za {namirnicaEdit.naziv_namirnice}! ");
 
             }
-            Close();
+                Close();
 
-
-        }
-
+                
+            } 
+        
 
         private Namirnica GetSelectedNamirnica()
         {
@@ -149,5 +154,5 @@ namespace ProgramskoIntenjerstvo
             Close();
         }
     }
-}
+    }
 

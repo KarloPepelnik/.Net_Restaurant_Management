@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProgramskoIntenjerstvo
@@ -121,7 +125,7 @@ namespace ProgramskoIntenjerstvo
                 using (var context = new Entities())
                 {
                     var query = from p in context.Primka
-                                where p.Namirnica.naziv_namirnice == trazenaNamirnica
+                                where p.Namirnica.naziv_namirnice==trazenaNamirnica
                                 select new { p.id_primka, p.Namirnica.naziv_namirnice, p.kolicina, p.Mjerna_jedinica.oznaka_mjerne_jedinice, p.datum_vrijeme };
 
                     dgvAdminPrimkaIzdatnica.DataSource = query.ToList();
@@ -274,7 +278,7 @@ namespace ProgramskoIntenjerstvo
 
                 ShowAllIzdatnice();
             }
-
+            
         }
     }
 }

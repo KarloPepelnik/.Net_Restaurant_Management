@@ -1,11 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProgramskoIntenjerstvo
 {
     public partial class Izbornik : Form
     {
-        public static Korisnik TrenutniKorisnik { get; set; }
+        private Korisnik TrenutniKorisnik { get; set; }
         public Izbornik(Korisnik korisnik)
         {
             InitializeComponent();
@@ -35,11 +42,15 @@ namespace ProgramskoIntenjerstvo
 
         private void Izbornik_Load(object sender, EventArgs e)
         {
-            if (TrenutniKorisnik.tip_korisnik != 1)
+            txtBoxTrenutniKorsinik.Text = TrenutniKorisnik.korisnicko_ime;
+            txtBoxTrenutniKorsinik.ReadOnly = true;
+
+            if(TrenutniKorisnik.tip_korisnik == 3)
             {
-                btnKorisnici.Hide();
-                //btnMeni.Hide();
-                btnInventar.Hide();
+                btnKorisnici.Visible = false;
+                btnMeni.Visible = false;
+                btnInventar.Visible = false;
+                btnUpravljanjeJelimaMenijima.Visible = false;
             }
         }
 
@@ -52,9 +63,7 @@ namespace ProgramskoIntenjerstvo
         private void btnKorisnici_Click(object sender, EventArgs e)
         {
             FrmKorisnici forma = new FrmKorisnici();
-            Hide();
             forma.ShowDialog();
-            Show();
         }
 
         private void btnRezervacije_Click(object sender, EventArgs e)
@@ -73,28 +82,10 @@ namespace ProgramskoIntenjerstvo
             Show();
         }
 
-        private void btnStatistika_Click(object sender, EventArgs e)
+        private void btnUpravljanjeJelimaMenijima_Click(object sender, EventArgs e)
         {
-            FrmStatistika forma = new FrmStatistika();
-            Hide();
-            forma.ShowDialog();
-            Show();
-        }
-
-        private void narudzbeZaVanBtn_Click(object sender, EventArgs e)
-        {            
-            PregledNarudzbiZaVan pregledNarudzbiZaVan = new PregledNarudzbiZaVan();
-            Hide();
-            pregledNarudzbiZaVan.ShowDialog();
-            Show();
-        }
-
-        private void Izbornik_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.F1)
-            {
-                Help.ShowHelp(this, "RestoranApp.chm", HelpNavigator.Topic, "Izbornik/index.html");
-            }
+            FrmUpravljanjeJelimaMenijima form = new FrmUpravljanjeJelimaMenijima();
+            form.ShowDialog();
         }
     }
 }
