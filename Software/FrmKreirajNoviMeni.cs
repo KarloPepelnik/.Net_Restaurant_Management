@@ -100,6 +100,7 @@ namespace ProgramskoIntenjerstvo
             }
             
             menuPrice = predjeloPrice + glJeloPrice + desertPrice;
+            txtBoxCijenaBezValute.Text = menuPrice.ToString();
             txtBoxCijenaMenija.Text = menuPrice.ToString() + " HRK";
 
         }
@@ -126,13 +127,14 @@ namespace ProgramskoIntenjerstvo
             using (var context = new Entities())
             {
                 string nazivMenija = txtBoxNazivMenija.Text;
-                DateTime datumMenija = dtpVazeciDatumMenija.Value;
+                DateTime datumMenija = dtpVazeciDatumMenija.Value.Date;
+                float cijena = float.Parse(txtBoxCijenaBezValute.Text);
 
                 Meni newMeni = new Meni()
                 {
                     naziv = nazivMenija,
                     datum = datumMenija,
-                    cijena_menija = float.Parse(txtBoxCijenaMenija.Text)
+                    cijena_menija = cijena
                 };
                 
                 context.Meni.Add(newMeni);

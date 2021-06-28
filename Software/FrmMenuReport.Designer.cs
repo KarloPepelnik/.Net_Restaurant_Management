@@ -46,6 +46,7 @@ namespace ProgramskoIntenjerstvo
             // reportViewer1
             // 
             this.reportViewer1.BackColor = System.Drawing.Color.Black;
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource1.Name = "DsMeni";
             reportDataSource1.Value = this.MeniBindingSource;
             reportDataSource2.Name = "DsJelo";
@@ -59,11 +60,11 @@ namespace ProgramskoIntenjerstvo
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource4);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "ProgramskoIntenjerstvo.ReportKreiranjeMenija.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(28, 157);
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.ShowToolBar = false;
-            this.reportViewer1.Size = new System.Drawing.Size(721, 415);
+            this.reportViewer1.Size = new System.Drawing.Size(634, 861);
             this.reportViewer1.TabIndex = 0;
             // 
             // MeniBindingSource
@@ -82,9 +83,8 @@ namespace ProgramskoIntenjerstvo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::ProgramskoIntenjerstvo.Properties.Resources.Yellow_and_Black_Photo_Lunch_Weekly_Menu;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(784, 681);
+            this.ClientSize = new System.Drawing.Size(634, 861);
             this.Controls.Add(this.reportViewer1);
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Margin = new System.Windows.Forms.Padding(4);

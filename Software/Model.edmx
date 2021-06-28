@@ -78,7 +78,7 @@
           </Key>
           <Property Name="id_meni" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="naziv" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="datum" Type="date" Nullable="false" />
+          <Property Name="datum" Type="datetime" Nullable="false" />
           <Property Name="cijena_menija" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="Mjerna_jedinica">
@@ -933,7 +933,7 @@
           </Key>
           <Property Name="id_meni" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="naziv" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="datum" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="datum" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="cijena_menija" Type="Double" Nullable="false" />
           <NavigationProperty Name="Na_meniju" Relationship="Model.FK_Na_meniju_Meni" FromRole="Meni" ToRole="Na_meniju" />
         </EntityType>

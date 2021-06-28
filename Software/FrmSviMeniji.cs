@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -63,36 +65,42 @@ namespace ProgramskoIntenjerstvo
                             select n.id_jelo;
 
                 List<int> listaIdJela = query.ToList();
-                int idPredjelo = listaIdJela[0];
-                int idGlJelo = listaIdJela[1];
-                int idDesert = listaIdJela[2];
+                if (listaIdJela.Count != 0)
+                {
+                    int idPredjelo = listaIdJela[0];
+                    int idGlJelo = listaIdJela[1];
+                    int idDesert = listaIdJela[2];
 
-                var idPredjeloQuery = (from j in context.Jelo
-                                      where j.id_jelo == idPredjelo
-                                      select new 
-                                      {
-                                          j.naziv_jela
-                                      }).FirstOrDefault();
+                    var idPredjeloQuery = (from j in context.Jelo
+                                           where j.id_jelo == idPredjelo
+                                           select new
+                                           {
+                                               j.naziv_jela
+                                           }).FirstOrDefault();
+
+                    txtBoxPredjelo.Text = idPredjeloQuery.naziv_jela;
+
+                    var idGlavnoJeloQuery = (from j in context.Jelo
+                                             where j.id_jelo == idGlJelo
+                                             select new
+                                             {
+                                                 j.naziv_jela
+                                             }).FirstOrDefault();
+
+                    txtBoxGlavnoJelo.Text = idGlavnoJeloQuery.naziv_jela;
+
+                    var idDesertQuery = (from j in context.Jelo
+                                         where j.id_jelo == idDesert
+                                         select new
+                                         {
+                                             j.naziv_jela
+                                         }).FirstOrDefault();
+
+                    txtBoxiDesert.Text = idDesertQuery.naziv_jela;
+                }
                 
-                txtBoxPredjelo.Text = idPredjeloQuery.naziv_jela;
 
-                var idGlavnoJeloQuery = (from j in context.Jelo
-                                       where j.id_jelo == idGlJelo
-                                       select new
-                                       {
-                                           j.naziv_jela
-                                       }).FirstOrDefault();
-
-                txtBoxGlavnoJelo.Text = idGlavnoJeloQuery.naziv_jela;
-
-                var idDesertQuery = (from j in context.Jelo
-                                       where j.id_jelo == idDesert
-                                       select new
-                                       {
-                                           j.naziv_jela
-                                       }).FirstOrDefault();
-
-                txtBoxiDesert.Text = idDesertQuery.naziv_jela;
+               
             }
         }
 
@@ -100,7 +108,11 @@ namespace ProgramskoIntenjerstvo
         {
             FrmMenuReport frmMenuReport = new FrmMenuReport(GetSelectedMeni().id_meni);
             frmMenuReport.ShowDialog();
+            
+
         }
+
+        
 
         private void btnIzlaz_Click(object sender, EventArgs e)
         {

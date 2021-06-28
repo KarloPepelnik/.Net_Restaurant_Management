@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +14,11 @@ namespace ProgramskoIntenjerstvo
 {
     public partial class FrmMenuReport : Form
     {
+        string locationString = "";
         private int idMeni;
+
+        string fileName = "";
+        
         public FrmMenuReport(int selectedMeniId)
         {
             InitializeComponent();
@@ -27,7 +33,9 @@ namespace ProgramskoIntenjerstvo
                             where m.id_meni == idMeni
                             select m;
 
+                
                 Meni meni = queryMenu.Single();
+                fileName = meni.naziv+".pdf";
                 MeniBindingSource.DataSource = meni;
 
                 var queryMeals = from n in context.Na_meniju
@@ -40,8 +48,27 @@ namespace ProgramskoIntenjerstvo
                 
 
             }
+            
             this.reportViewer1.RefreshReport();
             this.reportViewer1.RefreshReport();
+            locationString = @"C:\Users\leonk\Desktop\" + fileName;
+
+            SavePDF(reportViewer1, locationString);
+
+            
+            System.Diagnostics.Process.Start(locationString);
+        }
+
+
+        public void SavePDF(ReportViewer viewer, string savePath)
+
+        {
+            byte[] Bytes = viewer.LocalReport.Render(format: "PDF", deviceInfo: "");
+
+            using (FileStream stream = new FileStream(savePath, FileMode.Create))
+            {
+                stream.Write(Bytes, 0, Bytes.Length);
+            }
         }
 
 

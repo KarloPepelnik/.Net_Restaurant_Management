@@ -31,33 +31,34 @@ namespace ProgramskoIntenjerstvo
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnOdaberiPredjelo = new System.Windows.Forms.Button();
+            this.listBoxPredjela = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnOdaberiGlJelo = new System.Windows.Forms.Button();
+            this.listBoxGlavnaJela = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnOdaberiDesert = new System.Windows.Forms.Button();
+            this.listBoxDeserti = new System.Windows.Forms.ListBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtBoxOdabranoPredjelo = new System.Windows.Forms.TextBox();
-            this.txtBoxOdabraniDesert = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtBoxOdabranoGlavnoJelo = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.dtpVazeciDatumMenija = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtBoxDatumMenija = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.txtBoxCijenaMenija = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtBoxDatumMenija = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtBoxOdabranoGlavnoJelo = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtBoxOdabraniDesert = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtBoxOdabranoPredjelo = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtpVazeciDatumMenija = new System.Windows.Forms.DateTimePicker();
             this.btnKreirajMeni = new System.Windows.Forms.Button();
             this.btnOdustani = new System.Windows.Forms.Button();
-            this.listBoxPredjela = new System.Windows.Forms.ListBox();
-            this.listBoxGlavnaJela = new System.Windows.Forms.ListBox();
-            this.listBoxDeserti = new System.Windows.Forms.ListBox();
-            this.btnOdaberiPredjelo = new System.Windows.Forms.Button();
-            this.btnOdaberiGlJelo = new System.Windows.Forms.Button();
-            this.btnOdaberiDesert = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.txtBoxNazivMenija = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtBoxCijenaBezValute = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -89,6 +90,25 @@ namespace ProgramskoIntenjerstvo
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Odabir predjela";
             // 
+            // btnOdaberiPredjelo
+            // 
+            this.btnOdaberiPredjelo.Location = new System.Drawing.Point(9, 251);
+            this.btnOdaberiPredjelo.Name = "btnOdaberiPredjelo";
+            this.btnOdaberiPredjelo.Size = new System.Drawing.Size(309, 24);
+            this.btnOdaberiPredjelo.TabIndex = 1;
+            this.btnOdaberiPredjelo.Text = "Odaberi označeno predjelo";
+            this.btnOdaberiPredjelo.UseVisualStyleBackColor = true;
+            this.btnOdaberiPredjelo.Click += new System.EventHandler(this.btnOdaberiPredjelo_Click);
+            // 
+            // listBoxPredjela
+            // 
+            this.listBoxPredjela.FormattingEnabled = true;
+            this.listBoxPredjela.ItemHeight = 16;
+            this.listBoxPredjela.Location = new System.Drawing.Point(7, 17);
+            this.listBoxPredjela.Name = "listBoxPredjela";
+            this.listBoxPredjela.Size = new System.Drawing.Size(311, 228);
+            this.listBoxPredjela.TabIndex = 0;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnOdaberiGlJelo);
@@ -99,6 +119,25 @@ namespace ProgramskoIntenjerstvo
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Odabir glavnog jela";
+            // 
+            // btnOdaberiGlJelo
+            // 
+            this.btnOdaberiGlJelo.Location = new System.Drawing.Point(6, 255);
+            this.btnOdaberiGlJelo.Name = "btnOdaberiGlJelo";
+            this.btnOdaberiGlJelo.Size = new System.Drawing.Size(312, 24);
+            this.btnOdaberiGlJelo.TabIndex = 2;
+            this.btnOdaberiGlJelo.Text = "Odaberi označeno glavno jelo";
+            this.btnOdaberiGlJelo.UseVisualStyleBackColor = true;
+            this.btnOdaberiGlJelo.Click += new System.EventHandler(this.btnOdaberiGlJelo_Click);
+            // 
+            // listBoxGlavnaJela
+            // 
+            this.listBoxGlavnaJela.FormattingEnabled = true;
+            this.listBoxGlavnaJela.ItemHeight = 16;
+            this.listBoxGlavnaJela.Location = new System.Drawing.Point(6, 21);
+            this.listBoxGlavnaJela.Name = "listBoxGlavnaJela";
+            this.listBoxGlavnaJela.Size = new System.Drawing.Size(311, 228);
+            this.listBoxGlavnaJela.TabIndex = 1;
             // 
             // groupBox3
             // 
@@ -111,8 +150,28 @@ namespace ProgramskoIntenjerstvo
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Odabir deserta";
             // 
+            // btnOdaberiDesert
+            // 
+            this.btnOdaberiDesert.Location = new System.Drawing.Point(6, 255);
+            this.btnOdaberiDesert.Name = "btnOdaberiDesert";
+            this.btnOdaberiDesert.Size = new System.Drawing.Size(312, 24);
+            this.btnOdaberiDesert.TabIndex = 3;
+            this.btnOdaberiDesert.Text = "Odaberi označeni desert";
+            this.btnOdaberiDesert.UseVisualStyleBackColor = true;
+            this.btnOdaberiDesert.Click += new System.EventHandler(this.btnOdaberiDesert_Click);
+            // 
+            // listBoxDeserti
+            // 
+            this.listBoxDeserti.FormattingEnabled = true;
+            this.listBoxDeserti.ItemHeight = 16;
+            this.listBoxDeserti.Location = new System.Drawing.Point(6, 21);
+            this.listBoxDeserti.Name = "listBoxDeserti";
+            this.listBoxDeserti.Size = new System.Drawing.Size(311, 228);
+            this.listBoxDeserti.TabIndex = 2;
+            // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.txtBoxCijenaBezValute);
             this.groupBox4.Controls.Add(this.txtBoxCijenaMenija);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.txtBoxDatumMenija);
@@ -130,87 +189,23 @@ namespace ProgramskoIntenjerstvo
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Trenutni podaci o meniju:";
             // 
-            // label2
+            // txtBoxCijenaMenija
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 38);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 16);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Predjelo:";
+            this.txtBoxCijenaMenija.Location = new System.Drawing.Point(459, 69);
+            this.txtBoxCijenaMenija.Name = "txtBoxCijenaMenija";
+            this.txtBoxCijenaMenija.ReadOnly = true;
+            this.txtBoxCijenaMenija.Size = new System.Drawing.Size(118, 22);
+            this.txtBoxCijenaMenija.TabIndex = 9;
+            this.txtBoxCijenaMenija.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtBoxOdabranoPredjelo
+            // label7
             // 
-            this.txtBoxOdabranoPredjelo.Location = new System.Drawing.Point(105, 35);
-            this.txtBoxOdabranoPredjelo.Name = "txtBoxOdabranoPredjelo";
-            this.txtBoxOdabranoPredjelo.ReadOnly = true;
-            this.txtBoxOdabranoPredjelo.Size = new System.Drawing.Size(270, 22);
-            this.txtBoxOdabranoPredjelo.TabIndex = 1;
-            this.txtBoxOdabranoPredjelo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtBoxOdabraniDesert
-            // 
-            this.txtBoxOdabraniDesert.Location = new System.Drawing.Point(105, 97);
-            this.txtBoxOdabraniDesert.Name = "txtBoxOdabraniDesert";
-            this.txtBoxOdabraniDesert.ReadOnly = true;
-            this.txtBoxOdabraniDesert.Size = new System.Drawing.Size(270, 22);
-            this.txtBoxOdabraniDesert.TabIndex = 3;
-            this.txtBoxOdabraniDesert.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 102);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 16);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Desert:";
-            // 
-            // txtBoxOdabranoGlavnoJelo
-            // 
-            this.txtBoxOdabranoGlavnoJelo.Location = new System.Drawing.Point(105, 66);
-            this.txtBoxOdabranoGlavnoJelo.Name = "txtBoxOdabranoGlavnoJelo";
-            this.txtBoxOdabranoGlavnoJelo.ReadOnly = true;
-            this.txtBoxOdabranoGlavnoJelo.Size = new System.Drawing.Size(270, 22);
-            this.txtBoxOdabranoGlavnoJelo.TabIndex = 5;
-            this.txtBoxOdabranoGlavnoJelo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 72);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 16);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Glavno jelo:";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.label5);
-            this.groupBox5.Controls.Add(this.dtpVazeciDatumMenija);
-            this.groupBox5.Location = new System.Drawing.Point(396, 72);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(308, 99);
-            this.groupBox5.TabIndex = 7;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Datum menija:";
-            // 
-            // dtpVazeciDatumMenija
-            // 
-            this.dtpVazeciDatumMenija.Location = new System.Drawing.Point(149, 48);
-            this.dtpVazeciDatumMenija.Name = "dtpVazeciDatumMenija";
-            this.dtpVazeciDatumMenija.Size = new System.Drawing.Size(145, 22);
-            this.dtpVazeciDatumMenija.TabIndex = 0;
-            this.dtpVazeciDatumMenija.ValueChanged += new System.EventHandler(this.dtpVazeciDatumMenija_ValueChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 53);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(137, 16);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Odaberi važeći datum:";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(392, 75);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(48, 16);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Cijena:";
             // 
             // txtBoxDatumMenija
             // 
@@ -230,23 +225,87 @@ namespace ProgramskoIntenjerstvo
             this.label6.TabIndex = 6;
             this.label6.Text = "Datum:";
             // 
-            // txtBoxCijenaMenija
+            // txtBoxOdabranoGlavnoJelo
             // 
-            this.txtBoxCijenaMenija.Location = new System.Drawing.Point(459, 69);
-            this.txtBoxCijenaMenija.Name = "txtBoxCijenaMenija";
-            this.txtBoxCijenaMenija.ReadOnly = true;
-            this.txtBoxCijenaMenija.Size = new System.Drawing.Size(118, 22);
-            this.txtBoxCijenaMenija.TabIndex = 9;
-            this.txtBoxCijenaMenija.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBoxOdabranoGlavnoJelo.Location = new System.Drawing.Point(105, 66);
+            this.txtBoxOdabranoGlavnoJelo.Name = "txtBoxOdabranoGlavnoJelo";
+            this.txtBoxOdabranoGlavnoJelo.ReadOnly = true;
+            this.txtBoxOdabranoGlavnoJelo.Size = new System.Drawing.Size(270, 22);
+            this.txtBoxOdabranoGlavnoJelo.TabIndex = 5;
+            this.txtBoxOdabranoGlavnoJelo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label7
+            // label4
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(392, 75);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(48, 16);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Cijena:";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(19, 72);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 16);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Glavno jelo:";
+            // 
+            // txtBoxOdabraniDesert
+            // 
+            this.txtBoxOdabraniDesert.Location = new System.Drawing.Point(105, 97);
+            this.txtBoxOdabraniDesert.Name = "txtBoxOdabraniDesert";
+            this.txtBoxOdabraniDesert.ReadOnly = true;
+            this.txtBoxOdabraniDesert.Size = new System.Drawing.Size(270, 22);
+            this.txtBoxOdabraniDesert.TabIndex = 3;
+            this.txtBoxOdabraniDesert.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 102);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 16);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Desert:";
+            // 
+            // txtBoxOdabranoPredjelo
+            // 
+            this.txtBoxOdabranoPredjelo.Location = new System.Drawing.Point(105, 35);
+            this.txtBoxOdabranoPredjelo.Name = "txtBoxOdabranoPredjelo";
+            this.txtBoxOdabranoPredjelo.ReadOnly = true;
+            this.txtBoxOdabranoPredjelo.Size = new System.Drawing.Size(270, 22);
+            this.txtBoxOdabranoPredjelo.TabIndex = 1;
+            this.txtBoxOdabranoPredjelo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 16);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Predjelo:";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.label5);
+            this.groupBox5.Controls.Add(this.dtpVazeciDatumMenija);
+            this.groupBox5.Location = new System.Drawing.Point(396, 72);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(308, 99);
+            this.groupBox5.TabIndex = 7;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Datum menija:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 53);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(137, 16);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Odaberi važeći datum:";
+            // 
+            // dtpVazeciDatumMenija
+            // 
+            this.dtpVazeciDatumMenija.Location = new System.Drawing.Point(149, 48);
+            this.dtpVazeciDatumMenija.Name = "dtpVazeciDatumMenija";
+            this.dtpVazeciDatumMenija.Size = new System.Drawing.Size(145, 22);
+            this.dtpVazeciDatumMenija.TabIndex = 0;
+            this.dtpVazeciDatumMenija.ValueChanged += new System.EventHandler(this.dtpVazeciDatumMenija_ValueChanged);
             // 
             // btnKreirajMeni
             // 
@@ -268,63 +327,6 @@ namespace ProgramskoIntenjerstvo
             this.btnOdustani.UseVisualStyleBackColor = true;
             this.btnOdustani.Click += new System.EventHandler(this.btnOdustani_Click);
             // 
-            // listBoxPredjela
-            // 
-            this.listBoxPredjela.FormattingEnabled = true;
-            this.listBoxPredjela.ItemHeight = 16;
-            this.listBoxPredjela.Location = new System.Drawing.Point(7, 17);
-            this.listBoxPredjela.Name = "listBoxPredjela";
-            this.listBoxPredjela.Size = new System.Drawing.Size(311, 228);
-            this.listBoxPredjela.TabIndex = 0;
-            // 
-            // listBoxGlavnaJela
-            // 
-            this.listBoxGlavnaJela.FormattingEnabled = true;
-            this.listBoxGlavnaJela.ItemHeight = 16;
-            this.listBoxGlavnaJela.Location = new System.Drawing.Point(6, 21);
-            this.listBoxGlavnaJela.Name = "listBoxGlavnaJela";
-            this.listBoxGlavnaJela.Size = new System.Drawing.Size(311, 228);
-            this.listBoxGlavnaJela.TabIndex = 1;
-            // 
-            // listBoxDeserti
-            // 
-            this.listBoxDeserti.FormattingEnabled = true;
-            this.listBoxDeserti.ItemHeight = 16;
-            this.listBoxDeserti.Location = new System.Drawing.Point(6, 21);
-            this.listBoxDeserti.Name = "listBoxDeserti";
-            this.listBoxDeserti.Size = new System.Drawing.Size(311, 228);
-            this.listBoxDeserti.TabIndex = 2;
-            // 
-            // btnOdaberiPredjelo
-            // 
-            this.btnOdaberiPredjelo.Location = new System.Drawing.Point(9, 251);
-            this.btnOdaberiPredjelo.Name = "btnOdaberiPredjelo";
-            this.btnOdaberiPredjelo.Size = new System.Drawing.Size(309, 24);
-            this.btnOdaberiPredjelo.TabIndex = 1;
-            this.btnOdaberiPredjelo.Text = "Odaberi označeno predjelo";
-            this.btnOdaberiPredjelo.UseVisualStyleBackColor = true;
-            this.btnOdaberiPredjelo.Click += new System.EventHandler(this.btnOdaberiPredjelo_Click);
-            // 
-            // btnOdaberiGlJelo
-            // 
-            this.btnOdaberiGlJelo.Location = new System.Drawing.Point(6, 255);
-            this.btnOdaberiGlJelo.Name = "btnOdaberiGlJelo";
-            this.btnOdaberiGlJelo.Size = new System.Drawing.Size(312, 24);
-            this.btnOdaberiGlJelo.TabIndex = 2;
-            this.btnOdaberiGlJelo.Text = "Odaberi označeno glavno jelo";
-            this.btnOdaberiGlJelo.UseVisualStyleBackColor = true;
-            this.btnOdaberiGlJelo.Click += new System.EventHandler(this.btnOdaberiGlJelo_Click);
-            // 
-            // btnOdaberiDesert
-            // 
-            this.btnOdaberiDesert.Location = new System.Drawing.Point(6, 255);
-            this.btnOdaberiDesert.Name = "btnOdaberiDesert";
-            this.btnOdaberiDesert.Size = new System.Drawing.Size(312, 24);
-            this.btnOdaberiDesert.TabIndex = 3;
-            this.btnOdaberiDesert.Text = "Odaberi označeni desert";
-            this.btnOdaberiDesert.UseVisualStyleBackColor = true;
-            this.btnOdaberiDesert.Click += new System.EventHandler(this.btnOdaberiDesert_Click);
-            // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.txtBoxNazivMenija);
@@ -336,6 +338,14 @@ namespace ProgramskoIntenjerstvo
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Naziv menija";
             // 
+            // txtBoxNazivMenija
+            // 
+            this.txtBoxNazivMenija.Location = new System.Drawing.Point(132, 50);
+            this.txtBoxNazivMenija.Name = "txtBoxNazivMenija";
+            this.txtBoxNazivMenija.Size = new System.Drawing.Size(186, 22);
+            this.txtBoxNazivMenija.TabIndex = 10;
+            this.txtBoxNazivMenija.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -345,13 +355,15 @@ namespace ProgramskoIntenjerstvo
             this.label8.TabIndex = 1;
             this.label8.Text = "Unesi naziv menija:";
             // 
-            // txtBoxNazivMenija
+            // txtBoxCijenaBezValute
             // 
-            this.txtBoxNazivMenija.Location = new System.Drawing.Point(132, 50);
-            this.txtBoxNazivMenija.Name = "txtBoxNazivMenija";
-            this.txtBoxNazivMenija.Size = new System.Drawing.Size(186, 22);
-            this.txtBoxNazivMenija.TabIndex = 10;
-            this.txtBoxNazivMenija.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBoxCijenaBezValute.Location = new System.Drawing.Point(459, 107);
+            this.txtBoxCijenaBezValute.Name = "txtBoxCijenaBezValute";
+            this.txtBoxCijenaBezValute.ReadOnly = true;
+            this.txtBoxCijenaBezValute.Size = new System.Drawing.Size(118, 22);
+            this.txtBoxCijenaBezValute.TabIndex = 10;
+            this.txtBoxCijenaBezValute.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBoxCijenaBezValute.Visible = false;
             // 
             // FrmKreirajNoviMeni
             // 
@@ -417,5 +429,6 @@ namespace ProgramskoIntenjerstvo
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.TextBox txtBoxNazivMenija;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtBoxCijenaBezValute;
     }
 }
