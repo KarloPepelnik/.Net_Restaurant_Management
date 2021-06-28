@@ -40,6 +40,7 @@ namespace ProgramskoIntenjerstvo
             this.btnIzbrisi = new System.Windows.Forms.Button();
             this.btnKreirajPDF = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnIzlaz = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMeniji)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -143,6 +144,7 @@ namespace ProgramskoIntenjerstvo
             this.btnKreirajPDF.TabIndex = 14;
             this.btnKreirajPDF.Text = "Kreiraj meni u PDF obliku";
             this.btnKreirajPDF.UseVisualStyleBackColor = true;
+            this.btnKreirajPDF.Click += new System.EventHandler(this.btnKreirajPDF_Click);
             // 
             // label1
             // 
@@ -156,11 +158,22 @@ namespace ProgramskoIntenjerstvo
             this.label1.Text = "Pregled svih menija";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // btnIzlaz
+            // 
+            this.btnIzlaz.Location = new System.Drawing.Point(58, 24);
+            this.btnIzlaz.Name = "btnIzlaz";
+            this.btnIzlaz.Size = new System.Drawing.Size(166, 37);
+            this.btnIzlaz.TabIndex = 16;
+            this.btnIzlaz.Text = "Izlaz";
+            this.btnIzlaz.UseVisualStyleBackColor = true;
+            this.btnIzlaz.Click += new System.EventHandler(this.btnIzlaz_Click);
+            // 
             // FrmSviMeniji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 554);
+            this.Controls.Add(this.btnIzlaz);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnKreirajPDF);
             this.Controls.Add(this.btnIzbrisi);
@@ -192,5 +205,6 @@ namespace ProgramskoIntenjerstvo
         private System.Windows.Forms.Button btnIzbrisi;
         private System.Windows.Forms.Button btnKreirajPDF;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnIzlaz;
     }
 }

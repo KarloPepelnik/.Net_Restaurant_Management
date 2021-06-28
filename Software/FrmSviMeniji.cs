@@ -95,5 +95,16 @@ namespace ProgramskoIntenjerstvo
                 txtBoxiDesert.Text = idDesertQuery.naziv_jela;
             }
         }
+
+        private void btnKreirajPDF_Click(object sender, EventArgs e)
+        {
+            FrmMenuReport frmMenuReport = new FrmMenuReport(GetSelectedMeni().id_meni);
+            frmMenuReport.ShowDialog();
+        }
+
+        private void btnIzlaz_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
