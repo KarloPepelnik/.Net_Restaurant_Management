@@ -1,4 +1,5 @@
-﻿using Microsoft.Reporting.WinForms;
+﻿using ExporterPDF;
+using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,9 @@ namespace ProgramskoIntenjerstvo
 {
     public partial class FrmMenuReport : Form
     {
+
+        private Exporter exporter = new Exporter();
+
         string locationString = "";
         private int idMeni;
 
@@ -53,23 +57,14 @@ namespace ProgramskoIntenjerstvo
             this.reportViewer1.RefreshReport();
             locationString = @"C:\Users\leonk\Desktop\" + fileName;
 
-            SavePDF(reportViewer1, locationString);
+            exporter.SavePDF(reportViewer1, locationString);
 
             
             System.Diagnostics.Process.Start(locationString);
         }
 
 
-        public void SavePDF(ReportViewer viewer, string savePath)
-
-        {
-            byte[] Bytes = viewer.LocalReport.Render(format: "PDF", deviceInfo: "");
-
-            using (FileStream stream = new FileStream(savePath, FileMode.Create))
-            {
-                stream.Write(Bytes, 0, Bytes.Length);
-            }
-        }
+        
 
 
     }
