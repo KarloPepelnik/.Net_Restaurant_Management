@@ -127,11 +127,11 @@
     <Compile Include="FrmDodajNamirnicu.Designer.cs">
       <DependentUpon>FrmDodajNamirnicu.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmDodajSastojkeJela.cs">
+    <Compile Include="FrmDodajSastojkeJelu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmDodajSastojkeJela.Designer.cs">
-      <DependentUpon>FrmDodajSastojkeJela.cs</DependentUpon>
+    <Compile Include="FrmDodajSastojkeJelu.Designer.cs">
+      <DependentUpon>FrmDodajSastojkeJelu.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmDodajStol.cs">
       <SubType>Form</SubType>
@@ -205,6 +205,12 @@
     <Compile Include="FrmPregledJela.Designer.cs">
       <DependentUpon>FrmPregledJela.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPrikazSastojakaJela.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPrikazSastojakaJela.Designer.cs">
+      <DependentUpon>FrmPrikazSastojakaJela.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPrimka.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -253,6 +259,12 @@
     <Compile Include="FrmUpravljanjeZalihamaMain.Designer.cs">
       <DependentUpon>FrmUpravljanjeZalihamaMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmUrediKolicinuSastojkaJela.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUrediKolicinuSastojkaJela.Designer.cs">
+      <DependentUpon>FrmUrediKolicinuSastojkaJela.cs</DependentUpon>
+    </Compile>
     <Compile Include="Izbornik.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,6 +278,7 @@
     <Compile Include="Jelo.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Jelo_sadrzi.code.cs" />
     <Compile Include="Jelo_sadrzi.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -392,8 +405,8 @@
     <EmbeddedResource Include="FrmDodajNamirnicu.resx">
       <DependentUpon>FrmDodajNamirnicu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmDodajSastojkeJela.resx">
-      <DependentUpon>FrmDodajSastojkeJela.cs</DependentUpon>
+    <EmbeddedResource Include="FrmDodajSastojkeJelu.resx">
+      <DependentUpon>FrmDodajSastojkeJelu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDodajStol.resx">
       <DependentUpon>FrmDodajStol.cs</DependentUpon>
@@ -431,6 +444,9 @@
     <EmbeddedResource Include="FrmPregledJela.resx">
       <DependentUpon>FrmPregledJela.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmPrikazSastojakaJela.resx">
+      <DependentUpon>FrmPrikazSastojakaJela.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPrimka.resx">
       <DependentUpon>FrmPrimka.cs</DependentUpon>
     </EmbeddedResource>
@@ -454,6 +470,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUpravljanjeZalihamaMain.resx">
       <DependentUpon>FrmUpravljanjeZalihamaMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUrediKolicinuSastojkaJela.resx">
+      <DependentUpon>FrmUrediKolicinuSastojkaJela.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Izbornik.resx">
       <DependentUpon>Izbornik.cs</DependentUpon>
@@ -489,7 +508,9 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\FrmPrikazSastojakaJela.datasource" />
     <None Include="Properties\DataSources\Jelo.datasource" />
+    <None Include="Properties\DataSources\Jelo_sadrzi.datasource" />
     <None Include="Properties\DataSources\Meni.datasource" />
     <None Include="Properties\DataSources\Na_meniju.datasource" />
     <None Include="Properties\Settings.settings">

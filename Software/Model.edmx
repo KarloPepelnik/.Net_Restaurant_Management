@@ -761,10 +761,6 @@
             <End Role="Jelo" EntitySet="Jelo" />
             <End Role="Stavke_racuna" EntitySet="Stavke_racuna" />
           </AssociationSet>
-          <AssociationSet Name="FK_Jelo_sadrzi_Jelo_sadrzi" Association="Model.FK_Jelo_sadrzi_Jelo_sadrzi">
-            <End Role="Jelo_sadrzi" EntitySet="Jelo_sadrzi" />
-            <End Role="Jelo_sadrzi1" EntitySet="Jelo_sadrzi" />
-          </AssociationSet>
           <AssociationSet Name="FK_Jelo_sadrzi_Namirnica" Association="Model.FK_Jelo_sadrzi_Namirnica">
             <End Role="Namirnica" EntitySet="Namirnica" />
             <End Role="Jelo_sadrzi" EntitySet="Jelo_sadrzi" />
@@ -887,8 +883,6 @@
           <Property Name="id_namirnica" Type="Int32" Nullable="false" />
           <Property Name="kolicina" Type="Double" Nullable="false" />
           <NavigationProperty Name="Jelo" Relationship="Model.FK_Jelo_sadrzi_Jelo" FromRole="Jelo_sadrzi" ToRole="Jelo" />
-          <NavigationProperty Name="Jelo_sadrzi1" Relationship="Model.FK_Jelo_sadrzi_Jelo_sadrzi" FromRole="Jelo_sadrzi" ToRole="Jelo_sadrzi1" />
-          <NavigationProperty Name="Jelo_sadrzi2" Relationship="Model.FK_Jelo_sadrzi_Jelo_sadrzi" FromRole="Jelo_sadrzi1" ToRole="Jelo_sadrzi" />
           <NavigationProperty Name="Namirnica" Relationship="Model.FK_Jelo_sadrzi_Namirnica" FromRole="Jelo_sadrzi" ToRole="Namirnica" />
         </EntityType>
         <EntityType Name="Kasa">
@@ -1208,20 +1202,6 @@
             </Principal>
             <Dependent Role="Stavke_racuna">
               <PropertyRef Name="id_jelo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Jelo_sadrzi_Jelo_sadrzi">
-          <End Type="Model.Jelo_sadrzi" Role="Jelo_sadrzi" Multiplicity="1" />
-          <End Type="Model.Jelo_sadrzi" Role="Jelo_sadrzi1" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Jelo_sadrzi">
-              <PropertyRef Name="id_jelo" />
-              <PropertyRef Name="id_namirnica" />
-            </Principal>
-            <Dependent Role="Jelo_sadrzi1">
-              <PropertyRef Name="id_jelo" />
-              <PropertyRef Name="id_namirnica" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

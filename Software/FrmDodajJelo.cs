@@ -114,7 +114,7 @@ namespace ProgramskoIntenjerstvo
 
         private Jelo GetSelectedJelo()
         {
-                return dgvPopisJela.Rows[0].DataBoundItem as Jelo;   
+                return dgvPopisJela.CurrentRow.DataBoundItem as Jelo;   
         }
 
         private void btnAzuriraj_Click(object sender, EventArgs e)
@@ -223,9 +223,20 @@ namespace ProgramskoIntenjerstvo
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
+        
 
+        private void btnPrikaziSastojkeJela_Click(object sender, EventArgs e)
+        {
+            FrmPrikazSastojakaJela frmPrikazSastojakaJela = new FrmPrikazSastojakaJela(GetSelectedJelo());
+            frmPrikazSastojakaJela.ShowDialog();
         }
+
+        private void btnDodajSastojkeJela_Click(object sender, EventArgs e)
+        {
+            FrmDodajSastojkeJelu frmDodajSastojkeJelu = new FrmDodajSastojkeJelu(GetSelectedJelo());
+            frmDodajSastojkeJelu.ShowDialog();
+        }
+
+        
     }
 }

@@ -39,11 +39,9 @@ namespace ProgramskoIntenjerstvo
             this.label4 = new System.Windows.Forms.Label();
             this.txtBoxCijena = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDodajSastojkeJela = new System.Windows.Forms.Button();
             this.btnPrikaziSastojkeJela = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnIzbrisiJelo = new System.Windows.Forms.Button();
@@ -61,14 +59,15 @@ namespace ProgramskoIntenjerstvo
             this.btnPretrazi = new System.Windows.Forms.Button();
             this.txtBoxNazivJelaSearch = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPopisJela)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -161,16 +160,6 @@ namespace ProgramskoIntenjerstvo
             this.label3.TabIndex = 6;
             this.label3.Text = "Cijena:";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(26, 84);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(149, 138);
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.groupBox5);
@@ -185,34 +174,24 @@ namespace ProgramskoIntenjerstvo
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.button2);
-            this.groupBox5.Controls.Add(this.button1);
+            this.groupBox5.Controls.Add(this.btnDodajSastojkeJela);
             this.groupBox5.Controls.Add(this.btnPrikaziSastojkeJela);
             this.groupBox5.Location = new System.Drawing.Point(631, 31);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(196, 151);
+            this.groupBox5.Size = new System.Drawing.Size(196, 122);
             this.groupBox5.TabIndex = 3;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Sastojci jela";
             // 
-            // button2
+            // btnDodajSastojkeJela
             // 
-            this.button2.Location = new System.Drawing.Point(20, 112);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(155, 24);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Uredi sastojke jela";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(20, 72);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 24);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Dodaj sastojke jela";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnDodajSastojkeJela.Location = new System.Drawing.Point(20, 72);
+            this.btnDodajSastojkeJela.Name = "btnDodajSastojkeJela";
+            this.btnDodajSastojkeJela.Size = new System.Drawing.Size(165, 43);
+            this.btnDodajSastojkeJela.TabIndex = 2;
+            this.btnDodajSastojkeJela.Text = "Dodaj ili uredi sastojke jela";
+            this.btnDodajSastojkeJela.UseVisualStyleBackColor = true;
+            this.btnDodajSastojkeJela.Click += new System.EventHandler(this.btnDodajSastojkeJela_Click);
             // 
             // btnPrikaziSastojkeJela
             // 
@@ -222,6 +201,7 @@ namespace ProgramskoIntenjerstvo
             this.btnPrikaziSastojkeJela.TabIndex = 1;
             this.btnPrikaziSastojkeJela.Text = "Prikaži sastojke jela";
             this.btnPrikaziSastojkeJela.UseVisualStyleBackColor = true;
+            this.btnPrikaziSastojkeJela.Click += new System.EventHandler(this.btnPrikaziSastojkeJela_Click);
             // 
             // groupBox4
             // 
@@ -387,6 +367,16 @@ namespace ProgramskoIntenjerstvo
             this.label7.TabIndex = 10;
             this.label7.Text = "Unesi naziv jela:";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(26, 84);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(149, 138);
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
             // FrmDodajJelo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -406,7 +396,6 @@ namespace ProgramskoIntenjerstvo
             this.Load += new System.EventHandler(this.FrmDodajJelo_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
@@ -415,6 +404,7 @@ namespace ProgramskoIntenjerstvo
             this.groupBox3.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -440,8 +430,7 @@ namespace ProgramskoIntenjerstvo
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDodajSastojkeJela;
         private System.Windows.Forms.Button btnPrikaziSastojkeJela;
         private System.Windows.Forms.ComboBox cmbBoxSortOptions;
         private System.Windows.Forms.Label label6;
