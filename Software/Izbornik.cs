@@ -87,5 +87,11 @@ namespace ProgramskoIntenjerstvo
             FrmUpravljanjeJelimaMenijima form = new FrmUpravljanjeJelimaMenijima();
             form.ShowDialog();
         }
+
+        private void btnStatistika_Click(object sender, EventArgs e)
+        {
+            FrmStatistika frmStatistika = new FrmStatistika();
+            frmStatistika.ShowDialog();
+        }
     }
 }

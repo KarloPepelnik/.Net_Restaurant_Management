@@ -65,6 +65,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -234,6 +235,18 @@
     </Compile>
     <Compile Include="FrmRucnoDodavanje.Designer.cs">
       <DependentUpon>FrmRucnoDodavanje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStatistika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStatistika.Designer.cs">
+      <DependentUpon>FrmStatistika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStatistikaPopularnostiJela.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStatistikaPopularnostiJela.Designer.cs">
+      <DependentUpon>FrmStatistikaPopularnostiJela.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmSviMeniji.cs">
       <SubType>Form</SubType>
@@ -459,6 +472,12 @@
     <EmbeddedResource Include="FrmRucnoDodavanje.resx">
       <DependentUpon>FrmRucnoDodavanje.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmStatistika.resx">
+      <DependentUpon>FrmStatistika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStatistikaPopularnostiJela.resx">
+      <DependentUpon>FrmStatistikaPopularnostiJela.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmSviMeniji.resx">
       <DependentUpon>FrmSviMeniji.cs</DependentUpon>
     </EmbeddedResource>
@@ -538,6 +557,9 @@
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
     <None Include="Resources\Yellow and Black Photo Lunch Weekly Menu.png" />
+    <None Include="Resources\analytics.png" />
+    <None Include="Resources\report.png" />
+    <None Include="Resources\budget.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
