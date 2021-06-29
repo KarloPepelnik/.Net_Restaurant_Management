@@ -12,6 +12,7 @@ namespace ProgramskoIntenjerstvo
 {
     public partial class FrmStatistikaPopularnostiJela : Form
     {
+        
         public FrmStatistikaPopularnostiJela()
         {
             InitializeComponent();
@@ -24,12 +25,28 @@ namespace ProgramskoIntenjerstvo
 
         private void FillChart()
         {
+
             using (var context = new Entities())
             {
-                var queryChart = from sr in context.Stavke_racuna
-                                 select new { sr.Jelo.naziv_jela, sr.kolicina };
+                var queryJela = from sr in context.Stavke_racuna
+                                select new JeloKolicinaView
+                                {
+                                    NazivJela = sr.Jelo.naziv_jela,
+                                    Kolicina = sr.kolicina
+                                };
 
-                chrtPopularnostJela.DataSource = queryChart.ToList();
+                List<JeloKolicinaView> jeloKolicinaViews = queryJela.ToList();
+                var grupiranaLista = jeloKolicinaViews.GroupBy(i => i.NazivJela).Select(i => new { NazivJela = i.Key, Kolicina = i.Sum(item => item.Kolicina) });
+
+                chrtPopularnostJela.DataSource = grupiranaLista;
+                chrtPopularnostJela.Series["Broj narucenih jela"].XValueMember = "NazivJela";
+                chrtPopularnostJela.Series["Broj narucenih jela"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Auto;
+                chrtPopularnostJela.Series["Broj narucenih jela"].YValueMembers = "Kolicina";
+                chrtPopularnostJela.Series["Broj narucenih jela"].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Auto;
+
+                
+
+                jeloKolicinaViewBindingSource.DataSource = grupiranaLista;
             }
         }
     }

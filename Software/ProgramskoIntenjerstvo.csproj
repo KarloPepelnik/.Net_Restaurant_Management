@@ -291,6 +291,7 @@
     <Compile Include="Jelo.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="JeloKolicinaView.cs" />
     <Compile Include="Jelo_sadrzi.code.cs" />
     <Compile Include="Jelo_sadrzi.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -529,6 +530,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\FrmPrikazSastojakaJela.datasource" />
     <None Include="Properties\DataSources\Jelo.datasource" />
+    <None Include="Properties\DataSources\JeloKolicinaView.datasource" />
     <None Include="Properties\DataSources\Jelo_sadrzi.datasource" />
     <None Include="Properties\DataSources\Meni.datasource" />
     <None Include="Properties\DataSources\Na_meniju.datasource" />
