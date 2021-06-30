@@ -11,5 +11,7 @@ namespace ProgramskoIntenjerstvo
         public string NazivJela { get; set; }
 
         public double Kolicina { get; set; }
+
+        public string Kategorija { get; set; }
     }
 }
